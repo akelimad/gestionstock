@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Product</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ product.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ product.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ product.description }}</td>
+            </tr>
+            <tr>
+                <th>Sizeinch</th>
+                <td>{{ product.sizeInch }}</td>
+            </tr>
+            <tr>
+                <th>Sizecm</th>
+                <td>{{ product.sizeCm }}</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td>{{ product.color }}</td>
+            </tr>
+            <tr>
+                <th>Composition</th>
+                <td>{{ product.composition }}</td>
+            </tr>
+            <tr>
+                <th>Form</th>
+                <td>{{ product.form }}</td>
+            </tr>
+            <tr>
+                <th>Weight</th>
+                <td>{{ product.weight }}</td>
+            </tr>
+            <tr>
+                <th>Unitprice</th>
+                <td>{{ product.unitPrice }}</td>
+            </tr>
+            <tr>
+                <th>Wholesaleprice</th>
+                <td>{{ product.wholesalePrice }}</td>
+            </tr>
+            <tr>
+                <th>Specialprice</th>
+                <td>{{ product.specialPrice }}</td>
+            </tr>
+            <tr>
+                <th>Internetprice</th>
+                <td>{{ product.internetPrice }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{% if product.active %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('product_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('product_edit', { 'id': product.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

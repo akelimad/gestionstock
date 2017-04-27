@@ -1,0 +1,30 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/security.html
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_SUPER_ADMIN: ROLE_SUPER_ADMIN
+        ROLE_ADMIN:       ROLE_ADMIN
+        ROLE_USER:        ROLE_USER
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        main:
+            pattern: ^/ # c a d tout ce qui commence par / dans l'url va mobiliser le parfeu
+            form_login:
+                provider: fos_userbundle
+                #csrf_provider: security.csrf.token_manager # Use form.csrf_provider instead for Symfony <2.4
+            logout:       true
+            anonymous:    true
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY } # that mean that users anonymous can access to url /login
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_ADMIN } # user must have been auth with role admin to access to /admin url
+        #- { path: ^/, role: IS_AUTHENTICATED_FULLY }

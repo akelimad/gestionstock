@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Providers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Price</th>
+                <th>Moq</th>
+                <th>Productioncapacity</th>
+                <th>Active</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for provider in providers %}
+            <tr>
+                <td><a href="{{ path('provider_show', { 'id': provider.id }) }}">{{ provider.id }}</a></td>
+                <td>{{ provider.name }}</td>
+                <td>{{ provider.address }}</td>
+                <td>{{ provider.price }}</td>
+                <td>{{ provider.moq }}</td>
+                <td>{{ provider.productionCapacity }}</td>
+                <td>{% if provider.active %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('provider_show', { 'id': provider.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('provider_edit', { 'id': provider.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('provider_new') }}">Create a new provider</a>
+        </li>
+    </ul>
+{% endblock %}

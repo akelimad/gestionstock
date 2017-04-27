@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Packages list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Cbm</th>
+                <th>Marinecost</th>
+                <th>Aircost</th>
+                <th>Active</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for package in packages %}
+            <tr>
+                <td><a href="{{ path('package_show', { 'id': package.id }) }}">{{ package.id }}</a></td>
+                <td>{{ package.name }}</td>
+                <td>{{ package.size }}</td>
+                <td>{{ package.cbm }}</td>
+                <td>{{ package.marineCost }}</td>
+                <td>{{ package.airCost }}</td>
+                <td>{% if package.active %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('package_show', { 'id': package.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('package_edit', { 'id': package.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('package_new') }}">Create a new package</a>
+        </li>
+    </ul>
+{% endblock %}

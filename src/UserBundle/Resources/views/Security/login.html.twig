@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                	{% if error %}
+				        <div class="alert alert-danger">
+				        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+				        	</button>
+				        	{{ error.message | replace({"Bad credentials." : "Invalid username or password."}) }}
+				        </div>
+				    {% endif %}
+                    <form  action="{{ path('fos_user_security_check') }}" method="post">
+
+                        <div class="card card-login card-hidden">
+                            <div class="header text-center">
+                                <h3 class="title">Login</h3>
+                            </div>
+                            <div class="content">
+								<h5 class="text-center">Digital Work Account</h5>
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <input type="text" id="username" name="_username" placeholder="Enter your username" class="form-control input-no-border" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" id="password" name="_password" placeholder="Password" class="form-control input-no-border" required="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                                    <label for="remember_me">Remember me</label>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-rose btn-wd btn-lg">Sign In</button>
+                                <p class="register-label">New to Digital Work ?&nbsp;&nbsp;
+                                	<a href=" {{path('fos_user_registration_register')}} ">
+                    					<i class="ti-id-badge"></i> Register
+                					</a>
+                				</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
