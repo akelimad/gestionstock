@@ -49,6 +49,10 @@ class Category
      */
     private $Product;
 
+    public function __construct() {
+        $this->Product = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 
     /**
      * Get id

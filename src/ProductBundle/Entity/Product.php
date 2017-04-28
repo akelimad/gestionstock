@@ -144,14 +144,16 @@ class Product
 
     /**
      * One Product belongs to many provider.
-     * @ORM\ManyToMany(targetEntity="ProviderBundle\Entity\provider", inversedBy="Product")
+     * @ORM\ManyToMany(targetEntity="ProviderBundle\Entity\Provider", inversedBy="Product")
      * @ORM\JoinTable(name="provider_product")
      */
     private $provider;
 
 
     public function __construct() {
-        $this->features = new ArrayCollection();
+        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->package = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->provider = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -582,6 +584,16 @@ class Product
     }
 
     /**
+     * Set category
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function setCategory($category)
+    {
+        return $this->category=$category;
+    }
+
+    /**
      * Add package
      *
      * @param \PackageBundle\Entity\Package $package
@@ -616,13 +628,23 @@ class Product
     }
 
     /**
+     * Set package
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function setPackage($package)
+    {
+        return $this->package=$package;
+    }
+
+    /**
      * Add provider
      *
-     * @param \ProviderBundle\Entity\provider $provider
+     * @param \ProviderBundle\Entity\Provider $provider
      *
      * @return Product
      */
-    public function addProvider(\ProviderBundle\Entity\provider $provider)
+    public function addProvider(\ProviderBundle\Entity\Provider $provider)
     {
         $this->provider[] = $provider;
 
@@ -632,9 +654,9 @@ class Product
     /**
      * Remove provider
      *
-     * @param \ProviderBundle\Entity\provider $provider
+     * @param \ProviderBundle\Entity\Provider $provider
      */
-    public function removeProvider(\ProviderBundle\Entity\provider $provider)
+    public function removeProvider(\ProviderBundle\Entity\Provider $provider)
     {
         $this->provider->removeElement($provider);
     }
@@ -648,4 +670,15 @@ class Product
     {
         return $this->provider;
     }
+
+    /**
+     * Set provider
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function setProvider($provider)
+    {
+        return $this->provider=$provider;
+    }
+
 }

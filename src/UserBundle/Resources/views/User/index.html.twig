@@ -8,8 +8,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="content">
-                        <h4 class="title">La liste des produits.</h4>
-                        <a href=" {{path('product_new')}} " class="btn btn-primary pull-right">Nouveau</a>
+                        <h4 class="title">La liste des utilisateurs.</h4>
+                        <a href=" {{path('fos_user_registration_register')}} " class="btn btn-primary pull-right">Nouveau</a>
                         <div class="toolbar">
                             <!--        Here you can write extra buttons/actions for the toolbar              -->
                         </div>
@@ -19,23 +19,27 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>Name</th>
-                                        <th>Description</th>
-                                        <th>Prix unitaire</th>
-                                        <th>Color</th>
+                                        <th>Email</th>
+                                        <th>Status</th>
+                                        <th>Role</th>
                                         <th class="disabled-sorting text-right">Actions</th>
                                     </tr>
                                 </thead>
-                                {% for p in products %}
+                                {% for user in users %}
                                 <tbody>
                                     <tr>
-                                        <td>{{p.id}}</td>
-                                        <td>{{p.name}}</td>
-                                        <td>{{p.description}}</td>
-                                        <td>{{p.unitPrice}}</td>
-                                        <td>{{p.color}}</td>
+                                        <td>{{user.id}}</td>
+                                        <td>{{user.username}}</td>
+                                        <td>{{user.email}}</td>
+                                        <td>{{user.enabled == 1 ? 'Active' : ''}}</td>
+                                        <td>
+                                        	{% for role in user.roles %}
+											   {{ role }}, 
+											{% endfor %}
+                                        </td>
                                         <td class="text-right">
-                                            <a href="#" class="btn btn-simple btn-warning btn-icon edit"><i class="ti-pencil-alt"></i></a>
-                                            <a href="#" class="btn btn-simple btn-danger btn-icon remove"><i class="ti-close"></i></a>
+											<a href="#" class="btn btn-simple btn-warning btn-icon edit"><i class="ti-pencil-alt"></i></a>
+											<a href="#" class="btn btn-simple btn-danger btn-icon remove"><i class="ti-close"></i></a>
                                         </td>
                                     </tr>
                                 </tbody>

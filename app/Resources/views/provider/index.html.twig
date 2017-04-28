@@ -1,49 +1,67 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Providers list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Price</th>
-                <th>Moq</th>
-                <th>Productioncapacity</th>
-                <th>Active</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for provider in providers %}
-            <tr>
-                <td><a href="{{ path('provider_show', { 'id': provider.id }) }}">{{ provider.id }}</a></td>
-                <td>{{ provider.name }}</td>
-                <td>{{ provider.address }}</td>
-                <td>{{ provider.price }}</td>
-                <td>{{ provider.moq }}</td>
-                <td>{{ provider.productionCapacity }}</td>
-                <td>{% if provider.active %}Yes{% else %}No{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('provider_show', { 'id': provider.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('provider_edit', { 'id': provider.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="content">
+                        <h4 class="title">La liste des fournisseurs.</h4>
+                        <a href=" {{path('provider_new')}} " class="btn btn-primary pull-right">Nouveau</a>
+                        <div class="toolbar">
+                            <!--        Here you can write extra buttons/actions for the toolbar              -->
+                        </div>
+                        <div class="material-datatables">
+                            <table id="datatables" class="table table-striped table-no-bordered table-hover" style="width:100%;cellspacing:0">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Adresse</th>
+                                        <th>Prix</th>
+                                        <th>MOQ</th>
+                                        <th>Capacité de Production</th>
+                                        <th class="disabled-sorting text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                {% for p in providers %}
+                                <tbody>
+                                    <tr>
+                                        <td>{{p.id}}</td>
+                                        <td>{{p.name}}</td>
+                                        <td>{{p.address}}</td>
+                                        <td>{{p.price}}</td>
+                                        <td>{{p.moq}}</td>
+                                        <td>{{p.productionCapacity}}</td>
+                                        <td class="text-right">
+                                            <a href="#" class="btn btn-simple btn-warning btn-icon edit"><i class="ti-pencil-alt"></i></a>
+                                            <a href="#" class="btn btn-simple btn-danger btn-icon remove"><i class="ti-close"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                {% endfor %}
+                                <tfoot>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Status</th>
+                                        <th>Role</th>
+                                        <th class="text-right">Actions</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+                <!--  end card  -->
+            </div>
+            <!-- end col-md-12 -->
+        </div>
+    </div>
+</div>
 
-    <ul>
-        <li>
-            <a href="{{ path('provider_new') }}">Create a new provider</a>
-        </li>
-    </ul>
 {% endblock %}

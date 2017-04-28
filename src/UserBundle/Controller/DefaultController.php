@@ -8,10 +8,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/user")
      */
     public function indexAction()
     {
-        return $this->render('UserBundle:Default:index.html.twig');
+    	$repository = $this
+    		->getDoctrine()
+			->getRepository('UserBundle:User');
+		$users = $repository->findAll();
+        return $this->render('UserBundle:User:index.html.twig', array('users' => $users));
     }
 }

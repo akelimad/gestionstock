@@ -5,6 +5,8 @@ namespace ProductBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ProductType extends AbstractType
 {
@@ -13,7 +15,24 @@ class ProductType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('description')->add('sizeInch')->add('sizeCm')->add('color')->add('composition')->add('form')->add('weight')->add('unitPrice')->add('wholesalePrice')->add('specialPrice')->add('internetPrice')->add('active')->add('category')->add('package')->add('provider');
+        $builder
+        ->add('name')
+        ->add('description')
+        ->add('sizeInch')
+        ->add('sizeCm')
+        ->add('color')
+        ->add('composition')
+        ->add('form')
+        ->add('weight')
+        ->add('unitPrice')
+        ->add('wholesalePrice')
+        ->add('specialPrice')
+        ->add('internetPrice')
+        ->add('active')
+        //->add('photo', FileType::class )
+        ->add('category',EntityType::class, array('class'=>'CategoryBundle:Category', 'choice_label'=>'name'))
+        ->add('package', EntityType::class, array('class'=>'PackageBundle:Package', 'choice_label'=>'name', 'multiple'=>true, 'expanded'=>true))
+        ->add('provider',EntityType::class, array('class'=>'ProviderBundle:Provider', 'choice_label'=>'name'));
     }
     
     /**
