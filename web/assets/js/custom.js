@@ -29,7 +29,7 @@ $(function(){
 
     // Delete a record
     table.on('click', '.remove', function(e) {
-        confirm('Etes-vous sur de vouloir supprimer cet utilisateur ?');
+        confirm('Etes-vous sur de vouloir supprimer ?');
         // e.preventDefault();
         // $tr = $(this).closest('tr');
         // table.row($tr).remove().draw();

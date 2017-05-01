@@ -5,10 +5,12 @@ namespace ProductBundle\Controller;
 use ProductBundle\Entity\Product;
 use ProductBundle\Entity\ImageProduct;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use ProductBundle\Form\ProductType;
 
 
 /**
@@ -48,17 +50,18 @@ class ProductController extends Controller
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
             // $file stores the uploaded images file
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-            $file = $product->getImages();
+            //$file = $product->getImages();
             // Generate a unique name for the file before saving it
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            //$fileName = md5(uniqid()).'.'.$file->guessExtension();
             // Move the file to the directory where brochures are stored
-            $file->move($this->getParameter('images_directory'),$fileName);
+            //$file->move($this->getParameter('images_directory'),$fileName);
             // Update the 'images' property to store the images file name
             // instead of its contents
-            $product->setImages($fileName);
+            //$product->setImages($fileName);
+
+            $em = $this->getDoctrine()->getManager();
             $em->persist($product);
             $em->flush();
 

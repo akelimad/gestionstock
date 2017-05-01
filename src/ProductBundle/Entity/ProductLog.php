@@ -22,24 +22,11 @@ class ProductLog
      */
     private $id;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="product_id", type="integer")
-     */
-    private $productId;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="user_id", type="integer")
-     */
-    private $userId;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime" )
      */
     private $updatedAt;
 
@@ -64,6 +51,11 @@ class ProductLog
      */
     private $product;
 
+
+    public function __construct()
+    {
+        $this->updatedAt = new DateTime(); 
+    }
 
     /**
      * Get id

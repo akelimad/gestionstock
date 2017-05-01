@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\HttpFoundation\File\File;
 
 class ProductType extends AbstractType
 {
@@ -32,7 +33,8 @@ class ProductType extends AbstractType
         ->add('internetPrice')
         ->add('active')
         ->add('images', FileType::class, array(
-            'multiple' => true
+           'multiple' => true,
+           'required' => false
         ))
         ->add('category',EntityType::class, array(
             'class'=>'CategoryBundle:Category', 

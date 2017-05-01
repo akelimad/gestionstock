@@ -142,10 +142,18 @@ class Product
      */
     private $images;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User", inversedBy="Product")
+     * @ORM\JoinTable(name="product_log")
+     */
+    private $user;
+
+
     public function __construct() {
         $this->category = new \Doctrine\Common\Collections\ArrayCollection();
         $this->package = new \Doctrine\Common\Collections\ArrayCollection();
         $this->provider = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
         $this->images = new ArrayCollection();
     }
 
@@ -652,7 +660,7 @@ class Product
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function setImages($images)
+    public function setImages(\ProductBundle\Entity\ImageProduct $images)
     {
         return $this->images=$images;
     }
