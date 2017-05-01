@@ -64,10 +64,10 @@ class Package
     private $active;
 
     /**
-     * one product can be in one or may pachage
-     * ORM\@ManyToMany(targetEntity="ProductBundle:Product", mappedBy="Package")
+     * one prod can have Many pack.
+     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="Package")
      */
-    private $Product;
+    private $product;
 
     public function __construct() {
         $this->Product = new \Doctrine\Common\Collections\ArrayCollection();
@@ -228,5 +228,39 @@ class Package
     public function getActive()
     {
         return $this->active;
+    }
+
+    /**
+     * Add product
+     *
+     * @param \ProductBundle\Entity\Product $product
+     *
+     * @return Package
+     */
+    public function addProduct(\ProductBundle\Entity\Product $product)
+    {
+        $this->product[] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param \ProductBundle\Entity\Product $product
+     */
+    public function removeProduct(\ProductBundle\Entity\Product $product)
+    {
+        $this->product->removeElement($product);
+    }
+
+    /**
+     * Get product
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProduct()
+    {
+        return $this->product;
     }
 }

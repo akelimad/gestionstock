@@ -3,6 +3,7 @@
 namespace ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * ImageProduct
@@ -37,7 +38,7 @@ class ImageProduct
 
     /**
      * Many images have One Product.
-     * @ORM\ManyToOne(targetEntity="Product", inversedBy="imagesProduct")
+     * @ORM\ManyToOne(targetEntity="ProductBundle\Entity\Product", inversedBy="images")
      * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      */
     private $product;
@@ -100,5 +101,28 @@ class ImageProduct
     {
         return $this->photo;
     }
-}
 
+    /**
+     * Set product
+     *
+     * @param \ProductBundle\Entity\Product $product
+     *
+     * @return ImageProduct
+     */
+    public function setProduct(\ProductBundle\Entity\Product $product = null)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return \ProductBundle\Entity\Product
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+}

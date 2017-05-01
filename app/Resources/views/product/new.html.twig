@@ -1,16 +1,214 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Product creation</h1>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="card">
+                        {{ form_start(form) }}
+                            <div class="content">
+                                <h4 class="title text-center">Create product</h4>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.name, "Name", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.name) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.description, "Description", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.description) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.sizeInch, "Size(inch)", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.sizeInch, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.sizeInch) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.sizeCm, "Size(cm)", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.sizeCm, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.sizeCm) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.color, "Color", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.color, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.color) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.composition, "Composition", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.composition, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.composition) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.form, "Forme", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.form, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.form) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.weight, "Poids", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.weight, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.weight) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.unitPrice, "Prix unitaire", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.unitPrice, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.unitPrice) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.wholesalePrice, "Prix grossiste", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.wholesalePrice, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.wholesalePrice) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.specialPrice, "Prix spécial", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.specialPrice, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.specialPrice) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.internetPrice, "Prix internet", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.internetPrice, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.internetPrice) }} 
+                                        </div>
+                                    </div>
+                                </div>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.images, "Photos", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.images, {'attr': {'class': 'form-control','multiple': 'multiple'}}) }}
+                                            {{ form_errors(form.images) }} 
+                                        </div>
+                                    </div>
+                                </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('product_index') }}">Back to the list</a>
-        </li>
-    </ul>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.category, "Categorie", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.category) }} 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.package, "Emballage", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.package, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.package) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.provider, "Fournisseur", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.provider, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.provider) }} 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.active, "Active", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.active, {'attr': {'class': '', 'checked':'ckecked'}}) }}
+                                            {{ form_errors(form.active) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-plus"></i> Add product</button>
+                            </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

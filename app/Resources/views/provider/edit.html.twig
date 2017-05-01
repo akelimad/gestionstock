@@ -1,21 +1,88 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Provider edit</h1>
-
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('provider_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="card">
+                        {{ form_start(edit_form) }}
+                            <div class="content">
+                                <h4 class="title text-center">Edit provider</h4>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(edit_form.name, "Name", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(edit_form.name, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(edit_form.name) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(edit_form.address, "Adresse", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(edit_form.address, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(edit_form.address) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(edit_form.price, "Prix", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(edit_form.price, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(edit_form.price) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(edit_form.moq, "MOQ", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(edit_form.moq, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(edit_form.moq) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(edit_form.productionCapacity, "Capacité de production", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(edit_form.productionCapacity, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(edit_form.productionCapacity) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(edit_form.active, "Active", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(edit_form.active, {'attr': {'class': '', 'checked':'ckecked'}}) }}
+                                            {{ form_errors(edit_form.active) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-plus"></i> Edit provider</button>
+                            </div>
+                        {{ form_end(edit_form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

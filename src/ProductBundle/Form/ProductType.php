@@ -2,6 +2,8 @@
 
 namespace ProductBundle\Form;
 
+use ProductBundle\Entity\Product;
+use ProductBundle\Entity\ImageProduct;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -29,10 +31,26 @@ class ProductType extends AbstractType
         ->add('specialPrice')
         ->add('internetPrice')
         ->add('active')
-        //->add('photo', FileType::class )
-        ->add('category',EntityType::class, array('class'=>'CategoryBundle:Category', 'choice_label'=>'name'))
-        ->add('package', EntityType::class, array('class'=>'PackageBundle:Package', 'choice_label'=>'name', 'multiple'=>true, 'expanded'=>true))
-        ->add('provider',EntityType::class, array('class'=>'ProviderBundle:Provider', 'choice_label'=>'name'));
+        ->add('images', FileType::class, array(
+            'data_class' => null,
+            'multiple' => true
+
+        ))
+        ->add('category',EntityType::class, array(
+            'class'=>'CategoryBundle:Category', 
+            'choice_label'=>'name', 
+            'multiple'=>true
+        ))
+        ->add('package', EntityType::class, array(
+            'class'=>'PackageBundle:Package', 
+            'choice_label'=>'name', 
+            'multiple'=>true
+        ))
+        ->add('provider',EntityType::class, array(
+            'class'=>'ProviderBundle:Provider', 
+            'choice_label'=>'name',
+            'multiple'=>true
+        ));
     }
     
     /**

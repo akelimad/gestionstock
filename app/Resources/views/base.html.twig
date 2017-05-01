@@ -7,19 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" >
 
     <title>{% block title %}Welcome!{% endblock %}</title>
-
+    
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport' >
     <meta name="viewport" content="width=device-width" >
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     
-
     <!--  Material Dashboard CSS    -->
     
     {% block stylesheets %}
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
-        <link rel="stylesheet" href="{{ asset('assets/css/amaze.css') }}" />
+        <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel='stylesheet' type='text/css'>
+        <link href="{{ asset('assets/css/amaze.css') }}" rel="stylesheet" />
         <!--     Fonts and icons     -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="{{ asset('assets/css/font-awesome.min.css')}}" rel='stylesheet' type='text/css'>
         <link href="{{ asset('assets/css/font-muli.css')}}" rel='stylesheet' type='text/css'>
         <link href="{{ asset('assets/css/themify-icons.css')}}" rel="stylesheet">
         <link href="{{ asset('assets/vendors/sweetalert/css/sweetalert2.min.css')}}" rel="Stylesheet" >
@@ -321,9 +320,8 @@
 <!--   Core JS Files   -->
 {% block javascripts %}
     <script src="{{ asset('assets/vendors/jquery-3.1.1.min.js') }}"></script>
-    <script src="{{ asset('assets/vendors/jquery-3.1.1.min.js') }}" ></script>
+    <script src="{{ asset('assets/js/bootstrap.js') }}" ></script>
     <script src="{{ asset('assets/vendors/jquery-ui.min.js') }}" ></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="{{ asset('assets/vendors/material.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/perfect-scrollbar.jquery.min.js') }}"></script>
     <!-- Forms Validations Plugin -->

@@ -4,6 +4,8 @@ namespace ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use ProductBundle\Entity\ImageProduct;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Product
@@ -113,47 +115,38 @@ class Product
      */
     private $active;
 
-
-
-
     /**
-     * One Product has Many images.
-     * @ORM\OneToMany(targetEntity="ProductLog", mappedBy="user")
-     */
-    private $user;
-
-    /**
-     * One Product has Many images.
-     * @ORM\OneToMany(targetEntity="ImageProduct", mappedBy="product")
-     */
-    private $imagesProduct;
-
-    /**
-     * One Product belongs to many category.
+     * Many prod can have Many cat.
      * @ORM\ManyToMany(targetEntity="CategoryBundle\Entity\Category", inversedBy="Product")
      * @ORM\JoinTable(name="category_product")
      */
     private $category;
 
     /**
-     * One Product belongs to many package.
+     * Many prod can have Many pack.
      * @ORM\ManyToMany(targetEntity="PackageBundle\Entity\Package", inversedBy="Product")
      * @ORM\JoinTable(name="package_product")
      */
     private $package;
 
     /**
-     * One Product belongs to many provider.
+     * Many prod can have Many pack.
      * @ORM\ManyToMany(targetEntity="ProviderBundle\Entity\Provider", inversedBy="Product")
      * @ORM\JoinTable(name="provider_product")
      */
     private $provider;
 
+    /**
+     * One Product has Many images.
+     * @ORM\OneToMany(targetEntity="ImageProduct", mappedBy="product")
+     */
+    private $images;
 
     public function __construct() {
         $this->category = new \Doctrine\Common\Collections\ArrayCollection();
         $this->package = new \Doctrine\Common\Collections\ArrayCollection();
         $this->provider = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
 
@@ -481,82 +474,18 @@ class Product
         return $this->active;
     }
 
-    /**
-     * Add user
-     *
-     * @param \ProductBundle\Entity\ProductLog $user
-     *
-     * @return Product
-     */
-    public function addUser(\ProductBundle\Entity\ProductLog $user)
-    {
-        $this->user[] = $user;
 
-        return $this;
-    }
 
-    /**
-     * Remove user
-     *
-     * @param \ProductBundle\Entity\ProductLog $user
-     */
-    public function removeUser(\ProductBundle\Entity\ProductLog $user)
-    {
-        $this->user->removeElement($user);
-    }
 
-    /**
-     * Get user
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /**
-     * Add imagesProduct
-     *
-     * @param \ProductBundle\Entity\ImageProduct $imagesProduct
-     *
-     * @return Product
-     */
-    public function addImagesProduct(\ProductBundle\Entity\ImageProduct $imagesProduct)
-    {
-        $this->imagesProduct[] = $imagesProduct;
-
-        return $this;
-    }
-
-    /**
-     * Remove imagesProduct
-     *
-     * @param \ProductBundle\Entity\ImageProduct $imagesProduct
-     */
-    public function removeImagesProduct(\ProductBundle\Entity\ImageProduct $imagesProduct)
-    {
-        $this->imagesProduct->removeElement($imagesProduct);
-    }
-
-    /**
-     * Get imagesProduct
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getImagesProduct()
-    {
-        return $this->imagesProduct;
-    }
 
     /**
      * Add category
      *
-     * @param \CategoryBundle\Entity\Category $category
+     * @param \ProductBundle\Entity\Category $category
      *
      * @return Product
      */
-    public function addCategory(\CategoryBundle\Entity\Category $category)
+    public function addCategory(\ProductBundle\Entity\Category $category)
     {
         $this->category[] = $category;
 
@@ -566,9 +495,9 @@ class Product
     /**
      * Remove category
      *
-     * @param \CategoryBundle\Entity\Category $category
+     * @param \ProductBundle\Entity\Category $category
      */
-    public function removeCategory(\CategoryBundle\Entity\Category $category)
+    public function removeCategory(\ProductBundle\Entity\Category $category)
     {
         $this->category->removeElement($category);
     }
@@ -596,11 +525,11 @@ class Product
     /**
      * Add package
      *
-     * @param \PackageBundle\Entity\Package $package
+     * @param \CategoryBundle\Entity\Package $package
      *
      * @return Product
      */
-    public function addPackage(\PackageBundle\Entity\Package $package)
+    public function addPackage(\CategoryBundle\Entity\Package $package)
     {
         $this->package[] = $package;
 
@@ -610,9 +539,9 @@ class Product
     /**
      * Remove package
      *
-     * @param \PackageBundle\Entity\Package $package
+     * @param \CategoryBundle\Entity\Package $package
      */
-    public function removePackage(\PackageBundle\Entity\Package $package)
+    public function removePackage(\CategoryBundle\Entity\Package $package)
     {
         $this->package->removeElement($package);
     }
@@ -636,6 +565,7 @@ class Product
     {
         return $this->package=$package;
     }
+
 
     /**
      * Add provider
@@ -680,5 +610,52 @@ class Product
     {
         return $this->provider=$provider;
     }
+
+
+
+    /**
+     * Add image
+     *
+     * @param \ProductBundle\Entity\ImageProduct $image
+     *
+     * @return Product
+     */
+    public function addImage(\ProductBundle\Entity\ImageProduct $image)
+    {
+        $this->images[] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param \ProductBundle\Entity\ImageProduct $image
+     */
+    public function removeImage(\ProductBundle\Entity\ImageProduct $image)
+    {
+        $this->images->removeElement($image);
+    }
+
+    /**
+     * Get images
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * Set images
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function setImages($images)
+    {
+        return $this->images=$images;
+    }
+
 
 }

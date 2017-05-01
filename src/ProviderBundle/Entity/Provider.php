@@ -65,10 +65,10 @@ class Provider
 
 
     /**
-     * one provider can provid one or may prod.
-     * ORM\@ManyToMany(targetEntity="ProductBundle:Product", mappedBy="Provider")
+     * Many cat have Many prod.
+     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="Provider")
      */
-    private $Product;
+    private $product;
 
     public function __construct() {
         $this->Product = new \Doctrine\Common\Collections\ArrayCollection();
@@ -228,4 +228,40 @@ class Provider
     {
         return $this->active;
     }
+
+    /**
+     * Add product
+     *
+     * @param \ProductBundle\Entity\Product $product
+     *
+     * @return Provider
+     */
+    public function addProduct(\ProductBundle\Entity\Product $product)
+    {
+        $this->product[] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param \ProductBundle\Entity\Product $product
+     */
+    public function removeProduct(\ProductBundle\Entity\Product $product)
+    {
+        $this->product->removeElement($product);
+    }
+
+    /**
+     * Get product
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+
+    
 }

@@ -19,7 +19,7 @@ $(function(){
 
     var table = $('#datatables').DataTable();
 
-    // Edit record
+    //Edit record
     // table.on('click', '.edit', function() {
     //     $tr = $(this).closest('tr');
 

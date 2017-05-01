@@ -49,7 +49,7 @@ class PackageController extends Controller
             $em->persist($package);
             $em->flush();
 
-            return $this->redirectToRoute('package_show', array('id' => $package->getId()));
+            return $this->redirectToRoute('package_index');
         }
 
         return $this->render('package/new.html.twig', array(
@@ -89,7 +89,7 @@ class PackageController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('package_edit', array('id' => $package->getId()));
+            return $this->redirectToRoute('package_index');
         }
 
         return $this->render('package/edit.html.twig', array(

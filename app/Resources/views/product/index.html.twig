@@ -8,8 +8,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="content">
-                        <h4 class="title">La liste des produits.</h4>
-                        <a href=" {{path('product_new')}} " class="btn btn-primary pull-right">Nouveau</a>
+                        <h4 class="title">La liste des produits <a href=" {{path('product_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nouveau</a></h4>
                         <div class="toolbar">
                             <!--        Here you can write extra buttons/actions for the toolbar              -->
                         </div>
@@ -34,8 +33,12 @@
                                         <td>{{p.unitPrice}}</td>
                                         <td>{{p.color}}</td>
                                         <td class="text-right">
-                                            <a href="#" class="btn btn-simple btn-warning btn-icon edit"><i class="ti-pencil-alt"></i></a>
-                                            <a href="#" class="btn btn-simple btn-danger btn-icon remove"><i class="ti-close"></i></a>
+                                            <form name="form" method="post" action="/gestionstock/web/app_dev.php/product/{{p.id}}">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <a href="{{ path('product_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon edit"><i class="ti-pencil-alt"></i></a>
+                                                <button type="submit" value="Delete" class="btn btn-simple btn-danger btn-icon remove"><i class="ti-close"></i></button>
+                                                <input type="hidden" id="form__token" name="form[_token]" value="BD9Q1qIkV1z4YyGtMDyCiZxKJhfGyTSiGl0WLNtTTCs">
+                                            </form>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -44,9 +47,9 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Status</th>
-                                        <th>Role</th>
+                                        <th>Description</th>
+                                        <th>Prix unitaire</th>
+                                        <th>Color</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                 </tfoot>

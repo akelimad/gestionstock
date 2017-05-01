@@ -1,16 +1,66 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Category creation</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('category_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="card">
+                        {{ form_start(form) }}
+                            <div class="content">
+                                <h4 class="title text-center">Create category</h4>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.name, "Name", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.name) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.description, "Description", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.description) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.upCategory, "Up category", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.upCategory, {'attr': {'class': 'form-control'}}) }}
+                                            {{ form_errors(form.upCategory) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.active, "Active", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{ form_widget(form.active, {'attr': {'class': '', 'checked':'ckecked'}}) }}
+                                            {{ form_errors(form.active) }} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-info btn-fill">Add category</button>
+                            </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

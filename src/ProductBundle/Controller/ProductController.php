@@ -3,10 +3,13 @@
 namespace ProductBundle\Controller;
 
 use ProductBundle\Entity\Product;
+use ProductBundle\Entity\ImageProduct;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+
 
 /**
  * Product controller.
@@ -43,13 +46,23 @@ class ProductController extends Controller
         $product = new Product();
         $form = $this->createForm('ProductBundle\Form\ProductType', $product);
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            
             $em->persist($product);
             $em->flush();
-
-            return $this->redirectToRoute('product_show', array('id' => $product->getId()));
+            // $file stores the uploaded images file
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $product->getImages();
+            // Generate a unique name for the file before saving it
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            // Move the file to the directory where brochures are stored
+            $file->move($this->getParameter('images_directory'),$fileName);
+            // Update the 'images' property to store the images file name
+            // instead of its contents
+            $product->setImages($fileName);
+            return $this->redirectToRoute('product_index');
         }
 
         return $this->render('product/new.html.twig', array(
@@ -88,8 +101,8 @@ class ProductController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('product_edit', array('id' => $product->getId()));
+            //array('id' => $product->getId())
+            return $this->redirectToRoute('product_index');
         }
 
         return $this->render('product/edit.html.twig', array(

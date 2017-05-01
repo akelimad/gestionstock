@@ -51,7 +51,7 @@ class Category
 
     /**
      * Many cat have Many prod.
-     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="Category")
+     * @ORM\ManyToMany(targetEntity="Product", mappedBy="Category")
      */
     private $product;
 
@@ -164,45 +164,4 @@ class Category
     }
 
     
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add product
-     *
-     * @param \CategoryBundle\Entity\Product $product
-     *
-     * @return Category
-     */
-    public function addProduct(\CategoryBundle\Entity\Product $product)
-    {
-        $this->product[] = $product;
-
-        return $this;
-    }
-
-    /**
-     * Remove product
-     *
-     * @param \CategoryBundle\Entity\Product $product
-     */
-    public function removeProduct(\CategoryBundle\Entity\Product $product)
-    {
-        $this->product->removeElement($product);
-    }
-
-    /**
-     * Get product
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProduct()
-    {
-        return $this->product;
-    }
 }
