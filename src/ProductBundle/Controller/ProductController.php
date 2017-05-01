@@ -49,9 +49,6 @@ class ProductController extends Controller
         
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            
-            $em->persist($product);
-            $em->flush();
             // $file stores the uploaded images file
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
             $file = $product->getImages();
@@ -62,6 +59,9 @@ class ProductController extends Controller
             // Update the 'images' property to store the images file name
             // instead of its contents
             $product->setImages($fileName);
+            $em->persist($product);
+            $em->flush();
+
             return $this->redirectToRoute('product_index');
         }
 

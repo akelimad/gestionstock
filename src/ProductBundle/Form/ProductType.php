@@ -32,9 +32,7 @@ class ProductType extends AbstractType
         ->add('internetPrice')
         ->add('active')
         ->add('images', FileType::class, array(
-            'data_class' => null,
             'multiple' => true
-
         ))
         ->add('category',EntityType::class, array(
             'class'=>'CategoryBundle:Category', 
