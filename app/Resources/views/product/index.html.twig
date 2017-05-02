@@ -21,6 +21,9 @@
                                         <th>Description</th>
                                         <th>Prix unitaire</th>
                                         <th>Color</th>
+                                        <td>Category</td>
+                                        <td>Parent category</td>
+                                        <td>Status</td>
                                         <th class="disabled-sorting text-right">Actions</th>
                                     </tr>
                                 </thead>
@@ -32,12 +35,20 @@
                                         <td>{{p.description}}</td>
                                         <td>{{p.unitPrice}}</td>
                                         <td>{{p.color}}</td>
+                                        <td>
+                                        {% for cat in p.category %}
+                                            {{cat.name}}
+                                        </td>
+                                        <td>
+                                            {{cat.parent is null ? 'No parent' : cat.parent}}
+                                        {% endfor %}
+                                        </td>
+                                        <td>{{p.active == 1 ? 'Active' : 'Not active'}}</td>
                                         <td class="text-right">
-                                            <form name="form" method="post" action="/gestionstock/web/app_dev.php/product/{{p.id}}">
-                                                <input type="hidden" name="_method" value="DELETE">
                                                 <a href="{{ path('product_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon edit"><i class="ti-pencil-alt"></i></a>
-                                                <button type="submit" value="Delete" class="btn btn-simple btn-danger btn-icon remove"><i class="ti-close"></i></button>
-                                                <input type="hidden" id="form__token" name="form[_token]" value="BD9Q1qIkV1z4YyGtMDyCiZxKJhfGyTSiGl0WLNtTTCs">
+                                                <a href="{{ path('product_delete', { 'id': p.id }) }}" class="btn btn-simple btn-danger btn-icon remove">
+                                                    <i class="ti-close"></i>
+                                                </a>
                                             </form>
                                         </td>
                                     </tr>
@@ -50,6 +61,9 @@
                                         <th>Description</th>
                                         <th>Prix unitaire</th>
                                         <th>Color</th>
+                                        <td>Category</td>
+                                        <td>Sub category</td>
+                                        <td>Status</td>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                 </tfoot>

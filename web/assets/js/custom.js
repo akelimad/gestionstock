@@ -29,8 +29,8 @@ $(function(){
 
     // Delete a record
     table.on('click', '.remove', function(e) {
-        confirm('Etes-vous sur de vouloir supprimer ?');
-        // e.preventDefault();
+        //e.preventDefault();
+        return confirm('Etes-vous sur de vouloir supprimer ?');
         // $tr = $(this).closest('tr');
         // table.row($tr).remove().draw();
     });

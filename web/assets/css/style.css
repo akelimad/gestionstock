@@ -9,3 +9,7 @@ body{
 .card-login .register-label{
 	margin-top: 20px;
 }
+
+.login .main-panel{
+	width: calc(100%);
+}

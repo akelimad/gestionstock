@@ -2,9 +2,12 @@
 
 namespace CategoryBundle\Form;
 
+use ProductBundle\Entity\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class CategoryType extends AbstractType
 {
@@ -16,7 +19,11 @@ class CategoryType extends AbstractType
         $builder
         ->add('name')
         ->add('description')
-        ->add('upCategory', null, array('required'=> false))
+        ->add('parent', EntityType::class, array(
+            'class'=>'CategoryBundle:Category', 
+            'choice_label'=>'name', 
+            'required'=> false
+        ))
         ->add('active');
     }
     

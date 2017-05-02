@@ -22,6 +22,7 @@
                                         <th>Prix</th>
                                         <th>MOQ</th>
                                         <th>Capacité de Production</th>
+                                        <th>Status</th>
                                         <th class="disabled-sorting text-right">Actions</th>
                                     </tr>
                                 </thead>
@@ -34,6 +35,7 @@
                                         <td>{{p.price}}</td>
                                         <td>{{p.moq}}</td>
                                         <td>{{p.productionCapacity}}</td>
+                                        <td>{{p.active == 1 ? 'Active' : 'Not active'}}</td>
                                         <td class="text-right">
                                             <form name="form" method="post" action="/gestionstock/web/app_dev.php/provider/{{p.id}}">
                                                 <input type="hidden" name="_method" value="DELETE">
@@ -53,6 +55,7 @@
                                         <th>Prix</th>
                                         <th>MOQ</th>
                                         <th>Capacité de Production</th>
+                                        <th>Status</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                 </tfoot>

@@ -22,6 +22,7 @@
                                         <th>CBM</th>
                                         <th>Marine cost</th>
                                         <th>Air cost</th>
+                                        <td>Status</td>
                                         <th class="disabled-sorting text-right">Actions</th>
                                     </tr>
                                 </thead>
@@ -34,6 +35,7 @@
                                         <td>{{p.cbm}}</td>
                                         <td>{{p.marineCost}}</td>
                                         <td>{{p.airCost}}</td>
+                                        <td>{{p.active == 1 ? 'Active' : 'Not active'}}</td>
                                         <td class="text-right">
                                             <form name="form" method="post" action="/gestionstock/web/app_dev.php/package/{{p.id}}">
                                                 <input type="hidden" name="_method" value="DELETE">
@@ -53,6 +55,7 @@
                                         <th>CBM</th>
                                         <th>Marine cost</th>
                                         <th>Air cost</th>
+                                        <td>Status</td>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                 </tfoot>

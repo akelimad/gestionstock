@@ -36,11 +36,17 @@ class Category
     private $description;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="upCategory", type="integer", nullable=true)
+     * One Category has Many Categories.
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="parent")
      */
-    private $upCategory;
+    private $children;
+
+    /**
+     * Many Categories have One Category.
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
+     */
+    private $parent;
 
     /**
      * @var bool
@@ -54,6 +60,8 @@ class Category
      * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="Category")
      */
     private $product;
+
+    
 
     /**
      * Get id
@@ -113,30 +121,6 @@ class Category
         return $this->description;
     }
 
-    /**
-     * Set upCategory
-     *
-     * @param integer $upCategory
-     *
-     * @return Category
-     */
-    public function setUpCategory($upCategory)
-    {
-        $this->upCategory = $upCategory;
-
-        return $this;
-    }
-
-    /**
-     * Get upCategory
-     *
-     * @return int
-     */
-    public function getUpCategory()
-    {
-        return $this->upCategory;
-    }
-
     
 
     /**
@@ -170,16 +154,22 @@ class Category
     public function __construct()
     {
         $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return (string) $this->name; 
     }
 
     /**
      * Add product
      *
-     * @param \CategoryBundle\Entity\Product $product
+     * @param \ProductBundle\Entity\Product $product
      *
-     * @return Category
+     * @return Product
      */
-    public function addProduct(\CategoryBundle\Entity\Product $product)
+    public function addProduct(\ProductBundle\Entity\Product $product )
     {
         $this->product[] = $product;
 
@@ -189,9 +179,9 @@ class Category
     /**
      * Remove product
      *
-     * @param \CategoryBundle\Entity\Product $product
+     * @param \ProductBundle\Entity\Product $product
      */
-    public function removeProduct(\CategoryBundle\Entity\Product $product)
+    public function removeProduct(\ProductBundle\Entity\Product $product)
     {
         $this->product->removeElement($product);
     }
@@ -204,5 +194,63 @@ class Category
     public function getProduct()
     {
         return $this->product;
+    }
+
+    /**
+     * Add child
+     *
+     * @param \CategoryBundle\Entity\Category $child
+     *
+     * @return Category
+     */
+    public function addChild(\CategoryBundle\Entity\Category $child)
+    {
+        $this->children[] = $child;
+
+        return $this;
+    }
+
+    /**
+     * Remove child
+     *
+     * @param \CategoryBundle\Entity\Category $child
+     */
+    public function removeChild(\CategoryBundle\Entity\Category $child)
+    {
+        $this->children->removeElement($child);
+    }
+
+    /**
+     * Get children
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \CategoryBundle\Entity\Category $parent
+     *
+     * @return Category
+     */
+    public function setParent(\CategoryBundle\Entity\Category $parent = null)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \CategoryBundle\Entity\Category
+     */
+    public function getParent()
+    {
+        return $this->parent;
     }
 }

@@ -29,9 +29,13 @@ class ProductController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $products = $em->getRepository('ProductBundle:Product')->findAll();
-
+        // foreach($products as $prod){
+        //     foreach($prod->getCategory() as $cat){
+        //         var_dump($cat->getName());
+        //     }
+        //     die;
+        // }
         return $this->render('product/index.html.twig', array(
             'products' => $products,
         ));
@@ -52,14 +56,14 @@ class ProductController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             // $file stores the uploaded images file
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-            //$file = $product->getImages();
+            $file = $product->getImages();
             // Generate a unique name for the file before saving it
-            //$fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
             // Move the file to the directory where brochures are stored
-            //$file->move($this->getParameter('images_directory'),$fileName);
+            $file->move($this->getParameter('images_directory'),$fileName);
             // Update the 'images' property to store the images file name
             // instead of its contents
-            //$product->setImages($fileName);
+            $product->setImages($fileName);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($product);
@@ -123,14 +127,14 @@ class ProductController extends Controller
      */
     public function deleteAction(Request $request, Product $product)
     {
-        $form = $this->createDeleteForm($product);
-        $form->handleRequest($request);
+        // $form = $this->createDeleteForm($product);
+        // $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        //if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($product);
             $em->flush();
-        }
+        //}
 
         return $this->redirectToRoute('product_index');
     }

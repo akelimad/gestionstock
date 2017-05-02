@@ -142,18 +142,14 @@ class Product
      */
     private $images;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User", inversedBy="Product")
-     * @ORM\JoinTable(name="product_log")
-     */
-    private $user;
+    
 
 
     public function __construct() {
         $this->category = new \Doctrine\Common\Collections\ArrayCollection();
         $this->package = new \Doctrine\Common\Collections\ArrayCollection();
         $this->provider = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
+
         $this->images = new ArrayCollection();
     }
 
@@ -489,11 +485,11 @@ class Product
     /**
      * Add category
      *
-     * @param \ProductBundle\Entity\Category $category
+     * @param \CategoryBundle\Entity\Category $category
      *
      * @return Product
      */
-    public function addCategory(\ProductBundle\Entity\Category $category)
+    public function addCategory(\CategoryBundle\Entity\Category $category)
     {
         $this->category[] = $category;
 
@@ -503,9 +499,9 @@ class Product
     /**
      * Remove category
      *
-     * @param \ProductBundle\Entity\Category $category
+     * @param \CategoryBundle\Entity\Category $category
      */
-    public function removeCategory(\ProductBundle\Entity\Category $category)
+    public function removeCategory(\CategoryBundle\Entity\Category $category)
     {
         $this->category->removeElement($category);
     }
@@ -666,4 +662,38 @@ class Product
     }
 
 
+
+    /**
+     * Add user
+     *
+     * @param \UserBundle\Entity\User $user
+     *
+     * @return Product
+     */
+    public function addUser(\UserBundle\Entity\User $user)
+    {
+        $this->user[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \UserBundle\Entity\User $user
+     */
+    public function removeUser(\UserBundle\Entity\User $user)
+    {
+        $this->user->removeElement($user);
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

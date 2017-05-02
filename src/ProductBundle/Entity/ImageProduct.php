@@ -35,7 +35,7 @@ class ImageProduct
      *
      * @ORM\Column(name="photo", type="string", length=255)
      */
-    private $photo;
+    private $path;
 
     /**
      * Many images have One Product.
@@ -79,29 +79,30 @@ class ImageProduct
         return $this->productId;
     }
 
-    /**
-     * Set photo
+        /**
+     * Set path
      *
-     * @param string $photo
+     * @param string $path
      *
      * @return ImageProduct
      */
-    public function setPhoto($photo)
+    public function setPath($path)
     {
-        $this->photo = $photo;
+        $this->path = $path;
 
         return $this;
     }
 
     /**
-     * Get photo
+     * Get path
      *
      * @return string
      */
-    public function getPhoto()
+    public function getPath()
     {
-        return $this->photo;
+        return $this->path;
     }
+    
 
     /**
      * Set product
@@ -126,4 +127,6 @@ class ImageProduct
     {
         return $this->product;
     }
+
+
 }

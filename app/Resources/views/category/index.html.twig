@@ -21,7 +21,8 @@
                                         <th>Id</th>
                                         <th>Name</th>
                                         <th>Description</th>
-                                        <th>Sub category</th>
+                                        <th>Parent category</th>
+                                        <th>Status</th>
                                         <th class="disabled-sorting text-right">Actions</th>
                                     </tr>
                                 </thead>
@@ -31,7 +32,8 @@
                                         <td>{{c.id}}</td>
                                         <td>{{c.name}}</td>
                                         <td>{{c.description}}</td>
-                                        <td>{{c.upCategory}}</td>
+                                        <td>{{c.parent is null ? 'No parent' : c.parent }}</td>
+                                        <td>{{c.active == 1 ? 'Active' : 'Not active'}}</td>
                                         <td class="text-right">
                                             <form name="form" method="post" action="/gestionstock/web/app_dev.php/category/{{c.id}}">
                                                 <input type="hidden" name="_method" value="DELETE">
@@ -48,7 +50,8 @@
                                         <th>Id</th>
                                         <th>Name</th>
                                         <th>Description</th>
-                                        <th>Sub category</th>
+                                        <th>Parent category</th>
+                                        <th>Status</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                 </tfoot>
