@@ -1,3 +1,7 @@
+product_image_product:
+    resource: "@ProductBundle/Controller/ImageProductController.php"
+    type:     annotation
+
 provider_provider:
     resource: "@ProviderBundle/Controller/ProviderController.php"
     type:     annotation

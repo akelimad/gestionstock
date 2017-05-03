@@ -4,13 +4,13 @@ namespace ProductBundle\Controller;
 
 use ProductBundle\Entity\Product;
 use ProductBundle\Entity\ImageProduct;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use ProductBundle\Form\ProductType;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 
 /**
@@ -47,31 +47,33 @@ class ProductController extends Controller
      * @Route("/new", name="product_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
-    {
+    public function newAction(Request $request){
+        //$em = $this->getDoctrine()->getManager();
         $product = new Product();
+        $imageProduct =new ImageProduct();
         $form = $this->createForm('ProductBundle\Form\ProductType', $product);
-        $form->handleRequest($request);
+        $form->handleRequest($request); 
         
         if ($form->isSubmitted() && $form->isValid()) {
             // $file stores the uploaded images file
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-            $file = $product->getImages();
-            // Generate a unique name for the file before saving it
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            // Move the file to the directory where brochures are stored
-            $file->move($this->getParameter('images_directory'),$fileName);
-            // Update the 'images' property to store the images file name
-            // instead of its contents
-            $product->setImages($fileName);
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($product);
-            $em->flush();
-
+            $files = $product->getImages();
+            $images = array();
+            if($files != null) {
+                $key = 0;
+                foreach ($files as $file){
+                    $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+                    $file->move($this->getParameter('images_directory'),$fileName);
+                    $images[$key++] = $fileName;
+                    $product->addImage($images);
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($product);
+                    $em->persist($imageProduct);
+                    $em->flush();
+                }
+            }
             return $this->redirectToRoute('product_index');
         }
-
         return $this->render('product/new.html.twig', array(
             'product' => $product,
             'form' => $form->createView(),

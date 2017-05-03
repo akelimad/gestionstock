@@ -3,9 +3,9 @@
 namespace ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 use ProductBundle\Entity\ImageProduct;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * Product
@@ -137,20 +137,20 @@ class Product
     private $provider;
 
     /**
-     * One Product has Many images.
-     * @ORM\OneToMany(targetEntity="ImageProduct", mappedBy="product")
+     * @var File
+     *
+     * @ORM\OneToMany(targetEntity="ImageProduct", mappedBy="product", cascade={"persist"})
+     *
      */
     private $images;
 
-    
 
 
     public function __construct() {
         $this->category = new \Doctrine\Common\Collections\ArrayCollection();
         $this->package = new \Doctrine\Common\Collections\ArrayCollection();
         $this->provider = new \Doctrine\Common\Collections\ArrayCollection();
-
-        $this->images = new ArrayCollection();
+        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -529,11 +529,11 @@ class Product
     /**
      * Add package
      *
-     * @param \CategoryBundle\Entity\Package $package
+     * @param \PackageBundle\Entity\Package $package
      *
      * @return Product
      */
-    public function addPackage(\CategoryBundle\Entity\Package $package)
+    public function addPackage(\PackageBundle\Entity\Package $package)
     {
         $this->package[] = $package;
 
@@ -543,9 +543,9 @@ class Product
     /**
      * Remove package
      *
-     * @param \CategoryBundle\Entity\Package $package
+     * @param \PackageBundle\Entity\Package $package
      */
-    public function removePackage(\CategoryBundle\Entity\Package $package)
+    public function removePackage(\PackageBundle\Entity\Package $package)
     {
         $this->package->removeElement($package);
     }
@@ -624,7 +624,7 @@ class Product
      *
      * @return Product
      */
-    public function addImage(\ProductBundle\Entity\ImageProduct $image)
+    public function addImage($image)
     {
         $this->images[] = $image;
 
@@ -636,7 +636,7 @@ class Product
      *
      * @param \ProductBundle\Entity\ImageProduct $image
      */
-    public function removeImage(\ProductBundle\Entity\ImageProduct $image)
+    public function removeImage($image)
     {
         $this->images->removeElement($image);
     }
@@ -656,7 +656,7 @@ class Product
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function setImages(\ProductBundle\Entity\ImageProduct $images)
+    public function setImages($images)
     {
         return $this->images=$images;
     }

@@ -34,6 +34,7 @@ class ProductType extends AbstractType
         ->add('active')
         ->add('images', FileType::class, array(
            'multiple' => true,
+           'data_class' => null,
            'required' => false
         ))
         ->add('category',EntityType::class, array(
@@ -62,6 +63,7 @@ class ProductType extends AbstractType
             'data_class' => 'ProductBundle\Entity\Product'
         ));
     }
+
 
     /**
      * {@inheritdoc}

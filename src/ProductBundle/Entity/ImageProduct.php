@@ -3,8 +3,8 @@
 namespace ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * ImageProduct
@@ -31,9 +31,14 @@ class ImageProduct
     private $productId;
 
     /**
+     * @Assert\File(maxSize="6000000")
+     */
+    private $file;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="photo", type="string", length=255)
+     * @ORM\Column(name="path", type="string", length=255)
      */
     private $path;
 
@@ -79,7 +84,37 @@ class ImageProduct
         return $this->productId;
     }
 
-        /**
+    
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+         $this->file = $file;
+        // check if we have an old image path
+        if (isset($this->path)) {
+            // store the old name to delete after the update
+            $this->temp = $this->path;
+            $this->path = null;
+        } else {
+            $this->path = 'initial';
+        }
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+
+    /**
      * Set path
      *
      * @param string $path
