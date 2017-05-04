@@ -139,7 +139,7 @@ class Product
     /**
      * @var File
      *
-     * @ORM\OneToMany(targetEntity="ImageProduct", mappedBy="product", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="ImageProduct", mappedBy="product", cascade={"persist"}, cascade={"remove"})
      *
      */
     private $images;
@@ -663,37 +663,5 @@ class Product
 
 
 
-    /**
-     * Add user
-     *
-     * @param \UserBundle\Entity\User $user
-     *
-     * @return Product
-     */
-    public function addUser(\UserBundle\Entity\User $user)
-    {
-        $this->user[] = $user;
-
-        return $this;
-    }
-
-    /**
-     * Remove user
-     *
-     * @param \UserBundle\Entity\User $user
-     */
-    public function removeUser(\UserBundle\Entity\User $user)
-    {
-        $this->user->removeElement($user);
-    }
-
-    /**
-     * Get user
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
+    
 }

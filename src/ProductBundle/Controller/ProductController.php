@@ -20,6 +20,13 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  */
 class ProductController extends Controller
 {
+    private $ImageProduct;
+
+    public function __construct()
+    {
+        $this->ImageProduct = new ImageProduct();
+    }
+
     /**
      * Lists all product entities.
      *
@@ -48,32 +55,37 @@ class ProductController extends Controller
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request){
-        //$em = $this->getDoctrine()->getManager();
         $product = new Product();
-        $imageProduct =new ImageProduct();
         $form = $this->createForm('ProductBundle\Form\ProductType', $product);
         $form->handleRequest($request); 
+        $em = $this->getDoctrine()->getEntityManager();
         
         if ($form->isSubmitted() && $form->isValid()) {
-            // $file stores the uploaded images file
-            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+
             $files = $product->getImages();
             $images = array();
             if($files != null) {
                 $key = 0;
                 foreach ($files as $file){
-                    $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+
+                    $fileName = $file->getClientOriginalName();
                     $file->move($this->getParameter('images_directory'),$fileName);
-                    $images[$key++] = $fileName;
-                    $product->addImage($images);
-                    $em = $this->getDoctrine()->getManager();
-                    $em->persist($product);
-                    $em->persist($imageProduct);
-                    $em->flush();
+                    // $images[$key++] = $fileName;
+                    // $product->setImages($images);
+                    $imageProduct  = new ImageProduct();
+                    $imageProduct->setProduct($product);
+                    $imageProduct->setPath($fileName);
+                    $images[] = $imageProduct;
                 }
             }
+
+            $product->setImages($images);
+            $em->persist($product);
+            $em->flush();
+
             return $this->redirectToRoute('product_index');
         }
+
         return $this->render('product/new.html.twig', array(
             'product' => $product,
             'form' => $form->createView(),
@@ -129,14 +141,13 @@ class ProductController extends Controller
      */
     public function deleteAction(Request $request, Product $product)
     {
-        // $form = $this->createDeleteForm($product);
-        // $form->handleRequest($request);
-
-        //if ($form->isSubmitted() && $form->isValid()) {
+        $form = $this->createDeleteForm($product);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($product);
             $em->flush();
-        //}
+        }
 
         return $this->redirectToRoute('product_index');
     }

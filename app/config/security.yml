@@ -22,6 +22,7 @@ security:
             logout:
                 path:   /logout
                 target: /login
+       
             anonymous: ~
 
     access_control:

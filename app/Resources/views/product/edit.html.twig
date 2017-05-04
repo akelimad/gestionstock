@@ -163,6 +163,11 @@
                                                 {{ form_widget(edit_form.images, {'attr': {'class': 'form-control'}}) }}
                                                 {{ form_errors(edit_form.images) }} 
                                             </div>
+                                            {% for image in form_widget(edit_form.images) %}
+                                            <div class="media">
+                                                <img src="{{ asset('uploads/images/' ~ image.path) }}" alt="image">
+                                            </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                     <div class="col-md-6 form-group">

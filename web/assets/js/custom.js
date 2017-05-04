@@ -28,12 +28,12 @@ $(function(){
     // });
 
     // Delete a record
-    table.on('click', '.remove', function(e) {
-        //e.preventDefault();
-        return confirm('Etes-vous sur de vouloir supprimer ?');
-        // $tr = $(this).closest('tr');
-        // table.row($tr).remove().draw();
-    });
+    // table.on('click', '.remove', function(e) {
+    //     //e.preventDefault();
+    //     return confirm('Etes-vous sur de vouloir supprimer ?');
+    //     // $tr = $(this).closest('tr');
+    //     // table.row($tr).remove().draw();
+    // });
 
     //Like record
     table.on('click', '.like', function() {
@@ -41,5 +41,27 @@ $(function(){
     });
 
     $('.card .material-datatables label').addClass('form-group');
+
+    // delete product with ajax
+    $(".remove").click(function(){
+        var pid = $(this).attr("data-product-id");
+        //alert(pid);
+        confirm("Are you sure?", function(result) {
+            url = "{{path('product_delete', { 'id': 0}) }}";
+            url = $url.replace("0",pid);
+            alert(url);
+            $.ajax({ 
+                url: url,
+                type: 'delete', 
+                success: function(result) {
+                    console.log('Delete');
+                },
+                error: function(e){
+                    console.log(e.responseText);
+                }
+            });
+        });
+    });
+
 
 });

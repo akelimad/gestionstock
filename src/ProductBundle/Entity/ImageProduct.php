@@ -23,12 +23,6 @@ class ImageProduct
      */
     private $id;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="product_id", type="integer")
-     */
-    private $productId;
 
     /**
      * @Assert\File(maxSize="6000000")
@@ -58,59 +52,6 @@ class ImageProduct
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set productId
-     *
-     * @param integer $productId
-     *
-     * @return ImageProduct
-     */
-    public function setProductId($productId)
-    {
-        $this->productId = $productId;
-
-        return $this;
-    }
-
-    /**
-     * Get productId
-     *
-     * @return int
-     */
-    public function getProductId()
-    {
-        return $this->productId;
-    }
-
-    
-    /**
-     * Sets file.
-     *
-     * @param UploadedFile $file
-     */
-    public function setFile(UploadedFile $file = null)
-    {
-         $this->file = $file;
-        // check if we have an old image path
-        if (isset($this->path)) {
-            // store the old name to delete after the update
-            $this->temp = $this->path;
-            $this->path = null;
-        } else {
-            $this->path = 'initial';
-        }
-    }
-
-    /**
-     * Get file.
-     *
-     * @return UploadedFile
-     */
-    public function getFile()
-    {
-        return $this->file;
     }
 
 
