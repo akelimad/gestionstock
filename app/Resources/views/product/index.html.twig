@@ -52,15 +52,17 @@
                                         <td>{{p.active == 1 ? 'Active' : 'Not active'}}</td>
                                         <td class="text-right">
 
-                                                <form name="form" method="post" action="/gestionstock/web/app_dev.php/product/{{p.id}}">
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <a href="{{ path('product_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
+                                            
+                                            
 
-                                                    <a href="{{ path('product_delete', { 'id': p.id }) }}"  class="btn btn-simple btn-danger btn-icon btn-fill remove">
-                                                    <i class="ti-close"></i>
-                                                    <input type="hidden" id="form__token" name="form[_token]" value=" {{ csrf_token('edit_form') }} ">
-                                                    </a>
-                                                </form>
+                                            <form name="form" method="post" action="/gestionstock/web/app_dev.php/product/{{p.id}}">
+                                            <a href="{{ path('product_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
+
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" value="Delete" data-product-id="{{p.id}}" class="btn btn-simple btn-danger btn-icon btn-fill remove"><i class="ti-close"></i></button>
+                                            <input type="hidden" id="form__token" name="form[_token]" value="bUHkpwqbcfO2Hvt0Od_6EDzDm65um1xrVw9zjwEWHPI">
+                                            </form>
+                                        
 
                                         </td>
                                     </tr>

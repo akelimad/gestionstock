@@ -160,8 +160,10 @@
                                                 {{ form_label(form.images, "Images", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
-                                                {{ form_widget(form.images, {'attr': {'class': 'form-control'}}) }}
                                                 {{ form_errors(form.images) }} 
+                                                <div class="dropzone my-dropzone" id="form_snippet_image" action="{{path('product_new')}}">
+                                                <img src="removebutton.png" alt="Click me to remove the file." data-dz-remove />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

@@ -5,7 +5,7 @@ namespace ProductBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use ProductBundle\Entity\ImageProduct;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Product
@@ -139,7 +139,7 @@ class Product
     /**
      * @var File
      *
-     * @ORM\OneToMany(targetEntity="ImageProduct", mappedBy="product", cascade={"persist"}, cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="ImageProduct", mappedBy="product", cascade={"persist"})
      *
      */
     private $images;

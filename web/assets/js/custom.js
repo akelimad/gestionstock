@@ -42,26 +42,40 @@ $(function(){
 
     $('.card .material-datatables label').addClass('form-group');
 
-    // delete product with ajax
-    $(".remove").click(function(){
-        var pid = $(this).attr("data-product-id");
-        //alert(pid);
-        confirm("Are you sure?", function(result) {
-            url = "{{path('product_delete', { 'id': 0}) }}";
-            url = $url.replace("0",pid);
-            alert(url);
-            $.ajax({ 
-                url: url,
-                type: 'delete', 
-                success: function(result) {
-                    console.log('Delete');
-                },
-                error: function(e){
-                    console.log(e.responseText);
-                }
-            });
+    // delete product 
+    $('.remove').click(function (e) {
+
+        var url = Routing.generate('product_delete', {'id': $(this).attr('data-product-id')},{ expose: true});
+        e.preventDefault();
+        //var url = "{{path('product_delete', { 'id': 0}) }}";
+        alert(url);
+        $.ajax({
+            type: 'delete',
+            url:  url,
+            data: $(this).serialize(),
+            success: function (response) {
+                location.reload();
+                console.log("deleted");
+            },
+            error: function (response) {
+                console.log("error");
+            }
         });
     });
+
+    //add image of product . dropzone js
+
+    //je récupère l'action où sera traité l'upload en PHP
+    var _actionToDropZone = $("#form_snippet_image").attr('action');
+    //je définis ma zone de drop grâce à l'ID de ma div citée plus haut.
+    Dropzone.autoDiscover = false;
+    var myDropzone = new Dropzone("#form_snippet_image", {  
+        url: _actionToDropZone 
+    });
+    myDropzone.on("complete", function(file) {
+        myDropzone.removeFile(file);
+    });
+
 
 
 });

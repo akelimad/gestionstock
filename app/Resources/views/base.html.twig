@@ -21,6 +21,7 @@
         <link href="{{ asset('assets/css/font-awesome.min.css')}}" rel='stylesheet' type='text/css'>
         <link href="{{ asset('assets/css/font-muli.css')}}" rel='stylesheet' type='text/css'>
         <link href="{{ asset('assets/css/themify-icons.css')}}" rel="stylesheet">
+        <link href="{{ asset('assets/vendors/dropzone/dropzone.min.css')}}" rel="stylesheet">
         <link href="{{ asset('assets/vendors/sweetalert/css/sweetalert2.min.css')}}" rel="Stylesheet" >
         <link href="{{ asset('assets/css/style.css')}}" rel="Stylesheet" >
     {% endblock %}
@@ -378,11 +379,14 @@
     <script src="{{ asset('assets/js/amaze.js') }}"></script>
     <!-- Material Dashboard DEMO methods, don't include it in your project! -->
     <script src="{{ asset('assets/js/demo.js') }}"></script>
-
+    <script src="{{ asset('assets/vendors/dropzone/dropzone.min.js') }}"></script>
     <script src="{{ asset('assets/js/charts/flot-charts.js') }}"></script>
     <script src="{{ asset('assets/js/charts/chartjs-charts.js') }}"></script>
-    <script src="{{ asset('assets/js/product.js') }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <!-- <script src="{{ asset('assets/js/product.js') }}"></script> -->
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+    
 {% endblock %}
 </body>
 </html>

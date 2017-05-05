@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use ProductBundle\Form\ProductType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\Response;
 
 
 /**
@@ -59,33 +60,25 @@ class ProductController extends Controller
         $form = $this->createForm('ProductBundle\Form\ProductType', $product);
         $form->handleRequest($request); 
         $em = $this->getDoctrine()->getEntityManager();
-        
-        if ($form->isSubmitted() && $form->isValid()) {
-
+        if ($form->isSubmitted() && $form->isValid()){
             $files = $product->getImages();
             $images = array();
             if($files != null) {
                 $key = 0;
                 foreach ($files as $file){
-
                     $fileName = $file->getClientOriginalName();
                     $file->move($this->getParameter('images_directory'),$fileName);
-                    // $images[$key++] = $fileName;
-                    // $product->setImages($images);
                     $imageProduct  = new ImageProduct();
                     $imageProduct->setProduct($product);
                     $imageProduct->setPath($fileName);
                     $images[] = $imageProduct;
                 }
             }
-
             $product->setImages($images);
             $em->persist($product);
             $em->flush();
-
             return $this->redirectToRoute('product_index');
         }
-
         return $this->render('product/new.html.twig', array(
             'product' => $product,
             'form' => $form->createView(),
@@ -119,10 +112,25 @@ class ProductController extends Controller
         $deleteForm = $this->createDeleteForm($product);
         $editForm = $this->createForm('ProductBundle\Form\ProductType', $product);
         $editForm->handleRequest($request);
-
+        //var_dump($product->getImages()); die();
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $files = $product->getImages();
+            $images = array();
+            if($files != null) {
+                $key = 0;
+                foreach ($files as $file){
+                    $fileName = $file->getClientOriginalName();
+                    $file->move($this->getParameter('images_directory'),$fileName);
+                    $imageProduct  = new ImageProduct();
+                    $imageProduct->setProduct($product);
+                    $imageProduct->setPath($fileName);
+                    $images[] = $imageProduct;
+                }
+
+            }
+            $product->setImages($images);
             $this->getDoctrine()->getManager()->flush();
-            //array('id' => $product->getId())
             return $this->redirectToRoute('product_index');
         }
 
@@ -150,6 +158,7 @@ class ProductController extends Controller
         }
 
         return $this->redirectToRoute('product_index');
+        //return new Response("product deleted");
     }
 
     /**
