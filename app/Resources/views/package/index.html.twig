@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+ 
 {% block body %}
 
 <div class="content">
@@ -22,7 +22,7 @@
                                         <th>CBM</th>
                                         <th>Marine cost</th>
                                         <th>Air cost</th>
-                                        <td>Status</td>
+                                        <th>Status</th>
                                         <th class="disabled-sorting text-right">Actions</th>
                                     </tr>
                                 </thead>
@@ -37,12 +37,10 @@
                                         <td>{{p.airCost}}</td>
                                         <td>{{p.active == 1 ? 'Active' : 'Not active'}}</td>
                                         <td class="text-right">
-                                            <form name="form" method="post" action="/gestionstock/web/app_dev.php/package/{{p.id}}">
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <a href="{{ path('package_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon edit"><i class="ti-pencil-alt"></i></a>
-                                                <button type="submit" value="Delete" class="btn btn-simple btn-danger btn-icon remove"><i class="ti-close"></i></button>
-                                                <input type="hidden" id="form__token" name="form[_token]" value="fRUQCoqbfyvNdQe41FfT013oadUySPUUYL1uz4ySpMI">
-                                            </form>
+                                            <a href="{{ path('package_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
+
+                                            <button data-id="{{ p.id }}"  class="btn btn-simple btn-danger btn-icon btn-fill remove-package"><i class="ti-close"></i></button>
+                                            <span id="csrf_token" data-token="{{ csrf_token('form') }}"></span>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -55,7 +53,7 @@
                                         <th>CBM</th>
                                         <th>Marine cost</th>
                                         <th>Air cost</th>
-                                        <td>Status</td>
+                                        <th>Status</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                 </tfoot>

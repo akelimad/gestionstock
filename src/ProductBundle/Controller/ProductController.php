@@ -52,7 +52,7 @@ class ProductController extends Controller
     /**
      * Creates a new product entity.
      *
-     * @Route("/new", name="product_new")
+     * @Route("/new", name="product_new", options={"expose"=true})
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request){
@@ -84,6 +84,37 @@ class ProductController extends Controller
             'form' => $form->createView(),
         ));
     }
+
+    /**
+     *
+     * @Method({"GET", "POST"})
+     * @Route("/new", name="ajax_snippet_image_send")
+     */
+    public function ajaxSnippetImageSendAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $imageProduct = new ImageProduct();
+        $files = $request->files->get('file');
+
+        $images = array();
+        if($files != null) {
+            $key = 0;
+            foreach ($files as $file){
+                echo $fileName = $file->getClientOriginalName();
+                // $file->move($this->getParameter('images_directory'),$fileName);
+                // $imageProduct  = new ImageProduct();
+                // $imageProduct->setProduct($product);
+                // $imageProduct->setPath($fileName);
+                // $images[] = $imageProduct;
+            }die();
+        }
+
+        //infos sur le document envoyé
+        //var_dump($request->files->get('file'));die;
+        return new JsonResponse(array('success' => true));
+    }
+
 
     /**
      * Finds and displays a product entity.
@@ -144,7 +175,7 @@ class ProductController extends Controller
     /**
      * Deletes a product entity.
      *
-     * @Route("/{id}", name="product_delete")
+     * @Route("/{id}", options={"expose"=true}, name="product_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Product $product)

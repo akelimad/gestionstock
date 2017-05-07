@@ -30,7 +30,8 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN } # user must have been auth with role admin to access to /admin url
+        - { path: ^/, role: ROLE_USER }
+        - { path: ^/product/, role: ROLE_USER }
         - { path: ^/category/, role: ROLE_USER }
         - { path: ^/package/, role: ROLE_USER }
         - { path: ^/provider/, role: ROLE_USER }
-        - { path: ^/product/, role: ROLE_USER }

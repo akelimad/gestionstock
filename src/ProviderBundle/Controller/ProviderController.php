@@ -102,7 +102,7 @@ class ProviderController extends Controller
     /**
      * Deletes a provider entity.
      *
-     * @Route("/{id}", name="provider_delete")
+     * @Route("/{id}", name="provider_delete", options={"expose"=true})
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Provider $provider)

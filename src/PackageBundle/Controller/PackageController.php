@@ -102,7 +102,7 @@ class PackageController extends Controller
     /**
      * Deletes a package entity.
      *
-     * @Route("/{id}", name="package_delete")
+     * @Route("/{id}", name="package_delete", options={"expose"=true})
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Package $package)

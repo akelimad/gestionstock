@@ -66,7 +66,7 @@ class Provider
 
     /**
      * Many cat have Many prod.
-     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="Provider")
+     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="provider")
      */
     private $product;
 

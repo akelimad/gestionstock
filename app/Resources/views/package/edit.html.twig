@@ -70,7 +70,12 @@
                                             {{ form_label(edit_form.active, "Active", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
-                                            {{ form_widget(edit_form.active, {'attr': {'class': ''}}) }}
+                                            <label class="checkbox">
+                                                <span class="icons">
+                                                <span class="first-icon fa fa-square"></span>
+                                                <span class="second-icon fa fa-check-square "></span>
+                                                {{ form_widget(edit_form.active, {'attr': {'class': ''}}) }}
+                                            </label>
                                             {{ form_errors(edit_form.active) }} 
                                         </div>
                                     </div>

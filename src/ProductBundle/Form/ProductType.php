@@ -18,6 +18,7 @@ class ProductType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        
         $builder
         ->add('name')
         ->add('description')
@@ -40,6 +41,9 @@ class ProductType extends AbstractType
         ->add('category',EntityType::class, array(
             'class'=>'CategoryBundle:Category', 
             'choice_label'=>'name', 
+            //'query_builder' => function ($er) {
+            //    return $er->createQueryBuilder('c')->where("c.parent = NULL ");
+            //},
             'multiple'=>true
         ))
         ->add('package', EntityType::class, array(

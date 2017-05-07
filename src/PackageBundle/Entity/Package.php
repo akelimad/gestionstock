@@ -65,7 +65,7 @@ class Package
 
     /**
      * one prod can have Many pack.
-     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="Package")
+     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="package")
      */
     private $product;
 

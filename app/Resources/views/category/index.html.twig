@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+ 
 {% block body %}
 
 <div class="content">
@@ -35,12 +35,10 @@
                                         <td>{{c.parent is null ? 'No parent' : c.parent }}</td>
                                         <td>{{c.active == 1 ? 'Active' : 'Not active'}}</td>
                                         <td class="text-right">
-                                            <form name="form" method="post" action="/gestionstock/web/app_dev.php/category/{{c.id}}">
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <a href="{{ path('category_edit', { 'id': c.id }) }}" class="btn btn-simple btn-warning btn-icon edit"><i class="ti-pencil-alt"></i></a>
-                                                <button type="submit" value="Delete" class="btn btn-simple btn-danger btn-icon remove"><i class="ti-close"></i></button>
-                                                <input type="hidden" id="form__token" name="form[_token]" value="aZOi-arz2h_X_xUEIv7nW1uDgLluqQnvGFa55doVnn8">
-                                            </form>
+                                            <a href="{{ path('category_edit', { 'id': c.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
+
+                                            <button data-id="{{ c.id }}"  class="btn btn-simple btn-danger btn-icon btn-fill remove-category"><i class="ti-close"></i></button>
+                                            <span id="csrf_token" data-token="{{ csrf_token('form') }}"></span>
                                         </td>
                                     </tr>
                                 </tbody>

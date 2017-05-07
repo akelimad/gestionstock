@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} 
 
 {% block body %}
 
@@ -22,9 +22,9 @@
                                         <th>Description</th>
                                         <th>Prix unitaire</th>
                                         <th>Color</th>
-                                        <td>Category</td>
-                                        <td>Parent category</td>
-                                        <td>Status</td>
+                                        <th>Category</th>
+                                        <th>Parent category</th>
+                                        <th>Status</th>
                                         <th class="disabled-sorting text-right">Actions</th>
                                     </tr>
                                 </thead>
@@ -52,18 +52,11 @@
                                         <td>{{p.active == 1 ? 'Active' : 'Not active'}}</td>
                                         <td class="text-right">
 
-                                            
-                                            
-
-                                            <form name="form" method="post" action="/gestionstock/web/app_dev.php/product/{{p.id}}">
                                             <a href="{{ path('product_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
 
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            <button type="submit" value="Delete" data-product-id="{{p.id}}" class="btn btn-simple btn-danger btn-icon btn-fill remove"><i class="ti-close"></i></button>
-                                            <input type="hidden" id="form__token" name="form[_token]" value="bUHkpwqbcfO2Hvt0Od_6EDzDm65um1xrVw9zjwEWHPI">
-                                            </form>
-                                        
-
+                                            <button data-id="{{ p.id }}"  class="btn btn-simple btn-danger btn-icon btn-fill remove-product"><i class="ti-close"></i></button>
+                                            <span id="csrf_token" data-token="{{ csrf_token('form') }}"></span>
+                                            
                                         </td>
                                     </tr>
                                 </tbody>
@@ -76,9 +69,9 @@
                                         <th>Description</th>
                                         <th>Prix unitaire</th>
                                         <th>Color</th>
-                                        <td>Category</td>
-                                        <td>Sub category</td>
-                                        <td>Status</td>
+                                        <th>Category</th>
+                                        <th>Sub category</th>
+                                        <th>Status</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                 </tfoot>

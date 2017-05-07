@@ -1,4 +1,4 @@
-$(function(){
+$(function(){ 
 	'use strict'
     //demo.initStatsDashboard();
     demo.initVectorMap();
@@ -42,39 +42,165 @@ $(function(){
 
     $('.card .material-datatables label').addClass('form-group');
 
-    // delete product 
-    $('.remove').click(function (e) {
-
-        var url = Routing.generate('product_delete', {'id': $(this).attr('data-product-id')},{ expose: true});
-        e.preventDefault();
-        //var url = "{{path('product_delete', { 'id': 0}) }}";
-        alert(url);
-        $.ajax({
-            type: 'delete',
-            url:  url,
-            data: $(this).serialize(),
-            success: function (response) {
-                location.reload();
-                console.log("deleted");
+    // ************************************* //
+    //       delete product with ajax
+    // ************************************* //
+    $('.remove-product').click(function () {
+        var url = Routing.generate('product_delete', {'id': $(this).data('id')});
+        var $tr = $(this).closest('tr');
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            showLoaderOnConfirm: true,
+            preConfirm: function() {
+            return new Promise(function(resolve) {
+                $.ajax({
+                    type: 'POST',
+                    url:  url,
+                    data: {
+                    "_method": "DELETE",
+                    "form[_token]": $("#csrf_token").data("token")
+                    }
+                }).done(function(response){
+                    swal('Deleted!', 'Product has been deleted.', 'success');
+                    $tr.find('td').fadeOut(1000,function(){ $tr.remove(); });
+                }).fail(function(){
+                    swal('Oops...', 'Something went wrong with ajax !', 'error');
+                });
+            });
             },
-            error: function (response) {
-                console.log("error");
-            }
-        });
+            allowOutsideClick: false     
+        }); 
     });
 
-    //add image of product . dropzone js
+    // ************************************* //
+    //       delete cat with ajax
+    // ************************************* //
+    $('.remove-category').click(function () {
+        var url = Routing.generate('category_delete', {'id': $(this).data('id')});
+        var $tr = $(this).closest('tr');
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            showLoaderOnConfirm: true,
+            preConfirm: function() {
+            return new Promise(function(resolve) {
+                $.ajax({
+                    type: 'POST',
+                    url:  url,
+                    data: {
+                    "_method": "DELETE",
+                    "form[_token]": $("#csrf_token").data("token")
+                    }
+                }).done(function(response){
+                    swal('Deleted!', 'Category has been deleted.', 'success');
+                    $tr.find('td').fadeOut(1000,function(){ $tr.remove(); });
+                }).fail(function(){
+                    swal('Oops...', 'Something went wrong with ajax !', 'error');
+                });
+            });
+            },
+            allowOutsideClick: false     
+        }); 
+    });
 
-    //je récupère l'action où sera traité l'upload en PHP
+    // ************************************* //
+    //       delete cat with ajax
+    // ************************************* //
+    $('.remove-package').click(function () {
+        var url = Routing.generate('package_delete', {'id': $(this).data('id')});
+        var $tr = $(this).closest('tr');
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            showLoaderOnConfirm: true,
+            preConfirm: function() {
+            return new Promise(function(resolve) {
+                $.ajax({
+                    type: 'POST',
+                    url:  url,
+                    data: {
+                    "_method": "DELETE",
+                    "form[_token]": $("#csrf_token").data("token")
+                    }
+                }).done(function(response){
+                    swal('Deleted!', 'Package has been deleted.', 'success');
+                    $tr.find('td').fadeOut(1000,function(){ $tr.remove(); });
+                }).fail(function(){
+                    swal('Oops...', 'Something went wrong with ajax !', 'error');
+                });
+            });
+            },
+            allowOutsideClick: false     
+        }); 
+    });
+
+    // ************************************* //
+    //       delete cat with ajax
+    // ************************************* //
+    $('.remove-provider').click(function () {
+        var url = Routing.generate('provider_delete', {'id': $(this).data('id')});
+        var $tr = $(this).closest('tr');
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            showLoaderOnConfirm: true,
+            preConfirm: function() {
+            return new Promise(function(resolve) {
+                $.ajax({
+                    type: 'POST',
+                    url:  url,
+                    data: {
+                    "_method": "DELETE",
+                    "form[_token]": $("#csrf_token").data("token")
+                    }
+                }).done(function(response){
+                    swal('Deleted!', 'Provider has been deleted.', 'success');
+                    $tr.find('td').fadeOut(1000,function(){ $tr.remove(); });
+                }).fail(function(){
+                    swal('Oops...', 'Something went wrong with ajax !', 'error');
+                });
+            });
+            },
+            allowOutsideClick: false     
+        }); 
+    });
+
+    // ************************************* //
+    //       manage images of product
+    // ************************************* //
     var _actionToDropZone = $("#form_snippet_image").attr('action');
-    //je définis ma zone de drop grâce à l'ID de ma div citée plus haut.
-    Dropzone.autoDiscover = false;
-    var myDropzone = new Dropzone("#form_snippet_image", {  
-        url: _actionToDropZone 
-    });
-    myDropzone.on("complete", function(file) {
-        myDropzone.removeFile(file);
-    });
+
+    var myDropzone = new Dropzone("#form_snippet_image", { url: _actionToDropZone });
+    myDropzone.on("addedfile", function(file) {
+            alert('nouveau fichier reçu');
+        });
+
+
+
+
+
+
 
 
 
