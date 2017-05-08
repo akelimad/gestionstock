@@ -139,10 +139,10 @@ class Product
     /**
      * @var File
      *
-     * @ORM\OneToMany(targetEntity="ImageProduct", mappedBy="product", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="ImageProduct", mappedBy="product", cascade={"persist","remove"})
      *
      */
-    private $images;
+    private $images;   
 
 
 

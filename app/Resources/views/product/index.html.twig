@@ -12,7 +12,7 @@
                         <div class="toolbar">
                             <!--        Here you can write extra buttons/actions for the toolbar              -->
                         </div>
-                        <div class="material-datatables">
+                        <div class="material-datatables product-table">
                             <table id="datatables" class="table table-striped table-no-bordered table-hover" style="width:100%;cellspacing:0">
                                 <thead>
                                     <tr>
@@ -21,7 +21,6 @@
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Prix unitaire</th>
-                                        <th>Color</th>
                                         <th>Category</th>
                                         <th>Parent category</th>
                                         <th>Status</th>
@@ -33,14 +32,13 @@
                                     <tr>
                                         <td>{{p.id}}</td>
                                         <td>
-                                        {% for image in p.images %}
+                                        {% for image in p.images|slice(0, 1) %}
                                         <img src="{{ asset('uploads/images/' ~ image.path) }}" alt="" width="50">
                                         {% endfor %}
                                         </td>
                                         <td>{{p.name}}</td>
                                         <td>{{p.description}}</td>
                                         <td>{{p.unitPrice}}</td>
-                                        <td>{{p.color}}</td>
                                         <td>
                                         {% for cat in p.category %}
                                             {{cat.name}}
@@ -51,12 +49,12 @@
                                         </td>
                                         <td>{{p.active == 1 ? 'Active' : 'Not active'}}</td>
                                         <td class="text-right">
+                                            <a class="btn btn-simple btn-default btn-icon btn-fill edit showModal" data-toggle="modal" data-target="#show-product"><i class="ti-eye"></i></a>
 
                                             <a href="{{ path('product_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
 
                                             <button data-id="{{ p.id }}"  class="btn btn-simple btn-danger btn-icon btn-fill remove-product"><i class="ti-close"></i></button>
                                             <span id="csrf_token" data-token="{{ csrf_token('form') }}"></span>
-                                            
                                         </td>
                                     </tr>
                                 </tbody>
@@ -68,7 +66,6 @@
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Prix unitaire</th>
-                                        <th>Color</th>
                                         <th>Category</th>
                                         <th>Sub category</th>
                                         <th>Status</th>
@@ -77,6 +74,32 @@
                                 </tfoot>
                             </table>
                         </div>
+
+    <!-- Modal -->
+    <div id="show-product" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">Product details</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            name: 
+                        </div>
+                        <div class="col-md-8">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+        </div>
+    </div><!-- /.modal -->
+
                     </div>
                     <!-- end content-->
                 </div>

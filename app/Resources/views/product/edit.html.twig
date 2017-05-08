@@ -163,8 +163,10 @@
                                                 {{ form_widget(edit_form.images, {'attr': {'class': 'form-control'}}) }}
                                                 {{ form_errors(edit_form.images) }} 
                                                 {% for image in product.images %}
-                                                <div class="media">
-                                                    <img src="{{ asset('uploads/images/' ~ image.path) }}" alt="image" width="60" class="img-responsive inline-block">
+                                                <div class="media" id="media-{{image.id}}">
+                                                    <a data-id="{{ image.id }}" class="remove-img-link btn btn-simple btn-danger btn-icon btn-fill pull-right" title="Remove this image">X</a>
+                                                    <img src="{{ asset('uploads/images/' ~ image.path) }}" alt="image" width="60" class="img-responsive inline-block" title="{{image.path}}">
+                                                    <span id="csrf_token" data-token="{{ csrf_token('form') }}"></span>
                                                 </div>
                                                 {% endfor %}
                                             </div>

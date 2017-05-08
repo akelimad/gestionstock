@@ -189,12 +189,42 @@ $(function(){
     // ************************************* //
     //       manage images of product
     // ************************************* //
-    var _actionToDropZone = $("#form_snippet_image").attr('action');
+    $('.remove-img-link').click(function(){
+        var id= $(this).data('id');
+        var url = Routing.generate('imageproduct_delete', {'id': id });
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            showLoaderOnConfirm: true,
+            preConfirm: function() {
+            return new Promise(function(resolve) {
+                $.ajax({
+                    type: 'POST',
+                    url:  url,
+                    data: {
+                    "_method": "DELETE",
+                    "form[_token]": $("#csrf_token").data("token")
+                    },
+                    success: function() {
+                        $(this).parents("#media-"+ id).remove();
+                    }
+                }).done(function(response){
+                    $("#media-"+ id).remove();
+                    swal('Deleted!', 'image has been deleted.', 'success');
+                }).fail(function(){
+                    swal('Oops...', 'Something went wrong with ajax !', 'error');
+                });
+            });
+            },
+            allowOutsideClick: false     
+        }); 
+    });
 
-    var myDropzone = new Dropzone("#form_snippet_image", { url: _actionToDropZone });
-    myDropzone.on("addedfile", function(file) {
-            alert('nouveau fichier reçu');
-        });
 
 
 

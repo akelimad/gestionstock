@@ -13,3 +13,26 @@ body{
 .login .main-panel{
 	width: calc(100%);
 }
+
+.media{
+	display: inline-block;
+    float: left;
+    margin-right: 25px;
+}
+.media .btn.btn-icon{
+	border-radius: 25px;
+    padding: 0px 6px;
+}
+.product-table .text-right{
+	min-width: 124px;
+}
+.product-table .text-right a.btn-default{
+	background: rgb(116, 207, 251);
+}
+section.register{
+	background: url("../../assets/img/bg-register.jpg");
+}
+
+.modal-backdrop.fade.in{
+	z-index: 0;
+}

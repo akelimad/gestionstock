@@ -85,36 +85,6 @@ class ProductController extends Controller
         ));
     }
 
-    /**
-     *
-     * @Method({"GET", "POST"})
-     * @Route("/new", name="ajax_snippet_image_send")
-     */
-    public function ajaxSnippetImageSendAction(Request $request)
-    {
-        $em = $this->getDoctrine()->getEntityManager();
-
-        $imageProduct = new ImageProduct();
-        $files = $request->files->get('file');
-
-        $images = array();
-        if($files != null) {
-            $key = 0;
-            foreach ($files as $file){
-                echo $fileName = $file->getClientOriginalName();
-                // $file->move($this->getParameter('images_directory'),$fileName);
-                // $imageProduct  = new ImageProduct();
-                // $imageProduct->setProduct($product);
-                // $imageProduct->setPath($fileName);
-                // $images[] = $imageProduct;
-            }die();
-        }
-
-        //infos sur le document envoyé
-        //var_dump($request->files->get('file'));die;
-        return new JsonResponse(array('success' => true));
-    }
-
 
     /**
      * Finds and displays a product entity.

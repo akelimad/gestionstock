@@ -22,7 +22,10 @@ class CategoryType extends AbstractType
         ->add('parent', EntityType::class, array(
             'class'=>'CategoryBundle:Category', 
             'choice_label'=>'name', 
-            'required'=> false
+            'required'=> false,
+            'query_builder' => function ($er) {
+               return $er->createQueryBuilder('c')->where("c.parent is NULL ");
+            },
         ))
         ->add('active');
     }
