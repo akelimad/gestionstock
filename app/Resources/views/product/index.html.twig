@@ -111,7 +111,32 @@
 </div>
     <script src="{{ asset('assets/js/product.js') }}"></script>
     <script>
-        
+        var products = [];
+        var img= [];
+        var detailProduct = {};
+        {% for p in products %}
+            detailProduct = {
+                id         :{{p.id}},
+                name       :'{{p.name}}',
+                description:'{{p.description}}',
+                sizeInch   :{{p.sizeInch}},
+                sizeCm     :{{p.sizeCm}},
+                color      :'{{p.color}}',
+                composition:'{{p.composition}}',
+                form       :'{{p.form}}',
+                unitPrice  :{{p.unitPrice}},
+                wholesalePrice:{{p.wholesalePrice}},
+                specialPrice  : {{p.specialPrice}},
+                internetPrice : {{p.internetPrice}},
+                images        : {% for image in p.images %} {{image.path}} {% endfor %},
+                category      : {% for cat in p.category %} {{cat.name}} {% endfor %},
+                provider      : {% for pro in p.provider %} {{pro.name}} {% endfor %},
+                package       : {% for pack in p.package %} {{pack.name}} {% endfor %}
+
+            }
+            products.push(detailProduct);
+        {% endfor %}
+        Product.init(products);
     </script>
 
 {% endblock %}

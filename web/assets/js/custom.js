@@ -235,7 +235,7 @@ $(function(){
             url : url,
             success: function(data) {
                 //$('.modal-content').html(data).show();
-                console.log(data);
+                console.log( data );
             }
         });
     });

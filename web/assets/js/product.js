@@ -1,5 +1,8 @@
 var Product = {
-  	init:function(Array products){
-  		console.log(products);
+  	init:function(products){
+  		$.each(products, function( index, value ) {
+  		console.log(index, value);
+  		});
   	}
 }
+  
