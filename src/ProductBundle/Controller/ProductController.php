@@ -44,8 +44,9 @@ class ProductController extends Controller
         //     }
         //     die;
         // }
+
         return $this->render('product/index.html.twig', array(
-            'products' => $products,
+            'products' => $products
         ));
     }
 
@@ -89,17 +90,14 @@ class ProductController extends Controller
     /**
      * Finds and displays a product entity.
      *
-     * @Route("/{id}", name="product_show")
+     * @Route("/{id}", name="product_show" ,options={"expose"=true})
      * @Method("GET")
      */
     public function showAction(Product $product)
     {
-        $deleteForm = $this->createDeleteForm($product);
+        //$deleteForm = $this->createDeleteForm($product);
 
-        return $this->render('product/show.html.twig', array(
-            'product' => $product,
-            'delete_form' => $deleteForm->createView(),
-        ));
+        return json_encode($product);
     }
 
     /**
