@@ -49,7 +49,7 @@
                                         </td>
                                         <td>{{p.active == 1 ? 'Active' : 'Not active'}}</td>
                                         <td class="text-right">
-                                            <a data-id="{{ p.id }}" class="btn btn-simple btn-default btn-icon btn-fill edit showProduct" data-toggle="modal" data-target="#show-product"><i class="ti-eye"></i></a>
+                                            <a data-id="{{ p.id }}" class="btn btn-simple btn-default btn-icon btn-fill edit showProduct" data-toggle="modal" data-target="#show-productxx"><i class="ti-eye"></i></a>
 
                                             <a href="{{ path('product_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
 
@@ -76,7 +76,7 @@
                         </div>
 
     <!-- Modal -->
-    <div id="show-product" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div id="productModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -86,10 +86,51 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-4">
-                            name: 
+                            <div class="name"></div>
+                            <div class="category"></div>
+                            <img src="" alt="image" width="130">
                         </div>
                         <div class="col-md-8">
-                            
+                            <div class="row">
+                                <div class="col-md-4 description">   
+                                </div>
+                                <div class="col-md-4 size-inch">  
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 size-cm">   
+                                </div>
+                                <div class="col-md-4 color"> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 composition">  
+                                </div>
+                                <div class="col-md-4 form">  
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 weight"> 
+                                </div>
+                                <div class="col-md-4 unit-price"> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 wholesale-price"> 
+                                </div>
+                                <div class="col-md-4 special-price"> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 internet-price"> 
+                                </div>
+                                <div class="col-md-4 package"> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 provider"> 
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -109,34 +150,36 @@
         </div>
     </div>
 </div>
-    <script src="{{ asset('assets/js/product.js') }}"></script>
-    <script>
-        var products = [];
-        var img= [];
-        var detailProduct = {};
-        {% for p in products %}
-            detailProduct = {
-                id         :{{p.id}},
-                name       :'{{p.name}}',
-                description:'{{p.description}}',
-                sizeInch   :{{p.sizeInch}},
-                sizeCm     :{{p.sizeCm}},
-                color      :'{{p.color}}',
-                composition:'{{p.composition}}',
-                form       :'{{p.form}}',
-                unitPrice  :{{p.unitPrice}},
-                wholesalePrice:{{p.wholesalePrice}},
-                specialPrice  : {{p.specialPrice}},
-                internetPrice : {{p.internetPrice}},
-                images        : {% for image in p.images %} {{image.path}} {% endfor %},
-                category      : {% for cat in p.category %} {{cat.name}} {% endfor %},
-                provider      : {% for pro in p.provider %} {{pro.name}} {% endfor %},
-                package       : {% for pack in p.package %} {{pack.name}} {% endfor %}
+<script src="{{ asset('assets/js/test.js') }}"></script>
+<script src="{{ asset('assets/js/product.js') }}"></script>
+<script>
+    var products = [];
+    var detailProduct = {};
+    //var id;
+    {% for p in products %}
+        detailProduct = {
+            id            : {{p.id}},
+            name          :'{{p.name}}',
+            description   :'{{p.description}}',
+            sizeInch      : {{p.sizeInch}},
+            sizeCm        : {{p.sizeCm}},
+            color         :'{{p.color}}',
+            composition   :'{{p.composition}}',
+            form          :'{{p.form}}',
+            unitPrice     : {{p.unitPrice}},
+            wholesalePrice: {{p.wholesalePrice}},
+            specialPrice  : {{p.specialPrice}},
+            internetPrice : {{p.internetPrice}},
+            // images        : {% for image in p.images %} {{image.path}} {% endfor %},
+            // category      : {% for cat in p.category %} {{cat.name}} {% endfor %},
+            // provider      : {% for pro in p.provider %} {{pro.name}} {% endfor %},
+            // package       : {% for pack in p.package %} {{pack.name}} {% endfor %}
 
-            }
-            products.push(detailProduct);
-        {% endfor %}
-        Product.init(products);
-    </script>
+        }
+        products.push(detailProduct);
+    {% endfor %}
+    Product.init(products);
+
+</script>
 
 {% endblock %}

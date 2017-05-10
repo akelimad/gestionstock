@@ -15,6 +15,9 @@
     <!--  Material Dashboard CSS    -->
     
     {% block stylesheets %}
+        <script src="{{ asset('assets/vendors/jquery-3.1.1.min.js') }}"></script>
+        <script src="{{ asset('assets/vendors/underscore-min.js') }}"></script>
+        
         <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel='stylesheet' type='text/css'>
         <link href="{{ asset('assets/css/amaze.css') }}" rel="stylesheet" />
         <!--     Fonts and icons     -->
@@ -24,7 +27,7 @@
         <link href="{{ asset('assets/vendors/dropzone/dropzone.min.css')}}" rel="stylesheet">
         <link href="{{ asset('assets/vendors/sweetalert/css/sweetalert2.min.css')}}" rel="Stylesheet" >
         <link href="{{ asset('assets/css/style.css')}}" rel="Stylesheet" >
-    <script src="{{ asset('assets/vendors/jquery-3.1.1.min.js') }}"></script>
+        
     {% endblock %}
 </head>
 

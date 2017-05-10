@@ -225,20 +225,7 @@ $(function(){
         }); 
     });
 
-    $(".showProduct").click(function(){
-        var id= $(this).data("id");
-        var url = Routing.generate('product_show', {'id': id });
-        alert(url);
-        $.ajax({
-            cache: false,
-            type: 'GET',
-            url : url,
-            success: function(data) {
-                //$('.modal-content').html(data).show();
-                console.log( data );
-            }
-        });
-    });
+    
 
 
 

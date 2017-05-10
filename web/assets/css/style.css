@@ -36,3 +36,23 @@ section.register{
 .modal-backdrop.fade.in{
 	z-index: 0;
 }
+.modal-body .name,
+.modal-body .description,
+.modal-body .size-inch,
+.modal-body .size-cm,
+.modal-body .color,
+.modal-body .composition,
+.modal-body .form,
+.modal-body .weight,
+.modal-body .unit-price,
+.modal-body .wholesale-price,
+.modal-body .special-price,
+.modal-body .wholesale-price,
+.modal-body .internet-price,
+.modal-body .package,
+.modal-body .provider
+{
+	padding: 13px 0;
+    font-size: 17px;
+    color: #525252;
+}
