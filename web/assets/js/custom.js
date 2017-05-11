@@ -1,5 +1,7 @@
-$(function(){ 
+$(document).ready(function() {
 	'use strict'
+    //init product images switcher
+    
     //demo.initStatsDashboard();
     demo.initVectorMap();
     demo.initCirclePercentage();

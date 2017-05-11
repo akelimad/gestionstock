@@ -10,158 +10,158 @@
                             <div class="content">
                                 <h4 class="title text-center">Edit product</h4>
                                 <div class="row">
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.name) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.name, "Name", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.name, {'attr': {'class': 'form-control'}}) }}
-                                                {{ form_errors(edit_form.name) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.name) }} </span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.description) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.description, "Description", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.description, {'attr': {'class': 'form-control'}}) }}
-                                                {{ form_errors(edit_form.description) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.description) }}</span> 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.sizeInch) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.sizeInch, "Size(inch)", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.sizeInch, {'attr': {'class': 'form-control'}}) }}
-                                                {{ form_errors(edit_form.sizeInch) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.sizeInch) }}</span> 
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.sizeCm) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.sizeCm, "Size(cm)", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.sizeCm, {'attr': {'class': 'form-control'}}) }}
-                                                {{ form_errors(edit_form.sizeCm) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.sizeCm) }} </span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.color) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.color, "Color", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.color, {'attr': {'class': 'form-control'}}) }}
-                                                {{ form_errors(edit_form.color) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.color) }}</span> 
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.composition) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.composition, "Composition", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.composition, {'attr': {'class': 'form-control'}}) }}
-                                                {{ form_errors(edit_form.composition) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.composition) }}</span> 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.form) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.form, "Forme", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.form, {'attr': {'class': 'form-control'}}) }}
-                                                {{ form_errors(edit_form.form) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.form) }}</span> 
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.weight) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.weight, "Poids", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.weight, {'attr': {'class': 'form-control'}}) }}
-                                                {{ form_errors(edit_form.weight) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.weight) }}</span> 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.unitPrice) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.unitPrice, "Prix unitaire", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.unitPrice, {'attr': {'class': 'form-control'}}) }}
-                                                {{ form_errors(edit_form.unitPrice) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.unitPrice) }}</span> 
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.wholesalePrice) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.wholesalePrice, "Prix grossiste", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.wholesalePrice, {'attr': {'class': 'form-control'}}) }}
-                                                {{ form_errors(edit_form.wholesalePrice) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.wholesalePrice) }}</span> 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.specialPrice) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.specialPrice, "Prix spécial", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.specialPrice, {'attr': {'class': 'form-control'}}) }}
-                                                {{ form_errors(edit_form.specialPrice) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.specialPrice) }}</span> 
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.internetPrice) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.internetPrice, "Prix internet", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.internetPrice, {'attr': {'class': 'form-control'}}) }}
-                                                {{ form_errors(edit_form.internetPrice) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.internetPrice) }}</span> 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.images) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.images, "Images", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.images, {'attr': {'class': 'form-control'}}) }}
-                                                {{ form_errors(edit_form.images) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.images) }}</span> 
                                                 {% for image in product.images %}
                                                 <div class="media" id="media-{{image.id}}">
                                                     <a data-id="{{ image.id }}" class="remove-img-link btn btn-simple btn-danger btn-icon btn-fill pull-right" title="Remove this image">X</a>
@@ -172,44 +172,44 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.category) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.category, "Categorie", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.category, {'attr': {'class': 'form-control'}}) }}
-                                                {{ form_errors(edit_form.category) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.category) }}</span> 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.package) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.package, "Emballage", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.package, {'attr': {'class': 'form-control'}}) }}
-                                                {{ form_errors(edit_form.package) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.package) }}</span> 
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.provider) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.provider, "Fournisseur", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.provider, {'attr': {'class': 'form-control'}}) }}
-                                                {{ form_errors(edit_form.provider) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.provider) }}</span> 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.active) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(edit_form.active, "Active", {'label_attr': {'class': 'control-label'}}) }}
@@ -221,7 +221,7 @@
                                                     <span class="second-icon fa fa-check-square "></span>
                                                     {{ form_widget(edit_form.active, {'attr': {'class': ''}}) }}
                                                 </label>
-                                                {{ form_errors(edit_form.active) }} 
+                                                <span class="help-block">{{ form_errors(edit_form.active) }}</span> 
                                             </div>
                                         </div>
                                     </div>

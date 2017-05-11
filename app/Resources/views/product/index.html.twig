@@ -85,12 +85,18 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="name"></div>
                             <div class="category"></div>
-                            <img src="" alt="image" width="130">
+                            <div class="sp-loading">
+                                <img src="{{ asset('assets/img/loading.gif') }}" alt="">
+                                <br><br> Looding ...
+                            </div>
+                            <div class="sp-wrap fotorama">
+                                
+                            </div>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-4 description">   
                                 </div>
@@ -150,13 +156,21 @@
         </div>
     </div>
 </div>
-<script src="{{ asset('assets/js/test.js') }}"></script>
 <script src="{{ asset('assets/js/product.js') }}"></script>
 <script>
     var products = [];
     var detailProduct = {};
-    //var id;
+
     {% for p in products %}
+        var imgProd=[];
+        var catProd=[];
+        var provProd=[];
+        var packProd=[];
+
+        {% for image in p.images %}  imgProd .push('{{image.path}}'); {% endfor %}
+        {% for cat in p.category %}  catProd .push('{{cat.name}}');   {% endfor %}
+        {% for prov in p.provider %} provProd.push('{{prov.name}}'); {% endfor %}
+        {% for pack in p.package %}  packProd.push('{{pack.name}}'); {% endfor %}
         detailProduct = {
             id            : {{p.id}},
             name          :'{{p.name}}',
@@ -166,20 +180,22 @@
             color         :'{{p.color}}',
             composition   :'{{p.composition}}',
             form          :'{{p.form}}',
+            weight        : {{p.weight}},
             unitPrice     : {{p.unitPrice}},
             wholesalePrice: {{p.wholesalePrice}},
             specialPrice  : {{p.specialPrice}},
             internetPrice : {{p.internetPrice}},
-            // images        : {% for image in p.images %} {{image.path}} {% endfor %},
-            // category      : {% for cat in p.category %} {{cat.name}} {% endfor %},
-            // provider      : {% for pro in p.provider %} {{pro.name}} {% endfor %},
-            // package       : {% for pack in p.package %} {{pack.name}} {% endfor %}
-
+            images        : imgProd,
+            category      : catProd,
+            provider      : provProd,
+            package       : packProd,
         }
         products.push(detailProduct);
     {% endfor %}
     Product.init(products);
 
-</script>
 
+    
+    
+</script>
 {% endblock %}

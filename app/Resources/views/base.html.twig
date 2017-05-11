@@ -26,6 +26,10 @@
         <link href="{{ asset('assets/css/themify-icons.css')}}" rel="stylesheet">
         <link href="{{ asset('assets/vendors/dropzone/dropzone.min.css')}}" rel="stylesheet">
         <link href="{{ asset('assets/vendors/sweetalert/css/sweetalert2.min.css')}}" rel="Stylesheet" >
+        <!-- product images switcher smoothproduct -->
+        <!-- <link href="{{ asset('assets/css/smoothproducts.css')}}" rel="Stylesheet" > -->
+        <!-- product images switcher fotorama -->
+        <link href="{{ asset('assets/vendors/fotorama/fotorama.css')}}" rel="Stylesheet" >
         <link href="{{ asset('assets/css/style.css')}}" rel="Stylesheet" >
         
     {% endblock %}
@@ -305,6 +309,10 @@
     <script src="{{ asset('assets/js/charts/chartjs-charts.js') }}"></script>
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <!-- product images switcher smoothproduct -->
+    <!-- <script src="{{ asset('assets/vendors/fotorama/fotorama.js') }}"></script> -->
+    <!-- product images switcher -->
+    <script src="{{ asset('assets/vendors/smoothproducts.min.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     
 {% endblock %}

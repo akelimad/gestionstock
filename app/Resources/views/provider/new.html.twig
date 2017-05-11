@@ -9,62 +9,62 @@
                         {{ form_start(form) }}
                             <div class="content">
                                 <h4 class="title text-center">Create provider</h4>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(form.name) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
                                             {{ form_label(form.name, "Name", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(form.name) }} 
+                                            <span class="help-block">{{ form_errors(form.name) }}</span> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(form.address) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
                                             {{ form_label(form.address, "Adresse", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(form.address) }} 
+                                            <span class="help-block">{{ form_errors(form.address) }}</span> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(form.price) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
                                             {{ form_label(form.price, "Prix", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.price, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(form.price) }} 
+                                            <span class="help-block">{{ form_errors(form.price) }}</span> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(form.moq) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
                                             {{ form_label(form.moq, "MOQ", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.moq, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(form.moq) }} 
+                                            <span class="help-block">{{ form_errors(form.moq) }}</span> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(form.productionCapacity) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
                                             {{ form_label(form.productionCapacity, "Capacité de production", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.productionCapacity, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(form.productionCapacity) }} 
+                                            <span class="help-block">{{ form_errors(form.productionCapacity) }}</span> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(form.active) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
                                             {{ form_label(form.active, "Active", {'label_attr': {'class': 'control-label'}}) }}
@@ -76,7 +76,7 @@
                                                 <span class="second-icon fa fa-check-square "></span>
                                                 {{ form_widget(form.active, {'attr': {'class': ''}}) }}
                                             </label>
-                                            {{ form_errors(form.active) }} 
+                                            <span class="help-block">{{ form_errors(form.active) }}</span> 
                                         </div>
                                     </div>
                                 </div>

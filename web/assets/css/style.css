@@ -1,7 +1,10 @@
 body{
 
 }
-
+ul{
+	list-style-type: none;
+	padding: 0;
+}
 /*login page */
 .card{
 	padding-bottom: 30px;
@@ -55,4 +58,8 @@ section.register{
 	padding: 13px 0;
     font-size: 17px;
     color: #525252;
+}
+
+.sp-wrap {
+	max-width: 500px;
 }
