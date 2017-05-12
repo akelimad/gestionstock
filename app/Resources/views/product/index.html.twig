@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %} 
-
+{% block title %}Poduit{% endblock %}
 {% block body %}
 
 <div class="content">
@@ -19,10 +19,8 @@
                                         <th>Id</th>
                                         <th>Photo</th>
                                         <th>Name</th>
-                                        <th>Description</th>
                                         <th>Prix unitaire</th>
                                         <th>Category</th>
-                                        <th>Parent category</th>
                                         <th>Status</th>
                                         <th class="disabled-sorting text-right">Actions</th>
                                     </tr>
@@ -37,14 +35,10 @@
                                         {% endfor %}
                                         </td>
                                         <td>{{p.name}}</td>
-                                        <td>{{p.description}}</td>
                                         <td>{{p.unitPrice}}</td>
                                         <td>
                                         {% for cat in p.category %}
                                             {{cat.name}}
-                                        </td>
-                                        <td>
-                                            {{cat.parent is null ? 'No parent' : cat.parent}}
                                         {% endfor %}
                                         </td>
                                         <td>{{p.active == 1 ? 'Active' : 'Not active'}}</td>
@@ -64,89 +58,15 @@
                                         <th>Id</th>
                                         <th>Photo</th>
                                         <th>Name</th>
-                                        <th>Description</th>
                                         <th>Prix unitaire</th>
                                         <th>Category</th>
-                                        <th>Sub category</th>
                                         <th>Status</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                 </tfoot>
                             </table>
                         </div>
-
-    <!-- Modal -->
-    <div id="productModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="gridSystemModalLabel">Product details</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="name"></div>
-                            <div class="category"></div>
-                            <div class="sp-loading">
-                                <img src="{{ asset('assets/img/loading.gif') }}" alt="">
-                                <br><br> Looding ...
-                            </div>
-                            <div class="sp-wrap fotorama">
-                                
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-4 description">   
-                                </div>
-                                <div class="col-md-4 size-inch">  
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4 size-cm">   
-                                </div>
-                                <div class="col-md-4 color"> 
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4 composition">  
-                                </div>
-                                <div class="col-md-4 form">  
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4 weight"> 
-                                </div>
-                                <div class="col-md-4 unit-price"> 
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4 wholesale-price"> 
-                                </div>
-                                <div class="col-md-4 special-price"> 
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4 internet-price"> 
-                                </div>
-                                <div class="col-md-4 package"> 
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4 provider"> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-        </div>
-    </div><!-- /.modal -->
-
+                        {% include "product/details.html.twig" %}
                     </div>
                     <!-- end content-->
                 </div>
@@ -158,6 +78,8 @@
 </div>
 <script src="{{ asset('assets/js/product.js') }}"></script>
 <script>
+
+
     var products = [];
     var detailProduct = {};
 
@@ -194,8 +116,5 @@
     {% endfor %}
     Product.init(products);
 
-
-    
-    
 </script>
 {% endblock %}

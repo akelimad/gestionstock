@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}Emballage{% endblock %}
 {% block body %}
     <div class="content">
         <div class="container-fluid">
@@ -8,11 +8,11 @@
                     <div class="card">
                         {{ form_start(form) }}
                             <div class="content">
-                                <h4 class="title text-center">Create package</h4>
+                                <h4 class="title text-center">Ajouter un emballage</h4>
                                 <div class="form-group {{ form_errors(form.name) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(form.name, "Name", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(form.name, "Nom", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
@@ -23,7 +23,7 @@
                                 <div class="form-group {{ form_errors(form.size) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(form.size, "Size", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(form.size, "Taille", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.size, {'attr': {'class': 'form-control'}}) }}
@@ -45,7 +45,7 @@
                                 <div class="form-group {{ form_errors(form.marineCost) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(form.marineCost, "Marine cost", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(form.marineCost, "Fret Maritime", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.marineCost, {'attr': {'class': 'form-control'}}) }}
@@ -56,7 +56,7 @@
                                 <div class="form-group {{ form_errors(form.airCost) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(form.airCost, "Air cost", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(form.airCost, "Air Fret", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.airCost, {'attr': {'class': 'form-control'}}) }}
@@ -82,7 +82,7 @@
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-plus"></i> Add pachage</button>
+                                <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-plus"></i> Ajouter</button>
                             </div>
                         {{ form_end(form) }}
                     </div>

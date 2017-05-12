@@ -80,6 +80,13 @@ class ProductController extends Controller
             }
             $product->setImages($images);
             $em->persist($product);
+            try{
+
+            } catch (\Exception $e) {
+                $errorMessage = $e->getMessage();
+                // Add your message in the session
+                $this->get("session")->getFlashBag()->add('error', 'PDO Exception :'.$errorMessage);   
+            }
             $em->flush();
             return $this->redirectToRoute('product_index');
         }

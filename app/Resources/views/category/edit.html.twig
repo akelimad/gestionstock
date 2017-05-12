@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}Categorie{% endblock %}
 {% block body %}
     <div class="content">
         <div class="container-fluid">
@@ -8,11 +8,11 @@
                     <div class="card">
                         {{ form_start(edit_form) }}
                             <div class="content">
-                                <h4 class="title text-center">Edit category</h4>
+                                <h4 class="title text-center">Modifier la categorie</h4>
                                 <div class="form-group {{ form_errors(edit_form.name) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(edit_form.name, "Name", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(edit_form.name, "Nom", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(edit_form.name, {'attr': {'class': 'form-control'}}) }}
@@ -34,7 +34,7 @@
                                 <div class="form-group {{ form_errors(edit_form.parent) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(edit_form.parent, "Parent category", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(edit_form.parent, "Categorie parente", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(edit_form.parent, {'attr': {'class': 'form-control'}}) }}
@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <button type="submit" class="btn btn-info btn-fill">Edit category</button>
+                                <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-edit"></i> Mettre à jour</button>
                             </div>
                         {{ form_end(edit_form) }}
                     </div>

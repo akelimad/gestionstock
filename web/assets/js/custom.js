@@ -1,7 +1,9 @@
 $(document).ready(function() {
 	'use strict'
     //init product images switcher
-    
+    $(".sidebar-wrapper .nav li").click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
     //demo.initStatsDashboard();
     demo.initVectorMap();
     demo.initCirclePercentage();

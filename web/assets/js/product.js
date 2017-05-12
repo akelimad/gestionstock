@@ -9,35 +9,40 @@ var Product = {
 	        me.showProduct(id);
 	    });
   	},
-  	showProduct: function(id){
+    showProduct: function(id){
+
+      var product = _.findWhere(products, {id : id});
+      var fotorama_image=[];
+      $('.fotorama').remove();
+      $('.modal-body .row .col-md-6 .imagesProduct').append('<div class="fotorama" data-nav="thumbs" data-allowfullscreen="true" data-keyboard="true"></div>');
+
+      $(".name").empty().html(product.name);
+      $(".description").empty().html("Description : "+product.description);
+      $(".size-inch").empty().html("<i class='fa fa-forward'></i> Taille(inch) : "+product.sizeInch);
+      $(".size-cm").empty().html("<i class='fa fa-forward'></i> Taille(cm) : "+product.sizeCm);
+      $(".color").empty().html("Color : "+product.color);
+      $(".composition").empty().html("Composition : "+product.composition);
+      $(".form").empty().html("Form : "+product.form);
+      $(".weight").empty().html("<i class='fa fa-forward'></i> Poids(kg) : "+product.weight);
+      $(".unit-price").empty().html("<i class='fa fa-forward'></i> Prix unitaire  : "+product.unitPrice + " $");
+      $(".wholesale-price").empty().html("<i class='fa fa-forward'></i> Prix grossiste  : "+product.wholesalePrice + " $");
+      $(".special-price").empty().html("<i class='fa fa-forward'></i> Prix spécial  : "+product.specialPrice + " $");
+      $(".internet-price").empty().html("<i class='fa fa-forward'></i> Prix internet  : "+product.internetPrice + " $");
       $(".fotorama").empty();
-  		var product = _.findWhere(products, {id : id});
-  		$(".name").empty().html(product.name);
-  		$(".description").empty().html("description : "+product.description);
-  		$(".size-inch").empty().html("size inch : "+product.sizeInch);
-  		$(".size-cm").empty().html("size cm : "+product.sizeCm);
-  		$(".color").empty().html("color : "+product.color);
-  		$(".composition").empty().html("composition : "+product.composition);
-  		$(".form").empty().html("form : "+product.form);
-  		$(".weight").empty().html("weight : "+product.weight);
-  		$(".unit-price").empty().html("internet price : "+product.unitPrice);
-  		$(".wholesale-price").empty().html("wholesale price : "+product.wholesalePrice);
-  		$(".special-price").empty().html("special price : "+product.specialPrice);
-  		$(".special-price").empty().html("special price : "+product.specialPrice);
-      $(".internet-price").empty().html("internet price : "+product.internetPrice);
       for (var i = 0; i < product.images.length; i++) {
-        $(".fotorama").append('<a href="/gestionstock/web/uploads/images/'+product.images[i]+'"><img src="/gestionstock/web/uploads/images/'+product.images[i]+'"></a>'); 
+        var img={'img'  :'/gestionstock/web/uploads/images/'+product.images[i],
+                 'thumb':'/gestionstock/web/uploads/images/'+product.images[i]
+        }
+        fotorama_image.push(img);
       }
-      $('.fotorama').find('a:first').addClass('sp-default');
+      $(".category").empty().html("<i class='fa fa-tag'></i> "+product.category);
+      $(".package").empty().html("package : "+product.package);
+      $(".provider").empty().html("provider : "+product.provider);
 
-  		$(".category").empty().html("Category : "+product.category);
-  		$(".package").empty().html("package : "+product.package);
-  		$(".provider").empty().html("provider : "+product.provider);
-
-      $('.fotorama').smoothproducts();
-
-  		$('#productModal').modal('show'); 
-	}
+      $('.fotorama').fotorama({'data':fotorama_image});
+      
+      $('#productModal').modal('show'); 
+  }
 
 }
 	

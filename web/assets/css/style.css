@@ -33,13 +33,15 @@ ul{
 	background: rgb(116, 207, 251);
 }
 section.register{
-	background: url("../../assets/img/bg-register.jpg");
+	/*background: url("../../assets/img/bg-register.jpg");*/
 }
+
+/*customization of modal that show product details*/
 
 .modal-backdrop.fade.in{
 	z-index: 0;
 }
-.modal-body .name,
+/*modal-body .name,
 .modal-body .description,
 .modal-body .size-inch,
 .modal-body .size-cm,
@@ -53,13 +55,26 @@ section.register{
 .modal-body .wholesale-price,
 .modal-body .internet-price,
 .modal-body .package,
-.modal-body .provider
-{
+.modal-body */
+.modal-body .name{
+    font-size: 20px;
+    color: #000;
+}
+.modal-body .category{
 	padding: 13px 0;
     font-size: 17px;
     color: #525252;
 }
-
-.sp-wrap {
-	max-width: 500px;
+.modal-body .description{
+    font-size: 20px;
+    color: #000;
+}
+.modal-body .list-items ul li{
+	padding: 5px 0;
+	transition: all 0.5s;
+}
+.modal-body .list-items ul li:hover{
+	padding: 5px 8px;
+	color: #ca4918;
+	cursor: pointer;
 }
