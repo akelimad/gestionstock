@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}Categorie{% endblock %}
 {% block body %}
     <div class="content">
         <div class="container-fluid">
@@ -8,41 +8,41 @@
                     <div class="card">
                         {{ form_start(form) }}
                             <div class="content">
-                                <h4 class="title text-center">Create category</h4>
-                                <div class="form-group">
+                                <h4 class="title text-center">Ajouter une categorie </h4>
+                                <div class="form-group {{ form_errors(form.name) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(form.name, "Name", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(form.name, "Nom", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(form.name) }} 
+                                            <span class="help-block">{{ form_errors(form.name) }}</span> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(form.description) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
                                             {{ form_label(form.description, "Description", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(form.description) }} 
+                                            <span class="help-block">{{ form_errors(form.description) }}</span> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(form.parent) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(form.parent, "Parent category", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(form.parent, "Categorie parente ", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.parent, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(form.parent) }} 
+                                            <span class="help-block">{{ form_errors(form.parent) }}</span> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(form.active) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
                                             {{ form_label(form.active, "Active", {'label_attr': {'class': 'control-label'}}) }}
@@ -54,13 +54,13 @@
                                                 <span class="second-icon fa fa-check-square "></span>
                                                 {{ form_widget(form.active, {'attr': {'class': ''}}) }}
                                             </label>
-                                            {{ form_errors(form.active) }} 
+                                            <span class="help-block">{{ form_errors(form.active) }}</span> 
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <button type="submit" class="btn btn-info btn-fill">Add category</button>
+                                <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-plus"></i> Ajouter</button>
                             </div>
                         {{ form_end(form) }}
                     </div>

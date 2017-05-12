@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %} 
-
+{% block title %}Poduit{% endblock %}
 {% block body %}
 
 <div class="content">
@@ -19,10 +19,8 @@
                                         <th>Id</th>
                                         <th>Photo</th>
                                         <th>Name</th>
-                                        <th>Description</th>
                                         <th>Prix unitaire</th>
                                         <th>Category</th>
-                                        <th>Parent category</th>
                                         <th>Status</th>
                                         <th class="disabled-sorting text-right">Actions</th>
                                     </tr>
@@ -37,19 +35,15 @@
                                         {% endfor %}
                                         </td>
                                         <td>{{p.name}}</td>
-                                        <td>{{p.description}}</td>
                                         <td>{{p.unitPrice}}</td>
                                         <td>
                                         {% for cat in p.category %}
                                             {{cat.name}}
-                                        </td>
-                                        <td>
-                                            {{cat.parent is null ? 'No parent' : cat.parent}}
                                         {% endfor %}
                                         </td>
                                         <td>{{p.active == 1 ? 'Active' : 'Not active'}}</td>
                                         <td class="text-right">
-                                            <a class="btn btn-simple btn-default btn-icon btn-fill edit showModal" data-toggle="modal" data-target="#show-product"><i class="ti-eye"></i></a>
+                                            <a data-id="{{ p.id }}" class="btn btn-simple btn-default btn-icon btn-fill edit showProduct" data-toggle="modal" data-target="#show-productxx"><i class="ti-eye"></i></a>
 
                                             <a href="{{ path('product_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
 
@@ -64,42 +58,15 @@
                                         <th>Id</th>
                                         <th>Photo</th>
                                         <th>Name</th>
-                                        <th>Description</th>
                                         <th>Prix unitaire</th>
                                         <th>Category</th>
-                                        <th>Sub category</th>
                                         <th>Status</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                 </tfoot>
                             </table>
                         </div>
-
-    <!-- Modal -->
-    <div id="show-product" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="gridSystemModalLabel">Product details</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            name: 
-                        </div>
-                        <div class="col-md-8">
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-        </div>
-    </div><!-- /.modal -->
-
+                        {% include "product/details.html.twig" %}
                     </div>
                     <!-- end content-->
                 </div>
@@ -109,5 +76,45 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('assets/js/product.js') }}"></script>
+<script>
 
+
+    var products = [];
+    var detailProduct = {};
+
+    {% for p in products %}
+        var imgProd=[];
+        var catProd=[];
+        var provProd=[];
+        var packProd=[];
+
+        {% for image in p.images %}  imgProd .push('{{image.path}}'); {% endfor %}
+        {% for cat in p.category %}  catProd .push('{{cat.name}}');   {% endfor %}
+        {% for prov in p.provider %} provProd.push('{{prov.name}}'); {% endfor %}
+        {% for pack in p.package %}  packProd.push('{{pack.name}}'); {% endfor %}
+        detailProduct = {
+            id            : {{p.id}},
+            name          :'{{p.name}}',
+            description   :'{{p.description}}',
+            sizeInch      : {{p.sizeInch}},
+            sizeCm        : {{p.sizeCm}},
+            color         :'{{p.color}}',
+            composition   :'{{p.composition}}',
+            form          :'{{p.form}}',
+            weight        : {{p.weight}},
+            unitPrice     : {{p.unitPrice}},
+            wholesalePrice: {{p.wholesalePrice}},
+            specialPrice  : {{p.specialPrice}},
+            internetPrice : {{p.internetPrice}},
+            images        : imgProd,
+            category      : catProd,
+            provider      : provProd,
+            package       : packProd,
+        }
+        products.push(detailProduct);
+    {% endfor %}
+    Product.init(products);
+
+</script>
 {% endblock %}

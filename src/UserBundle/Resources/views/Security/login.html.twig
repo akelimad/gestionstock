@@ -1,5 +1,5 @@
 {% extends "login.html.twig" %}
-
+{% block title %}Login{% endblock %}
 {% block body %}
     <div class="content">
         <div class="container">
@@ -9,37 +9,32 @@
 				        <div class="alert alert-danger">
 				        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
 				        	</button>
-				        	{{ error.message | replace({"Bad credentials." : "Invalid username or password."}) }}
+				        	{{ error.message | replace({"Bad credentials." : "Nom d'utilisateur ou mot de passe est invalide !"}) }}
 				        </div>
 				    {% endif %}
                     <form  action="{{ path('fos_user_security_check') }}" method="post">
 
                         <div class="card card-login card-hidden">
                             <div class="header text-center">
-                                <h3 class="title">Login</h3>
+                                <h3 class="title">Authentification !</h3>
                             </div>
                             <div class="content">
-								<h5 class="text-center">Digital Work Account</h5>
+								<h5 class="text-center">Vueillez entrer votre nom d'utilisateur et le mot de passe pour accéder a l'application.</h5>
                                 <div class="form-group">
-                                    <label>Username</label>
+                                    <label>Nom d'utilisateur</label>
                                     <input type="text" id="username" name="_username" placeholder="Enter your username" class="form-control input-no-border" required="">
                                 </div>
                                 <div class="form-group">
-                                    <label>Password</label>
+                                    <label>Mot de passe</label>
                                     <input type="password" id="password" name="_password" placeholder="Password" class="form-control input-no-border" required="">
                                 </div>
                                 <div class="form-group">
                                     <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                                    <label for="remember_me">Remember me</label>
+                                    <label for="remember_me">Se souvenir de moi</label>
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-rose btn-wd btn-lg">Sign In</button>
-                                <p class="register-label">New to Digital Work ?&nbsp;&nbsp;
-                                	<a href=" {{path('fos_user_registration_register')}} ">
-                    					<i class="ti-id-badge"></i> Register
-                					</a>
-                				</p>
+                                <button type="submit" class="btn btn-rose btn-wd btn-lg">Déconnexion</button>
                             </div>
                         </div>
                     </form>

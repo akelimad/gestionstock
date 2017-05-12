@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}Fournisseur{% endblock %}
 {% block body %}
     <div class="content">
         <div class="container-fluid">
@@ -8,63 +8,63 @@
                     <div class="card">
                         {{ form_start(edit_form) }}
                             <div class="content">
-                                <h4 class="title text-center">Edit provider</h4>
-                                <div class="form-group">
+                                <h4 class="title text-center">Modifier un fornisseur</h4>
+                                <div class="form-group {{ form_errors(edit_form.name) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(edit_form.name, "Name", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(edit_form.name, "Nom", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(edit_form.name, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(edit_form.name) }} 
+                                            <span class="help-block">{{ form_errors(edit_form.name) }}</span> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(edit_form.address) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
                                             {{ form_label(edit_form.address, "Adresse", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(edit_form.address, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(edit_form.address) }} 
+                                            <span class="help-block">{{ form_errors(edit_form.address) }}</span> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(edit_form.price) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
                                             {{ form_label(edit_form.price, "Prix", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(edit_form.price, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(edit_form.price) }} 
+                                            <span class="help-block">{{ form_errors(edit_form.price) }}</span> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(edit_form.moq) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
                                             {{ form_label(edit_form.moq, "MOQ", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(edit_form.moq, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(edit_form.moq) }} 
+                                            <span class="help-block">{{ form_errors(edit_form.moq) }}</span> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(edit_form.productionCapacity) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
                                             {{ form_label(edit_form.productionCapacity, "Capacité de production", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(edit_form.productionCapacity, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(edit_form.productionCapacity) }} 
+                                            <span class="help-block">{{ form_errors(edit_form.productionCapacity) }} </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(edit_form.active) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
                                             {{ form_label(edit_form.active, "Active", {'label_attr': {'class': 'control-label'}}) }}
@@ -74,15 +74,15 @@
                                                 <span class="icons">
                                                 <span class="first-icon fa fa-square"></span>
                                                 <span class="second-icon fa fa-check-square "></span>
-                                                {{ form_widget(form.active, {'attr': {'class': ''}}) }}
+                                                {{ form_widget(edit_form.active, {'attr': {'class': ''}}) }}
                                             </label>
-                                            {{ form_errors(edit_form.active) }} 
+                                            <span class="help-block">{{ form_errors(edit_form.active) }} 
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-plus"></i> Edit provider</button>
+                                <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-plus"></i> Mettre à jour</button>
                             </div>
                         {{ form_end(edit_form) }}
                     </div>

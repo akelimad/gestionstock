@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use ProductBundle\Form\ProductType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 /**
@@ -38,12 +39,14 @@ class ProductController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $products = $em->getRepository('ProductBundle:Product')->findAll();
+        
         // foreach($products as $prod){
         //     foreach($prod->getCategory() as $cat){
         //         var_dump($cat->getName());
         //     }
         //     die;
         // }
+
         return $this->render('product/index.html.twig', array(
             'products' => $products,
             'json_products' => json_encode($products)
@@ -77,6 +80,13 @@ class ProductController extends Controller
             }
             $product->setImages($images);
             $em->persist($product);
+            try{
+
+            } catch (\Exception $e) {
+                $errorMessage = $e->getMessage();
+                // Add your message in the session
+                $this->get("session")->getFlashBag()->add('error', 'PDO Exception :'.$errorMessage);   
+            }
             $em->flush();
             return $this->redirectToRoute('product_index');
         }
@@ -90,17 +100,20 @@ class ProductController extends Controller
     /**
      * Finds and displays a product entity.
      *
-     * @Route("/{id}", name="product_show")
+     * @Route("/{id}", name="product_show" ,options={"expose"=true})
      * @Method("GET")
      */
     public function showAction(Product $product)
     {
-        $deleteForm = $this->createDeleteForm($product);
+        //$deleteForm = $this->createDeleteForm($product);
 
-        return $this->render('product/show.html.twig', array(
-            'product' => $product,
-            'delete_form' => $deleteForm->createView(),
-        ));
+        // $response = new Response(json_encode($products));
+        // $response->headers->set('Content-Type', 'application/json');
+        // return $response;
+        //return new JsonResponse(array('products' => $product));
+         $product=array('test'=>'test');
+         $response = new Response(array('data'=>json_encode($product)));
+         return $response;
     }
 
     /**

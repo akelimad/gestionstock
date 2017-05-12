@@ -39,7 +39,7 @@ class ImageProduct
     /**
      * Many images have One Product.
      * @ORM\ManyToOne(targetEntity="ProductBundle\Entity\Product", inversedBy="images")
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $product;
 

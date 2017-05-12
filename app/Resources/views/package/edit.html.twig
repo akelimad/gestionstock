@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}Emballage{% endblock %}
 {% block body %}
     <div class="content">
         <div class="container-fluid">
@@ -8,63 +8,63 @@
                     <div class="card">
                         {{ form_start(edit_form) }}
                             <div class="content">
-                                <h4 class="title text-center">Create package</h4>
-                                <div class="form-group">
+                                <h4 class="title text-center">Modifier un emballage</h4>
+                                <div class="form-group {{ form_errors(edit_form.name) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(edit_form.name, "Name", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(edit_form.name, "Nom", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(edit_form.name, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(edit_form.name) }} 
+                                            <span class="help-block">{{ form_errors(edit_form.name) }}</span> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(edit_form.size) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(edit_form.size, "Size", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(edit_form.size, "Taille", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(edit_form.size, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(edit_form.size) }} 
+                                            <span class="help-block">{{ form_errors(edit_form.size) }}</span> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(edit_form.cbm) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
                                             {{ form_label(edit_form.cbm, "CMB", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(edit_form.cbm, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(edit_form.cbm) }} 
+                                            <span class="help-block">{{ form_errors(edit_form.cbm) }}</span> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(edit_form.marineCost) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(edit_form.marineCost, "Marine cost", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(edit_form.marineCost, "Fret Maritime", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(edit_form.marineCost, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(edit_form.marineCost) }} 
+                                            <span class="help-block">{{ form_errors(edit_form.marineCost) }} </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(edit_form.airCost) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(edit_form.airCost, "Air cost", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(edit_form.airCost, "Air Fret", {'label_attr': {'class': 'control-label'}}) }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(edit_form.airCost, {'attr': {'class': 'form-control'}}) }}
-                                            {{ form_errors(edit_form.airCost) }} 
+                                            <span class="help-block">{{ form_errors(edit_form.airCost) }} </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group {{ form_errors(edit_form.active) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
                                             {{ form_label(edit_form.active, "Active", {'label_attr': {'class': 'control-label'}}) }}
@@ -76,13 +76,13 @@
                                                 <span class="second-icon fa fa-check-square "></span>
                                                 {{ form_widget(edit_form.active, {'attr': {'class': ''}}) }}
                                             </label>
-                                            {{ form_errors(edit_form.active) }} 
+                                            <span class="help-block">{{ form_errors(edit_form.active) }} </span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-plus"></i> Add pachage</button>
+                                <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-edit"></i> Mettre à jour</button>
                             </div>
                         {{ form_end(edit_form) }}
                     </div>
