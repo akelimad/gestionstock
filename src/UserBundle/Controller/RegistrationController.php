@@ -1,21 +1,12 @@
 <?php 
-// src/UserBundle/Controller/RegistrationController.php
+
 namespace UserBundle\Controller;
 
+use UserBundle\Form\Type\RegistrationType;
 use UserBundle\Entity\User;
-use FOS\UserBundle\FOSUserEvents;
-use FOS\UserBundle\Event\FormEvent;
-use FOS\UserBundle\Event\GetResponseUserEvent;
-use FOS\UserBundle\Event\UserEvent;
-use FOS\UserBundle\Event\FilterUserResponseEvent;
-use Symfony\Component\DependencyInjection\ContainerAware;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use FOS\UserBundle\Model\UserInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class RegistrationController extends Controller
 {
@@ -24,58 +15,33 @@ class RegistrationController extends Controller
      */
     public function registerAction(Request $request)
     {
-        /** @var $formFactory FactoryInterface */
-        $formFactory = $this->get('fos_user.registration.form.factory');
-        /** @var $userManager UserManagerInterface */
-        $userManager = $this->get('fos_user.user_manager');
-        /** @var $dispatcher EventDispatcherInterface */
-        $dispatcher = $this->get('event_dispatcher');
+        // 1) build the form
+        $user = new User();
+        $form = $this->createForm(RegistrationType::class, $user);
 
-        $user = $userManager->createUser();
-        $user->setEnabled(true);
-
-        $event = new GetResponseUserEvent($user, $request);
-        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
-
-        if (null !== $event->getResponse()) {
-            return $event->getResponse();
-        }
-
-        $form = $formFactory->createForm();
-        $form->setData($user);
-
+        // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
 
-        if ($form->isSubmitted()) {
-            if ($form->isValid()) {
-                $event = new FormEvent($form, $request);
-                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+            // 3) Encode the password (you could also do this via Doctrine listener)
+            $password = $this->get('security.password_encoder')
+                ->encodePassword($user, $user->getPlainPassword());
+            $user->setPassword($password);
+            
 
-                $userManager->updateUser($user);
+            // 4) save the User!
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
 
-                if (null === $response = $event->getResponse()) {
-                    //$url = $this->generateUrl('fos_user_registration_confirmed');
-                    //$response = new RedirectResponse($url);
-                    return $this->redirectToRoute('user_default_index');
-                }
+            // ... do any other work - like sending them an email, etc
+            // maybe set a "flash" success message for the user
 
-                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
-
-                return $response;
-            }
-
-            $event = new FormEvent($form, $request);
-            $dispatcher->dispatch(FOSUserEvents::REGISTRATION_FAILURE, $event);
-
-            if (null !== $response = $event->getResponse()) {
-                return $response;
-            }
+            return $this->redirectToRoute('user_default_index');
         }
-        return $this->render('UserBundle:Registration:register.html.twig'
-            ,array('form' => $form->createView(),)
-        );
 
+        return $this->render('registration/register.html.twig',
+            array('form' => $form->createView())
+        );
     }
 }
-
-?>

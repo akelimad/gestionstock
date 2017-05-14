@@ -15,4 +15,13 @@ class DefaultController extends Controller
     {
         return $this->render('AppBundle:Default:index.html.twig');
     }
+
+    /**
+     * @Route("/documentation")
+     */
+    public function docAction()
+    {
+        return $this->render('AppBundle:Default:doc.html.twig');
+    }
+
 }

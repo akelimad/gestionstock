@@ -5,7 +5,7 @@ namespace UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -24,7 +24,7 @@ class User extends BaseUser{
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+        //$this->roles=array();
     }
 
 
