@@ -129,7 +129,10 @@
                                     <li>
                                         <a href="#"><i class="fa fa-user fw"></i>  
                                             {% if app.user %}
-                                                {{app.user.username}}
+                                                {{app.user.username}} : 
+                                                {% for role in app.user.roles %}
+                                                    {{role}}
+                                                {% endfor %}
                                             {% else %}
                                                 Anonymous
                                             {% endif %}

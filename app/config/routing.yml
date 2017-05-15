@@ -1,3 +1,4 @@
+
 product_image_product:
     resource: "@ProductBundle/Controller/ImageProductController.php"
     type:     annotation

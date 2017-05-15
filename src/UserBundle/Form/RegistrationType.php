@@ -1,6 +1,6 @@
 <?php 
 
-namespace UserBundle\Form\Type;
+namespace UserBundle\Form;
 
 use UserBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
@@ -17,15 +17,17 @@ class RegistrationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $builder->add('roles', ChoiceType::class, array(
+        $builder
+            ->add('roles', ChoiceType::class, array(
                 'choices'   => [
-                    'ROLE_SUPER_ADMIN' => 'ROLE_SUPER_ADMIN',
-                    'ROLE_ADMIN' =>       'ROLE_ADMIN',
-                    'ROLE_USER' =>        'ROLE_USER'
+                    'ROLE SUPER ADMIN' => 'ROLE_SUPER_ADMIN',
+                    'ROLE ADMIN' =>       'ROLE_ADMIN',
+                    'ROLE USER' =>        'ROLE_USER'
                 ],
                 'required'  => true,
                 'multiple' => true
             ))
+            ->add('enabled');
         ;
     }
 

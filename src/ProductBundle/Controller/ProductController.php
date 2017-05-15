@@ -4,6 +4,8 @@ namespace ProductBundle\Controller;
 
 use ProductBundle\Entity\Product;
 use ProductBundle\Entity\ImageProduct;
+use ProductBundle\Entity\ProductLog;
+use UserBundle\Entity\User;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -13,6 +15,7 @@ use ProductBundle\Form\ProductType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 
 /**
@@ -58,9 +61,11 @@ class ProductController extends Controller
      *
      * @Route("/new", name="product_new", options={"expose"=true})
      * @Method({"GET", "POST"})
+     * @Security("has_role('ROLE_USER')")
      */
     public function newAction(Request $request){
         $product = new Product();
+        $productlog = new ProductLog();
         $form = $this->createForm('ProductBundle\Form\ProductType', $product);
         $form->handleRequest($request); 
         $em = $this->getDoctrine()->getEntityManager();
@@ -78,15 +83,16 @@ class ProductController extends Controller
                     $images[] = $imageProduct;
                 }
             }
-            $product->setImages($images);
-            $em->persist($product);
-            try{
 
-            } catch (\Exception $e) {
-                $errorMessage = $e->getMessage();
-                // Add your message in the session
-                $this->get("session")->getFlashBag()->add('error', 'PDO Exception :'.$errorMessage);   
-            }
+            $product->setImages($images);
+
+            $productlog->setProduct($product);
+            $productlog->setUser($this->getUser());
+            $productlog->setAction("Add product");
+
+
+            $em->persist($product);
+            $em->persist($productlog);
             $em->flush();
             return $this->redirectToRoute('product_index');
         }
@@ -124,6 +130,8 @@ class ProductController extends Controller
      */
     public function editAction(Request $request, Product $product)
     {
+        $productlog = new ProductLog();
+        $em = $this->getDoctrine()->getEntityManager();
         $deleteForm = $this->createDeleteForm($product);
         $editForm = $this->createForm('ProductBundle\Form\ProductType', $product);
         $editForm->handleRequest($request);
@@ -145,6 +153,10 @@ class ProductController extends Controller
 
             }
             $product->setImages($images);
+            $productlog->setProduct($product);
+            $productlog->setUser($this->getUser());
+            $productlog->setAction("Edit product");
+            $em->persist($productlog);
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('product_index');
         }

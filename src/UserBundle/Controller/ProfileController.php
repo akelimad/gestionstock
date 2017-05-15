@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FOS\UserBundle\Controller;
+namespace UserBundle\Controller;
 
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
@@ -71,8 +71,8 @@ class ProfileController extends Controller
             return $event->getResponse();
         }
 
-        /** @var $formFactory FactoryInterface */
-        $formFactory = $this->get('fos_user.profile.form.factory');
+        
+        $formFactory = $this->get('app.profile.form');
 
         $form = $formFactory->createForm();
         $form->setData($user);
@@ -98,7 +98,7 @@ class ProfileController extends Controller
             return $response;
         }
 
-        return $this->render('@FOSUser/Profile/edit.html.twig', array(
+        return $this->render('profile/edit.html.twig', array(
             'form' => $form->createView(),
         ));
     }

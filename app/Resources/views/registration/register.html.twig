@@ -64,7 +64,17 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="form-group {{ form_errors(form.enabled) ? 'has-error': '' }}">
+                    <div class="row">
+                        <div class="col-md-4">
+                            {{ form_label(form.enabled, "Active", {'label_attr': {'class': 'control-label'}}) }}
+                        </div>
+                        <div class="col-md-8">
+                            {{ form_widget(form.enabled, {'attr': {'class': ''}}) }}
+                            <span class="help-block">{{ form_errors(form.enabled) }} </span>
+                        </div>
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="col-md-8 col-md-offset-4" style="margin-top:10px;">
                         <button type="submit" class="btn btn-primary">

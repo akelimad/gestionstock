@@ -20,6 +20,11 @@ class User extends BaseUser{
      */
     protected $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="ProductBundle\Entity\ProductLog", mappedBy="user")
+     */
+    private $user_log;
+
 
     public function __construct()
     {
@@ -27,5 +32,24 @@ class User extends BaseUser{
         //$this->roles=array();
     }
 
+    /**
+     * Get userLog
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUserLog()
+    {
+        return $this->user_log;
+    }
+
+    /**
+     * Set userLog
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function setUserLog($user_log)
+    {
+        return $this->user_log=$user_log;
+    }
 
 }

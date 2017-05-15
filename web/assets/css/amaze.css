@@ -10270,14 +10270,14 @@ footer {
   .accordion-alt .accordion-header:after {
     content: ''; }
   .accordion-alt .accordion-header:before {
-    content: 'add';
+    content: '\2b';
     left: 10px;
     top: 13px;
     color: #68B3C8; }
   .accordion-alt .accordion-header.ui-state-active {
     border-bottom: 0; }
   .accordion-alt .accordion-header.ui-state-active:before {
-    content: 'remove'; }
+    content: '\2212'; }
   .accordion-alt .accordion-header:first-child {
     border-top: none !important; }
 .accordion-alt .accordion-content {

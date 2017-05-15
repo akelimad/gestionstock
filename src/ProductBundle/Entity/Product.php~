@@ -669,24 +669,7 @@ class Product
     }
 
 
-    /**
-     * Get productLog
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProductLog()
-    {
-        return $this->product_log;
-    }
+    
 
-    /**
-     * Set productLog
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function setProductLog($product_log)
-    {
-        return $this->product_log=$product_log;
-    }
-
+    
 }
