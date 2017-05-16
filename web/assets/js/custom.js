@@ -243,12 +243,12 @@ $(document).ready(function() {
         var product_results = $('#product-results');
         //alert(url);
         $.ajax({
-            ajax: true,
+            //ajax: true,
             type: 'GET',
             url:  url,
             dataType: 'html',
             success: function(data){
-                product_results.empty().html(data.products);
+                product_results.html(data);
                 console.log(data);
             },
             error: function(){
@@ -258,8 +258,23 @@ $(document).ready(function() {
     });
 
     $("#filter-by-prov").change(function(){
-        var prov = $(this).val();
-        alert(prov);
+        var provider_id = $(this).val();
+        var url = Routing.generate('filter-by-prov', {'provider_id': provider_id});
+        var product_results = $('#product-results');
+        alert(url);
+        $.ajax({
+            //ajax: true,
+            type: 'GET',
+            url:  url,
+            dataType: 'html',
+            success: function(data){
+                product_results.html(data);
+                console.log(data);
+            },
+            error: function(){
+                console.log("error ...");
+            }
+        });
     });
 
 

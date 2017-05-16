@@ -209,10 +209,10 @@ class ProductController extends Controller
     /**
      * Lists searched entities.
      *
-     * @Route("/filter/{category_id}", name="filter-by-cat" ,options={"expose"=true})
+     * @Route("/cat/{category_id}", name="filter-by-cat" ,options={"expose"=true})
      * @Method("GET")
      */
-    public function searchAction($category_id)
+    public function FilterByCatAction($category_id)
     {
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('CategoryBundle:Category')->findAll();
@@ -223,14 +223,33 @@ class ProductController extends Controller
 
         $products = $category->getProduct();
 
-        return $this->render('product/index.html.twig', array(
+        return $this->render('product/results.html.twig', array(
             'products' => $products,
-            'categories' => $categories,
-            'providers' => $providers,
         ));
         
-        
+    }
 
+    /**
+     * Lists searched entities.
+     *
+     * @Route("/prov/{provider_id}", name="filter-by-prov" ,options={"expose"=true})
+     * @Method("GET")
+     */
+    public function FilterByProvAction($provider_id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('CategoryBundle:Category')->findAll();
+        $providers = $em->getRepository('ProviderBundle:Provider')->findAll();
+        $provider = $this->getDoctrine()
+        ->getRepository('ProviderBundle:Provider')
+        ->find($provider_id);
+
+        $products = $provider->getProduct();
+
+        return $this->render('product/results.html.twig', array(
+            'products' => $products,
+        ));
+        
     }
 
 
