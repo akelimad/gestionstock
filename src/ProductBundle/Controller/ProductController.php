@@ -42,7 +42,8 @@ class ProductController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $products = $em->getRepository('ProductBundle:Product')->findAll();
-        
+        $categories = $em->getRepository('CategoryBundle:Category')->findAll();
+        $providers = $em->getRepository('ProviderBundle:Provider')->findAll();
         // foreach($products as $prod){
         //     foreach($prod->getCategory() as $cat){
         //         var_dump($cat->getName());
@@ -52,7 +53,8 @@ class ProductController extends Controller
 
         return $this->render('product/index.html.twig', array(
             'products' => $products,
-            'json_products' => json_encode($products)
+            'categories' => $categories,
+            'providers' => $providers,
         ));
     }
 
@@ -203,4 +205,33 @@ class ProductController extends Controller
             ->getForm()
         ;
     }
+
+    /**
+     * Lists searched entities.
+     *
+     * @Route("/filter/{category_id}", name="filter-by-cat" ,options={"expose"=true})
+     * @Method("GET")
+     */
+    public function searchAction($category_id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('CategoryBundle:Category')->findAll();
+        $providers = $em->getRepository('ProviderBundle:Provider')->findAll();
+        $category = $this->getDoctrine()
+        ->getRepository('CategoryBundle:Category')
+        ->find($category_id);
+
+        $products = $category->getProduct();
+
+        return $this->render('product/index.html.twig', array(
+            'products' => $products,
+            'categories' => $categories,
+            'providers' => $providers,
+        ));
+        
+        
+
+    }
+
+
 }

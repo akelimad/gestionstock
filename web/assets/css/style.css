@@ -78,3 +78,26 @@ section.register{
 	color: #ca4918;
 	cursor: pointer;
 }
+div.dataTables_wrapper div.dataTables_filter input{
+	-webkit-transition: all 1s ease-in-out;;
+	transition: all 1s ease-in-out;
+}
+div.dataTables_wrapper div.dataTables_filter input:focus{
+	  width: 300px;
+	  box-sizing: border-box;
+	  border: 2px solid orange;
+	  border-radius: 20px;
+	  background-color: white;
+	  background-image: url('searchicon.png');
+	  background-position: 10px 10px;
+	  background-repeat: no-repeat;
+	  -webkit-transition: all .5s ease-in-out;
+	  transition: all .5s ease-in-out;
+}
+select.input-sm {
+    height: 35px;
+    line-height: 35px;
+}
+.filter{
+	margin-bottom: 20px;
+}

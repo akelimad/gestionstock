@@ -12,7 +12,7 @@ services:
         tags:
           - { name: form.type, alias: app_user_registration }
 
-    app.profile.form:
+    app.profile.form: 
         class: UserBundle\Form\ProfileType
         tags:
           - { name: form.type, alias: app_user_profile }

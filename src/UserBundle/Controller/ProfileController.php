@@ -72,7 +72,7 @@ class ProfileController extends Controller
         }
 
         
-        $formFactory = $this->get('app.profile.form');
+        $formFactory = $this->get('fos_user.profile.form.factory');
 
         $form = $formFactory->createForm();
         $form->setData($user);

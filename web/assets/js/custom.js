@@ -8,6 +8,10 @@ $(document).ready(function() {
     demo.initVectorMap();
     demo.initCirclePercentage();
 
+    $('div.dataTables_wrapper div.dataTables_filter input').click(function(){
+        alert("ok");
+    });
+
     $('#datatables').DataTable({
         "pagingType": "full_numbers",
         "lengthMenu": [
@@ -17,27 +21,28 @@ $(document).ready(function() {
         responsive: true,
         language: {
             search: "_INPUT_",
-            searchPlaceholder: "Search records",
+            searchPlaceholder: "Recherche . e.g(prix= 100)",
         }
+
     });
+
 
     var table = $('#datatables').DataTable();
 
-    //Edit record
-    // table.on('click', '.edit', function() {
-    //     $tr = $(this).closest('tr');
+    // Edit record
+    table.on('click', '.edit', function() {
+        $tr = $(this).closest('tr');
 
-    //     var data = table.row($tr).data();
-    //     alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
-    // });
+        var data = table.row($tr).data();
+        alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
+    });
 
     // Delete a record
-    // table.on('click', '.remove', function(e) {
-    //     //e.preventDefault();
-    //     return confirm('Etes-vous sur de vouloir supprimer ?');
-    //     // $tr = $(this).closest('tr');
-    //     // table.row($tr).remove().draw();
-    // });
+    table.on('click', '.remove', function(e) {
+        $tr = $(this).closest('tr');
+        table.row($tr).remove().draw();
+        e.preventDefault();
+    });
 
     //Like record
     table.on('click', '.like', function() {
@@ -229,8 +234,33 @@ $(document).ready(function() {
         }); 
     });
 
-    
 
+
+    
+    $("#filter-by-cat").change(function(evt){
+        var category_id = $(this).val();
+        var url = Routing.generate('filter-by-cat', {'category_id': category_id});
+        var product_results = $('#product-results');
+        //alert(url);
+        $.ajax({
+            ajax: true,
+            type: 'GET',
+            url:  url,
+            dataType: 'html',
+            success: function(data){
+                product_results.empty().html(data.products);
+                console.log(data);
+            },
+            error: function(){
+                console.log("error ...");
+            }
+        });
+    });
+
+    $("#filter-by-prov").change(function(){
+        var prov = $(this).val();
+        alert(prov);
+    });
 
 
 
