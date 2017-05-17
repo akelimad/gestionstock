@@ -25,50 +25,35 @@ class ProfileController extends Controller
      * @param Request $request
      *
      * @return Response
-     * @Route("/profile/edit", name="user_edit")
+     * @Route("/profile/{id}/edit", name="user_edit")
      */
-    public function updateAction(Request $request)
+    public function editAction(Request $request, $id=0)
     {
-        $user = $this->getUser();
-        // if (!is_object($user) || !$user instanceof UserInterface) {
-        //     throw new AccessDeniedException('This user does not have access to this section.');
-        // }
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('UserBundle:User')->find($id);
 
-        /** @var $dispatcher EventDispatcherInterface */
-        $dispatcher = $this->get('event_dispatcher');
-
-        $event = new GetResponseUserEvent($user, $request);
-        $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_INITIALIZE, $event);
-
-        if (null !== $event->getResponse()) {
-            return $event->getResponse();
+        if (!is_object($user)) {
+            throw new AccessDeniedException('This user does not have access to this section.');
         }
 
-        /** @var $formFactory FactoryInterface */
-        $formFactory = $this->get('app.form.profile');
+        /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
+        $formFactory = $this->get('fos_user.profile.form.factory');
 
-        $form = $formFactory->createForm();
+        $form = $this->createForm(ProfileType::class, $user);
         $form->setData($user);
-
+        
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            /** @var $userManager UserManagerInterface */
+        if ($form->isValid()) {
+            /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
             $userManager = $this->get('fos_user.user_manager');
-
-            $event = new FormEvent($form, $request);
-            $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_SUCCESS, $event);
-
             $userManager->updateUser($user);
 
-            if (null === $response = $event->getResponse()) {
-                $url = $this->generateUrl('fos_user_profile_show');
-                $response = new RedirectResponse($url);
-            }
+            $session = $this->getRequest()->getSession();
+            $session->getFlashBag()->add('message', 'Successfully updated');
+            $url = $this->generateUrl('user_default_index');
+            $response = new RedirectResponse($url);
 
-            $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
-
-            return $response;
         }
 
         return $this->render('profile/edit.html.twig', array(
