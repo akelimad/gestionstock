@@ -16,12 +16,23 @@ $(document).ready(function() {
         "pagingType": "full_numbers",
         "lengthMenu": [
             [10, 25, 50, -1],
-            [10, 25, 50, "All"]
+            [10, 25, 50, "Tous"]
         ],
         responsive: true,
         language: {
             search: "_INPUT_",
             searchPlaceholder: "Recherche . e.g(prix= 100)",
+            "paginate": {
+            "first":      "Premier",
+            "last":       "Dernier",
+            "next":       "Suivant",
+            "previous":   "Precedent"
+            },
+            "lengthMenu":     "Affichage _MENU_ entrées",
+            "zeroRecords":    "Aucun resultat trouvée !",
+            "emptyTable":     "Aucune donnée dans la table",
+            "info":           "Affichage _START_ à _END_ du _TOTAL_ entrées",
+            "infoEmpty":      "Affichage 0 à 0 du 0 entrées",
         }
 
     });
@@ -30,24 +41,24 @@ $(document).ready(function() {
     var table = $('#datatables').DataTable();
 
     // Edit record
-    table.on('click', '.edit', function() {
-        $tr = $(this).closest('tr');
+    // table.on('click', '.edit', function() {
+    //     $tr = $(this).closest('tr');
 
-        var data = table.row($tr).data();
-        alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
-    });
+    //     var data = table.row($tr).data();
+    //     alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
+    // });
 
     // Delete a record
-    table.on('click', '.remove', function(e) {
-        $tr = $(this).closest('tr');
-        table.row($tr).remove().draw();
-        e.preventDefault();
-    });
+    // table.on('click', '.remove', function(e) {
+    //     $tr = $(this).closest('tr');
+    //     table.row($tr).remove().draw();
+    //     e.preventDefault();
+    // });
 
     //Like record
-    table.on('click', '.like', function() {
-        alert('You clicked on Like button');
-    });
+    // table.on('click', '.like', function() {
+    //     alert('You clicked on Like button');
+    // });
 
     $('.card .material-datatables label').addClass('form-group');
 
@@ -57,6 +68,7 @@ $(document).ready(function() {
     $('.remove-product').click(function () {
         var url = Routing.generate('product_delete', {'id': $(this).data('id')});
         var $tr = $(this).closest('tr');
+        //alert(url);
         swal({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -234,10 +246,8 @@ $(document).ready(function() {
         }); 
     });
 
-
-
     
-    $("#filter-by-cat").change(function(evt){
+    $("#filter-by-cat").change(function(){
         var category_id = $(this).val();
         var url = Routing.generate('filter-by-cat', {'category_id': category_id});
         var product_results = $('#product-results');
@@ -248,8 +258,11 @@ $(document).ready(function() {
             url:  url,
             dataType: 'html',
             success: function(data){
-                product_results.html(data);
-                console.log(data);
+                if(data){
+                    product_results.html(data);
+                }else{
+                    alert("no data");
+                }
             },
             error: function(){
                 console.log("error ...");
@@ -261,7 +274,7 @@ $(document).ready(function() {
         var provider_id = $(this).val();
         var url = Routing.generate('filter-by-prov', {'provider_id': provider_id});
         var product_results = $('#product-results');
-        alert(url);
+        //alert(url);
         $.ajax({
             //ajax: true,
             type: 'GET',
@@ -269,7 +282,6 @@ $(document).ready(function() {
             dataType: 'html',
             success: function(data){
                 product_results.html(data);
-                console.log(data);
             },
             error: function(){
                 console.log("error ...");

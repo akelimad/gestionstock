@@ -82,11 +82,13 @@ div.dataTables_wrapper div.dataTables_filter input{
 	-webkit-transition: all 1s ease-in-out;;
 	transition: all 1s ease-in-out;
 }
+div.dataTables_wrapper div.dataTables_length select{
+	min-width: 91px;
+}
 div.dataTables_wrapper div.dataTables_filter input:focus{
 	  width: 300px;
 	  box-sizing: border-box;
-	  border: 2px solid orange;
-	  border-radius: 20px;
+	  border: 2px solid #8e8e8e;
 	  background-color: white;
 	  background-image: url('searchicon.png');
 	  background-position: 10px 10px;
