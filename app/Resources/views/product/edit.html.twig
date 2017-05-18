@@ -172,38 +172,41 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group {{ form_errors(edit_form.category) ? 'has-error': '' }}">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.categories) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.category, "Categorie", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.categories, "Categorie", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
-                                                {{ form_widget(edit_form.category, {'attr': {'class': 'form-control'}}) }}
-                                                <span class="help-block">{{ form_errors(edit_form.category) }}</span> 
+                                                
+                                                <span class="help-block">{{ form_errors(edit_form.categories) }}</span>
+
+                                                {{ form_widget(edit_form.categories, {'attr': {'class': 'form-control'}}) }}    
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group {{ form_errors(edit_form.package) ? 'has-error': '' }}">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.packages) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.package, "Emballage", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.packages, "Emballage", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
-                                                {{ form_widget(edit_form.package, {'attr': {'class': 'form-control'}}) }}
-                                                <span class="help-block">{{ form_errors(edit_form.package) }}</span> 
+                                                {{ form_widget(edit_form.packages, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(edit_form.packages) }}</span> 
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group {{ form_errors(edit_form.provider) ? 'has-error': '' }}">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.providers) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.provider, "Fournisseur", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.providers, "Fournisseur", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
-                                                {{ form_widget(edit_form.provider, {'attr': {'class': 'form-control'}}) }}
-                                                <span class="help-block">{{ form_errors(edit_form.provider) }}</span> 
+                                                {{ form_widget(edit_form.providers, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(edit_form.providers) }}</span> 
                                             </div>
                                         </div>
                                     </div>

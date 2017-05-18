@@ -10,4 +10,12 @@ namespace CategoryBundle\Repository;
  */
 class CategoryRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function getAllRootCategories()
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT c FROM CategoryBundle:Category c WHERE c.parent IS NULL ORDER BY c.name ASC'
+            )
+            ->getResult();
+    }
 }

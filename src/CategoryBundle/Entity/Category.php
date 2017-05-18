@@ -32,7 +32,7 @@ class Category
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string")
+     * @ORM\Column(name="description", type="string", nullable=true)
      */
     private $description;
 
@@ -58,7 +58,7 @@ class Category
 
     /**
      * Many cat have Many prod.
-     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="category")
+     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="categories")
      */
     private $product;
 

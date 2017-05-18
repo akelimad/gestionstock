@@ -26,8 +26,8 @@
                                         <th class="disabled-sorting text-right">Actions</th>
                                     </tr>
                                 </thead>
-                                {% for p in providers %}
                                 <tbody>
+                                {% for p in providers %}
                                     <tr>
                                         <td>{{p.id}}</td>
                                         <td>{{p.name}}</td>
@@ -43,8 +43,8 @@
                                             <span id="csrf_token" data-token="{{ csrf_token('form') }}"></span>
                                         </td>
                                     </tr>
-                                </tbody>
                                 {% endfor %}
+                                </tbody>
                                 <tfoot>
                                     <tr>
                                         <th>#</th>

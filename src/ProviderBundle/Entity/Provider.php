@@ -31,28 +31,28 @@ class Provider
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="string", length=255)
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
      */
     private $address;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="price", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="price", type="decimal", precision=10, scale=0, nullable=true)
      */
     private $price;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="moq", type="integer")
+     * @ORM\Column(name="moq", type="integer", nullable=true)
      */
     private $moq;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="productionCapacity", type="integer")
+     * @ORM\Column(name="productionCapacity", type="integer", nullable=true)
      */
     private $productionCapacity;
 
@@ -66,7 +66,7 @@ class Provider
 
     /**
      * Many cat have Many prod.
-     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="provider")
+     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="providers")
      */
     private $product;
 

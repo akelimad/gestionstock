@@ -58,23 +58,23 @@
         var packProd=[];
 
         {% for image in p.images %}  imgProd .push('{{image.path}}'); {% endfor %}
-        {% for cat in p.category %}  catProd .push('{{cat.name}}');   {% endfor %}
-        {% for prov in p.provider %} provProd.push('{{prov.name}}'); {% endfor %}
-        {% for pack in p.package %}  packProd.push('{{pack.name}}'); {% endfor %}
+        {% for cat in p.categories %}  catProd .push('{{cat.name}}');   {% endfor %}
+        {% for prov in p.providers %} provProd.push('{{prov.name}}'); {% endfor %}
+        {% for pack in p.packages %}  packProd.push('{{pack.name}}'); {% endfor %}
         detailProduct = {
             id            : {{p.id}},
             name          :'{{p.name}}',
-            description   :'{{p.description}}',
-            sizeInch      : {{p.sizeInch}},
-            sizeCm        : {{p.sizeCm}},
-            color         :'{{p.color}}',
-            composition   :'{{p.composition}}',
-            form          :'{{p.form}}',
-            weight        : {{p.weight}},
-            unitPrice     : {{p.unitPrice}},
-            wholesalePrice: {{p.wholesalePrice}},
-            specialPrice  : {{p.specialPrice}},
-            internetPrice : {{p.internetPrice}},
+            description   :'{{p.description ? p.description : "null"}}',
+            sizeInch      : '{{p.sizeInch ? p.sizeInch : "null"}}',
+            sizeCm        : '{{p.sizeCm ? p.sizeCm : "null"}}',
+            color         :'{{p.color ? p.color : "null"}}',
+            composition   :'{{p.composition ? p.composition : "null"}}',
+            form          :'{{p.form ? p.form : "null"}}',
+            weight        : {{p.weight ? p.weight : "null"}},
+            unitPrice     : {{p.unitPrice ? p.unitPrice : "null"}},
+            wholesalePrice: {{p.wholesalePrice ? p.wholesalePrice : "null"}},
+            specialPrice  : {{p.specialPrice ? p.specialPrice : "null"}},
+            internetPrice : {{p.internetPrice ? p.internetPrice : "null"}},
             images        : imgProd,
             category      : catProd,
             provider      : provProd,

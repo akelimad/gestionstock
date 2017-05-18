@@ -18,23 +18,22 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class ProfileController extends Controller
 {
     /**
-     * @param Request $request
-     *
-     * @return Response
-     * @Route("/profile/{id}/edit", name="user_edit")
+     * @Route("/user/{id}/edit", name="user_edit")
+     * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, $id=0)
+    public function editAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('UserBundle:User')->find($id);
 
-        if (!is_object($user)) {
-            throw new AccessDeniedException('This user does not have access to this section.');
-        }
+        // if (!is_object($user)) {
+        //     throw new AccessDeniedException('This user does not have access to this section.');
+        // }
 
         /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
         $formFactory = $this->get('fos_user.profile.form.factory');
@@ -49,10 +48,9 @@ class ProfileController extends Controller
             $userManager = $this->get('fos_user.user_manager');
             $userManager->updateUser($user);
 
-            $session = $this->getRequest()->getSession();
-            $session->getFlashBag()->add('message', 'Successfully updated');
-            $url = $this->generateUrl('user_default_index');
-            $response = new RedirectResponse($url);
+            // $session = $this->getRequest()->getSession();
+            // $session->getFlashBag()->add('message', 'Successfully updated');
+            return $this->redirectToRoute('user_default_index');
 
         }
 

@@ -34,77 +34,77 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="sizeInch", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="sizeInch", type="string", nullable=true)
      */
     private $sizeInch;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="sizeCm", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="sizeCm", type="string", nullable=true)
      */
     private $sizeCm;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="color", type="string", length=255)
+     * @ORM\Column(name="color", type="string", length=255, nullable=true)
      */
     private $color;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="composition", type="text")
+     * @ORM\Column(name="composition", type="text", nullable=true)
      */
     private $composition;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="form", type="text")
+     * @ORM\Column(name="form", type="text", nullable=true)
      */
     private $form;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="weight", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="weight", type="decimal", precision=10, scale=0,nullable=true)
      */
     private $weight;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="unitPrice", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="unitPrice", type="decimal", precision=10, scale=0, nullable=true)
      */
     private $unitPrice;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="wholesalePrice", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="wholesalePrice", type="decimal", precision=10, scale=0, nullable=true)
      */
     private $wholesalePrice;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="specialPrice", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="specialPrice", type="decimal", precision=10, scale=0, nullable=true)
      */
     private $specialPrice;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="internetPrice", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="internetPrice", type="decimal", precision=10, scale=0, nullable=true)
      */
     private $internetPrice;
 
@@ -120,21 +120,21 @@ class Product
      * @ORM\ManyToMany(targetEntity="CategoryBundle\Entity\Category", inversedBy="Product")
      * @ORM\JoinTable(name="category_product")
      */
-    private $category;
+    private $categories;
 
     /**
      * Many prod can have Many pack.
      * @ORM\ManyToMany(targetEntity="PackageBundle\Entity\Package", inversedBy="Product")
      * @ORM\JoinTable(name="package_product")
      */
-    private $package;
+    private $packages;
 
     /**
      * Many prod can have Many pack.
      * @ORM\ManyToMany(targetEntity="ProviderBundle\Entity\Provider", inversedBy="Product")
      * @ORM\JoinTable(name="provider_product")
      */
-    private $provider;
+    private $providers;
 
     /**
      * @var File
@@ -153,9 +153,9 @@ class Product
 
 
     public function __construct() {
-        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->package = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->provider = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->packages = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->providers = new \Doctrine\Common\Collections\ArrayCollection();
         $this->images = new \Doctrine\Common\Collections\ArrayCollection();
         
     }
@@ -490,136 +490,136 @@ class Product
 
 
     /**
-     * Add category
+     * Add categories
      *
-     * @param \CategoryBundle\Entity\Category $category
+     * @param \CategoryBundle\Entity\Category $categories
      *
      * @return Product
      */
-    public function addCategory(\CategoryBundle\Entity\Category $category)
+    public function addCategories(\CategoryBundle\Entity\Category $categories)
     {
-        $this->category[] = $category;
+        $this->categories[] = $categories;
 
         return $this;
     }
 
     /**
-     * Remove category
+     * Remove categories
      *
-     * @param \CategoryBundle\Entity\Category $category
+     * @param \CategoryBundle\Entity\Category $categories
      */
-    public function removeCategory(\CategoryBundle\Entity\Category $category)
+    public function removeCategories(\CategoryBundle\Entity\Category $categories)
     {
-        $this->category->removeElement($category);
+        $this->categories->removeElement($categories);
     }
 
     /**
-     * Get category
+     * Get categories
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCategory()
+    public function getCategories()
     {
-        return $this->category;
+        return $this->categories;
     }
 
     /**
-     * Set category
+     * Set categories
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function setCategory($category)
+    public function setCategories($categories)
     {
-        return $this->category=$category;
+        return $this->categories=$categories;
     }
 
     /**
-     * Add package
+     * Add packages
      *
-     * @param \PackageBundle\Entity\Package $package
+     * @param \PackageBundle\Entity\Package $packages
      *
      * @return Product
      */
-    public function addPackage(\PackageBundle\Entity\Package $package)
+    public function addPackages(\PackageBundle\Entity\Package $packages)
     {
-        $this->package[] = $package;
+        $this->packages[] = $packages;
 
         return $this;
     }
 
     /**
-     * Remove package
+     * Remove packages
      *
-     * @param \PackageBundle\Entity\Package $package
+     * @param \PackageBundle\Entity\Package $packages
      */
-    public function removePackage(\PackageBundle\Entity\Package $package)
+    public function removePackages(\PackageBundle\Entity\Package $packages)
     {
-        $this->package->removeElement($package);
+        $this->packages->removeElement($packages);
     }
 
     /**
-     * Get package
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPackage()
-    {
-        return $this->package;
-    }
-
-    /**
-     * Set package
+     * Get packages
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function setPackage($package)
+    public function getPackages()
     {
-        return $this->package=$package;
+        return $this->packages;
+    }
+
+    /**
+     * Set packages
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function setPackages($packages)
+    {
+        return $this->packages=$packages;
     }
 
 
     /**
-     * Add provider
+     * Add providers
      *
      * @param \ProviderBundle\Entity\Provider $provider
      *
      * @return Product
      */
-    public function addProvider(\ProviderBundle\Entity\Provider $provider)
+    public function addProviders(\ProviderBundle\Entity\Provider $providers)
     {
-        $this->provider[] = $provider;
+        $this->providers[] = $providers;
 
         return $this;
     }
 
     /**
-     * Remove provider
+     * Remove providers
      *
      * @param \ProviderBundle\Entity\Provider $provider
      */
-    public function removeProvider(\ProviderBundle\Entity\Provider $provider)
+    public function removeProviders(\ProviderBundle\Entity\Provider $providers)
     {
-        $this->provider->removeElement($provider);
+        $this->providers->removeElement($providers);
     }
 
     /**
-     * Get provider
+     * Get providers
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getProvider()
+    public function getProviders()
     {
-        return $this->provider;
+        return $this->providers;
     }
 
     /**
-     * Set provider
+     * Set providers
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function setProvider($provider)
+    public function setProviders($providers)
     {
-        return $this->provider=$provider;
+        return $this->providers=$providers;
     }
 
 

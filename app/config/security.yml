@@ -6,9 +6,8 @@ security:
         UserBundle\Entity\User: bcrypt
 
     role_hierarchy:
-        ROLE_SUPER_ADMIN: ROLE_SUPER_ADMIN
-        ROLE_ADMIN:       ROLE_ADMIN
-        ROLE_USER:        ROLE_USER
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
         fos_userbundle:
@@ -27,13 +26,26 @@ security:
             anonymous: ~
 
     access_control:
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY } # that mean that users anonymous can access to url /login
-        - { path: ^/register, roles: ROLE_SUPER_ADMIN}
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, roles: ROLE_USER }
-        - { path: ^/admin/, roles: ROLE_ADMIN } # user must have been auth with role admin to access to /admin url
-        - { path: ^/, roles: ROLE_USER }
-        - { path: ^/product/edit, roles: ROLE_USER }
-        - { path: ^/product/new, roles: ROLE_ADMIN }
+        - { path: ^/admin/, roles: ROLE_ADMIN } 
+
+        - { path: ^/, roles: [ROLE_SUPER_ADMIN, ROLE_ADMIN, ROLE_USER] }
+        
+        - { path: ^/register, roles: ROLE_SUPER_ADMIN }
+        - { path: ^/product/new, roles: [ROLE_SUPER_ADMIN, ROLE_ADMIN] }
+        - { path: ^/category/new, roles: [ROLE_SUPER_ADMIN, ROLE_ADMIN] }
+        - { path: ^/package/new, roles: [ROLE_SUPER_ADMIN, ROLE_ADMIN] }
+        - { path: ^/provider/new, roles: [ROLE_SUPER_ADMIN, ROLE_ADMIN] }
+
+        - { path: ^/user/[0-9]+/edit/, roles: [ROLE_SUPER_ADMIN, ROLE_ADMIN] }
+        - { path: ^/product/edit, roles: [ROLE_SUPER_ADMIN, ROLE_ADMIN, ROLE_USER] }
+        - { path: ^/category/edit, roles: [ROLE_SUPER_ADMIN, ROLE_ADMIN, ROLE_USER] }
+        - { path: ^/package/edit, roles: [ROLE_SUPER_ADMIN, ROLE_ADMIN, ROLE_USER] }
+        - { path: ^/provider/edit, roles: [ROLE_SUPER_ADMIN, ROLE_ADMIN, ROLE_USER] }
+
         - { path: ^/category/, roles: ROLE_USER }
         - { path: ^/package/, roles: ROLE_USER }
+        - { path: ^/provider/, roles: ROLE_USER }
+        - { path: ^/provider/, roles: ROLE_USER }
         - { path: ^/provider/, roles: ROLE_USER }

@@ -31,28 +31,28 @@ class Package
     /**
      * @var string
      *
-     * @ORM\Column(name="size", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="size", type="string", nullable=true)
      */
     private $size;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="cbm", type="text")
+     * @ORM\Column(name="cbm", type="text", nullable=true)
      */
     private $cbm;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="marineCost", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="marineCost", type="string", nullable=true)
      */
     private $marineCost;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="airCost", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="airCost", type="string", nullable=true)
      */
     private $airCost;
 
@@ -65,7 +65,7 @@ class Package
 
     /**
      * one prod can have Many pack.
-     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="package")
+     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="packages")
      */
     private $product;
 

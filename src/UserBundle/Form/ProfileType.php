@@ -11,13 +11,18 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use FOS\UserBundle\Util\LegacyFormHelper;
 
 class ProfileType extends AbstractType
 {
+
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
         $builder
+            ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
+            ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
             ->add('roles', ChoiceType::class, array(
                 'choices'   => [
                     'ROLE SUPER ADMIN' => 'ROLE_SUPER_ADMIN',
@@ -31,10 +36,6 @@ class ProfileType extends AbstractType
         ;
     }
 
-    public function getParent()
-    {
-        return 'FOS\UserBundle\Form\Type\ProfileFormType';
-    }
 
     public function getName()
     {

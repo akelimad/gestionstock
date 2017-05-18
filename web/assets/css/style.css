@@ -78,7 +78,13 @@ section.register{
 	color: #ca4918;
 	cursor: pointer;
 }
+div.dataTables_wrapper div.dataTables_filter input:before {
+    content: "\f178";
+}
+
 div.dataTables_wrapper div.dataTables_filter input{
+	border-radius: 20px;
+	color: #000;
 	-webkit-transition: all 1s ease-in-out;;
 	transition: all 1s ease-in-out;
 }
@@ -88,11 +94,12 @@ div.dataTables_wrapper div.dataTables_length select{
 div.dataTables_wrapper div.dataTables_filter input:focus{
 	  width: 300px;
 	  box-sizing: border-box;
-	  border: 2px solid #8e8e8e;
+	  border: 1px solid rgba(243,149,57,.3);
 	  background-color: white;
 	  background-image: url('searchicon.png');
 	  background-position: 10px 10px;
 	  background-repeat: no-repeat;
+	  box-shadow: 0 0 0px 1px rgba(243,149,57,.3);
 	  -webkit-transition: all .5s ease-in-out;
 	  transition: all .5s ease-in-out;
 }
@@ -102,4 +109,13 @@ select.input-sm {
 }
 .filter{
 	margin-bottom: 20px;
+}
+select option.parent-labelle{
+	font-size: 16px;
+	font-weight: bold;
+	color: #000;
+}
+select option.children-labelle{
+	font-size: 14px;
+	color: gray;
 }

@@ -25,18 +25,20 @@
                                         <th class="disabled-sorting text-right">Actions</th>
                                     </tr>
                                 </thead>
-                                {% for user in users %}
                                 <tbody>
+                                {% for user in users %}
                                     <tr>
                                         <td>{{user.id}}</td>
                                         <td>{{user.username}}</td>
                                         <td>{{user.email}}</td>
                                         <td>
-                                        	{% for role in user.roles %}
-											   {{ role }}, 
+                                        	{% for role in user.roles|slice(0, 1) %}
+                                               {{ role == "ROLE_SUPER_ADMIN" ? "Super admin"}}
+                                               {{ role == "ROLE_ADMIN" ? "Admin"}}
+											   {{ role == "ROLE_USER" ? "Utilisateur"}}
 											{% endfor %}
                                         </td>
-                                        <td>{{user.enabled == 1 ? 'Active' : ''}}</td>
+                                        <td>{{user.enabled == 1 ? 'Active' : 'Desactivé'}}</td>
                                         <td class="text-right">
 											<a href="{{ path('user_edit', { 'id': user.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
 
@@ -44,8 +46,8 @@
                                             <span id="csrf_token" data-token="{{ csrf_token('form') }}"></span>
                                         </td>
                                     </tr>
-                                </tbody>
                                 {% endfor %}
+                                </tbody>
                                 <tfoot>
                                     <tr>
                                         <th>#</th>

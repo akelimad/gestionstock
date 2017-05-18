@@ -6,6 +6,7 @@
             <th>Name</th>
             <th>Prix unitaire</th>
             <th>Categorie</th>
+            <th>Sous categorie</th>
             <th>Statut</th>
             <th class="disabled-sorting text-right">Actions</th>
         </tr>
@@ -20,13 +21,18 @@
             {% endfor %}
             </td>
             <td>{{p.name}}</td>
-            <td>{{p.unitPrice}}</td>
+            <td>{{p.unitPrice ? p.unitPrice : "null"}}</td>
+            {% for cat in p.categories %}
             <td>
-            {% for cat in p.category %}
                 {{cat.name}}
-            {% endfor %}
+            </td> 
+                {% for sub_cat in cat.parent %}
+            <td>
+                    {{ sub_cat.name ? sub_cat.name : 'vide' }}
+                {% endfor %}
             </td>
-            <td>{{p.active == 1 ? 'Active' : 'Not active'}}</td>
+            {% endfor %}
+            <td>{{p.active == 1 ? 'Active' : 'Desactivé'}}</td>
             <td class="text-right">
                 <a data-id="{{ p.id }}" class="btn btn-simple btn-default btn-icon btn-fill edit showProduct" data-toggle="modal" data-target="#show-productxx"><i class="ti-eye"></i></a>
 

@@ -130,8 +130,10 @@
                                         <a href="#"><i class="fa fa-user fw"></i>  
                                             {% if app.user %}
                                                 {{app.user.username}} : 
-                                                {% for role in app.user.roles %}
-                                                    {{role}}
+                                                {% for role in app.user.roles|slice(0, 1) %}
+                                                   {{ role == "ROLE_SUPER_ADMIN" ? "Super admin"}}
+                                                   {{ role == "ROLE_ADMIN" ? "Admin"}}
+                                                   {{ role == "ROLE_USER" ? "Utilisateur"}}
                                                 {% endfor %}
                                             {% else %}
                                                 Anonymous

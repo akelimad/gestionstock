@@ -38,23 +38,26 @@ class ProductType extends AbstractType
            'data_class' => null,
            'required' => false
         ))
-        ->add('category',EntityType::class, array(
+        ->add('categories',EntityType::class, array(
             'class'=>'CategoryBundle:Category', 
             'choice_label'=>'name', 
+            'required' => false,
             'query_builder' => function ($er) {
-               return $er->createQueryBuilder('c')->where("c.parent is NULL ");
+               return $er->createQueryBuilder('c');
             },
             'multiple'=>true
         ))
-        ->add('package', EntityType::class, array(
+        ->add('packages', EntityType::class, array(
             'class'=>'PackageBundle:Package', 
             'choice_label'=>'name', 
-            'multiple'=>true
+            'multiple'=>true,
+            'required' => false
         ))
-        ->add('provider',EntityType::class, array(
+        ->add('providers',EntityType::class, array(
             'class'=>'ProviderBundle:Provider', 
             'choice_label'=>'name',
-            'multiple'=>true
+            'multiple'=>true,
+            'required' => false
         ));
     }
     
