@@ -45,7 +45,7 @@
         -->
             <div class="logo">
                 <a href="#" class="simple-text">
-                    Digital Work 
+                    Digital Works
                 </a>
             </div>
             <div class="logo logo-mini">
@@ -85,12 +85,14 @@
                             <p>Fournisseurs</p>
                         </a>
                     </li>
+                    {% if is_granted('ROLE_SUPER_ADMIN') %}
                     <li class="{{ app.request.attributes.get('_route') == 'user_default_index' ? 'active' : '' }}">
                         <a href=" {{path('user_default_index')}} ">
                             <i class="fa fa-users"></i>
                             <p>Utilisateurs</p>
                         </a>
                     </li>
+                    {% endif %}
                     <li class="{{ app.request.attributes.get('_route') == 'app_default_doc' ? 'active' : '' }}">
                         <a href="{{ path('app_default_doc') }}">
                             <i class="ti-help"></i>
@@ -130,10 +132,9 @@
                                         <a href="#"><i class="fa fa-user fw"></i>  
                                             {% if app.user %}
                                                 {{app.user.username}} : 
-                                                {% for role in app.user.roles|slice(0, 1) %}
-                                                   {{ role == "ROLE_SUPER_ADMIN" ? "Super admin"}}
-                                                   {{ role == "ROLE_ADMIN" ? "Admin"}}
-                                                   {{ role == "ROLE_USER" ? "Utilisateur"}}
+                                                {% for role in app.user.roles|slice(0,1) %}
+                                                    {{ role =="ROLE_SUPER_ADMIN" ? " role super admin" }}
+                                                    {{ role =="ROLE_ADMIN" ? " role admin" }}
                                                 {% endfor %}
                                             {% else %}
                                                 Anonymous

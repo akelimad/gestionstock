@@ -21,18 +21,18 @@
             {% endfor %}
             </td>
             <td>{{p.name}}</td>
-            <td>{{p.unitPrice ? p.unitPrice : "null"}}</td>
+            <td>{{p.unitPrice ? p.unitPrice : "vide"}}</td>
             {% for cat in p.categories %}
             <td>
-                {{cat.name}}
-            </td> 
+                {{cat.name is not null ? cat.name : 'vide'}}
+            </td>  
                 {% for sub_cat in cat.parent %}
             <td>
-                    {{ sub_cat.name ? sub_cat.name : 'vide' }}
+                    {{ sub_cat.name }}
                 {% endfor %}
             </td>
             {% endfor %}
-            <td>{{p.active == 1 ? 'Active' : 'Desactivé'}}</td>
+            <td>{{p.active == 1 ? 'Active' : 'Desactivé' }}</td>
             <td class="text-right">
                 <a data-id="{{ p.id }}" class="btn btn-simple btn-default btn-icon btn-fill edit showProduct" data-toggle="modal" data-target="#show-productxx"><i class="ti-eye"></i></a>
 

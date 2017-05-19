@@ -1,6 +1,6 @@
 <?php
 
-namespace ProductBundle\Controller;
+namespace ProductBundle\Controller; 
 
 use ProductBundle\Entity\Product;
 use ProductBundle\Entity\ImageProduct;
@@ -64,7 +64,6 @@ class ProductController extends Controller
      *
      * @Route("/new", name="product_new", options={"expose"=true})
      * @Method({"GET", "POST"})
-     * @Security("has_role('ROLE_USER')")
      */
     public function newAction(Request $request){
         $product = new Product();
@@ -76,10 +75,11 @@ class ProductController extends Controller
         $em1 = $this->container->get('doctrine');
         $categories = $em1->getRepository('CategoryBundle:Category')->getAllRootCategories();
 
-
         if ($form->isSubmitted() && $form->isValid()){
             $files = $product->getImages();
+            //$cats = $request->request->get('categories');
             $images = array();
+            //$categories=array();
             if($files != null) {
                 $key = 0;
                 foreach ($files as $file){
@@ -92,8 +92,14 @@ class ProductController extends Controller
                 }
             }
 
-            $product->setImages($images);
+            // if($cats != null){
+            //     foreach($cats as $cat){
+            //         $categories[]=$request->request->get('categories');
+            //     }
+            // }
 
+            $product->setImages($images);
+            //$product->setCategories($categories);
             $productlog->setProduct($product);
             $productlog->setUser($this->getUser());
             $productlog->setAction("Add product");

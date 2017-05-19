@@ -22,7 +22,7 @@ class RegistrationType extends AbstractType
                 'choices'   => [
                     'ROLE SUPER ADMIN' => 'ROLE_SUPER_ADMIN',
                     'ROLE ADMIN' =>       'ROLE_ADMIN',
-                    'ROLE USER' =>        'ROLE_USER'
+                    #'ROLE USER' =>        'ROLE_USER'
                 ],
                 'required'  => true,
                 'multiple' => true

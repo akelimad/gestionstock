@@ -41,11 +41,10 @@ class ProductType extends AbstractType
         ->add('categories',EntityType::class, array(
             'class'=>'CategoryBundle:Category', 
             'choice_label'=>'name', 
-            'required' => false,
             'query_builder' => function ($er) {
                return $er->createQueryBuilder('c');
             },
-            'multiple'=>true
+            'multiple'=> true,
         ))
         ->add('packages', EntityType::class, array(
             'class'=>'PackageBundle:Package', 

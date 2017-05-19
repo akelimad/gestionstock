@@ -178,10 +178,9 @@
                                                 {{ form_label(edit_form.categories, "Categorie", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
-                                                
-                                                <span class="help-block">{{ form_errors(edit_form.categories) }}</span>
+                                                {{ form_widget(edit_form.categories, {'attr': {'class': 'form-control'}}) }}
 
-                                                {{ form_widget(edit_form.categories, {'attr': {'class': 'form-control'}}) }}    
+                                                <span class="help-block">{{ form_errors(edit_form.categories) }}</span>
 
                                             </div>
                                         </div>

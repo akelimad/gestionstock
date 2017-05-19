@@ -38,7 +38,7 @@ class Provider
     /**
      * @var string
      *
-     * @ORM\Column(name="price", type="decimal", precision=10, scale=0, nullable=true)
+     * @ORM\Column(name="price", type="decimal", precision=10, scale=2, nullable=true)
      */
     private $price;
 

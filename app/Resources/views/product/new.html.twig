@@ -165,18 +165,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group {{ form_errors(form.categories) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(form.categories, "Categorie", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 
+                                                {{ form_widget(form.categories, {'attr': {'class': 'form-control'}}) }}
+
                                                 <span class="help-block">{{ form_errors(form.categories) }}</span>
-
-                                                {{ form_widget(form.categories, {'attr': {'class': 'form-control'}}) }}    
-
-                                                
                                             </div>
                                         </div>
                                     </div>

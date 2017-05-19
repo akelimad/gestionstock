@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class RegistrationController extends Controller
 {
@@ -22,19 +23,27 @@ class RegistrationController extends Controller
 
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
 
-            // 3) Encode the password (you could also do this via Doctrine listener)
-            $password = $this->get('security.password_encoder')
-                ->encodePassword($user, $user->getPlainPassword());
-            $user->setPassword($password);
-            
+        // $auth_checker = $this->get('security.authorization_checker');
+        // $isRoleSuperAdmin = $auth_checker->isGranted('ROLE_SUPER_ADMIN');
+        // $roles=array();
+        // $roles=$user->getRoles();
+        if ($form->isSubmitted() && $form->isValid() ) {
+            // if($roles[0]=="ROLE_SUPER_ADMIN" && $isRoleAdmin==true){
+            //     throw new AccessDeniedException('Only super admin can add super admin roles !!!!');
+            // }else{
 
-            // 4) save the User!
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
+                // 3) Encode the password (you could also do this via Doctrine listener)
+                $password = $this->get('security.password_encoder')
+                    ->encodePassword($user, $user->getPlainPassword());
+                $user->setPassword($password);
+                
 
+                // 4) save the User!
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+            //}
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
