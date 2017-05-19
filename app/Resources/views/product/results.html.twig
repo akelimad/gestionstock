@@ -4,7 +4,7 @@
             <th>Id</th>
             <th>Photo</th>
             <th>Name</th>
-            <th>Prix unitaire</th>
+            <th>Prix unitaire ($)</th>
             <th>Categorie</th>
             <th>Sous categorie</th>
             <th>Statut</th>
@@ -21,7 +21,7 @@
             {% endfor %}
             </td>
             <td>{{p.name}}</td>
-            <td>{{p.unitPrice ? p.unitPrice : "vide"}}</td>
+            <td>{{p.unitPrice ? p.unitPrice : "vide"}} </td>
             {% for cat in p.categories %}
             <td>
                 {{cat.name is not null ? cat.name : 'vide'}}
