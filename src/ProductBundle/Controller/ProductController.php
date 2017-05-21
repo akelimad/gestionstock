@@ -42,7 +42,7 @@ class ProductController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $products = $em->getRepository('ProductBundle:Product')->findAll();
+        $products = $em->getRepository('ProductBundle:Product')->getAllProducts();
         $categories = $em->getRepository('CategoryBundle:Category')->findAll();
         $providers = $em->getRepository('ProviderBundle:Provider')->findAll();
         // foreach($products as $prod){
@@ -76,10 +76,12 @@ class ProductController extends Controller
         $categories = $em1->getRepository('CategoryBundle:Category')->getAllRootCategories();
 
         if ($form->isSubmitted() && $form->isValid()){
+            //var_dump($request->request->all());die();
+            var_dump($form->getData()); die();
             $files = $product->getImages();
-            //$cats = $request->request->get('categories');
+            
             $images = array();
-            //$categories=array();
+
             if($files != null) {
                 $key = 0;
                 foreach ($files as $file){
@@ -92,17 +94,16 @@ class ProductController extends Controller
                 }
             }
 
-            // if($cats != null){
-            //     foreach($cats as $cat){
-            //         $categories[]=$request->request->get('categories');
+            //     foreach($_POST['cat_product'] as $cat){
+            //         var_dump($cat);
             //     }
-            // }
+            // die();
 
             $product->setImages($images);
             //$product->setCategories($categories);
             $productlog->setProduct($product);
             $productlog->setUser($this->getUser());
-            $productlog->setAction("Add product");
+            $productlog->setAction("Add");
 
 
             $em->persist($product);
@@ -170,7 +171,7 @@ class ProductController extends Controller
             $product->setImages($images);
             $productlog->setProduct($product);
             $productlog->setUser($this->getUser());
-            $productlog->setAction("Edit product");
+            $productlog->setAction("Edit");
             $em->persist($productlog);
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('product_index');
@@ -187,17 +188,27 @@ class ProductController extends Controller
      * Deletes a product entity.
      *
      * @Route("/{id}", options={"expose"=true}, name="product_delete")
-     * @Method("DELETE")
+     * @Method("PUT")
      */
     public function deleteAction(Request $request, Product $product)
     {
-        $form = $this->createDeleteForm($product);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($product);
-            $em->flush();
-        }
+        // $form = $this->createDeleteForm($product);
+        // $form->handleRequest($request);
+        // if ($form->isSubmitted() && $form->isValid()) {
+        //     $em = $this->getDoctrine()->getManager();
+        //     $em->remove($product);
+        //     $em->flush();
+        // }
+        $productlog = new ProductLog();
+        $em = $this->getDoctrine()->getEntityManager();
+        
+        $productlog->setProduct($product);
+        $productlog->setUser($this->getUser());
+        $productlog->setAction("Delete");
+        $productlog->setDeletedAt(new \DateTime());
+
+        $em->persist($productlog);
+        $this->getDoctrine()->getManager()->flush();
 
         return $this->redirectToRoute('product_index');
         //return new Response("product deleted");

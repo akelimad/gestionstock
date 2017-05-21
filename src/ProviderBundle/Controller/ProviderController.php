@@ -26,7 +26,7 @@ class ProviderController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $providers = $em->getRepository('ProviderBundle:Provider')->findAll();
+        $providers = $em->getRepository('ProviderBundle:Provider')->getAllProviders();
 
         return $this->render('provider/index.html.twig', array(
             'providers' => $providers,
@@ -104,18 +104,20 @@ class ProviderController extends Controller
      * Deletes a provider entity.
      *
      * @Route("/{id}", name="provider_delete", options={"expose"=true})
-     * @Method("DELETE")
+     * @Method("PUT")
      */
     public function deleteAction(Request $request, Provider $provider)
     {
-        $form = $this->createDeleteForm($provider);
-        $form->handleRequest($request);
+        // $form = $this->createDeleteForm($provider);
+        // $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($provider);
-            $em->flush();
-        }
+        // if ($form->isSubmitted() && $form->isValid()) {
+        //     $em = $this->getDoctrine()->getManager();
+        //     $em->remove($provider);
+        //     $em->flush();
+        // }
+        $provider->setDeletedAt(new \DateTime());
+        $this->getDoctrine()->getManager()->flush();
 
         return $this->redirectToRoute('provider_index');
     }

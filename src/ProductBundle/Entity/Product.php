@@ -689,4 +689,100 @@ class Product
         return $this->product_log=$product_log;
     }
 
+
+    /**
+     * Add category
+     *
+     * @param \CategoryBundle\Entity\Category $category
+     *
+     * @return Product
+     */
+    public function addCategory(\CategoryBundle\Entity\Category $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \CategoryBundle\Entity\Category $category
+     */
+    public function removeCategory(\CategoryBundle\Entity\Category $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Add package
+     *
+     * @param \PackageBundle\Entity\Package $package
+     *
+     * @return Product
+     */
+    public function addPackage(\PackageBundle\Entity\Package $package)
+    {
+        $this->packages[] = $package;
+
+        return $this;
+    }
+
+    /**
+     * Remove package
+     *
+     * @param \PackageBundle\Entity\Package $package
+     */
+    public function removePackage(\PackageBundle\Entity\Package $package)
+    {
+        $this->packages->removeElement($package);
+    }
+
+    /**
+     * Add provider
+     *
+     * @param \ProviderBundle\Entity\Provider $provider
+     *
+     * @return Product
+     */
+    public function addProvider(\ProviderBundle\Entity\Provider $provider)
+    {
+        $this->providers[] = $provider;
+
+        return $this;
+    }
+
+    /**
+     * Remove provider
+     *
+     * @param \ProviderBundle\Entity\Provider $provider
+     */
+    public function removeProvider(\ProviderBundle\Entity\Provider $provider)
+    {
+        $this->providers->removeElement($provider);
+    }
+
+    /**
+     * Add productLog
+     *
+     * @param \ProductBundle\Entity\ProductLog $productLog
+     *
+     * @return Product
+     */
+    public function addProductLog(\ProductBundle\Entity\ProductLog $productLog)
+    {
+        $this->product_log[] = $productLog;
+
+        return $this;
+    }
+
+    /**
+     * Remove productLog
+     *
+     * @param \ProductBundle\Entity\ProductLog $productLog
+     */
+    public function removeProductLog(\ProductBundle\Entity\ProductLog $productLog)
+    {
+        $this->product_log->removeElement($productLog);
+    }
 }

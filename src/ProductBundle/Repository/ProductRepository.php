@@ -10,5 +10,12 @@ namespace ProductBundle\Repository;
  */
 class ProductRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function getAllProducts()
+    {
+        return $this->getEntityManager()->createQuery("
+        	SELECT p FROM ProductBundle:Product p left join ProductBundle:ProductLog pl
+            WHERE p.id=pl.product AND  pl.action != 'Delete product'  ORDER BY p.name ASC
+        ")->getResult();
+    }
 	
 }

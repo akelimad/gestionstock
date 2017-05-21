@@ -21,6 +21,20 @@ class User extends BaseUser{
     protected $id;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime" )
+     */
+    private $created_at;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="deleted_at", type="datetime", nullable=true )
+     */
+    private $deleted_at; 
+
+    /**
      * @ORM\OneToMany(targetEntity="ProductBundle\Entity\ProductLog", mappedBy="user")
      */
     private $user_log;
@@ -29,7 +43,7 @@ class User extends BaseUser{
     public function __construct()
     {
         parent::__construct();
-        //$this->roles=array();
+        $this->created_at = new \DateTime(); 
     }
 
     /**
@@ -52,4 +66,76 @@ class User extends BaseUser{
         return $this->user_log=$user_log;
     }
 
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return User
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set deletedAt
+     *
+     * @param \DateTime $deletedAt
+     *
+     * @return User
+     */
+    public function setDeletedAt($deletedAt)
+    {
+        $this->deleted_at = $deletedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get deletedAt
+     *
+     * @return \DateTime
+     */
+    public function getDeletedAt()
+    {
+        return $this->deleted_at;
+    }
+
+    /**
+     * Add userLog
+     *
+     * @param \ProductBundle\Entity\ProductLog $userLog
+     *
+     * @return User
+     */
+    public function addUserLog(\ProductBundle\Entity\ProductLog $userLog)
+    {
+        $this->user_log[] = $userLog;
+
+        return $this;
+    }
+
+    /**
+     * Remove userLog
+     *
+     * @param \ProductBundle\Entity\ProductLog $userLog
+     */
+    public function removeUserLog(\ProductBundle\Entity\ProductLog $userLog)
+    {
+        $this->user_log->removeElement($userLog);
+    }
 }

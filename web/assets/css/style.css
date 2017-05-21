@@ -17,6 +17,9 @@ ul{
 	width: calc(100%);
 }
 
+.sidebar[data-background-color="brown"] .nav li:not(.active) > a:hover{
+	color: #ef8157
+}
 .media{
 	display: inline-block;
     float: left;

@@ -63,6 +63,19 @@ class Provider
      */
     private $active;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime" )
+     */
+    private $created_at;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="deleted_at", type="datetime" , nullable=true)
+     */
+    private $deleted_at; 
 
     /**
      * Many cat have Many prod.
@@ -72,6 +85,7 @@ class Provider
 
     public function __construct() {
         $this->Product = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->created_at = new \DateTime(); 
     }
 
 
@@ -264,4 +278,52 @@ class Provider
     }
 
     
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return Provider
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set deletedAt
+     *
+     * @param \DateTime $deletedAt
+     *
+     * @return Provider
+     */
+    public function setDeletedAt($deletedAt)
+    {
+        $this->deleted_at = $deletedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get deletedAt
+     *
+     * @return \DateTime
+     */
+    public function getDeletedAt()
+    {
+        return $this->deleted_at;
+    }
 }

@@ -84,7 +84,7 @@ $(document).ready(function() {
                     type: 'POST',
                     url:  url,
                     data: {
-                    "_method": "DELETE",
+                    "_method": "PUT",
                     "form[_token]": $("#csrf_token").data("token")
                     }
                 }).done(function(response){
@@ -120,7 +120,7 @@ $(document).ready(function() {
                     type: 'POST',
                     url:  url,
                     data: {
-                    "_method": "DELETE",
+                    "_method": "PUT",
                     "form[_token]": $("#csrf_token").data("token")
                     }
                 }).done(function(response){
@@ -156,7 +156,7 @@ $(document).ready(function() {
                     type: 'POST',
                     url:  url,
                     data: {
-                    "_method": "DELETE",
+                    "_method": "PUT",
                     "form[_token]": $("#csrf_token").data("token")
                     }
                 }).done(function(response){
@@ -192,7 +192,7 @@ $(document).ready(function() {
                     type: 'POST',
                     url:  url,
                     data: {
-                    "_method": "DELETE",
+                    "_method": "PUT",
                     "form[_token]": $("#csrf_token").data("token")
                     }
                 }).done(function(response){
