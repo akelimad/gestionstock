@@ -76,8 +76,14 @@ class ProductController extends Controller
         $categories = $em1->getRepository('CategoryBundle:Category')->getAllRootCategories();
 
         if ($form->isSubmitted() && $form->isValid()){
-            //var_dump($request->request->all());die();
-            var_dump($form->getData()); die();
+            //var_dump($request->request->get('cat_product'));die();
+            $cat=array();
+            $cats=$request->request->get('cat_product');
+            foreach ($cats as $cat) {
+                var_dump($cat);
+            }
+            die();
+            
             $files = $product->getImages();
             
             $images = array();

@@ -165,16 +165,23 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group {{ form_errors(form.categories) ? 'has-error': '' }}">
+                                    <div class="col-md-6 form-group ">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(form.categories, "Categorie", {'label_attr': {'class': 'control-label'}}) }}
+                                                cat
                                             </div>
                                             <div class="col-md-8">
                                                 
-                                                {{ form_widget(form.categories, {'attr': {'class': 'form-control'}}) }}
+                                                <select id="cat_product" name="cat_product[]" required="required" class="form-control" multiple="multiple">
+                                                    {% for cat in categories %}
+                                                    <option value="{{ cat.id }}">{{ cat.name }}</option>
+                                                    {% for child in cat.children %}                                                
+                                                    <option value="{{ child.id }}">---{{ child.name }}</option>
+                                                    {% endfor %} 
+                                                {% endfor %}
+                                                </select>
 
-                                                <span class="help-block">{{ form_errors(form.categories) }}</span>
+                                                <span class="help-block"></span>
                                             </div>
                                         </div>
                                     </div>
