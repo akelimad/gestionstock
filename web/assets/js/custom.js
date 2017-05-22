@@ -90,6 +90,7 @@ $(document).ready(function() {
                 }).done(function(response){
                     swal('Deleted!', 'Product has been deleted.', 'success');
                     $tr.find('td').fadeOut(1000,function(){ $tr.remove(); });
+                    location.reload();
                 }).fail(function(){
                     swal('Oops...', 'Something went wrong with ajax !', 'error');
                 });
@@ -126,6 +127,7 @@ $(document).ready(function() {
                 }).done(function(response){
                     swal('Deleted!', 'Category has been deleted.', 'success');
                     $tr.find('td').fadeOut(1000,function(){ $tr.remove(); });
+                    location.reload();
                 }).fail(function(){
                     swal('Oops...', 'Something went wrong with ajax !', 'error');
                 });
@@ -136,7 +138,7 @@ $(document).ready(function() {
     });
 
     // ************************************* //
-    //       delete cat with ajax
+    //       delete package with ajax
     // ************************************* //
     $('.remove-package').click(function () {
         var url = Routing.generate('package_delete', {'id': $(this).data('id')});
@@ -162,6 +164,7 @@ $(document).ready(function() {
                 }).done(function(response){
                     swal('Deleted!', 'Package has been deleted.', 'success');
                     $tr.find('td').fadeOut(1000,function(){ $tr.remove(); });
+                    location.reload(); 
                 }).fail(function(){
                     swal('Oops...', 'Something went wrong with ajax !', 'error');
                 });
@@ -172,7 +175,7 @@ $(document).ready(function() {
     });
 
     // ************************************* //
-    //       delete cat with ajax
+    //       delete provider with ajax
     // ************************************* //
     $('.remove-provider').click(function () {
         var url = Routing.generate('provider_delete', {'id': $(this).data('id')});
@@ -198,6 +201,44 @@ $(document).ready(function() {
                 }).done(function(response){
                     swal('Deleted!', 'Provider has been deleted.', 'success');
                     $tr.find('td').fadeOut(1000,function(){ $tr.remove(); });
+                    location.reload();
+                }).fail(function(){
+                    swal('Oops...', 'Something went wrong with ajax !', 'error');
+                });
+            });
+            },
+            allowOutsideClick: false     
+        }); 
+    });
+
+    // ************************************* //
+    //       delete user with ajax
+    // ************************************* //
+    $('.remove-user').click(function () {
+        var url = Routing.generate('user_delete', {'id': $(this).data('id')});
+        var $tr = $(this).closest('tr');
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            showLoaderOnConfirm: true,
+            preConfirm: function() {
+            return new Promise(function(resolve) {
+                $.ajax({
+                    type: 'POST',
+                    url:  url,
+                    data: {
+                    "_method": "PUT",
+                    "form[_token]": $("#csrf_token").data("token")
+                    }
+                }).done(function(response){
+                    swal('Deleted!', 'User has been deleted.', 'success');
+                    $tr.find('td').fadeOut(1000,function(){ $tr.remove(); });
+                    location.reload();
                 }).fail(function(){
                     swal('Oops...', 'Something went wrong with ajax !', 'error');
                 });
@@ -261,7 +302,7 @@ $(document).ready(function() {
                 if(data){
                     product_results.html(data);
                 }else{
-                    alert("no data");
+                    alert("Aucune donnée trouvée");
                 }
             },
             error: function(){

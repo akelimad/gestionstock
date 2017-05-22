@@ -15,9 +15,6 @@ class Version20170520163155 extends AbstractMigration
      */
     public function up(Schema $schema)
     {
-        $this->addSql('
-            ALTER TABLE User CHANGE created_at created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
-        ');
 
         $this->addSql('
             INSERT INTO User (id, username, username_canonical, email, email_canonical, enabled, salt, password, last_login, confirmation_token, password_requested_at, roles, created_at, deleted_at) VALUES (NULL, "admin", "admin", "admin@gmail.com", "admin@gmail.com", "1", NULL, "$2y$13$YCBsEgmoNGnhF/fW.7iVROVqiB7JH2.g4UBi88lVd94BMJfx8HHQW", "2017-04-27 17:53:24", NULL, NULL, "a:1:{}", "2017-05-22 09:53:24", NULL)
