@@ -1,16 +1,16 @@
 <?php
  
-namespace PackageBundle\Entity;
+namespace ProviderBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Package
+ * Provider
  *
- * @ORM\Table(name="package")
- * @ORM\Entity(repositoryClass="PackageBundle\Repository\PackageRepository")
+ * @ORM\Table(name="provider")
+ * @ORM\Entity(repositoryClass="ProviderBundle\Repository\ProviderRepository")
  */
-class Package
+class Provider
 {
     /**
      * @var int
@@ -31,30 +31,30 @@ class Package
     /**
      * @var string
      *
-     * @ORM\Column(name="size", type="string", nullable=true)
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
      */
-    private $size;
+    private $address;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="cbm", type="text", nullable=true)
+     * @ORM\Column(name="price", type="decimal", precision=10, scale=2, nullable=true)
      */
-    private $cbm;
+    private $price;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="marineCost", type="string", nullable=true)
+     * @ORM\Column(name="moq", type="integer", nullable=true)
      */
-    private $marineCost;
+    private $moq;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="airCost", type="string", nullable=true)
+     * @ORM\Column(name="productionCapacity", type="integer", nullable=true)
      */
-    private $airCost;
+    private $productionCapacity;
 
     /**
      * @var bool
@@ -73,13 +73,13 @@ class Package
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="deleted_at", type="datetime", nullable=true)
+     * @ORM\Column(name="deleted_at", type="datetime" )
      */
     private $deleted_at; 
 
     /**
-     * one prod can have Many pack.
-     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="packages")
+     * Many cat have Many prod.
+     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="providers")
      */
     private $product;
 
@@ -104,7 +104,7 @@ class Package
      *
      * @param string $name
      *
-     * @return Package
+     * @return Provider
      */
     public function setName($name)
     {
@@ -124,109 +124,107 @@ class Package
     }
 
     /**
-     * Set size
+     * Set address
      *
-     * @param string $size
+     * @param string $address
      *
-     * @return Package
+     * @return Provider
      */
-    public function setSize($size)
+    public function setAddress($address)
     {
-        $this->size = $size;
+        $this->address = $address;
 
         return $this;
     }
 
     /**
-     * Get size
+     * Get address
      *
      * @return string
      */
-    public function getSize()
+    public function getAddress()
     {
-        return $this->size;
+        return $this->address;
     }
 
     /**
-     * Set cbm
+     * Set price
      *
-     * @param string $cbm
+     * @param string $price
      *
-     * @return Package
+     * @return Provider
      */
-    public function setCbm($cbm)
+    public function setPrice($price)
     {
-        $this->cbm = $cbm;
+        $this->price = $price;
 
         return $this;
     }
 
     /**
-     * Get cbm
+     * Get price
      *
      * @return string
      */
-    public function getCbm()
+    public function getPrice()
     {
-        return $this->cbm;
+        return $this->price;
     }
 
     /**
-     * Set marineCost
+     * Set moq
      *
-     * @param string $marineCost
+     * @param integer $moq
      *
-     * @return Package
+     * @return Provider
      */
-    public function setMarineCost($marineCost)
+    public function setMoq($moq)
     {
-        $this->marineCost = $marineCost;
+        $this->moq = $moq;
 
         return $this;
     }
 
     /**
-     * Get marineCost
+     * Get moq
      *
-     * @return string
+     * @return int
      */
-    public function getMarineCost()
+    public function getMoq()
     {
-        return $this->marineCost;
+        return $this->moq;
     }
 
     /**
-     * Set airCost
+     * Set productionCapacity
      *
-     * @param string $airCost
+     * @param integer $productionCapacity
      *
-     * @return Package
+     * @return Provider
      */
-    public function setAirCost($airCost)
+    public function setProductionCapacity($productionCapacity)
     {
-        $this->airCost = $airCost;
+        $this->productionCapacity = $productionCapacity;
 
         return $this;
     }
 
     /**
-     * Get airCost
+     * Get productionCapacity
      *
-     * @return string
+     * @return int
      */
-    public function getAirCost()
+    public function getProductionCapacity()
     {
-        return $this->airCost;
+        return $this->productionCapacity;
     }
-
-    
 
     /**
      * Set active
      *
      * @param boolean $active
      *
-     * @return Package
+     * @return Provider
      */
     public function setActive($active)
     {
@@ -250,7 +248,7 @@ class Package
      *
      * @param \ProductBundle\Entity\Product $product
      *
-     * @return Package
+     * @return Provider
      */
     public function addProduct(\ProductBundle\Entity\Product $product)
     {
@@ -279,51 +277,5 @@ class Package
         return $this->product;
     }
 
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return Package
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->created_at = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->created_at;
-    }
-
-    /**
-     * Set deletedAt
-     *
-     * @param \DateTime $deletedAt
-     *
-     * @return Package
-     */
-    public function setDeletedAt($deletedAt)
-    {
-        $this->deleted_at = $deletedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get deletedAt
-     *
-     * @return \DateTime
-     */
-    public function getDeletedAt()
-    {
-        return $this->deleted_at;
-    }
+    
 }

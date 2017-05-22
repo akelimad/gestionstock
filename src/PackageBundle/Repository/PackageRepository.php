@@ -10,4 +10,11 @@ namespace PackageBundle\Repository;
  */
 class PackageRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function getAllPackages()
+    {
+        return $this->getEntityManager()->createQuery("
+        	SELECT p FROM PackageBundle:Package p 
+            WHERE p.deleted_at IS NULL  ORDER BY p.name ASC
+        ")->getResult();
+    }
 }

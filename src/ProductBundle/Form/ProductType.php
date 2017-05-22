@@ -42,7 +42,7 @@ class ProductType extends AbstractType
             'class'=>'CategoryBundle:Category', 
             'choice_label'=>'name', 
             'query_builder' => function ($er) {
-               return $er->createQueryBuilder('c');
+               return $er->createQueryBuilder('c')->orderBy('c.id', 'ASC');
             },
             'multiple'=> true,
         ))

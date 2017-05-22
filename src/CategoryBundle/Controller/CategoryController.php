@@ -26,8 +26,7 @@ class CategoryController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $categories = $em->getRepository('CategoryBundle:Category')->findAll();
+        $categories = $em->getRepository('CategoryBundle:Category')->getAllCategories();
 
         return $this->render('category/index.html.twig', array(
             'categories' => $categories,
@@ -106,18 +105,20 @@ class CategoryController extends Controller
      * Deletes a category entity.
      *
      * @Route("/{id}", name="category_delete" , options={"expose"=true})
-     * @Method("DELETE")
+     * @Method("PUT")
      */
     public function deleteAction(Request $request, Category $category)
     {
-        $form = $this->createDeleteForm($category);
-        $form->handleRequest($request);
+        // $form = $this->createDeleteForm($category);
+        // $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($category);
-            $em->flush();
-        }
+        // if ($form->isSubmitted() && $form->isValid()) {
+        //     $em = $this->getDoctrine()->getManager();
+        //     $em->remove($category);
+        //     $em->flush();
+        // }
+        $category->setDeletedAt(new \DateTime());
+        $this->getDoctrine()->getManager()->flush();
 
         return $this->redirectToRoute('category_index');
     }

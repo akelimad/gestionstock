@@ -631,7 +631,7 @@ class Product
      *
      * @return Product
      */
-    public function addImage($image)
+    public function addImages($image)
     {
         $this->images[] = $image;
 
@@ -643,7 +643,7 @@ class Product
      *
      * @param \ProductBundle\Entity\ImageProduct $image
      */
-    public function removeImage($image)
+    public function removeImages($image)
     {
         $this->images->removeElement($image);
     }
@@ -689,4 +689,6 @@ class Product
         return $this->product_log=$product_log;
     }
 
+
+    
 }

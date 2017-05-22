@@ -26,7 +26,7 @@ class PackageController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $packages = $em->getRepository('PackageBundle:Package')->findAll();
+        $packages = $em->getRepository('PackageBundle:Package')->getAllPackages();
 
         return $this->render('package/index.html.twig', array(
             'packages' => $packages,
@@ -104,18 +104,20 @@ class PackageController extends Controller
      * Deletes a package entity.
      *
      * @Route("/{id}", name="package_delete", options={"expose"=true})
-     * @Method("DELETE")
+     * @Method("PUT")
      */
     public function deleteAction(Request $request, Package $package)
     {
-        $form = $this->createDeleteForm($package);
-        $form->handleRequest($request);
+        // $form = $this->createDeleteForm($package);
+        // $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($package);
-            $em->flush();
-        }
+        // if ($form->isSubmitted() && $form->isValid()) {
+        //     $em = $this->getDoctrine()->getManager();
+        //     $em->remove($package);
+        //     $em->flush();
+        // }
+        $package->setDeletedAt(new \DateTime());
+        $this->getDoctrine()->getManager()->flush();
 
         return $this->redirectToRoute('package_index');
     }

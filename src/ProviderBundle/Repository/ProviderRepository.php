@@ -10,4 +10,11 @@ namespace ProviderBundle\Repository;
  */
 class ProviderRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function getAllProviders()
+    {
+        return $this->getEntityManager()->createQuery("
+        	SELECT p FROM ProviderBundle:Provider p 
+            WHERE p.deleted_at IS NULL  ORDER BY p.name ASC
+        ")->getResult();
+    }
 }

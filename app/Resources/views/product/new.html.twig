@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Poduit{% endblock %}
+{% block title %}Produit{% endblock %}
 {% block body %}
     <div class="content">
         <div class="container-fluid">
@@ -165,15 +165,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group {{ form_errors(form.categories) ? 'has-error': '' }}">
+                                    <div class="col-md-6 form-group ">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(form.categories, "Categorie", {'label_attr': {'class': 'control-label'}}) }}
-
                                             </div>
                                             <div class="col-md-8">
-                                                <span class="help-block">Utiliser la touche ctrl pour multiple selection.</span>
-                                                {{ form_widget(form.categories, {'attr': {'class': 'form-control'}}) }}
+                                                
+                                                {% spaceless %}
+                                                     {{ form_widget(form.categories, {'attr': {'class': 'form-control'}}) }}
+                                                {% endspaceless %}
 
                                                 <span class="help-block">{{ form_errors(form.categories) }}</span>
                                             </div>

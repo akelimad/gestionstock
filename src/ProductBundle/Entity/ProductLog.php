@@ -29,8 +29,14 @@ class ProductLog
      *
      * @ORM\Column(name="updated_at", type="datetime" )
      */
-    private $updatedAt;
+    private $updated_at;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="deleted_at", type="datetime" , nullable=true)
+     */
+    private $deleted_at; 
     /**
      * @var string
      *
@@ -53,7 +59,7 @@ class ProductLog
 
     public function __construct()
     {
-        $this->updatedAt = new \DateTime(); 
+        $this->updated_at = new \DateTime(); 
     }
 
     /**
@@ -90,30 +96,6 @@ class ProductLog
         return $this->productId;
     }
 
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return ProductLog
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
 
     /**
      * Set action
@@ -189,5 +171,53 @@ class ProductLog
     public function getProduct()
     {
         return $this->product;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return ProductLog
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set deletedAt
+     *
+     * @param \DateTime $deletedAt
+     *
+     * @return ProductLog
+     */
+    public function setDeletedAt($deletedAt)
+    {
+        $this->deleted_at = $deletedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get deletedAt
+     *
+     * @return \DateTime
+     */
+    public function getDeletedAt()
+    {
+        return $this->deleted_at;
     }
 }
