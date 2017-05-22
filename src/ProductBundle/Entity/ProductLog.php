@@ -27,7 +27,7 @@ class ProductLog
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updated_at", type="datetime" )
+     * @ORM\Column(name="updated_at", type="datetime", options={"default"="CURRENT_TIMESTAMP"} )
      */
     private $updated_at;
 

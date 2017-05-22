@@ -66,7 +66,7 @@ class Package
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created_at", type="datetime" )
+     * @ORM\Column(name="created_at", type="datetime", options={"default"="CURRENT_TIMESTAMP"} )
      */
     private $created_at;
 
