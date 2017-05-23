@@ -30,8 +30,8 @@ var Product = {
       $(".internet-price").empty().html("<i class='fa fa-forward'></i> Prix internet  : "+product.internetPrice + " $");
       $(".fotorama").empty();
       for (var i = 0; i < product.images.length; i++) {
-        var img={'img'  :'{{ asset(uploads/images/'+product.images[i]+') }}',
-                 'thumb':'{{ asset(uploads/images/'+product.images[i]+') }}'
+        var img={'img'  : $(".imagesProduct").data("image-url")+product.images[i],
+                 'thumb': $(".imagesProduct").data("image-url")+product.images[i]
         }
         fotorama_image.push(img);
       }
