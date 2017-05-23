@@ -10,6 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class ProductType extends AbstractType
 {
@@ -18,6 +19,15 @@ class ProductType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        // $listColor;
+        // for($r = 0;$r < 255; $r = $r + 50){
+        //     for($g = 0;$g < 255; $g = $g + 50){    
+        //         for($b = 0;$b < 255; $b = $b + 50){
+        //             $string = dechex($r).dechex($g).dechex($b);
+        //             $listColor[$string] = $string;
+        //         }
+        //     }
+        // }
         
         $builder
         ->add('name')
@@ -42,9 +52,10 @@ class ProductType extends AbstractType
             'class'=>'CategoryBundle:Category', 
             'choice_label'=>'name', 
             'query_builder' => function ($er) {
-               return $er->createQueryBuilder('c')->orderBy('c.id', 'ASC');
+               return $er->createQueryBuilder('c')->where("c.deleted_at IS NULL");
             },
             'multiple'=> true,
+            'group_by' => 'parent',
         ))
         ->add('packages', EntityType::class, array(
             'class'=>'PackageBundle:Package', 

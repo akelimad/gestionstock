@@ -330,8 +330,20 @@ $(document).ready(function() {
         });
     });
 
+    //to set checkbox checked if edit_form.active == '1'
+    var checked=$("input[type=checkbox]").attr("checked");
+    if(checked=="checked"){
+        $("label.checkbox").addClass("checked");
+    }
 
+    //to customize select of category & subcategory in product form
+    $("#productbundle_product_categories optgroup").removeAttr("label");
 
+    $("#productbundle_product_color option").each(function(index,value){
+        var option = $(this);
+        var bc= 'background-color: #'+option.val()+';';
+        option.attr('style',bc);
+    });
 
 
 

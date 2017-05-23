@@ -17,5 +17,7 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
             WHERE p1.id=pl.product AND pl.deleted_at IS NOT NULL )
         ")->getResult();
     }
+
+    
 	
 }

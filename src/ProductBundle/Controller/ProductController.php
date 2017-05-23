@@ -72,9 +72,6 @@ class ProductController extends Controller
         $form->handleRequest($request); 
         $em = $this->getDoctrine()->getEntityManager();
 
-        $em1 = $this->container->get('doctrine');
-        $categories = $em1->getRepository('CategoryBundle:Category')->getAllRootCategories();
-
         if ($form->isSubmitted() && $form->isValid()){
             //var_dump($request->request->get('cat_product'));die();
             
@@ -119,7 +116,6 @@ class ProductController extends Controller
         }
         return $this->render('product/new.html.twig', array(
             'product' => $product,
-            'categories' => $categories,
             'form' => $form->createView(),
         ));
     }

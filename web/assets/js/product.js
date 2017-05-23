@@ -20,7 +20,7 @@ var Product = {
       $(".description").empty().html("Description : "+product.description);
       $(".size-inch").empty().html("<i class='fa fa-forward'></i> Taille(inch) : "+product.sizeInch);
       $(".size-cm").empty().html("<i class='fa fa-forward'></i> Taille(cm) : "+product.sizeCm);
-      $(".color").empty().html("Color : "+product.color);
+      $(".color").empty().html("Color : " + product.color).css("background", "#"+product.color);
       $(".composition").empty().html("Composition : "+product.composition);
       $(".form").empty().html("Form : "+product.form);
       $(".weight").empty().html("<i class='fa fa-forward'></i> Poids(kg) : "+product.weight);
@@ -30,8 +30,8 @@ var Product = {
       $(".internet-price").empty().html("<i class='fa fa-forward'></i> Prix internet  : "+product.internetPrice + " $");
       $(".fotorama").empty();
       for (var i = 0; i < product.images.length; i++) {
-        var img={'img'  :'/gestionstock/web/uploads/images/'+product.images[i],
-                 'thumb':'/gestionstock/web/uploads/images/'+product.images[i]
+        var img={'img'  :'{{ asset(uploads/images/'+product.images[i]+') }}',
+                 'thumb':'{{ asset(uploads/images/'+product.images[i]+') }}'
         }
         fotorama_image.push(img);
       }

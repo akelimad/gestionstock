@@ -171,11 +171,7 @@
                                                 {{ form_label(form.categories, "Categorie", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
-                                                
-                                                {% spaceless %}
-                                                     {{ form_widget(form.categories, {'attr': {'class': 'form-control'}}) }}
-                                                {% endspaceless %}
-
+                                                {{ form_widget(form.categories, {'attr': {'class': 'form-control'}}) }}
                                                 <span class="help-block">{{ form_errors(form.categories) }}</span>
                                             </div>
                                         </div>
