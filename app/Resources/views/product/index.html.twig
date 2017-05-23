@@ -24,7 +24,7 @@
                                         <option value="0">Filtrez par catégorie</option>
                                         {% for cat in categories %}
                                         <option value="{{cat.id}}">{{ cat.name }}</option>
-                                        {% endfor %}
+                                        {% endfor %} 
                                     </select>
                                 </div>
                                 <div class="col-md-6">
@@ -69,8 +69,8 @@
             id            : {{p.id}},
             name          :'{{p.name}}',
             description   :'{{p.description ? p.description : "null"}}',
-            sizeInch      : '{{p.sizeInch ? p.sizeInch : "null"}}',
-            sizeCm        : '{{p.sizeCm ? p.sizeCm : "null"}}',
+            sizeInch      :'{{p.sizeInch ? p.sizeInch : "null"}}',
+            sizeCm        :'{{p.sizeCm ? p.sizeCm : "null"}}',
             color         :'{{p.color ? p.color : "null"}}',
             composition   :'{{p.composition ? p.composition : "null"}}',
             form          :'{{p.form ? p.form : "null"}}',
