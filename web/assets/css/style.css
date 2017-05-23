@@ -124,7 +124,8 @@ select option.children-labelle{
 }
 
 select#productbundle_product_categories optgroup {
-    border-bottom: 1px dotted gray;
+    /*border-bottom: 1px dotted gray;*/
+    margin-bottom: 15px;
 }
 
 select#productbundle_product_categories > option {
@@ -135,6 +136,7 @@ select#productbundle_product_categories > option {
 
 select#productbundle_product_categories optgroup option {
     color: #404040;
-    font-size: 14px;
+    font-size: 15px;
     font-style: italic;
+    margin-bottom: 3px;
 }
