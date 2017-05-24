@@ -16,3 +16,6 @@ services:
         class: UserBundle\Form\ProfileType
         tags:
           - { name: form.type, alias: app_user_profile }
+
+    import.csvtoarray:
+        class: ImportBundle\Services\ConvertCsvToArray

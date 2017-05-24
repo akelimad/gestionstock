@@ -8,12 +8,14 @@ imports:
     - { resource: "@CategoryBundle/Resources/config/services.yml" }
     - { resource: "@ProductBundle/Resources/config/services.yml" }
     - { resource: "@AppBundle/Resources/config/services.yml" }
+    - { resource: "@ImportBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
     images_directory: '%kernel.root_dir%/../web/uploads/images'
+    import_csv_directory: '%kernel.root_dir%/../web/uploads/imports'
 
 framework:
     #esi: ~

@@ -14,7 +14,19 @@
                         {% endif %}
                         </h4>
                         <div class="toolbar">
-                            
+                            <div class="col-md-12">
+                                <form class="form-horizontal" action="{{path('product_import')}}" method="post" name="upload_excel" enctype="multipart/form-data">
+                                    <!-- File Button -->
+                                    <div class="form-group col-md-3">
+                                            <input type="file" name="file_excel" id="file" class="input-large" required="">
+                                    </div>
+             
+                                    <!-- Button -->
+                                    <div class="form-group col-md-3">
+                                            <button type="submit" id="submit" name="Import" class="btn btn-primary button-loading" data-loading-text="Loading...">Import</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                         
                         <div class="material-datatables product-table">

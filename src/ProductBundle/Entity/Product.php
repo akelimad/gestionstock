@@ -76,7 +76,7 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="weight", type="decimal", precision=10, scale=0,nullable=true)
+     * @ORM\Column(name="weight", type="string", length=255,nullable=true)
      */
     private $weight;
 
@@ -107,6 +107,13 @@ class Product
      * @ORM\Column(name="internetPrice", type="decimal", precision=10, scale=2, nullable=true)
      */
     private $internetPrice;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observations", type="text", nullable=true)
+     */
+    private $observations;
 
     /**
      * @var bool
@@ -339,7 +346,7 @@ class Product
         return $this->form;
     }
 
-    /**
+        /**
      * Set weight
      *
      * @param string $weight
@@ -691,4 +698,150 @@ class Product
 
 
     
+
+    /**
+     * Set observations
+     *
+     * @param string $observations
+     *
+     * @return Product
+     */
+    public function setObservations($observations)
+    {
+        $this->observations = $observations;
+
+        return $this;
+    }
+
+    /**
+     * Get observations
+     *
+     * @return string
+     */
+    public function getObservations()
+    {
+        return $this->observations;
+    }
+
+    /**
+     * Add category
+     *
+     * @param \CategoryBundle\Entity\Category $category
+     *
+     * @return Product
+     */
+    public function addCategory(\CategoryBundle\Entity\Category $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \CategoryBundle\Entity\Category $category
+     */
+    public function removeCategory(\CategoryBundle\Entity\Category $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Add package
+     *
+     * @param \PackageBundle\Entity\Package $package
+     *
+     * @return Product
+     */
+    public function addPackage(\PackageBundle\Entity\Package $package)
+    {
+        $this->packages[] = $package;
+
+        return $this;
+    }
+
+    /**
+     * Remove package
+     *
+     * @param \PackageBundle\Entity\Package $package
+     */
+    public function removePackage(\PackageBundle\Entity\Package $package)
+    {
+        $this->packages->removeElement($package);
+    }
+
+    /**
+     * Add provider
+     *
+     * @param \ProviderBundle\Entity\Provider $provider
+     *
+     * @return Product
+     */
+    public function addProvider(\ProviderBundle\Entity\Provider $provider)
+    {
+        $this->providers[] = $provider;
+
+        return $this;
+    }
+
+    /**
+     * Remove provider
+     *
+     * @param \ProviderBundle\Entity\Provider $provider
+     */
+    public function removeProvider(\ProviderBundle\Entity\Provider $provider)
+    {
+        $this->providers->removeElement($provider);
+    }
+
+    /**
+     * Add image
+     *
+     * @param \ProductBundle\Entity\ImageProduct $image
+     *
+     * @return Product
+     */
+    public function addImage(\ProductBundle\Entity\ImageProduct $image)
+    {
+        $this->images[] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param \ProductBundle\Entity\ImageProduct $image
+     */
+    public function removeImage(\ProductBundle\Entity\ImageProduct $image)
+    {
+        $this->images->removeElement($image);
+    }
+
+    /**
+     * Add productLog
+     *
+     * @param \ProductBundle\Entity\ProductLog $productLog
+     *
+     * @return Product
+     */
+    public function addProductLog(\ProductBundle\Entity\ProductLog $productLog)
+    {
+        $this->product_log[] = $productLog;
+
+        return $this;
+    }
+
+    /**
+     * Remove productLog
+     *
+     * @param \ProductBundle\Entity\ProductLog $productLog
+     */
+    public function removeProductLog(\ProductBundle\Entity\ProductLog $productLog)
+    {
+        $this->product_log->removeElement($productLog);
+    }
+
+
 }
