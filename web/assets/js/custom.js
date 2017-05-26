@@ -339,6 +339,8 @@ $(document).ready(function() {
     //to customize select of category & subcategory in product form
     $("#productbundle_product_categories optgroup").attr("label", "-----------------------------------");
 
+    //to make background for color select
+    $("select#productbundle_product_color option").find()
 
 
 

@@ -25,9 +25,9 @@ class ProfileType extends AbstractType
             ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
             ->add('roles', ChoiceType::class, array(
                 'choices'   => [
-                    'ROLE SUPER ADMIN' => 'ROLE_SUPER_ADMIN',
+                    #'ROLE SUPER ADMIN' => 'ROLE_SUPER_ADMIN',
                     'ROLE ADMIN' =>       'ROLE_ADMIN',
-                    #'ROLE USER' =>        'ROLE_USER'
+                    'ROLE USER' =>        'ROLE_USER'
                 ],
                 'required'  => true,
                 'multiple' => true

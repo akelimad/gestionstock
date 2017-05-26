@@ -1,10 +1,7 @@
 <?php
-
 namespace ProductBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-
 /**
  * ProductLog
  *
@@ -13,7 +10,6 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class ProductLog
 {
-
     /**
      * @var int
      *
@@ -22,15 +18,12 @@ class ProductLog
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="updated_at", type="datetime", options={"default"="CURRENT_TIMESTAMP"} )
      */
     private $updated_at;
-
     /**
      * @var \DateTime
      *
@@ -43,25 +36,20 @@ class ProductLog
      * @ORM\Column(name="action", type="string", length=255)
      */
     private $action;
-
     /**
      * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="user_log")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $user;
-
     /**
      * @ORM\ManyToOne(targetEntity="Product", inversedBy="product_log") 
      * @ORM\JoinColumn(name="product_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $product;
-
-
     public function __construct()
     {
         $this->updated_at = new \DateTime(); 
     }
-
     /**
      * Get id
      *
@@ -71,7 +59,6 @@ class ProductLog
     {
         return $this->id;
     }
-
     /**
      * Set productId
      *
@@ -82,10 +69,8 @@ class ProductLog
     public function setProductId($productId)
     {
         $this->productId = $productId;
-
         return $this;
     }
-
     /**
      * Get productId
      *
@@ -95,8 +80,6 @@ class ProductLog
     {
         return $this->productId;
     }
-
-
     /**
      * Set action
      *
@@ -107,10 +90,8 @@ class ProductLog
     public function setAction($action)
     {
         $this->action = $action;
-
         return $this;
     }
-
     /**
      * Get action
      *
@@ -120,11 +101,8 @@ class ProductLog
     {
         return $this->action;
     }
-
     
-
     
-
     /**
      * Set user
      *
@@ -135,10 +113,8 @@ class ProductLog
     public function setUser(\UserBundle\Entity\User $user = null)
     {
         $this->user = $user;
-
         return $this;
     }
-
     /**
      * Get user
      *
@@ -148,7 +124,6 @@ class ProductLog
     {
         return $this->user;
     }
-
     /**
      * Set product
      *
@@ -159,10 +134,8 @@ class ProductLog
     public function setProduct(\ProductBundle\Entity\Product $product = null)
     {
         $this->product = $product;
-
         return $this;
     }
-
     /**
      * Get product
      *
@@ -172,7 +145,6 @@ class ProductLog
     {
         return $this->product;
     }
-
     /**
      * Set updatedAt
      *
@@ -183,10 +155,8 @@ class ProductLog
     public function setUpdatedAt($updatedAt)
     {
         $this->updated_at = $updatedAt;
-
         return $this;
     }
-
     /**
      * Get updatedAt
      *
@@ -196,7 +166,6 @@ class ProductLog
     {
         return $this->updated_at;
     }
-
     /**
      * Set deletedAt
      *
@@ -207,10 +176,8 @@ class ProductLog
     public function setDeletedAt($deletedAt)
     {
         $this->deleted_at = $deletedAt;
-
         return $this;
     }
-
     /**
      * Get deletedAt
      *

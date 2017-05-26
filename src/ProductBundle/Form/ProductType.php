@@ -19,22 +19,37 @@ class ProductType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        // $listColor;
-        // for($r = 0;$r < 255; $r = $r + 50){
-        //     for($g = 0;$g < 255; $g = $g + 50){    
-        //         for($b = 0;$b < 255; $b = $b + 50){
-        //             $string = dechex($r).dechex($g).dechex($b);
-        //             $listColor[$string] = $string;
-        //         }
-        //     }
-        // }
         
         $builder
         ->add('name')
         ->add('description')
         ->add('sizeInch')
         ->add('sizeCm')
-        ->add('color')
+        ->add('color', ChoiceType::class, array(
+            'choices' => array(
+                'Black' => '#000000',
+                'Gray' => '#808080',
+                'DarkGray' => '#A9A9A9',
+                'LightGray' => '#D3D3D3',
+                'White' => '#FFFFFF',
+                'Aquamarine' => '#7FFFD4',
+                'Blue' => '#0000FF',
+                'Navey' => '#000080',
+                'Purple' => '#800080',
+                'DeepPink' => '#FF1493',
+                'Violet' => '#EE82EE',
+                'Pink' => '#FFC0CB',
+                'DarkGreen' => '#006400',
+                'Green' => '#008000',
+                'YellowGreen' => '#9ACD32',
+                'Yellow' => '#FFFF00',
+                'Orange' => '#FFA500',
+                'Red' => '#FF0000',
+                'Brown' => '#A52A2A',
+                'BurlyWood' => '#DEB887',
+                'Beige' => '#F5F5DC',
+            ),
+        ))
         ->add('composition')
         ->add('form')
         ->add('weight')
@@ -43,6 +58,7 @@ class ProductType extends AbstractType
         ->add('specialPrice')
         ->add('internetPrice')
         ->add('active')
+        //->add('observations')
         ->add('images', FileType::class, array(
            'multiple' => true,
            'data_class' => null,
@@ -56,6 +72,7 @@ class ProductType extends AbstractType
             },
             'multiple'=> true,
             'group_by' => 'parent',
+            'required' => false
         ))
         ->add('packages', EntityType::class, array(
             'class'=>'PackageBundle:Package', 

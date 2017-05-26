@@ -118,7 +118,7 @@ class Product
     /**
      * @var bool
      *
-     * @ORM\Column(name="active", type="boolean")
+     * @ORM\Column(name="active", type="boolean", nullable=true, options={"default" : true})
      */
     private $active;
 
@@ -795,29 +795,6 @@ class Product
         $this->providers->removeElement($provider);
     }
 
-    /**
-     * Add image
-     *
-     * @param \ProductBundle\Entity\ImageProduct $image
-     *
-     * @return Product
-     */
-    public function addImage(\ProductBundle\Entity\ImageProduct $image)
-    {
-        $this->images[] = $image;
-
-        return $this;
-    }
-
-    /**
-     * Remove image
-     *
-     * @param \ProductBundle\Entity\ImageProduct $image
-     */
-    public function removeImage(\ProductBundle\Entity\ImageProduct $image)
-    {
-        $this->images->removeElement($image);
-    }
 
     /**
      * Add productLog

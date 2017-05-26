@@ -15,17 +15,22 @@
                         </h4>
                         <div class="toolbar">
                             <div class="col-md-12">
-                                <form class="form-horizontal" action="{{path('product_import')}}" method="post" name="upload_excel" enctype="multipart/form-data">
-                                    <!-- File Button -->
-                                    <div class="form-group col-md-3">
-                                            <input type="file" name="file_excel" id="file" class="input-large" required="">
+                                {{ form_start(form,  {'action': path('product_import')}) }}
+                                <div class="form-group {{ form_errors(form.fileExcel) ? 'has-error': '' }}">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{ form_label(form.fileExcel, "Veuillez choisir un fichier excel format(csv)", {'label_attr': {'class': 'control-label'}}) }}
+                                        </div>
+                                        <div class="col-md-4">
+                                            {{ form_widget(form.fileExcel, {'attr': {'class': 'form-control'}}) }}
+                                            <span class="help-block">{{ form_errors(form.fileExcel) }}</span> 
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-plus"></i> upload file </button>
+                                        </div>
                                     </div>
-             
-                                    <!-- Button -->
-                                    <div class="form-group col-md-3">
-                                            <button type="submit" id="submit" name="Import" class="btn btn-primary button-loading" data-loading-text="Loading...">Import</button>
-                                    </div>
-                                </form>
+                                </div>
+                                {{ form_end(form) }}
                             </div>
                         </div>
                         

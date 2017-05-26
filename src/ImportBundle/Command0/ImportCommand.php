@@ -56,11 +56,11 @@ class ImportCommand extends ContainerAwareCommand
         $progress->start();
         
         // Processing on each row of data
-        $product = new Product();
         if($data){
             foreach($data as $row) {          
+                $product = new Product();
                 // If the Product doest not exist we create one
-                $product->setName($row["name"]);
+                $product->setName($row["Article"]);
                 $product->setDescription($row["Description"]);
                 $product->setSizeInch($row["Taille ( inch )"]);
                 $product->setSizeCm($row["Taille ( cm )"]);

@@ -1,14 +1,11 @@
 <?php
-
 namespace ProductBundle\Controller;
-
 use ProductBundle\Entity\ImageProduct;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
 /**
  * Imageproduct controller.
  *
@@ -25,14 +22,11 @@ class ImageProductController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $imageProducts = $em->getRepository('ProductBundle:ImageProduct')->findAll();
-
         return $this->render('imageproduct/index.html.twig', array(
             'imageProducts' => $imageProducts,
         ));
     }
-
     /**
      * Creates a new imageProduct entity.
      *
@@ -44,21 +38,17 @@ class ImageProductController extends Controller
         $imageProduct = new Imageproduct();
         $form = $this->createForm('ProductBundle\Form\ImageProductType', $imageProduct);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($imageProduct);
             $em->flush();
-
             return $this->redirectToRoute('imageproduct_show', array('id' => $imageProduct->getId()));
         }
-
         return $this->render('imageproduct/new.html.twig', array(
             'imageProduct' => $imageProduct,
             'form' => $form->createView(),
         ));
     }
-
     /**
      * Finds and displays a imageProduct entity.
      *
@@ -68,13 +58,11 @@ class ImageProductController extends Controller
     public function showAction(ImageProduct $imageProduct)
     {
         $deleteForm = $this->createDeleteForm($imageProduct);
-
         return $this->render('imageproduct/show.html.twig', array(
             'imageProduct' => $imageProduct,
             'delete_form' => $deleteForm->createView(),
         ));
     }
-
     /**
      * Displays a form to edit an existing imageProduct entity.
      *
@@ -86,20 +74,16 @@ class ImageProductController extends Controller
         $deleteForm = $this->createDeleteForm($imageProduct);
         $editForm = $this->createForm('ProductBundle\Form\ImageProductType', $imageProduct);
         $editForm->handleRequest($request);
-
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('imageproduct_edit', array('id' => $imageProduct->getId()));
         }
-
         return $this->render('imageproduct/edit.html.twig', array(
             'imageProduct' => $imageProduct,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
-
     /**
      * Deletes a imageProduct entity.
      *
@@ -110,17 +94,14 @@ class ImageProductController extends Controller
     {
         $form = $this->createDeleteForm($imageProduct);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($imageProduct);
             $em->flush();
         }
-
         //return $this->redirectToRoute('imageproduct_index');
         return new Response("image of product deleted");
     }
-
     /**
      * Creates a form to delete a imageProduct entity.
      *

@@ -59,7 +59,7 @@ class Provider
     /**
      * @var bool
      *
-     * @ORM\Column(name="active", type="boolean")
+     * @ORM\Column(name="active", type="boolean", nullable=true,options={"default" : true})
      */
     private $active;
 

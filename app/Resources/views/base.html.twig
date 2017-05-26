@@ -44,23 +44,17 @@
             Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
         -->
             <div class="logo">
-                <a href="#" class="simple-text">
-                    Digital Works
+                <a href="{{ path('app_default_index') }}" class="simple-text">
+                    <img src="{{ asset('assets/img/logo_dw.png') }}" alt="">
                 </a>
             </div>
             <div class="logo logo-mini">
-                <a href="#" class="simple-text">
-                    A
+                <a href="{{ path('app_default_index') }}" class="simple-text">
+                    DW
                 </a>
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li class="{{ app.request.attributes.get('_route') == 'app_default_index' ? 'active' : '' }}">
-                        <a href="{{path('app_default_index')}}">
-                            <i class="ti-panel"></i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
                     <li class="{{ app.request.attributes.get('_route') == 'product_index' ? 'active' : '' }}">
                         <a href=" {{path('product_index')}} ">
                             <i class="fa fa-product-hunt"></i>
@@ -85,7 +79,7 @@
                             <p>Fournisseurs</p>
                         </a>
                     </li>
-                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                    {% if is_granted('ROLE_ADMIN') %}
                     <li class="{{ app.request.attributes.get('_route') == 'user_default_index' ? 'active' : '' }}">
                         <a href=" {{path('user_default_index')}} ">
                             <i class="fa fa-users"></i>
@@ -118,7 +112,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#"> Dashboard </a>
+                        <a class="navbar-brand" href="{{ path('app_default_index') }}"> Accueil </a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -133,8 +127,9 @@
                                             {% if app.user %}
                                                 {{app.user.username}} : 
                                                 {% for role in app.user.roles|slice(0,1) %}
-                                                    {{ role =="ROLE_SUPER_ADMIN" ? " role super admin" }}
-                                                    {{ role =="ROLE_ADMIN" ? " role admin" }}
+                                                    {{ role =="ROLE_SUPER_ADMIN" ? " Admin" }}
+                                                    {{ role =="ROLE_ADMIN" ? " Admin" }}
+                                                    {{ role =="ROLE_USER" ? " Utilisateur" }}
                                                 {% endfor %}
                                             {% else %}
                                                 Anonymous
@@ -175,7 +170,7 @@
                         <script>
                             document.write(new Date().getFullYear())
                         </script>
-                        <a href="#">Digital Work . Designed with <i class="fa fa-heart"></i> by Imad AKEL</a>
+                        <a href="#">Digital Works.</a>
                     </p>
                 </div>
             </footer>

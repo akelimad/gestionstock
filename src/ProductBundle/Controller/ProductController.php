@@ -1,24 +1,19 @@
 <?php
-
 namespace ProductBundle\Controller; 
-
 use ProductBundle\Entity\Product;
 use ProductBundle\Entity\ImageProduct;
 use ProductBundle\Entity\ProductLog;
 use UserBundle\Entity\User;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use ProductBundle\Form\ProductType;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-
-
-
 /**
  * Product controller.
  *
@@ -27,38 +22,37 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 class ProductController extends Controller
 {
     private $ImageProduct;
-
     public function __construct()
     {
         $this->ImageProduct = new ImageProduct();
     }
-
     /**
      * Lists all product entities.
      *
      * @Route("/", name="product_index")
-     * @Method("GET")
+
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $products = $em->getRepository('ProductBundle:Product')->getAllProducts();
         $categories = $em->getRepository('CategoryBundle:Category')->findAll();
         $providers = $em->getRepository('ProviderBundle:Provider')->findAll();
-        // foreach($products as $prod){
-        //     foreach($prod->getCategory() as $cat){
-        //         var_dump($cat->getName());
-        //     }
-        //     die;
-        // }
+
+        $defaultData = array('message' => 'Type your message here');
+        $form = $this->createFormBuilder($defaultData)
+            ->add('fileExcel', FileType::class, array('label' => 'choisissez un fichier excel(csv)'))
+            ->getForm();
+
+        $form->handleRequest($request);
 
         return $this->render('product/index.html.twig', array(
             'products' => $products,
             'categories' => $categories,
             'providers' => $providers,
+            'form' => $form->createView()
         ));
     }
-
     /**
      * Creates a new product entity.
      *
@@ -71,15 +65,12 @@ class ProductController extends Controller
         $form = $this->createForm('ProductBundle\Form\ProductType', $product);
         $form->handleRequest($request); 
         $em = $this->getDoctrine()->getEntityManager();
-
         if ($form->isSubmitted() && $form->isValid()){
             //var_dump($request->request->get('cat_product'));die();
-            
-            
-            $files = $product->getImages();
-            
-            $images = array();
 
+            $files = $product->getImages();
+
+            $images = array();
             if($files != null) {
                 $key = 0;
                 foreach ($files as $file){
@@ -91,24 +82,19 @@ class ProductController extends Controller
                     $images[] = $imageProduct;
                 }
             }
-
             $product->setImages($images);
             //$product->setCategories($categories);
             $productlog->setProduct($product);
             $productlog->setUser($this->getUser());
             $productlog->setAction("Add");
-
             // $catsProd=array();
             // $cats= array();
             // $cats[]=$request->request->get('cat_product');
             // foreach ($cats as $cat) {
             //     $catsProd[]=$cat;
             // }
-
             // $product->setCategories($catsProd);
-
             //$product->setCategories($catsProd);
-
             $em->persist($product);
             $em->persist($productlog);
             $em->flush();
@@ -119,8 +105,6 @@ class ProductController extends Controller
             'form' => $form->createView(),
         ));
     }
-
-
     /**
      * Finds and displays a product entity.
      *
@@ -129,17 +113,10 @@ class ProductController extends Controller
      */
     public function showAction(Product $product)
     {
-        //$deleteForm = $this->createDeleteForm($product);
-
-        // $response = new Response(json_encode($products));
-        // $response->headers->set('Content-Type', 'application/json');
-        // return $response;
-        //return new JsonResponse(array('products' => $product));
-         $product=array('test'=>'test');
-         $response = new Response(array('data'=>json_encode($product)));
-         return $response;
+        return $this->render('product/show.html.twig', array(
+            'product' => $product,
+        ));
     }
-
     /**
      * Displays a form to edit an existing product entity.
      *
@@ -155,7 +132,6 @@ class ProductController extends Controller
         $editForm->handleRequest($request);
         //var_dump($product->getImages()); die();
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-
             $files = $product->getImages();
             $images = array();
             if($files != null) {
@@ -168,7 +144,6 @@ class ProductController extends Controller
                     $imageProduct->setPath($fileName);
                     $images[] = $imageProduct;
                 }
-
             }
             $product->setImages($images);
             $productlog->setProduct($product);
@@ -178,14 +153,12 @@ class ProductController extends Controller
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('product_index');
         }
-
         return $this->render('product/edit.html.twig', array(
             'product' => $product,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
-
     /**
      * Deletes a product entity.
      *
@@ -208,14 +181,11 @@ class ProductController extends Controller
         $productlog->setUser($this->getUser());
         $productlog->setAction("Delete");
         $productlog->setDeletedAt(new \DateTime());
-
         $em->persist($productlog);
         $this->getDoctrine()->getManager()->flush();
-
         return $this->redirectToRoute('product_index');
         //return new Response("product deleted");
     }
-
     /**
      * Creates a form to delete a product entity.
      *
@@ -231,7 +201,6 @@ class ProductController extends Controller
             ->getForm()
         ;
     }
-
     /**
      * Lists searched entities.
      *
@@ -246,15 +215,12 @@ class ProductController extends Controller
         $category = $this->getDoctrine()
         ->getRepository('CategoryBundle:Category')
         ->find($category_id);
-
         $products = $category->getProduct();
-
         return $this->render('product/results.html.twig', array(
             'products' => $products,
         ));
         
     }
-
     /**
      * Lists searched entities.
      *
@@ -269,14 +235,10 @@ class ProductController extends Controller
         $provider = $this->getDoctrine()
         ->getRepository('ProviderBundle:Provider')
         ->find($provider_id);
-
         $products = $provider->getProduct();
-
         return $this->render('product/results.html.twig', array(
             'products' => $products,
         ));
         
     }
-
-
 }

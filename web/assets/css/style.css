@@ -5,6 +5,9 @@ ul{
 	list-style-type: none;
 	padding: 0;
 }
+.logo img{
+	max-width: 175px ;
+}
 /*login page */
 .card{
 	padding-bottom: 30px;

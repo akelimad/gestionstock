@@ -28,7 +28,11 @@ class ConvertCsvToArray {
             }
             fclose($handle);
         }
-        return $data;
+        if($data){
+            return $data;
+        }else{
+            $output->writeln(' cant read from file ');
+        }
     }
  
 }

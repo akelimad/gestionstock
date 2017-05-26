@@ -20,9 +20,9 @@ class RegistrationType extends AbstractType
         $builder
             ->add('roles', ChoiceType::class, array(
                 'choices'   => [
-                    'ROLE SUPER ADMIN' => 'ROLE_SUPER_ADMIN',
+                    #'ROLE SUPER ADMIN' => 'ROLE_SUPER_ADMIN',
                     'ROLE ADMIN' =>       'ROLE_ADMIN',
-                    #'ROLE USER' =>        'ROLE_USER'
+                    'ROLE USER' =>        'ROLE_USER'
                 ],
                 'required'  => true,
                 'multiple' => true

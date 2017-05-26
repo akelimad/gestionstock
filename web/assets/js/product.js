@@ -41,7 +41,7 @@ var Product = {
 
       $('.fotorama').fotorama({'data':fotorama_image});
       
-      $('#productModal').modal('show'); 
+      //$('#productModal').modal('show'); 
   }
 
 }
