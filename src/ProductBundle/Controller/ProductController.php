@@ -250,11 +250,11 @@ class ProductController extends Controller
     public function ajaxSubCategoriesAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $sub_categories = $em->getRepository('CategoryBundle:Category')->findBy(array(
-            'parent' => 'not null',
-            'parent' => $id
-        ));
+        $repository = $em->getRepository('CategoryBundle:Category');
+        $products = $repository->findBy(
+            array('parent' => 'Keyboard'),
+            array('price' => 'ASC')
+        );
 
 
 

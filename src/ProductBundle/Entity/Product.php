@@ -83,28 +83,28 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="unitPrice", type="decimal", precision=10, scale=2, nullable=true)
+     * @ORM\Column(name="unitPrice", type="string", length=255,nullable=true)
      */
     private $unitPrice;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="wholesalePrice", type="decimal", precision=10, scale=2, nullable=true)
+     * @ORM\Column(name="wholesalePrice", type="string", length=255,nullable=true)
      */
     private $wholesalePrice;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="specialPrice", type="decimal", precision=10, scale=2, nullable=true)
+     * @ORM\Column(name="specialPrice", type="string", length=255,nullable=true)
      */
     private $specialPrice;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="internetPrice", type="decimal", precision=10, scale=2, nullable=true)
+     * @ORM\Column(name="internetPrice", type="string", length=255,nullable=true)
      */
     private $internetPrice;
 
