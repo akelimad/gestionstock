@@ -8,7 +8,7 @@
                     <div class="card">
                         {{ form_start(form, {'attr': {'class':'test', 'id':'test'}}) }}
                             <div class="content">
-                                <h4 class="title text-center">Create product</h4>
+                                <h4 class="title text-center">Ajouter un produit </h4>
                                 <div class="row">
                                     <div class="col-md-6 form-group {{ form_errors(form.name) ? 'has-error': '' }}">
                                         <div class="row">
@@ -130,6 +130,19 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <div class="col-md-6 form-group {{ form_errors(form.collection) ? 'has-error': '' }}">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                {{ form_label(form.collection, "Collection", {'label_attr': {'class': 'control-label'}}) }}
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(form.collection, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(form.collection) }}</span> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-6 form-group {{ form_errors(form.specialPrice) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
@@ -168,11 +181,20 @@
                                     <div class="col-md-6 form-group ">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(form.categories, "Categorie", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(form.categories, "Catégorie", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(form.categories, {'attr': {'class': 'form-control'}}) }}
                                                 <span class="help-block">{{ form_errors(form.categories) }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                {{ form_label(form.subcat, "Sous catégorie", {'label_attr': {'class': 'control-label'}}) }}
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(form.subcat, {'attr': {'class': 'form-control', 'id': 'subCategory'}}) }}
+                                                <span class="help-block">{{ form_errors(form.subcat) }}</span>
                                             </div>
                                         </div>
                                     </div>

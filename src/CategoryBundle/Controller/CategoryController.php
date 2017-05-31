@@ -60,6 +60,33 @@ class CategoryController extends Controller
     }
 
     /**
+     * Creates a new category entity.
+     *
+     * @Route("/sub_cat", name="subcategorie")
+     * @Method({"GET", "POST"})
+     */
+    public function newSubCategorieAction(Request $request)
+    {
+        $category = new Category();
+        $form = $this->createForm('CategoryBundle\Form\CategoryType', $category);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($category);
+            $em->flush();
+
+            return $this->redirectToRoute('category_index');
+        }
+
+        return $this->render('category/sub_cat.html.twig', array(
+            'category' => $category,
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
      * Finds and displays a category entity.
      *
      * @Route("/{id}", name="category_show")

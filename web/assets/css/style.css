@@ -12,6 +12,7 @@ ul{
 .card{
 	padding-bottom: 30px;
 }
+
 .card-login .register-label{
 	margin-top: 20px;
 }
@@ -142,4 +143,39 @@ select#productbundle_product_categories optgroup option {
     font-size: 15px;
     font-style: italic;
     margin-bottom: 3px;
+}
+
+/* details produit */
+.details .card{
+	padding: 10px 22px;
+}
+.details .detail-hr{
+	position: relative;
+}
+.details span.delimeter:before{
+    content: "";
+    height: 1px;
+    background-color: #b3b3b3;
+    position: absolute;
+    color: red;
+    width: 83%;
+    top: -7px;
+    right: -4px;
+}
+.details .item{
+	padding: 9px 0;
+    color: black;
+}
+.details .item span{
+	font-weight: bold;
+}
+.details .item .color{
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	display: inline-block;
+}
+.details span.detail-title{
+	font-weight: bold;
+    font-size: 18px;
 }

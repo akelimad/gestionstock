@@ -57,8 +57,8 @@ class ProductType extends AbstractType
         ->add('wholesalePrice')
         ->add('specialPrice')
         ->add('internetPrice')
+        ->add('collection')
         ->add('active')
-        //->add('observations')
         ->add('images', FileType::class, array(
            'multiple' => true,
            'data_class' => null,
@@ -68,11 +68,23 @@ class ProductType extends AbstractType
             'class'=>'CategoryBundle:Category', 
             'choice_label'=>'name', 
             'query_builder' => function ($er) {
-               return $er->createQueryBuilder('c')->where("c.deleted_at IS NULL");
+               return $er->createQueryBuilder('c')->where("c.deleted_at IS NULL AND c.parent IS NULL");
             },
-            'multiple'=> true,
-            'group_by' => 'parent',
-            'required' => false
+            'multiple'=> false,
+            //'group_by' => 'parent',
+            //'required' => false,
+            'placeholder' => 'Vuillez choisir une catégorie'
+        ))
+        ->add('subcat',EntityType::class, array(
+            'class'=>'CategoryBundle:Category', 
+            'choice_label'=>'name', 
+            'query_builder' => function ($er) {
+               return $er->createQueryBuilder('c')->where("c.deleted_at IS NULL AND c.parent IS NOT NULL");
+            },
+            'multiple'=> false,
+            'required' => false,
+            'placeholder' => 'Sous catégorie',
+            'mapped' => false
         ))
         ->add('packages', EntityType::class, array(
             'class'=>'PackageBundle:Package', 

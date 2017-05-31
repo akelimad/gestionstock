@@ -342,7 +342,27 @@ $(document).ready(function() {
     //to make background for color select
     $("select#productbundle_product_color option").find()
 
+    //make backgroud for product color div 
 
+
+    //filter sub cat by parent id
+    $("select#productbundle_product_categories").change(function(){
+        var id = $(this).find('option:selected').attr('value');
+        var url = Routing.generate('ajax_subcategories', {'id': id});
+        //alert(parent_id);
+        $.ajax({
+            //ajax: true,
+            type: 'GET',
+            url:  url,
+            dataType: 'html',
+            success: function(data){
+                $('#subCategory').html(data);
+            },
+            error: function(){
+                console.log("error ...");
+            }
+        });
+    });
 
 
 });

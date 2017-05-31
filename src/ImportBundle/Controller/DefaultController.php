@@ -88,9 +88,7 @@ class DefaultController extends Controller
                 
                 foreach($data as $row) {     
                     $product = new Product();  
-                    $category = new Category;
-                    $provider = new Provider;
-                    $package = new Package;
+
                     $product->setName($row["Article"]);
                     $product->setDescription($row["Description"]);
                     $product->setSizeInch($row["Taille ( inch )"]);
@@ -103,27 +101,61 @@ class DefaultController extends Controller
                     $product->setWholesalePrice($row["Prix grossiste"]);
                     $product->setSpecialPrice($row["Prix special"]);
                     $product->setInternetPrice($row["Prix internet"]);
-                    $product->setObservations($row["Observations"]);
                     $product->setActive("1");
 
-                    $category->setName($row["Categorie"]);
-                    $category->setActive("1");
-
-                    $provider->setName($row["# Fournisseur"]);
-                    $provider->setActive("1");
+                    $category = $em->getRepository('CategoryBundle:Category')
+                       ->findOneByName($row['Categorie']);
+                    if($category == null && $row['Categorie'] != ""){
+                        $category = new Category;
+                        $category->setName($row["Categorie"]);
+                        $category->setActive("1");
+                        $em->persist($category);
+                        $product->addCategories($category);
+                    }else{
+                        $product->addCategories($category);
+                    }
                     
-                    $package->setName($row["# Emballage"]);
-                    $package->setActive("1");
+                    $s_category = $em->getRepository('CategoryBundle:Category')
+                       ->findOneByName($row['Sous-categorie']);
+                    if($s_category == null && $row["Sous-categorie"] != ""){
+                        $s_category = new Category;
+                        $s_category->setName($row["Sous-categorie"]);
+                        $s_category->setParent($category);
+                        $s_category->setActive("1");
+                        $em->persist($s_category);
+                        $product->addCategories($s_category);
+                    }else{
+                        $product->addCategories($s_category);
+                    }
+                    
+                    $provider = $em->getRepository('ProviderBundle:Provider')
+                       ->findOneByName($row['# Fournisseur']);
+                    if(!is_object($provider) && $row["# Fournisseur"] != ""){
+                        $provider = new Provider;
+                        $provider->setName($row["# Fournisseur"]);
+                        $provider->setActive("1");
+                        $em->persist($s_category);
+                        $product->addProviders($provider);
+                    }
+
+                    $package = $em->getRepository('PackageBundle:Package')
+                       ->findOneByName($row['# Emballage']);
+                    if(!is_object($package) && $row["# Emballage"] != ""){
+                        $package = new Package;
+                        $package->setName($row["# Emballage"]);
+                        $package->setActive("1");
+                        $em->persist($package);
+                        $product->addPackages($package);
+                    }
+
                     
                     $em->persist($product);
-                    $em->persist($category);
-                    $em->persist($provider);
-                    $em->persist($package);
-         
                     $i++;
+                    //var_dump($category) ;die();
          
-                } //end foreach 
                 $em->flush();
+                } //end foreach 
+
             }
             
             return $this->redirectToRoute('product_index');

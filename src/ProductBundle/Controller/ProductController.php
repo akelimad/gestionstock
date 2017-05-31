@@ -114,6 +114,7 @@ class ProductController extends Controller
     public function showAction(Product $product)
     {
         return $this->render('product/show.html.twig', array(
+            'id'      => $product->getId(),
             'product' => $product,
         ));
     }
@@ -241,4 +242,37 @@ class ProductController extends Controller
         ));
         
     }
+
+    /**
+     * @Route("/subcategories", name="ajax_subcategories", options={"expose"=true})
+     * @Method("GET")
+     */
+    public function ajaxSubCategoriesAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $sub_categories = $em->getRepository('CategoryBundle:Category')->findBy(array(
+            'parent' => 'not null',
+            'parent' => $id
+        ));
+
+
+
+        if(null === $categories )
+        {
+            return new Response('');
+        }
+
+        $options = '';
+
+        foreach($categories as $subCat)
+        {
+            $options .= '<option value="'.$subCat->getId().'">'.$subCat->getName().'</option>';
+        }
+
+        return new Response($options);
+
+        
+    }
+
 }

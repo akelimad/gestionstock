@@ -111,9 +111,9 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="observations", type="text", nullable=true)
+     * @ORM\Column(name="collection", type="text", nullable=true)
      */
-    private $observations;
+    private $collection;
 
     /**
      * @var bool
@@ -138,7 +138,7 @@ class Product
 
     /**
      * Many prod can have Many pack.
-     * @ORM\ManyToMany(targetEntity="ProviderBundle\Entity\Provider", inversedBy="Product")
+     * @ORM\ManyToMany(targetEntity="ProviderBundle\Entity\Provider", inversedBy="Product", cascade={"persist"})
      * @ORM\JoinTable(name="provider_product")
      */
     private $providers;
@@ -697,32 +697,6 @@ class Product
     }
 
 
-    
-
-    /**
-     * Set observations
-     *
-     * @param string $observations
-     *
-     * @return Product
-     */
-    public function setObservations($observations)
-    {
-        $this->observations = $observations;
-
-        return $this;
-    }
-
-    /**
-     * Get observations
-     *
-     * @return string
-     */
-    public function getObservations()
-    {
-        return $this->observations;
-    }
-
     /**
      * Add category
      *
@@ -821,4 +795,52 @@ class Product
     }
 
 
+
+    /**
+     * Set collection
+     *
+     * @param string $collection
+     *
+     * @return Product
+     */
+    public function setCollection($collection)
+    {
+        $this->collection = $collection;
+
+        return $this;
+    }
+
+    /**
+     * Get collection
+     *
+     * @return string
+     */
+    public function getCollection()
+    {
+        return $this->collection;
+    }
+
+    /**
+     * Add image
+     *
+     * @param \ProductBundle\Entity\ImageProduct $image
+     *
+     * @return Product
+     */
+    public function addImage(\ProductBundle\Entity\ImageProduct $image)
+    {
+        $this->images[] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param \ProductBundle\Entity\ImageProduct $image
+     */
+    public function removeImage(\ProductBundle\Entity\ImageProduct $image)
+    {
+        $this->images->removeElement($image);
+    }
 }

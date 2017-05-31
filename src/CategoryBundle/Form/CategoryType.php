@@ -24,7 +24,7 @@ class CategoryType extends AbstractType
             'choice_label'=>'name', 
             'required'=> false,
             'query_builder' => function ($er) {
-               return $er->createQueryBuilder('c')->where("c.parent is NULL ");
+               return $er->createQueryBuilder('c')->distinct('c.name')->where("c.parent is NULL ");
             },
         ))
         ->add('active');

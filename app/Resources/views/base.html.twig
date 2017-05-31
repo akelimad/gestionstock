@@ -62,10 +62,25 @@
                         </a>
                     </li>
                     <li class="{{ app.request.attributes.get('_route') == 'category_index' ? 'active' : '' }}">
-                        <a href=" {{path('category_index')}} ">
+                        <a data-toggle="collapse" href="#categories" class="collapsed" aria-expanded="false">
                             <i class="fa fa-tag"></i>
-                            <p>Categories</p>
+                            <p>Categories
+                                <b class="caret"></b>
+                            </p>
                         </a>
+                        <div class="collapse" id="categories" role="navigation" aria-expanded="false" style="height: 0px;">
+                            <ul class="nav">
+                                <li>
+                                    <a href="{{path('category_index')}}"><i class="fa fa-list"></i> Affichage</a>
+                                </li>
+                                <li>
+                                    <a href="{{path('category_new')}}"><i class="fa fa-plus"></i> Categorie</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('subcategorie') }}"><i class="fa fa-plus"></i> Sous categorie</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="{{ app.request.attributes.get('_route') == 'package_index' ? 'active' : '' }}">
                         <a href=" {{path('package_index')}} ">
@@ -188,7 +203,7 @@
     <script src="{{ asset('assets/vendors/jquery.validate.min.js') }}"></script>
     <!--  Plugin for Date Time Picker and Full Calendar Plugin-->
     <script src="{{ asset('assets/vendors/moment.min.js') }}"></script>
-    <!--  Charts Plugin -->
+    <!--  categories Plugin -->
     <script src="{{ asset('assets/vendors/charts/flot/jquery.flot.js') }}"></script>
     <script src="{{ asset('assets/vendors/charts/flot/jquery.flot.resize.js') }}"></script>
     <script src="{{ asset('assets/vendors/charts/flot/jquery.flot.pie.js') }}"></script>

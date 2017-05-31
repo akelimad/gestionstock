@@ -1,48 +1,167 @@
 {% extends 'base.html.twig' %}
 {% block title %}Poduit{% endblock %}
 {% block body %}
-    <div class="content">
+    <div class="content details">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="card">
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="name"></div>
-                                <div class="category"></div>
-                                <div class="imagesProduct" 
-                                     data-image-url="{{ asset('uploads/images/') }}">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="description">   
-                                    </div>
-                                    <hr>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5 list-items">
-                                        <p>Caracteristiques :</p>
-                                        <ul>
-                                            <li class="size-inch"></li>
-                                            <li class="size-cm"></li>
-                                            <li class="weight"></li>
-                                            <li class="color"></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-7 list-items">
-                                        <p>Prix du produit :</p>
-                                        <ul>
-                                            <li class="unit-price"></li>
-                                            <li class="wholesale-price"></li>
-                                            <li class="special-price"></li>
-                                            <li class="special-price"></li>
-                                            <li class="internet-price"></li>
-                                        </ul>
-                                    </div>
+                            <div class="col-md-12">
+                                <div class="product-title">
+                                    <h4>{{product.name}}</h4>
+                                    <p>ID Produit : {{product.id}} </p>
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-6 details">
+                                <span class="detail-title"> Details </span>
+                                <div class="detail-hr">
+                                    <span class="delimeter"></span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Taille(inch) : </span>
+                                            {{ product.sizeInch }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Couleur : </span>
+                                            <div class="color" style="background: {{ product.color }}"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Taille(cm) : </span>
+                                            {{ product.sizeCm }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Poids (g) : </span>
+                                            {{ product.weight }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Composition : </span>
+                                            {{ product.composition }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Forme : </span>
+                                            {{ product.form }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Prix unitaire : </span>
+                                            {{ product.unitPrice }} &euro;
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Prix grossiste : </span>
+                                            {{ product.wholesalePrice }} &euro;
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Collection : </span>
+                                            {{ product.collection }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Prix spécial : </span>
+                                            {{ product.specialPrice }} &euro;
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Prix internet : </span>
+                                            {{ product.internetPrice }} &euro;
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Catégorie : </span>
+                                            {% for cat in product.categories %}
+                                                {{ cat.name }}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Emballage : </span>
+                                            {% for pack in product.packages %}
+                                                {{ pack.name }}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Sous catégorie : </span>
+                                            {% for cat in product.categories %}
+                                                {{ cat.parent != null ? cat.name : '' }}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Active : </span>
+                                            {% if product.active == 1 %}
+                                                <i class="fa fa-check"></i>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="item">
+                                            <span> Fournisseur : </span>
+                                            {% for prov in product.providers %}
+                                                {{ prov.name }}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="item">
+                                            <span> Description : </span>
+                                            {{ product.description }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 images">
+                                <div class="fotorama" data-nav="thumbs" data-allowfullscreen="native">
+                                    {% for image in product.images %}
+                                        <img src="{{ asset('uploads/images/') ~ image.path }}" alt="">
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

@@ -130,6 +130,19 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.collection) ? 'has-error': '' }}">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                {{ form_label(edit_form.collection, "Collection", {'label_attr': {'class': 'control-label'}}) }}
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(edit_form.collection, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(edit_form.collection) }}</span> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.specialPrice) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
