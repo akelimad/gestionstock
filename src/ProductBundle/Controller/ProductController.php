@@ -60,14 +60,18 @@ class ProductController extends Controller
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
         $product = new Product();
         $productlog = new ProductLog();
         $form = $this->createForm('ProductBundle\Form\ProductType', $product);
         $form->handleRequest($request); 
+        $categories = $em->getRepository('CategoryBundle:Category')->getAllRootCat();
         $em = $this->getDoctrine()->getEntityManager();
         if ($form->isSubmitted() && $form->isValid()){
-            //var_dump($request->request->get('cat_product'));die();
-
+            $cat_id=$request->request->get('categories');
+            $sub_cat_id= $request->request->get('s_categories');
+            $Category=$em->getRepository('CategoryBundle:Category')->findById( array($cat_id, $sub_cat_id));
+            //var_dump($Category);die;
             $files = $product->getImages();
 
             $images = array();
@@ -83,7 +87,7 @@ class ProductController extends Controller
                 }
             }
             $product->setImages($images);
-            //$product->setCategories($categories);
+            $product->setCategories($Category);
             $productlog->setProduct($product);
             $productlog->setUser($this->getUser());
             $productlog->setAction("Add");
@@ -102,6 +106,7 @@ class ProductController extends Controller
         }
         return $this->render('product/new.html.twig', array(
             'product' => $product,
+            'categories' => $categories,
             'form' => $form->createView(),
         ));
     }
@@ -244,35 +249,33 @@ class ProductController extends Controller
     }
 
     /**
-     * @Route("/subcategories", name="ajax_subcategories", options={"expose"=true})
+     * @Route("/new/subcategories", name="ajax_subcategories", options={"expose"=true})
      * @Method("GET")
      */
-    public function ajaxSubCategoriesAction(Request $request, $id)
+    public function ajaxSubCategoriesAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $repository = $em->getRepository('CategoryBundle:Category');
-        $products = $repository->findBy(
-            array('parent' => 'Keyboard'),
-            array('price' => 'ASC')
-        );
-
-
-
-        if(null === $categories )
-        {
-            return new Response('');
-        }
-
-        $options = '';
-
-        foreach($categories as $subCat)
-        {
-            $options .= '<option value="'.$subCat->getId().'">'.$subCat->getName().'</option>';
-        }
-
-        return new Response($options);
-
         
+        // $em = $this->getDoctrine()->getManager();
+        // $s_categories = $em->getRepository('CategoryBundle:Category')->getAllSubCat($id);
+
+        // var_dump($s_categories);die();
+        //return new JsonResponse(array('data' => $s_categories));
+          $id = $request->get('id');
+          $em = $this->getDoctrine()->getManager();
+          $entities = $em->getRepository('CategoryBundle:Category')->findBy(array('parent' => $id));
+          
+          $output = array();
+            foreach ($entities as $member) {
+              $output[] = array(
+                  'id' => $member->getId(),
+                  'name' => $member->getName(),
+              );
+            }
+
+          $response = new Response();
+          $response->headers->set('Content-Type', 'application/json');
+          $response->setContent(json_encode($output));
+          return $response;
     }
 
 }

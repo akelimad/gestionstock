@@ -346,23 +346,31 @@ $(document).ready(function() {
 
 
     //filter sub cat by parent id
-    $("select#productbundle_product_categories").change(function(){
-        var id = $(this).find('option:selected').attr('value');
-        var url = Routing.generate('ajax_subcategories', {'id': id});
-        //alert(parent_id);
+    $('select#categories').change(function(){
+        var id =  $( "select#categories option:selected" ).val();          
+        var url = Routing.generate('ajax_subcategories',{'id':id});
+        //alert(url);
         $.ajax({
             //ajax: true,
             type: 'GET',
             url:  url,
-            dataType: 'html',
+            dataType: 'json',
             success: function(data){
-                $('#subCategory').html(data);
+                var sub = $('select#s_categories');
+                sub.empty();
+                $.each(data , function(key, value) { 
+                    sub
+                    .append(
+                        $("<option></option>")
+                        .attr("value",value.id)
+                        .text(value.name)
+                    ); 
+                });
             },
             error: function(){
                 console.log("error ...");
             }
         });
     });
-
 
 });

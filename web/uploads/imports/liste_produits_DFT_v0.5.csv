@@ -1,0 +1,596 @@
+﻿ID Produit;Article;Categorie;Sous-categorie;Description;Taille ( inch );Taille ( cm );Couleur;Composition;Forme;Poids;Photos;# Fournisseur;# Emballage;Prix unitaire;Prix grossiste;Prix special;Prix internet;Observations;
+6010010000001;Round Diamond Pouf Beige; Leather;Custom Poufs;Gold details add glamour to our contemporary Diamond poufs. Top grain leather, zipper closure. Cotton filling.;139,7 inch x 114,3 inch      ;55 cm D * 45 cm H;Beige;Goat skin Leather  Filled with recycled cotton;;;;;;;;;595,00 $;;
+6010010000002;Square Diamond Pouf Clay; Leather;Custom Poufs;Gold details add glamour to our contemporary Diamond poufs. Top grain leather, zipper closure . Cotton filling;139,7 inch x 114,3 inch;55 cm D * 45 cm H;Clay;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;595,00 $;;
+6010010000003;Square poufs Beige; Leather;Custom Poufs;Hand-stitched details add an artisan accent to a modern form. Top grain leather. Zipper closure with Cotton filling;101,6 inch x101,6 inch x 109,22 inch ;40 cm * 40 cm * 43 cm H;Beige;Goat skin Leather;;;;;;;;;495,00$;;
+6010010000004;Square poufs Clay; Leather;Custom Poufs;Hand-stitched details add an artisan accent to a modern form. Top grain leather. Zipper closure with Cotton filling;101,6 inch x101,6 inch x 109,22 inch ;40 cm * 40 cm * 43 cm H;Clay;Goat skin Leather;;;;;;;;;495,00$;;
+6010010000005;Square poufs raisin; Leather;Custom Poufs;Hand-stitched details add an artisan accent to a modern form. Top grain leather. Zipper closure with Cotton filling;101,6 inch x101,6 inch x 109,22 inch ;40 cm * 40 cm * 43 cm H;Raisin;Goat skin Leather;;;;;;;;;495,00$;;
+6010010000006;Square poufs tan; Leather;Custom Poufs;Hand-stitched details add an artisan accent to a modern form. Top grain leather. Zipper closure with Cotton filling;101,6 inch x101,6 inch x 109,22 inch ;40 cm * 40 cm * 43 cm H;Tan;Goat skin Leather;;;;;;;;;495,00$;;
+6010010000007;Square poufs tumeric; Leather;Custom Poufs;Hand-stitched details add an artisan accent to a modern form. Top grain leather. Zipper closure with Cotton filling;101,6 inch x101,6 inch x 109,22 inch ;40 cm * 40 cm * 43 cm H;Tumeric;Goat skin Leather;;;;;;;;;495,00$;;
+6010010000008;Square poufs cocoa; Leather;Custom Poufs;Hand-stitched details add an artisan accent to a modern form. Top grain leather. Zipper closure with Cotton filling;101,6 inch x101,6 inch x 109,22 inch ;40 cm * 40 cm * 43 cm H;Cocoa;Goat skin Leather;;;;;;;;;495,00$;;
+6030080000009;Bright Silver Finish;Entertainment;Trays;cl;114,3 inch;45cm;Bright Silver;Silver;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000010;Bright Silver Finish;Entertainment;Trays;;152,4;60 cm;Bright Silver;Silver;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000011;Bright Silver Finish;Entertainment;Trays;;177,8 inch;70cm;Bright Silver;Silver;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000012;Bright Silver Finish;Entertainment;Trays;;203,2 inch;80cm;Bright Silver;Silver;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000013;Antique Brass Finish;Entertainment;Trays;;114,3 inch;45cm;Antique Brass;Brass;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000014;Antique Brass Finish;Entertainment;Trays;;114,3 inch;60 cm;Antique Brass;Brass;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000015;Antique Brass Finish;Entertainment;Trays;;177,8 inch;70cm;Antique Brass;Brass;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000016;Antique Brass Finish;Entertainment;Trays;;203,2 inch;80cm;Antique Brass;Brass;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000017;Bright Copper Finish;Entertainment;Trays;;114,3 inch;45cm;Bright Copper;Copper;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000018;Bright Copper Finish;Entertainment;Trays;;114,3 inch;60 cm;Bright Copper;Copper;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000019;Bright Copper Finish;Entertainment;Trays;;177,8 inch;70cm;Bright Copper;Copper;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000020;Bright Copper Finish;Entertainment;Trays;;203,2 inch;80cm;Bright Copper;Woot , brass;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000021;Bright Brass Finish;Entertainment;Trays;;114,3 inch;45cm;Brass Finish;Brass;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000022;Bright Brass Finish;Entertainment;Trays;;114,3 inch;60 cm;Bright Brass ;Brass;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000023;Bright Brass Finish;Entertainment;Trays;;177,8 inch;70cm;Brass Finish;Brass;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000024;Bright Brass Finish;Entertainment;Trays;;203,2 inch;80cm;Bright Brass;Brass;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000025;Hammered Antique Brass;Entertainment;Trays;;114,3 inch;45cm;Hammered Antique ;Antique;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000026;Hammered Antique Brass;Entertainment;Trays;;114,3 inch;60 cm;Hammered Antique ;Antique;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000027;Hammered Antique Brass;Entertainment;Trays;;177,8 inch;70cm;Hammered Antique ;Antique;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030080000028;Hammered Antique Brass;Entertainment;Trays;;203,2 inch;80cm;Hammered Antique ;Antique;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6020040000029;Flanged pillow Tan; Leather;Pillows;Our large flanged pillow features hand-stitched accents. ?Top grain leather, leather front, leather back, concealed zipper closure. Poly fiber filler included.;127 inch x 132,08 inch /  103,124 inch x 103,124 inch filler;small: 50 cm * 52 cm / 40,6 cm * 40,6 de rembourrage;Tan;Goat skin Leather;;;;;;;;;179,00$;;
+6020040000030;Flanged pillow Tan; Leather;Pillows;Our large flanged pillow features hand-stitched accents. ?Top grain leather, leather front, leather back, concealed zipper closure. Poly fiber filler included.;144,78 inch x144,78 inch / 116,078 inch x 116,078 inch filler ;large?: 57 cm * 57 cm / 45,7 cm * 45,7 cm de rembourrage;Tan;Goat skin Leather;;;;;;;;;189,00$;;
+6020040000031;Flanged pillow Taupe; Leather;Pillows;Our large flanged pillow features hand-stitched accents. Top grain leather, leather front, leather back, Concealed zipper closure. Poly fiber filler included.;127 inch x 132,08 inch /  103,124 inch x 103,124 inch filler;small: 50 cm * 52 cm / 40,6 cm * 40,6 de rembourrage;Taupe;Goat skin Leather;;;;;;;;;179,00$;;
+6020040000032;Flanged pillow Taupe; Leather;Pillows;Our large flanged pillow features hand-stitched accents. Top grain leather, leather front, leather back, Concealed zipper closure. Poly fiber filler included.;144,78 inch x144,78 inch / 116,078 inch x 116,078 inch filler ;large?: 57 cm * 57 cm / 45,7 cm * 45,7 cm de rembourrage;Taupe;Goat skin Leather;;;;;;;;;189,00$;;
+6020040000033;Flanged pillow Beige ; Leather;Pillows;Our large flanged pillow features hand-stitched accents. Top grain leather, leather front, leather back, Concealed zipper closure. Poly fiber filler included.;127 inch x 132,08 inch /  103,124 inch x 103,124 inch filler;small: 50 cm * 52 cm / 40,6 cm * 40,6 de rembourrage;Beige ;Goat skin Leather;;;;;;;;;179,00$;;
+6020040000034;Flanged pillow Beige ; Leather;Pillows;Our large flanged pillow features hand-stitched accents. Top grain leather, leather front, leather back, Concealed zipper closure. Poly fiber filler included.;144,78 inch x144,78 inch / 116,078 inch x 116,078 inch filler ;large?: 57 cm * 57 cm / 45,7 cm * 45,7 cm de rembourrage;Beige ;Goat skin Leather;;;;;;;;;189,00$;;
+6020040000035;Flanged pillow Tumeric; Leather;Pillows;Our large flanged pillow features hand-stitched accents. Top grain leather, leather front, leather back, Concealed zipper closure. Poly fiber filler included.;127 inch x 132,08 inch /  103,124 inch x 103,124 inch filler;small: 50 cm * 52 cm / 40,6 cm * 40,6 de rembourrage;Tumeric;Goat skin Leather;;;;;;;;;179,00$;;
+6020040000036;Flanged pillow Tumeric; Leather;Pillows;Our large flanged pillow features hand-stitched accents. Top grain leather, leather front, leather back, Concealed zipper closure. Poly fiber filler included.;144,78 inch x144,78 inch / 116,078 inch x 116,078 inch filler ;large?: 57 cm * 57 cm / 45,7 cm * 45,7 cm de rembourrage;Tumeric;Goat skin Leather;;;;;;;;;189,00$;;
+6020040000037;Flanged pillow Raisin; Leather;Pillows;Our large flanged pillow features hand-stitched accents. Top grain leather, leather front, leather back, Concealed zipper closure. Poly fiber filler included.;127 inch x 132,08 inch /  103,124 inch x 103,124 inch filler;small: 50 cm * 52 cm / 40,6 cm * 40,6 de rembourrage;Raisin;Goat skin Leather;;;;;;;;;179,00$;;
+6020040000038;Flanged pillow Raisin; Leather;Pillows;Our large flanged pillow features hand-stitched accents. Top grain leather, leather front, leather back, Concealed zipper closure. Poly fiber filler included.;144,78 inch x144,78 inch / 116,078 inch x 116,078 inch filler ;large?: 57 cm * 57 cm / 45,7 cm * 45,7 cm de rembourrage;Raisin;Goat skin Leather;;;;;;;;;189,00$;;
+6020040000039;Flanged pillow Cocoa; Leather;Pillows;Our large flanged pillow features hand-stitched accents. Top grain leather, leather front, leather back, Concealed zipper closure. Poly fiber filler included.;127 inch x 132,08 inch /  103,124 inch x 103,124 inch filler;small: 50 cm * 52 cm / 40,6 cm * 40,6 de rembourrage;Cocoa;Goat skin Leather;;;;;;;;;179,00$;;
+6020040000040;Flanged pillow Cocoa; Leather;Pillows;Our large flanged pillow features hand-stitched accents. Top grain leather, leather front, leather back, Concealed zipper closure. Poly fiber filler included.;144,78 inch x144,78 inch / 116,078 inch x 116,078 inch filler ;large?: 57 cm * 57 cm / 45,7 cm * 45,7 cm de rembourrage;Cocoa;Goat skin Leather;;;;;;;;;189,00$;;
+6020040000041;Flanged pillow Clay; Leather;Pillows;Our large flanged pillow features hand-stitched accents. Top grain leather, leather front, leather back, Concealed zipper closure. Poly fiber filler included.;127 inch x 132,08 inch /  103,124 inch x 103,124 inch filler;small: 50 cm * 52 cm / 40,6 cm * 40,6 de rembourrage;Clay;Goat skin Leather;;;;;;;;;179,00$;;
+6020040000042;Flanged pillow Clay; Leather;Pillows;Our large flanged pillow features hand-stitched accents. Top grain leather, leather front, leather back, Concealed zipper closure. Poly fiber filler included.;144,78 inch x144,78 inch / 116,078 inch x 116,078 inch filler ;large?: 57 cm * 57 cm / 45,7 cm * 45,7 cm de rembourrage;Clay;Goat skin Leather;;;;;;;;;189,00$;;
+6020040000043;Long flanged pillow Cocoa; Leather;Pillows;Our long flanged pillow features hand-stitched accents. With top grain leather, leather front, leather back , concealed zipper closure and poly fiber filler included.;144,78 inch x 93,472 inch / 129,032 inch x 77,47 filler;57 cm * 36,8 cm / 50,8 cm * 30,5 cm de rembourrage;Cocoa;Goat skin Leather;;;;;;;;;169,00$;;
+6020040000044;Long flanged pillow Tan; Leather;Pillows;Our long flanged pillow features hand-stitched accents. With top grain leather, leather front, leather back , concealed zipper closure and poly fiber filler included.;144,78 inch x 93,472 inch / 129,032 inch x 77,47 filler;57 cm * 36,8 cm / 50,8 cm * 30,5 cm de rembourrage;Tan;Goat skin Leather;;;;;;;;;169,00$;;
+6020040000045;Long flanged pillowTumeric; Leather;Pillows;Our long flanged pillow features hand-stitched accents. With top grain leather, leather front, leather back , concealed zipper closure and poly fiber filler included.;144,78 inch x 93,472 inch / 129,032 inch x 77,47 filler;57 cm * 36,8 cm / 50,8 cm * 30,5 cm de rembourrage;Tumeric;Goat skin Leather;;;;;;;;;169,00$;;
+6020040000046;Long flanged pillow Raisin; Leather;Pillows;Our long flanged pillow features hand-stitched accents. With top grain leather, leather front, leather back , concealed zipper closure and poly fiber filler included.;144,78 inch x 93,472 inch / 129,032 inch x 77,47 filler;57 cm * 36,8 cm / 50,8 cm * 30,5 cm de rembourrage;Raisin;Goat skin Leather;;;;;;;;;169,00$;;
+6020040000047;Long flanged pillow Clay; Leather;Pillows;Our long flanged pillow features hand-stitched accents. With top grain leather, leather front, leather back , concealed zipper closure and poly fiber filler included.;144,78 inch x 93,472 inch / 129,032 inch x 77,47 filler;57 cm * 36,8 cm / 50,8 cm * 30,5 cm de rembourrage;Clay;Goat skin Leather;;;;;;;;;169,00$;;
+6020040000048;Long flanged pillow Beige   ; Leather;Pillows;Our long flanged pillow features hand-stitched accents. With top grain leather, leather front, leather back , concealed zipper closure and poly fiber filler included.;144,78 inch x 93,472 inch / 129,032 inch x 77,47 filler;57 cm * 36,8 cm / 50,8 cm * 30,5 cm de rembourrage;Beige   ;Goat skin Leather;;;;;;;;;169,00$;;
+6020040000049;Taupe; Leather;Pillows;Our long flanged pillow features hand-stitched accents. With top grain leather, leather front, leather back , concealed zipper closure and poly fiber filler included.;144,78 inch x 93,472 inch / 129,032 inch x 77,47 filler;57 cm * 36,8 cm / 50,8 cm * 30,5 cm de rembourrage;Taupe;Goat skin Leather;;;;;;;;;169,00$;;
+6010030000050;Light Tan; Leather;Classic Poufs;;132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Tan;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010030000051;Dark Tan; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Dark Tan;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;325,00$;;
+6010030000052;Brown; Leather;Classic Poufs;;132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Brown;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010030000053;Turquoise; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Turquoise;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000054;White; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;White;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000055;Sky Blue; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Sky Blue;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000056;Orange     ; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Orange     ;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000057;Beige  ; Leather;Classic Poufs;;132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Beige  ;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010030000058;Red; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Red;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000059;Natural; Leather;Classic Poufs;;132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Natural ;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010030000060;Purple; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Purple;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000061;Pink; Leather;Classic Poufs;;132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Pink;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010030000062;Mustard; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Mustard;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000063;Burgandy; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Burgandy;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000064;Fuschia; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Fuschia;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000065;Jasmine Black; Leather;Classic Poufs;;132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Black;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010030000066;Jasmine White; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Jasmine White;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;325,00$;;
+6010030000067;Navy Blue; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Navy Blue;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000068;Jasmine Aubergine; Leather;Classic Poufs;"Moroccan Prestige brand poufs have gained a reputation of authenticity and outstanding quality. Our team work closely with the artisans to make sure we serve the prefect pouf to you. We sort the leather to make sure we are using the best of goat skin leather. the hides are dyed in old tanneries that were used from generation to generation. Our poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the poufs tend to have a bit of smell of leather which fades away over time. Our poufs have been featured in many magazines and our brand is trusted and have reached clients all over the world Our team is known for taking this business on a personal level. we act as the bridge between you and the artisans and when buying any of our products pls remember that you help support the lives of many artisans and their families. Imagine; it takes seven artisans to make this one special pouf. Please note since there is no chemicals involved and using old tradition of making these poufs; there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Jasmine Aubergine;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;325,00$;;
+6010030000069;Jasmine White - Black; Leather;Classic Poufs;;132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;White - Black;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010030000070;Lime Green; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;lime Green;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000071;Green ; Leather;Classic Poufs;;132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Green ;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010030000072;Grey ; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Grey ;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000073;Coral; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Coral;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000074;Black        ; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Black                ;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000075;BK - Brown; Leather ;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Brown;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;325,00$;;
+6010030000076;Chocolate; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Chocolate;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000077;BK - White; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm; BK White;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;325,00$;;
+6010030000078;BK - Black; Leather;Classic Poufs;"Moroccan Prestige brand poufs have gained a reputation of authenticity and outstanding quality. Our team work closely with the artisans to make sure we serve the prefect pouf to you. We sort the leather to make sure we are using the best of goat skin leather. The hides are dyed in old tanneries that were used from generation to generation. Our poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the poufs tend to have a bit of smell of leather which fades away over time. Our poufs have been featured in many magazines and our brand is trusted and have reached clients all over the world Our team is known for taking this business on a personal level. we act as the bridge between you and the artisans and when buying any of our products pls remember that you help support the lives of many artisans and their families. Imagine; it takes seven artisans to make this one special pouf. Please note since there is no chemicals involved and using old tradition of making these poufs; there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Black;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000079;Brown Ball; Leather ;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Brown Ball;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000080;Yellow; Leather;Classic Poufs;"Made out of the best of goat skin leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process; no harmful chemicals are used in the process; therefore the Poufs tend to have a bit of smell of leather which fades away over time. Please note that since there is no chemicals involved and using the old tradition of making these poufs, there might be a slight variation of colors and stitching.";132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Yellow;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;275,00$;;
+6010030000081;Gold; Leather;Classic Poufs;Made out of the best of Italian ski leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process.;132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Gold;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;325,00$;;
+6010030000082;Silver; Leather;Classic Poufs;Made out of the best of Italian ski leather. Our Poufs are filled with a blend of Cotton for long endurance. We keep an eco-friendly process.;132,08 inch x 132,08 inch x 96,52 inch ;52 cm x 52 cm x 38 cm;Silver;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;325,00$;;
+6010010000083;Yellow ; Leather;Custom Poufs;;"304,8 inch x 304,8 inch x 127 inch
+Weight : 15,432358 lb";"120cm x120cm x50cm
+";Yellow ;Goat skin Leather ? Filled with recycled cotton;;7kg;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010010000084;Sky Blue; Leather;Custom Poufs;;"304,8 inch x 304,8 inch x 127 inch
+Weight : 15,432358 lb";"120cm x120cm x50cm
+";Sky Blue;Goat skin Leather ? Filled with recycled cotton;;7kg ;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010020000085;Horse Shoe; Leather ;Kids Poufs ;;30,48 inch x 30,48 inch x 30,48 inch;12cm x12cm x12cm;;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010020000086;Horse Shoe; Leather ;Kids Poufs  ;;76,2 inch x 76,2 inch x 76,2 inch ;30cm x30cm x30cm;;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010020000087;Pony; Leather ;Kids Poufs;;30,48 inch x 30,48 inch x 30,48 inch;12cm x12cm x12cm;;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010020000088;Pony  ; Leather ;Kids Poufs;;76,2 inch x 76,2 inch x 76,2 inch ;30cm x30cm x30cm;;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010020000089;Princess ; Leather ;Kids Poufs ;;30,48 inch x 30,48 inch x 30,48 inch;12cm x12cm x12cm;;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010020000090;Princess ; Leather ;Kids Poufs;;76,2 inch x 76,2 inch x 76,2 inch ;30cm x30cm x30cm;;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010020000091;Teddy Bear       ; Leather ;Kids Poufs;;30,48 inch x 30,48 inch x 30,48 inch;12cm x12cm x12cm;;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010020000092;Teddy Bear      ; Leather ;Kids Poufs;;76,2 inch x 76,2 inch x 76,2 inch ;30cm x30cm x30cm;;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010020000093;Elephant; Leather ;Kids Poufs ;;30,48 inch x 30,48 inch x 30,48 inch;12cm x12cm x12cm;;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010020000094;Elephant; Leather ;Kids Poufs ;;76,2 inch x 76,2 inch x 76,2 inch ;30cm x30cm x30cm;;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010020000095;Rocking Horse ; Leather ;Kids Poufs ;;30,48 inch x 30,48 inch x 30,48 inch;12cm x12cm x12cm;;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010020000096;Rocking Horse; Leather ;Kids Poufs ;;76,2 inch x 76,2 inch x 76,2 inch ;30cm x30cm x30cm;;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010020000097;Gold Fish ; Leather ;Kids Poufs ;;30,48 inch x 30,48 inch x 30,48 inch;12cm x12cm x12cm;;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010020000098;Gold Fish; Leather ;Kids Poufs ;;76,2 inch x 76,2 inch x 76,2 inch ;30cm x30cm x30cm;;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010020000099;Sunshine; Leather ;Kids Poufs;;30,48 inch x 30,48 inch x 30,48 inch;12cm x12cm x12cm;;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010020000100;Sunshine; Leather ;Kids Poufs;;76,2 inch x 76,2 inch x 76,2 inch ;30cm x30cm x30cm;;Goat skin Leather ? Filled with recycled cotton;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010140000101;Berber Green;Leather;Handwoven Pillows ;Berber Green Pillow: Bring warmth and comfort to your home with these beautiful handwoven pillows by women from The Atlas mountains.;"132,08 inch x 114,3 inch 
+Weight : 0,401884 - 0,535846";"52 cm x 45 cm
+";Green               ;Coton ;;150-200g;;;;;;;95,00$;;
+6010140000102;Orange ;Leather;Handwoven Pillows ;Morocan Orange Handwoven Pillow: Bring warmth and comfort to your home with these beautiful handwoven pillows by women from The Atlas mountains.;"132,08 inch x 114,3 inch 
+Weight : 0,401884 - 0,535846";"52 cm x 45 cm
+";Orange ;Coton ;;150 ? 200 g;;;;;;;95,00$;;
+6010140000103;Tic Tac To Blue;Leather;Handwoven Pillows ;Berber Tic-Tac-To Blue Pillow: Moroccan Blue Handwoven Pillow with Lentices: Bring warmth and comfort to your home with these beautiful handwoven pillows by women from The Atlas mountains.;"132,08 inch x 114,3 inch 
+Weight : 0,401884 - 0,535846";"52 cm x 45 cm
+";Tic Tac To Blue;Coton ;;150-200g;;;;;;;95,00$;;
+6010140000104;White;Leather;Handwoven Pillows ;Berber White Pillow3: Bring warmth and comfort to your home with these beautiful handwoven pillows by women from The Atlas mountains.;"132,08 inch x 114,3 inch 
+Weight : 0,401884 - 0,535846";"52 cm x 45 cm
+";White              ;Coton ;;;;;;;;;95,00$;;
+6010140000105;Tic Tac To Atlas;Leather;Handwoven Pillows ;Tic-Tac-To Atlas Pillow2;"132,08 inch x 114,3 inch 
+Weight : 0,401884 - 0,535846";"52 cm x 45 cm
+";Tic Tac To Atlas        ;Coton ;;150-200g;;;;;;;95,00$;;
+6010140000106;Berber Blue;Leather;Handwoven Pillows ;Berber Blue Pillow2: Bring warmth and comfort to your home with these beautiful handwoven pillows by women from The Atlas mountains.;"132,08 inch x 114,3 inch 
+Weight : 0,401884 - 0,535846";"52 cm x 45 cm
+Poids : 150 ? 200 g";Blue;Coton ;;;;;;;;;95,00$;;
+6010140000107;Tic Tac To Safran                      ;Leather;Handwoven Pillows ;Berber Saffran Pillow:A Bring warmth and comfort to your home with these beautiful handwoven pillows by women from The Atlas mountains.;"132,08 inch x 114,3 inch 
+Weight : 0,401884 - 0,535846";"52 cm x 45 cm
+Poids : 150 ? 200 g";Tic Tac To Safran                          ;Coton ;;;;;;;;;95,00$;;
+6010140000108;Red;Leather;Handwoven Pillows ;;"132,08 inch x 114,3 inch 
+Weight : 0,401884 - 0,535846";"52 cm x 45 cm
+Poids : 150 ? 200 g";Red                               ;Coton ;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010140000109;Atlas;Leather;Handwoven Pillows ;Atlas Pillow2: Bring warmth and comfort to your home with these beautiful handwoven pillows by women from The Atlas mountains;"132,08 inch x 114,3 inch 
+Weight : 0,401884 - 0,535846";"52 cm x 45 cm
+Poids : 150 ? 200 g";Atlas;Coton ;;;;;;;;;85,00$;;
+6010140000110;Sultan White ;Leather;Handwoven Pillows ;Moroccan Sultan White Pillow: Bring warmth and comfort to your home with these beautiful handwoven pillows by women from The Atlas mountains.;"132,08 inch x 114,3 inch 
+Weight : 0,401884 - 0,535846";"52 cm x 45 cm
+Poids : 150 ? 200 g";White ;Coton ;;;;;;;;;125,00$;;
+6010140000111;Star Gold Yellow;Leather;Handwoven Pillows ;Star Gold Embroidered Moroccan Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Gold Yellow;Coton ;;;;;;;;;135,00$;;
+6010140000112;Star Blue;Leather;Handwoven Pillows ;Star Blue Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Blue;Coton ;;;;;;;;;135,00$;;
+6010140000113;Star Black    ;Leather;Handwoven Pillows ;Star Black Embroidered Moroccan Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Black        ;Coton ;;;;;;;;;135,00$;;
+6010140000114;Star Orange;Leather;Handwoven Pillows ;Star Orange ?Embroidered Moroccan Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Orange;Coton ;;;;;;;;;135,00$;;
+6010140000115;Star Pink;Leather;Handwoven Pillows ;;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Pink          ;Coton ;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010140000116;Star Red;Leather;Handwoven Pillows ;Stra Red Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Red           ;Coton ;;;;;;;;;135,00$;;
+6010140000117;Star Lime Green;Leather;Handwoven Pillows ;;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Lime Green       ;Coton ;;;;;;;;;135,00$;Ces produits existent uniquement sur le catalogue DFT;
+6010140000118;Star Fuschia;Leather;Handwoven Pillows ;Star Fuchsia Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Fuschia ;Coton ;;;;;;;;;135,00$;;
+6010140000119;Prestige Orange ;Leather;Handwoven Pillows ;Prestige Orange Embroidered Moroccan Pillow: Embroidered?by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold?pillow?with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Orange ;Coton ;;;;;;;;;135,00$;;
+6010140000120;Prestige Lime Green ;Leather;Handwoven Pillows ;Prestige Gold Embroidered Moroccan Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Lime Green;Coton ;;;;;;;;;135,00$;;
+6010140000121;Prestige Pink    ;Leather;Handwoven Pillows ;Prestige Pink Embroidered Moroccan Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Pink ;Coton ;;;;;;;;;135,00$;;
+6010140000122;Prestige Red ;Leather;Handwoven Pillows ;Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Red;Coton ;;;;;;;;;135,00$;;
+6010140000123;Prestige Aubergine;Leather;Handwoven Pillows ;Moroccan Prestige Aubergine Embroidered Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Aubergine;Coton ;;;;;;;;;135,00$;;
+6010140000124;Prestige Yellow;Leather;Handwoven Pillows ;Moroccan Prestige Gold Embroidered Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Yellow;Coton ;;;;;;;;;135,00$;;
+6010140000125;Prestige Fuschia;Leather;Handwoven Pillows ;Prestige Fuchsia Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Fuschia;Coton ;;;;;;;;;135,00$;;
+6010140000126;Prestige blue;Leather;Handwoven Pillows ;Moroccan Prestige Blue Embroidered Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Blue;Coton ;;;;;;;;;135,00$;;
+6010140000127;Moorish Orange;Leather;Handwoven Pillows ;Moroccan Moorish Oange Embroidered Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Orange;Coton ;;;;;;;;;135,00$;;
+6010140000128;Moorish Pink;Leather;Handwoven Pillows ;;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Pink          ;Coton ;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010140000129;Paradise Pink;Leather;Handwoven Pillows ;;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Paradise Pink;Coton ;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010140000130;Moorish Black;Leather;Handwoven Pillows ;Moroccan Prestige Black Embroidered Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Black ;Coton ;;;;;;;;;135,00$;;
+6010140000131;Moorish Blue;Leather;Handwoven Pillows ;Moroccan Moorish Blue Embroidered Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Blue      ;Coton ;;;;;;;;;135,00$;;
+6010140000132;Moorish Lime Green;Leather;Handwoven Pillows ;Moorish Lime Green Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Green;Coton ;;;;;;;;;135,00$;;
+6010140000133;Moorish Yellow ;Leather;Handwoven Pillows ;Moroccan Moorish Gold Embroidered Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Yellow;Coton ;;;;;;;;;135,00$;;
+6010140000134;Moorish Red;Leather;Handwoven Pillows ;Moroccan Moorish Red Embroidered Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Red ;Coton ;;;;;;;;;135,00$;;
+6010140000135;Moorish Aubergine;Leather;Handwoven Pillows ;Moroccan Moorish Aubergine Embroidered Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space. Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Aubergine ;Coton ;;;;;;;;;135,00$;;
+6010140000136;Moorish Black;Leather;Handwoven Pillows ;Moroccan Moorish Black Embroidered Pillow: Embroidered by Moroccan artisans to bring an ethnic chic touch to your space Infuse your space with warmth and character with this bold pillow with intricate pattern and lush textures.;96,52 inch x 96,52 inch x 12,7 inch ;"38cmx38cmx5cm
+";Black ;Coton ;;;;;;;;;135,00$;;
+6010040000137;Turquoise;Leather;Pillows;;40,64 inch x 40,64 inch;16cm x16cm;Turquoise;Goat skin Leather;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010040000138;Turquoise;Leather;Pillows;;101,6 inch x 101,6 inch ;40cm x40cm;Turquoise;Goat skin Leather;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010040000139;Bronze;Leather;Pillows;;40,64 inch x 40,64 inch;16cm x16cm;Bronze  ;Goat skin Leather;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010040000140;Bronze;Leather;Pillows;;101,6 inch x 101,6 inch ;40cm x40cm;Bronze  ;Goat skin Leather;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010040000141;Gold;Leather;Pillows;;40,64 inch x 40,64 inch;16cm x16cm;Gold ;Goat skin Leather;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010040000142;Gold;Leather;Pillows;;101,6 inch x 101,6 inch ;40cm x40cm;Gold;Goat skin Leather;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010040000143;Mustard;Leather;Pillows;;40,64 inch x 40,64 inch;16cm x16cm;Mustard                     ;Goat skin Leather;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010040000144;Mustard;Leather;Pillows;;101,6 inch x 101,6 inch ;40cm x40cm;Mustard                   ;Goat skin Leather;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010040000145;Fuschia;Leather;Pillows;;40,64 inch x 40,64 inch;16cm x16cm;Fuschia ;Goat skin Leather;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010040000146;Fuschia;Leather;Pillows;;101,6 inch x 101,6 inch ;40cm x40cm;Fuschia ;Goat skin Leather;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010040000147;Silver;Leather;Pillows;;40,64 inch x 40,64 inch;16cm x16cm;Silver;Goat skin Leather;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6010040000148;Silver;Leather;Pillows;;101,6 inch x 101,6 inch ;40cm x40cm;Silver ;Goat skin Leather;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030130000149;Amber;Entertainment;Tea Pots;Moroccan hand-blown Amber Glass Teapot: Add some color, flair and ethnic design to your teatime with our elegant hand-blown glass tea pot. They come in a fascinating selection of colors to choose from. They are heat proof. We recommend low temperature. Enjoy watching your tea steep in these unique beautiful tea pots.;"49,53 inch x 36,322 inch x 38,862 inch 
+Weight : 1,291388 lb";"19,5cm x14,3cm x15,3cm
+";Amber          ;Glass;;0,482 kg;;;;;;;125,00$;;
+6030130000150;Clear;Entertainment;Tea Pots;Moroccan hand-blown Clear Glass Teapot: Flair and ethnic design to your teatime with our elegant hand-blown glass tea pot. They come in a fascinating selection of colors to choose from. They are heat proof. We recommend low temperature. Enjoy watching your tea steep in these unique beautiful tea pots.;"49,53 inch x 36,322 inch x 38,862 inch 
+Weight : 1,291388 lb";"19,5cm x14,3cm x15,3cm
+";Clear                ;Glass;;0,482 kg;;;;;;;125,00$;;
+6030130000151;Fuschia;Entertainment;Tea Pots;Moroccan hand-blown Fuchsia Glass Teapot: Add some color, flair and ethnic design to your teatime with our elegant hand-blown glass tea pot. They come in a fascinating selection of colors to choose from. They are heat proof. We recommend low temperature. Enjoy watching your tea steep in these unique beautiful tea pots.;"49,53 inch x 36,322 inch x 38,862 inch 
+Weight : 1,291388 lb";"19,5cm x14,3cm x15,3cm
+";Fuschia ;Glass;;0,482 kg;;;;;;;125,00$;;
+6030130000152;Purple;Entertainment;Tea Pots;Moroccan hand-blown Purple Glass Teapot: Flair and ethnic design to your teatime with our elegant hand-blown glass tea pot. They are heat proof. We recommend low temperature. Enjoy watching your tea steep in these unique beautiful tea pots.;"49,53 inch x 36,322 inch x 38,862 inch 
+Weight : 1,291388 lb";"19,5cm x14,3cm x15,3cm
+";Purple                          ;Glass;;0,482 kg;;;;;;;125,00$;;
+6030130000153;Green;Entertainment;Tea Pots;Moroccan Hand-Blown?Green Glass Teapot: Add some color, flair and ethnic design to your teatime with our elegant hand-blown glass tea pot. They come in a fascinating selection of colors to choose from. They are heat proof. We recommend low temperature. Enjoy watching your tea steep in these unique beautiful tea pots.;"49,53 inch x 36,322 inch x 38,862 inch 
+Weight : 1,291388 lb";"19,5cm x14,3cm x15,3cm
+";Green ;Glass;;0,482 kg;;;;;;;125,00$;;
+6030120000154;Arabesque Green     ;Entertainment;Tea Glasses;;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"21 cm x 13,5cm x11cm
+";Green      ;Glass;;1,215 kg;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030120000155;Arabesque Fuschia;Entertainment;Tea Glasses;;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"22 cm x 13,5cm x11cm
+";Fuschia;Glass;;1,215 kg;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030120000156;Arabesque Assorted;Entertainment;Tea Glasses;Arabesque Assorted Tea Glasses;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"23 cm x 13,5cm x11cm
+";Assorted;Glass;;1,215 kg;;;;;;;42,00$;;
+6030120000157;Ballar Blue       ;Entertainment;Tea Glasses;Meknes Style handmade Moroccan Blue Tea glasses with ornate designs. The use of Moroccan tea glasses has prolonged not only for drinking tea but for other purposes such as votive candle holders, decorative center pieces, party favors, and much more.... Comes as a set of 6.;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"24 cm x 13,5cm x11cm
+";Blue              ;Glass;;1,215 kg;;;;;;;42,00$;;
+6030120000158;Arabesque Yellow;Entertainment;Tea Glasses;;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"25 cm x 13,5cm x11cm
+";Yellow;Glass;;1,215 kg;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030120000159;Arabesque Red;Entertainment;Tea Glasses;;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"26 cm x 13,5cm x11cm
+";Red;Glass;;1,215 kg;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030120000160;Ballar Red;Entertainment;Tea Glasses;Meknes Style handmade Moroccan Red Tea glasses with ornate designs. The use of ?Moroccan tea glasses has prolonged not only for drinking tea but for other purposes such as votive candle holders, decorative center pieces, party favors, and much more.... Comes as a set of 6.;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"27 cm x 13,5cm x11cm
+";Red                         ;Glass;;1,215 kg;;;;;;;42,00$;;
+6030120000161;Ballar Fuschia;Entertainment;Tea Glasses;Moroccan Fuchsia tea glasses style Ballar made in Morocco. Our tea glasses are beautifully detailed with designs etched in gold. Comes as set of 6.;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"28 cm x 13,5cm x11cm
+";Fuschia             ;Glass;;1,215 kg;;;;;;;42,00$;;
+6030120000162;Ballar Amber;Entertainment;Tea Glasses;Moroccan Ballar Amber Tea Glasses;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"29 cm x 13,5cm x11cm
+";Amber;Glass;;1,215 kg;;;;;;;42,00$;;
+6030120000163;Ballar Assorted;Entertainment;Tea Glasses;;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"30 cm x 13,5cm x11cm
+";Assorted ;Glass;;1,215 kg;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030120000164;Ballar Yellow;Entertainment;Tea Glasses;Meknes Style handmade Moroccan Yellow Tea glasses with ornate designs. The use of Moroccan tea glasses has prolonged not only for drinking tea but for other purposes such as votive candle holders, decorative center pieces, party favors, and much more....;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"31 cm x 13,5cm x11cm
+";Yellow            ;Glass;;1,215 kg;;;;;;;;;
+6030120000165;Kasbah Assorted;Entertainment;Tea Glasses;;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"32 cm x 13,5cm x11cm
+";Assorted ;Glass;;1,215 kg;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030120000166;Berber Silver;Entertainment;Tea Glasses;Moroccan Tea Glasses Berber Silver (Set of 6) made in Morocco. Our glasses are beautifully detailed with elegant designs etched in silver. Can be used for drinking, candle votives or as party favors Comes as a set of 6.;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"33 cm x 13,5cm x11cm
+";Silver                ;Glass;;1,215 kg;;;;;;;42,00$;;
+6030120000167;Berber Gold;Entertainment;Tea Glasses;Moroccan Gold Tea Glasses ?Style Berber (Set of 6) made in Morocco. Our glasses are beautifully detailed with elegant designs etched in golden color. Can be used for drinking, candle votives or as party favors. Comes as a set of 6.;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"34 cm x 13,5cm x11cm
+";Gold ;Glass;;1,215 kg;;;;;;;42,00$;;
+6030120000168;Mekness Green;Entertainment;Tea Glasses;Moroccan Green Tea Glasses. Style Meknes made in Morocco with ornate designs. The use of Moroccan tea glasses has prolonged not only for drinking tea but for other purposes such as votive candle holders, decorative center pieces, party favors, and much more....;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"35 cm x 13,5cm x11cm
+";Green ;Glass;;1,215 kg;;;;;;;42,00$;;
+6030120000169;Mekness Purple;Entertainment;Tea Glasses;Moroccan Purple Tea Glasses. Style Meknes made in Morocco with ornate designs. The use of Moroccan tea glasses has prolonged not only for drinking tea but for other purposes such as votive candle holders, decorative center pieces, party favors, and much more... Comes as a set of 6.;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"36 cm x 13,5cm x11cm
+";Purple                           ;Glass;;1,215 kg;;;;;;;42,00$;;
+6030120000170;Mekness Assorted;Entertainment;Tea Glasses;;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"37 cm x 13,5cm x11cm
+";Assorted         ;Glass;;1,215 kg;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030120000171;Mekness Blue;Entertainment;Tea Glasses;Meknes Style handmade Moroccan Blue Tea glasses with ornate designs. The use of Moroccan tea glasses has prolonged not only for drinking tea but for other purposes such as votive candle holders, decorative center pieces, party favors, and much more.... Comes as a set of 6.;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"38 cm x 13,5cm x11cm
+";Blue ;Glass;;1,215 kg;;;;;;;42,00$;;
+6030120000172;Mekness Red;Entertainment;Tea Glasses;Meknes Style handmade Moroccan Red Tea glasses with ornate designs. The use of ?Moroccan tea glasses has prolonged not only for drinking tea but for other purposes such as votive candle holders, decorative center pieces, party favors, and much more.... Comes as a set of 6.;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"39 cm x 13,5cm x11cm
+";Red;Glass;;1,215 kg;;;;;;;42,00$;;
+6030120000173;Mekness Yellow;Entertainment;Tea Glasses;Meknes Style handmade Moroccan Yellow Tea glasses with ornate designs. The use of Moroccan tea glasses has prolonged not only for drinking tea but for other purposes such as votive candle holders, decorative center pieces, party favors, and much more....;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"40 cm x 13,5cm x11cm
+";Yellow             ;Glass;;1,215 kg;;;;;;;42,00$;;
+6030120000174;Touareg Assorted;Entertainment;Tea Glasses;;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"41 cm x 13,5cm x11cm
+";Assorted;Glass;;1,215 kg;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030120000175;Touareg Red;Entertainment;Tea Glasses;Moroccan Tea Glasses Style Touareg made in Morocco. Our tea glasses are beautifully detailed with designs etched in gold and red color. Comes as a set of 6;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"42 cm x 13,5cm x11cm
+";Red                           ;Glass;;1,215 kg;;;;;;;42,00$;;
+6030120000176;Touareg Blue;Entertainment;Tea Glasses;Moroccan Mini Tea Glasses Style Touareg made in Morocco. Our tea glasses are beautifully detailed with designs etched in gold and red color. Comes as a set of 6;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"43 cm x 13,5cm x11cm
+";Touareg Blue;Glass;;1,215 kg;;;;;;;42,00$;;
+6030120000177;Touareg Fuschia;Entertainment;Tea Glasses;Moroccan Mini Tea Glasses Style Touareg made in Morocco. Our tea glasses are beautifully detailed with designs etched in gold and red color. Comes as a set of 6;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"44 cm x 13,5cm x11cm
+";Fuschia ;Glass;;1,215 kg;;;;;;;42,00$;;
+6030120000178;Touareg Yellow;Entertainment;Tea Glasses;;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"45 cm x 13,5cm x11cm
+";Yellow                                                    ;Glass;;1,215 kg;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6030120000179;Touareg White;Entertainment;Tea Glasses;Moroccan Tea Glasses Style Touareg White made in Morocco. Our tea glasses are beautifully detailed with designs etched in gold . Comes as a set of 6.;"53,34 inch x  34,29 inch x 27,94 inch 
+Weight : 3,255263 lb";"21 cm x 13,5cm x11cm
+";White ;Glass;;1,215 kg;;;;;;;42,00$;;
+6040060000180;Spider;Lighting;Ceiling Lamps;Handmade by Skilled Artisans. Frosty glass and Metal hanging lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"114,3 inch x 50,8 inch x 50,8 inch 
+Weight : 2,679229 lb";Taille?: 45cm*20cm*20cm                 ;;Copper;;1kg;;;;;;;325,00$;;
+6040060000181;Queen;Lighting;Ceiling Lamps;Handmade by Skilled Artisans.Moorish style colored glass ceiling ?lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"139,7 inch x 76,2 inch x 76,2 inch 
+ Weight : 6,698072 lb ";"Taille?: 55 cm*30cm*30cm    
+                                                          ";;Copper;;2,5kg;;;;;;;450,00$;;
+6040060000182;Qubba (Coupole) ;Lighting;Ceiling Lamps;Handmade by skilled Moroccan Artisans. Dome style arabesque colored glass lamp;"101,6 inch x 50,8 inch x 50,8 inch 
+Weight : 2,679229 lb ";"Taille?: 40cm*20cm*20cm
+";;Copper;;1kg;;;;;;;275,00$;;
+6040060000183;Lamya ;Lighting;Ceiling Lamps;Handmade by Skilled Moroccan Artisans.Moorish style blue glass and Metal hanging lamp with intricate design that offers warm and exotic glow and reflect art work to any space.;"88,9 inch x 45,72 inch x 45,72 inch 
+Weight :  2,679229 lb ";"Taille : 35cm*18cm*18cm
+                         ";;Copper;;1kg;;;;;;;250,00$;;
+6040060000184;PomeGranate ;Lighting;Ceiling Lamps;Handmade by Skilled Artisans. Arabesque metal ceiling hanging lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"101,6 inch x 60,96 inch x 60,96 inch 
+ Weight :1,339614 lb ";"Taille?: 40cm*24cm*24cm
+";;Copper;;0,5kg;;;;;;;235,00$;;
+6040060000185;Marrakech;Lighting;Ceiling Lamps;Handmade by Skilled Artisans. Multicolor glass and metal ceiling lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"96,52 inch x 45,72 inch x 45,72 inch 
+Weight :  2,679229 lb ";"Taille?: 38cm*18cm*18cm
+";;Copper;;1kg;;;;;;;275,00$;;
+6040060000186;Frosted Star;Lighting;Ceiling Lamps;Handmade Moroccan lamp in an elegant star shape offering a warm glow to any space.;"76,2 inch x 76,2 inch x 76,2 inch
+Weight : 5,358458 lb  ";"30cm*30cm*30cm
+";;Copper, woot;;2kg;;;;;;;175,00$;;
+6040060000187;Kasbah;Lighting;Ceiling Lamps;Handmade by skilled Moroccan Artisans. Multi color glass and metal ?lamp.;114,3 inch x 68,58 inch x 68,58 inch ;"60cm*27cm*27cm    
+                                                   ";;Copper;;1kg;;;;;;;295,00$;;
+6040060000188;Iron Star   ;Lighting;Ceiling Lamps;handmade by skilled Moroccan Artisans. Iron Star lamp. Its intricate design offers magical glow and artistic pattern reflection to any space.;"114,3 inch x139,7 inch x 139,7 inch 
+Weight : 10,716916 lb ";"60cm*55cm*55cm
+";;Copper;;4kg;;;;;;;475,00$;;
+6040060000189;Elfin;Lighting;Ceiling Lamps;Handmade by Skilled Artisans. Frosty glass ceiling lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"76,2 inch x 53,34 inch x 53,34 inch 
+Weight :  2,679229 lb ";"Taille?: 30cm*21cm*21cm   
+       ";;Copper;;1kg;;;;;;;225,00$;;
+6040060000190;Flower;Lighting;Ceiling Lamps;Handmade by Skilled Artisans. Frosty glass and Metal hanging lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"83,82 inch x 106,68 inch x 106,68 inch 
+Weight :  2,679229 lb ";"Taille?: 33cm*42cm*42cm  
+                                                              
+                ";;Copper;;1kg;;;;;;;295,00$;;
+6040060000191;Frosted ;Lighting;Ceiling Lamps;Handmade by skilled Moroccan Artisans. Frosty glass and dark metal lamp with intricate carving;"76,2 inch x 40,64 inch x 40,64 inch 
+Weight :  2,679229 lb ";"Taille?: 30cm*16cm*16cm
+";;Copper;;1kg;;;;;;;250,00$;;
+6040060000192;Desert ;Lighting;Ceiling Lamps;Handmade by Skilled Artisans. Arabesque silver ceiling hanging lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"127 inch x 76,2 inch x76,2 inch 
+Weight : 1,339614 lb ";"  Taille?: 50cm*30cm*30cm  
+               ";;Silver;;0,5kg;;;;;;;425,00$;;
+6040060000193;Eco ;Lighting;Ceiling Lamps;Handmade by Skilled Artisans. Frosty glass and metal ceiling lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"101,6 inch x 40,64 inch x40,64 inch 
+Weight :  2,679229 lb ";"Taille?: 40cm*16cm*16cm  
+                                                               ";;Copper;;1kg;;;;;;;425,00$;;
+6040060000194;Diamond ;Lighting;Ceiling Lamps;"Handmade by Skilled Moroccan Artisans. beautifully designed and carved; intricate designs and colors offer exotic glow to any space.";"121,92 inch x 63,5 inch x 63,5 inch 
+Weight : 5,358458 lb ";"Taille?: 48cm*25cm*25cm
+";;Copper;;2kg;;;;;;;275,00$;;
+6040060000195;Castle ;Lighting;Ceiling Lamps;Handmade by Skilled Artisans. Metal ceiling lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"88,9 inch x 76,2 inch x 76,2 inch 
+Weight :  1,339614 lb ";"  Taille?: 35cm*30cm*30cm
+            ";;Copper;;0,5kg;;;;;;;375,00$;;
+6040060000196;Cone;Lighting;Ceiling Lamps;Handmade by Skilled Artisans. Brass hanging lamp with intricate design that offers warm and exotic glow and reflect art work to any space.;"71,12 inch x 58,42 inch x 58,42 inch 
+Weight :  2,679229 lb 
+";"Taille?: 28cm*23cm*23cm
+                                            ";;Brass;;1kg;;;;;;;250,00$;;
+6040060000197;Cotton;Lighting;Ceiling Lamps;;"114,3 inch x 50,8 inch x 50,8 inch 
+Weight : 2,679229 lb";"Taille?: 45cm*20cm*20cm
+";;Copper, woot;;1kg;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6040060000198;Azur ;Lighting;Ceiling Lamps;Moroccan Azur Ceiling Lamp;"114,3 inch x 50,8 inch x 50,8 inch 
+Weight : 2,679229 lb";"Taille?: 40cm*20cm*20cm       
+           ";;Copper;;1kg;;;;;;;225,00$;;
+6040060000199;Arabian;Lighting;Ceiling Lamps;Handmade by skilled Artisans. Arabian blue and green glass and metal ceiling lamp with intricate motifs that offer warm and exotic glow and reflect art work to the room.;"228,6 inch x 96,52 inch x 96,52 inch 
+Weight : 8,037687 lb
+";"Taille?: 90cm*38cm*38cm
+              ";;Copper;;3kg;;;;;;;450,00$;;
+6040060000200;Arabesque;Lighting;Ceiling Lamps;Handmade by Skilled Artisans.Multicolor glass and Metal hanging lamp with intricate design that offers warm and exotic glow and reflect art work to any space.;"165,1 inch x 76,2 inch x 76,2 inch 
+Weight : 6,6980725 lb
+";"Taille?: 65cm*30cm*30cm
+                       ";;Copper;;2,5kg;;;;;;;425,00$;;
+6040060000201;Blue  ;Lighting;Ceiling Lamps;Moroccan Blue Lantern Lamp;"152,4 inch x 63,5 inch x 63,5 inch 
+Weight : 6,6980725 lb
+";"Taille?: 60cm*25cm*25cm
+";;Copper;;2,5kg;;;;;;;550,00$;;
+6040060000202;Bayda ;Lighting;Ceiling Lamps;Handmade by Skilled Artisans. Frosty style glass and Metal hanging lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"76,2 inch x 50,8 inch x 50,8 inch 
+Weight : 2,679229 lb";"Taille?: 30cm*20cm*20cm
+                   ";;Copper;;1kg;;;;;;;235,00$;;
+6040060000203;Basha;Lighting;Ceiling Lamps;Handmade by skilled artisans from Morocco. Basha pierced metal ceiling lamp.;"177,8 inch x 96,52 inch x 96,52 inch 
+Weight : 8,037687 lb";"Taille?: 70cm*38cm*38cm
+";;Copper;;3kg;;;;;;;495,00$;;
+6040060000204;Alhambra;Lighting;Ceiling Lamps;Handmade by Skilled Artisans Arabesque red glass ceiling lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"101,6 inch x 60,96 inch x 60,96 inch 
+ Weight :1,339614 lb ";"Taille?: 40cm*24cm*24cm
+";;Copper;;0,5kg;;;;;;;450,00$;;
+6040060000205;Amira;Lighting;Ceiling Lamps;Handmade by Skilled Moroccan Artisans.Clear glass and Metal hanging lamp with intricate design that offers warm and exotic glow and reflect art work to any space;"127 inch x 50,8 inch x 50,8 inch 
+Weight : 2,679229 lb";"Taille?: 50cm*20cm*20cm
+          ";;Copper;;1kg;;;;;;;250,00$;;
+6040060000206;Andalucia;Lighting;Ceiling Lamps;Handmade by Skilled Artisans.Blue glass and Metal hanging lamp with intricate design that offers warm and exotic glow and reflect art work to any space.;"139,7 inch x 76,2 inch x 76,2 inch 
+ Weight : 5,358458 lb ";"Taille?: 55cm*30cm*30cm
+            ";;Copper;;2kg;;;;;;;;;
+6040060000207;Color Flower;Lighting;Ceiling Lamps;;"83,82 inch x 106,68 inch x 106,68 inch 
+Weight :  2,679229 lb ";"Taille : 33cm*42cm*42cm
+Poids : 1 kg";;Copper;;1kg;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6040090000208;Arabesque Green;Lighting;Lanterns;Arabesque glass green and metal ceiling lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"165,1 inch x 88,9 inch x88,9 inch 
+Weight : 8,037687 lb ";"65cm*35cm*35cm
+";;Copper;;3kg;;;;;;;495,00$;;
+6040090000209;Arabesque Amber;Lighting;Lanterns;Handmade by Moroccan Skilled Artisan.Arabesque glass Amber and metal ceiling lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"165,1 inch x 88,9 inch x88,9 inch 
+Weight : 8,037687 lb ";"65cm*35cm*35cm
+";;Copper;;3kg;;;;;;;495,00$;;
+6040090000210;Moorish;Lighting;Lanterns;Handmade by Moroccan Skilled Artisans. Arabesque glass and metal ceiling lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"269,24 inch x 111,76 inchx 111,76 inch
+Weight : 15,432358";"106cm*44cm*44cm
+";;Copper;;7kg;;;;;;;1250,00$;;
+6040090000211;Moorish Brass;Lighting;Lanterns;Handmade by Moroccan Skilled Artisans.Arabesque glass and brass ceiling lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"269,24 inch x 111,76 inchx 111,76 inch
+Weight : 15,432358";"106cm*44cm*44cm
+";;Copper;;7kg;;;;;;;1500,00$;;
+6040090000212;Blue;Lighting;Lanterns;Handmade by Moroccan Skilled Artisans. Silver Arabesque style Lantern with Red and White Carved glass and metal. Intricate design.;"147,32 inch x 63,5 inch x 63,5 inch 
+Weight : 6,6980725 lb";"Taille?: 58cm*25cm*25cm
+";;Brass;;2,5kg;;;;;;;;;
+6040090000213;Feda;Lighting;Lanterns;Handmade by Moroccan Skilled Artisans. Arabesque style glass red lantern.;"147,32 inch x 81,28 inch x 81,28 inch 
+Weight : 8,037687 lb";"Taille?: 58cm*32cm*32cm
+";;Silver;;3kg;;;;;;;425,00$;;
+6040090000214;Jardin;Lighting;Lanterns;Handmade by ?Moroccan skilled artisans. Arabesque colored glass lamp in Amber with intricate design that offers warm and exotic glow and reflect art work to any space.;"147,32 inch x 63,5 inch x 63,5 inch 
+Weight : 6,6980725 lb";"Taille?: 58cm*25cm*25cm
+";;Copper;;2,5kg;;;;;;;425,00$;;
+6040090000215;Manara;Lighting;Lanterns;Handmade by  Moroccan skilled artisans. Arabesque colored glass lamp in Amber with intricate design that offers warm and exotic glow and reflect art work to any space.;"254 inch x 99,06 inch x 99,06 inch 
+Weight : 8,037687 lb";"Taille?: 100cm*39cm*39cm
+";;Copper;;3kg;;;;;;;550,00$;;
+6040090000216;Farha;Lighting;Lanterns;Handmade by Moroccan Skilled Artisan.Exotic Moorish style multicolor glass lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"127 inch x 45,72 inch x 45,72 inch 
+Weight : 2,679229 lb";"50cm x18cm x18cm
+";;Copper;;1kg;;;;;;;395,00$;;
+6040090000217;Farha;Lighting;Lanterns;Handmade by Moroccan Skilled Artisan.Exotic Moorish style multicolor glass lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"154,94 inch x 60,96 inch x 60,96 inch
+Weight : 2,679229 lb ";"61cmx 24cmx 24cm 
+";;Copper;;1kg;;;;;;;Manque le prix des autres tailles sur le site;;
+6040090000218;Farha;Lighting;Lanterns;Handmade by Moroccan Skilled Artisan.Exotic Moorish style multicolor glass lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"175,26 inch x 68,58 inch x 68,58 inch 
+Weight : 10,716916 lb ";"69cmx 27cmx 27cm 
+";;Copper;;4kg;;;;;;;;;
+6040090000219;Farha;Lighting;Lanterns;Handmade by Moroccan Skilled Artisan.Exotic Moorish style multicolor glass lamp with intricate design that offer warm and exotic glow and reflect art work to any space.;"198,12 inch x 71,12 inch x 71,12 inch 
+Weight : 16,075373";"78cmx 28cmx 28cm
+";;Copper;;6kg;;;;;;;;;
+6040090000220;Aladin;Lighting;Lanterns;Handmade by Moroccan Skilled Artisan.Aladin style multicolor glass lamp with intricate design that offer warm and exotic glow and reflect art work to any space;"99,06 inch x 40,64 inch x 40,64 inch 
+Weight : 1,339614 lb ";"39cmx 16cmx 16cm 
+";;Copper;;0,5kg;;;;;;;125,00$;;
+6040090000221;Aladin;Lighting;Lanterns;Handmade by Moroccan Skilled Artisan.Aladin style multicolor glass lamp with intricate design that offer warm and exotic glow and reflect art work to any space;"119,38 inch x  48,26 inch x 48,26 inch 
+Weight : 2,679229 lb
+";"47cmx 19cmx 19cm
+";;Copper;;1kg;;;;;;;Manque le prix des autres tailles sur le site;;
+6040090000222;Aladin;Lighting;Lanterns;Handmade by Moroccan Skilled Artisan.Aladin style multicolor glass lamp with intricate design that offer warm and exotic glow and reflect art work to any space;"127 inch x 50,8 inch x 50,8 inch 
+Weight : 5,358458 lb ";"50cmx20cmx20cm 
+";;Copper;;2kg;;;;;;;;;
+6040090000223;Pool;Lighting;Lanterns;Handmade by Moroccan Skilled Artisan. multicolor glass lamp with intricate design that offer warm  and exotic glow and reflect art work to any space;"81,28 inch x 45,72 inch x  45,72 inch
+Weight : 2,679229 lb ";"32cm x 18cm x 18cm 
+";;Copper, woot;;1kg;;;;;;;125,00$;;
+6040090000224;Pool;Lighting;Lanterns;Handmade by Moroccan Skilled Artisan. multicolor glass lamp with intricate design that offer warm  and exotic glow and reflect art work to any space;"96,52 inch x 55,88 inch x  55,88 inch 
+Weight :4,018843 lb";"38cmx 22cmx 22cm 
+";;Copper, woot;;1,5kg;;;;;;;175,00$;;
+6040090000225;Pool;Lighting;Lanterns;Handmade by Moroccan Skilled Artisan. multicolor glass lamp with intricate design that offer warm  and exotic glow and reflect art work to any space;"106,68 inch x 68,58 inch x 68,58 inch 
+Weight : 5,358458 lb ";"42cmx 27cmx 27cm
+";;Copper, woot;;2kg;;;;;;;225,00$;;
+6040090000226;Pool;Lighting;Lanterns;Handmade by Moroccan Skilled Artisan. multicolor glass lamp with intricate design that offer warm  and exotic glow and reflect art work to any space;"132,08 inch x 71,12 inch x 71,12 inch 
+Weight : 6,698072 lb ";"52cmx 28cmx 28cm
+";;Copper, woot;;2,5kg;;;;;;;275,00$;;
+6040090000227;Pool;Lighting;Lanterns;Handmade by Moroccan Skilled Artisan. multicolor glass lamp with intricate design that offer warm  and exotic glow and reflect art work to any space;"190,5 inch x 71,12 inch x 71,12 inch 
+Weight : 6,698072 lb ";"75cmx 28cmx28cm
+";;Copper, woot;;2,5kg;;;;;;;325,00$;;
+6040090000228;Sahara;Lighting;Lanterns;Handmade by Moroccan Skilled Artisans.  Carved metal lantern with Intricate design.;" 86,36  inch x 25,4 inch x 25,4 inch 
+Weight : 1,339614 lb ";"34cmx 10cmx 10cm
+";;Copper;;0,5kg;;;;;;;75,00$;;
+6040090000229;Sahara;Lighting;Lanterns;Handmade by Moroccan Skilled Artisans.  Carved metal lantern with Intricate design.;"139,7 inch x 43,18 inch x 43,18 inch 
+Weight :  4,018843 lb";"55cm x 17cm x 17cm 
+";;Copper;;1,5kg;;;;;;;95,00$;;
+6040090000230;Sahara;Lighting;Lanterns;Handmade by Moroccan Skilled Artisans.  Carved metal lantern with Intricate design.;"203,2 inch x 63,5 inch x 63,5 inch 
+Weight : 6,698072 lb ";"80cmx 25cmx 25cm 
+";;Copper;;2,5kg;;;;;;;125,00$;;
+6040090000231;Koutoubia;Lighting;Lanterns;Handmade by Moroccan Skilled Artisans.  Carved metal lantern with Intricate design.;"76,2 inch x 30,48 inch x 30,48 inch
+Weight : 1,339614 lb";"30cm x 12cm x12cm 
+";;Copper;;0,5kg;;;;;;;75,00$;;
+6040090000232;Koutoubia;Lighting;Lanterns;Handmade by Moroccan Skilled Artisans.  Carved metal lantern with Intricate design.;"101,6 inch x  38,1 inch x 38,1 inch 
+Weight : 4,018843 lb ";"40cm x 15cm x15cm 
+";;Copper;;1,5kg;;;;;;;125,00$;;
+6040090000233;Koutoubia;Lighting;Lanterns;Handmade by Moroccan Skilled Artisans.  Carved metal lantern with Intricate design.;"114,3 inch x 63,5 inch x 63,5 inch 
+Weight : 7,501841 lb ";"60cm x 25cmx 25cm
+";;Copper;;2,8kg;;;;;;;225,00$;;
+6040090000234;Koutoubia;Lighting;Lanterns;Handmade by Moroccan Skilled Artisans.  Carved metal lantern with Intricate design.;"228,6 inch x 76,2 inch x 76,2 inch 
+Weight : 9,377301 lb ";"90cmx30cmx30cm
+";;Copper;;3,5kg;;;;;;;375,00$;;
+6040100000235;Jardin;Lighting;Sconces;Handmade by ?Moroccan skilled artisans. Metal sconce with intricate design that offers warm and exotic glow and reflect art work to any space.;"64,77 inch x 59,69 inch x 27,94 inch
+Weight :  1,339614 lb ";"25,5cmx23,5cmx11cm
+";;Copper;;0,5kg;;;;;;;95,00$;;
+6040100000236;Petit;Lighting;Sconces;Handmade by Moroccan skilled artisans. Metal sconce with intricate design that offers warm and exotic glow and reflect art work to any space.;"68,58 inch x 38,1 inch x  17,78 inch 
+Weight :  1,339614 lb ";"27cmx15cmx7cm
+";;Copper;;0,5kg;;;;;;;125,00$;;
+6040100000237;Silver;Lighting;Sconces;Handmade by Moroccan skilled artisans. Silver sconce with intricate design that offers warm and exotic glow and reflect art work to any space;"64,77 inch x 57,912 inch x 25,4 inch
+Weight :  1,339614 lb ";"25,5cmx22,8cmx10cm
+";;Silver;;0,5kg;;;;;;;125,00$;;
+6040100000238;Aladin;Lighting;Sconces;Handmade by Moroccan skilled artisans. Metal sconce with intricate design that offers warm and exotic glow and reflect art work to any space.;"71,12 inch x 68,58 inch x 30,48 inch 
+Weight : 1,339614 lb";"28cmx27cmx12cm
+";;Copper;;0,5kg;;;;;;;95,00$;;
+6040100000239;Amira;Lighting;Sconces;Handmade by Moroccan skilled artisans. Metal sconce with intricate design that offers warm and exotic glow and reflect art work to any space.;"76,2 inch x 43,18 inch x 22,86 inch
+Weight : 1,339614 lb";"30cmx17cmx9cm
+";;Copper;;0,5kg;;;;;;;125,00$;;
+6040100000240;Darna;Lighting;Sconces;Handmade by Moroccan skilled artisans. Metal sconce with intricate design that offers warm and exotic glow and reflect art work to any space.;"109,22 inch x 53,34 inch x 30,48 inch 
+Weight : 2,679229 lb ";"43cmx21cmx12cm
+poids:1kg";;Copper;;;;;;;;;75,00$;;
+6040100000241;Arabesque;Lighting;Sconces;Handmade by Moroccan skilled artisans. Metal sconce with intricate design that offers warm and exotic glow and reflect art work to any space.;"109,22 inch x 53,34 inch x 30,48 inch 
+Weight : 2,679229 lb ";"43cmx21cmx12cm
+poids:1kg";;Copper;;;;;;;;;75,00$;;
+6040100000242;Tewel;Lighting;Sconces;Handmade by ?Moroccan skilled artisans. Brass and frosty glass sconce with intricate design that offers warm and exotic glow and reflect art work to any space.;"167,64 inch x 50,8 inch x 25,4 inch 
+Weight : 1,339614 lb ";"66cmx20cmx10cm
+Poids:0,5kg";;Brass;;;;;;;;;275,00$;;
+6040100000243;Palace;Lighting;Sconces;Handmade by Moroccan skilled artisans. Metal sconce with intricate design that offers warm and exotic glow and reflect art work to any space.;"177,8 inch x 58,42 inch x 38,1 inch 
+Weight : 5,358458 lb";"70cmx23cmx15cm
+Poids: 2kg";;Copper;;;;;;;;;155,00$;;
+6040100000244;Moorich;Lighting;Sconces;;"71,12 inch x 68,58 inch x 30,48 inch 
+Weight : 1,339614 lb";"28cmx27cmx12cm
+poids: 0,5kg ";;Copper;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6040100000245;Trosty;Lighting;Sconces;Handmade by Moroccan skilled artisans. Metal and frosty glass sconce with intricate design that offers warm and exotic glow and reflect art work to any space.;"71,12 inch x 35,56 inch x 17,78 inch 
+Weight : 1,339614 lb";"28cmx14cmx7cm
+poids:0,5kg";;Copper;;;;;;;;;135,00$;;
+6050110000246;Arabesque Clementine;Berber Furniture;Tables;Arabesque Blue Table: Add a touch of ethnic chic with this beautiful bold Arabesque table handmade by Moroccan artisans.;"101,6 inch x 88,9 inch x 88,9 inch  Weight : 6,028265 lb 
+127 inch x 88,9 inch x 88,9 inch  Weight : 8,573532
+152,4  inch x 88,9 inch x 88,9 inch  Weight : 10,716916
+
+";"40cmx35cmx35cm poids:2,25kg
+50cmx35cmx35cm poids:3,2kg
+60cmx35cmx35cm poids:4kg";Clementine;Woot;;;;;;;;;145,00$;;
+6050110000247;Arabesque Fushia;Berber Furniture;Tables;Arabesque Blue Table: Add a touch of ethnic chic with this beautiful bold Arabesque table handmade by Moroccan artisans.;"101,6 inch x 88,9 inch x 88,9 inch  Weight : 6,028265 lb 
+127 inch x 88,9 inch x 88,9 inch  Weight : 8,573532
+152,4  inch x 88,9 inch x 88,9 inch  Weight : 10,716916
+
+";"40cmx35cmx35cm poids:2,25kg
+50cmx35cmx35cm poids:3,2kg
+60cmx35cmx35cm poids:4kg";Fuschia;Woot;;;;;;;;;145,00$;;
+6050110000248;Arabesque Cinnamon;Berber Furniture;Tables;Arabesque Blue Table: Add a touch of ethnic chic with this beautiful bold Arabesque table handmade by Moroccan artisans.;"101,6 inch x 88,9 inch x 88,9 inch  Weight : 6,028265 lb 
+127 inch x 88,9 inch x 88,9 inch  Weight : 8,573532
+152,4  inch x 88,9 inch x 88,9 inch  Weight : 10,716916
+
+";"40cmx35cmx35cm poids:2,25kg
+50cmx35cmx35cm poids:3,2kg
+60cmx35cmx35cm poids:4kg";Cinnamon;Woot;;;;;;;;;145,00$;;
+6050110000249;Arabesque Blue;Berber Furniture;Tables;Arabesque Blue Table: Add a touch of ethnic chic with this beautiful bold Arabesque table handmade by Moroccan artisans.;"101,6 inch x 88,9 inch x 88,9 inch  Weight : 6,028265 lb 
+127 inch x 88,9 inch x 88,9 inch  Weight : 8,573532
+152,4  inch x 88,9 inch x 88,9 inch  Weight : 10,716916
+
+";"40cmx35cmx35cm poids:2,25kg
+50cmx35cmx35cm poids:3,2kg
+60cmx35cmx35cm poids:4kg";Blue;Woot;;;;;;;;;145,00$;;
+6050110000250;Moroccan Moorish Table;Berber Furniture;Tables;Moorish Brass Table: Add a touch of Morocco's allure with this stunning chic handmade brass table with a folding hand carved base. Because this table is handmade, therefore each table is unique and the design on the tray might vary.;"127 inch x 101,6 inch x 101,6 inch 
+Weight : 14,735759 lb ";50cmx40cmx40cm poids:5,5kg;;Copper , brass;;;;;;;;;350,00$;;
+6050110000251;Moroccan Berber Petite Table:;Berber Furniture;Tables;;"127 inch x 114,3 inch x 114,3 inch 
+Weight : 13,396145
+";"
+H:50cmx45cmx45cm, poids:5kg
+";;Woot;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6050110000252;Moroccan Berber Petite Table:;Berber Furniture;Tables;;"96,52 inch x 76,2 inch x 76,2 inch 
+Weight : 8,037687 lb ";"H:38cmx30cmx30cm, poids:3kg
+
+";;Woot;;;;;;;;;;Ces produits existent uniquement sur le catalogue DFT;
+6060050000253;Arabesque;Accessories;Mirrors;Moroccan Arabesque Mirror: Arabesque style mirror brings personality, charm to any wall. Handcarved premium dark wood with touareg motifs from saharan tribes.;"431,8 inch x 228,6 inch x 12,7 inch 
+Weight : 40,188433 lb";"170cmx90cmx5cm
+poids:15kg";;Mirror , dark wood;;;;;;;;;1250,00$;;
+6060050000254;Berber Red;Accessories;Mirrors;add a touch of style and authenticity to your wall with this exotic bordeau mirror. Leather finish with handcarved metal and camel bone.;"292,1 inch x 228,6 inch x 12,7inch 
+Weight : 19,841604 lb ";"115cmx90cmx5cm 
+poids:9kg";;"Exotic bordeau
+mirror. Leather finish with
+handcarved metal and camel
+bone.";;;;;;;;;1395,00$;;
+6060050000255;Berber Arch;Accessories;Mirrors;"Rich in Berber motifs; this beautiful detailed mirror is handcarved by artisans from Marrakesh. Sure this mirror will bring style to any wall.";"266,7 inch x 165,1 inch x 12,7 inch 
+Weight :19,841604 lb";"105cmx65cmx5cm
+poids:9kg";;Handmade Wooden Mirror Reversed with The Work of the Bones of Silver and Came;;;;;;;;;1150,00$;;
+6060050000256;Sahara;Accessories;Mirrors;rich berber motifs with a modern cut makes this mirror a special one. Handcaved wood mirror with silver and camel bone work.;"266,7 inch x 139,7 inch x 12,7 inch 
+Weight :19,841604 lb";"105cmx55cmx5cm
+poids:9kg";;Handmade Wooden Mirror Reversed with The Work of the Bones of Silver and Came;;;;;;;;;950,00$;;
+6060050000257;Oasis;Accessories;Mirrors;This varstile handcarved mirror with silver finish brings style to any wall.;"190,5 inch x 114,3 inch x  6,35 inch 
+Weight : 10,716916";"75cmx45cmx2,5cm
+poids:4kg";;Silver finish;;;;;;;;;1200,00$;;
+6060050000258;Arabesque Red;Accessories;Mirrors;Add a piece of art to your wall with this bright red unique handpainted mirror by artisans from Morocco.;"431,8 inch x 228,6 inch x 12,7 inch 
+Weight : 40,188433 lb";"170 cmx90cmx5cm 
+poids: 15kg";;Handcarved;;;;;;;;;950,00$;;
+6060050000259;Mousharabie;Accessories;Mirrors;Arabian style mirror with detailed wooden mousharabie art work handmade by artisans from Morocco.;"241,3 inch x 152,4 inch x 12,7 inch 
+Weight : 21,433831";"95cmx60cmx5cm
+poids:8kg";;Mirrors /wood;;;;;;;;;750,00$;;
+6060050000260;Moorish Arch Brass;Accessories;Mirrors;"Elegant; chic and sophisticated moorish style mirror. Handcaved brass finish by skilled aritisans from Morocco.";"254 inchx 152,4 inchx 12,7 inch
+weight: 11,023113 LB";"100cmx60cmx5cm
+poids:5kg";;Mirrors in brass ;;;;;;;;;995,00$;;
+6060050000261;Berber;Accessories;Mirrors;rich berber motifs with a modern cut makes this mirror a special one. Handcaved wood mirror with silver and camel bone work.;"266,7 inch x 139,7 inch x 12,7 inch 
+Weight :11,023113 lb";"105cmx55cmx5cm
+poids:5kg";;Handmade Wooden Mirror Reversed with The Work of the Bones of Silver and Came;;;;;;;;;975,00$;;
+6060050000262;Moorish Brass;Accessories;Mirrors;"Elegant; chic and sophisticated Moorish style mirror. Handcaved brass finish by skilled aritisans from Morocco.";"254 inchx 152,4 inchx 12,7 inch
+weight: 11,023113 LB";"100cmx60cmx5cm
+poids:5kg";;Mirrors in brass ;;;;;;;;;995,00$;;
+6060050000263;Miroirs Kasabah marocains;Accessories;Mirrors;"Elegant; sophisticated style mirror. Handcaved silver finish by skilled aritisans from Morocco.";"228,6 inch x 228,6 inch x12,7 inch 
+Weight : 10,716916";"90cmx90cmx5cm
+poids:4kg";;Mirrors in silver;;;;;;;;;750,00$;;
+6060050000264;Moorish Silver;Accessories;Mirrors;"Elegant; chic and sophisticated Moorish style mirror. Handcaved silver finish by skilled aritisans from Morocco.";"254 inchx 152,4 inchx 12,7 inch
+weight: 11,023113 LB";"100cmx60cmx5cm
+poids:5kg";;Mirrors in silver;;;;;;;;;850,00$;;
+6020070000265;palace blue;Wood;Screens;This stunning handpainted divider will make the perfect archicetural Berber addition to your space. It has three panels to be folded easily out or away or you can have them pulled apart to convert it into a stunning piece on the wall or above the bed.;439,42 inch x 393,7 inch x 6,4516 inch ;173cm x155cmx2,54cm;Blue;Woot;;;;;;;;;1100,75$;;
+6020070000266;Alhambra;Wood;Screens;This stunning handpainted divider will make the perfect archicetural Andalusian addition to your space. It has three panels to be folded easily out or away or you can have them pulled apart to convert it into a stunning piece on the wall or above the bed.;452,12 inch x 347,98 inch x 6,4516 inch ;178m x137cmx2,54cm;Red;Woot;;;;;;;;;950,00$;;
+6020070000267;Vintage room Divider;Wood;Screens;This stunning handpainted divider will make the perfect archicetural Berber addition to your space. It has three panels to be folded easily out or away or you can have them pulled apart to convert it into a stunning piece on the wall or above the bed.;452,12 inch x 309,88 inch x 6,4516 inch ;178cm x122cmx2,54cm;;Woot;;;;;;;;;1275,00$;;
+6020070000268;Nomad;Wood;Screens;This stunning handpainted divider will make the perfect archicetural Berber addition to your space. It has three panels to be folded easily out or away or you can have them pulled apart to convert it into a stunning piece on the wall or above the bed.;452,12 inch x 347,98 inch x 6,4516 inch ;178cm x137cmx2,54cm;Black;Woot;;;;;;;;;950,00$;;
+6020070000269;Berber Blue;Wood;Screens;This stunning handpainted divider with lattice work will make the perfect archicetural Andalusian addition to your space. It has three panels to be folded easily out or away or you can have them pulled apart to convert it into a stunning piece.;439,42 inch x 393,7 inch x 6,4516 inch ;173cm x155cmx2,54cm;Blue;Woot;;;;;;;;;1150,00$;;
+6020070000270;Berber Red;Wood;Screens;This stunning handpainted divider with lattice work will make the perfect archicetural Andalusian addition to your space. It has three panels to be folded easily out or away or you can have them pulled apart to convert it into a stunning piece on the wall or above the bed.;439,42 inch x 393,7 inch x 6,4516 inch ;173cm x155cmx2,54cm;Red;Woot;;;;;;;;;1150,00$;;
+6040090000271;Pool;Lighting;Lanterns;Handmade by Moroccan Skilled Artisan. multicolor glass lamp with intricate design that offer warm  and exotic glow and reflect art work to any space;;;;Copper, woot;;;;;;;;;475,00$;Ces produits existent uniquement sur le site MP;
+6040090000272;Sahara;Lighting;Lanterns;Handmade by Moroccan Skilled Artisans.  Carved metal lantern with Intricate design.;;;;Copper;;;;;;;;;225,00$;Ces produits existent uniquement sur le site MP;
+6040090000273;Sahara;Lighting;Lanterns;Handmade by Moroccan Skilled Artisans.  Carved metal lantern with Intricate design.;;;;Copper;;;;;;;;;325,00$;Ces produits existent uniquement sur le site MP;
+6040090000274;Sahara;Lighting;Lanterns;Handmade by Moroccan Skilled Artisans.  Carved metal lantern with Intricate design.;;;;Copper;;;;;;;;;750,00$;Ces produits existent uniquement sur le site MP;
+6040090000275;Sahara;Lighting;Lanterns;Handmade by Moroccan Skilled Artisans.  Carved metal lantern with Intricate design.;;;;Copper;;;;;;;;;550,00$;Ces produits existent uniquement sur le site MP;
+6040090000276;MOROCCAN SHAHRAZAD SCONCE;Lighting;Lanterns;Handmade by Moroccan skilled artisans. Brass sconce with intricate design that offers warm and exotic glow and reflect art work to any space.;;;;Copper;;;;;;;;;145,00$;Ces produits existent uniquement sur le site MP;
+6030080000277;Moorish Brass Tray8;Entertainment;Trays; Add a Moroccan chic accent with this beautiful handcarved brass tray. Please note because this product is handmade therefore there might be a slight variation in the design.;;;;;;;;;;;;;325,00 $;Ces produits existent uniquement sur le site MP;
+6030080000278;Moorish Brass Tray7;Entertainment;Trays; Add a Moroccan chic accent with this beautiful handcarved brass tray. Please note because this product is handmade therefore there might be a slight variation in the design.;;;;;;;;;;;;;325,00$;Ces produits existent uniquement sur le site MP;
+6030080000279;?Moorish Silver Tray;Entertainment;Trays;?Moorish Silver Tray: Add a Moroccan chic accent with this beautiful handcarved vintage silver tray. Please note because this product is handmade therefore there might be a slight variation in the design.;;;;;;;;;;;;;575,00$;Ces produits existent uniquement sur le site MP;
+6030080000280;MOORISH BRASS TRAY 1;Entertainment;Trays;MOORISH BRASS TRAY 1: Add a Moroccan chic accent with this beautiful handcarved brass tray. Please note because this product is handmade therefore there might be a slight variation in the design.;;;;;;;;;;;;;675,00$;Ces produits existent uniquement sur le site MP;
+6030080000281;Moorish Brass Tray 14;Entertainment;Trays;Moorish Brass Tray 14: Add a Moroccan chic accent with this beautiful handcarved brass tray. Please note because this product is handmade therefore there might be a slight variation in the design.;;;;;;;;;;;;;325,00$;Ces produits existent uniquement sur le site MP;
+6030080000282;Moorish Brass Tray 15;Entertainment;Trays;Moorish Brass Tray 15: Add a Moroccan chic accent with this beautiful handcarved brass tray. Please note because this product is handmade therefore there might be a slight variation in the design.;;;;;;;;;;;;;575,00$;Ces produits existent uniquement sur le site MP;
+6030080000283;Moorish Brass Tray 9;Entertainment;Trays;Moorish Brass Tray 9: Add a Moroccan chic accent with this beautiful handcarved brass tray. Please note because this product is handmade therefore there might be a slight variation in the design.;;;;;;;;;;;;;325,00$;Ces produits existent uniquement sur le site MP;
+6030080000284;Moorish Brass Tray 2;Entertainment;Trays;Moorish Brass Tray 2: Add a Moroccan chic accent with this beautiful handcarved brass tray. Please note because this product is handmade therefore there might be a slight variation in the design.;;;;;;;;;;;;;325,00$;Ces produits existent uniquement sur le site MP;
+6030080000285;Moorish Brass Trayv3;Entertainment;Trays;Moorish Brass Trayv3: Add a Moroccan chic accent with this beautiful handcarved brass tray. Please note because this product is handmade therefore there might be a slight variation in the design.;;;;;;;;;;;;;575,00$;Ces produits existent uniquement sur le site MP;
+6030080000286;Moorish Brass Tray 4;Entertainment;Trays;Moorish Brass Tray 4: Add a Moroccan chic accent with this beautiful handcarved brass tray. Please note because this product is handmade therefore there might be a slight variation in the design.;;;;;;;;;;;;;275,00$;Ces produits existent uniquement sur le site MP;
+6030080000287;Moorish Brass Tray 5;Entertainment;Trays;Moorish Brass Tray 5: Add a Moroccan chic accent with this beautiful handcarved brass tray. Please note because this product is handmade therefore there might be a slight variation in the design.;;;;;;;;;;;;;325,00$;Ces produits existent uniquement sur le site MP;
+6030080000288;Moorish Brass Tray 6;Entertainment;Trays;Moorish Brass Tray 6: Add a Moroccan chic accent with this beautiful handcarved brass tray. Please note because this product is handmade therefore there might be a slight variation in the design.;;;;;;;;;;;;;325,00$;Ces produits existent uniquement sur le site MP;

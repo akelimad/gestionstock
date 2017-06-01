@@ -19,6 +19,25 @@ class CategoryRepository extends \Doctrine\ORM\EntityRepository
         ")->getResult();
     }
 
+    public function getAllRootCat()
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT c FROM CategoryBundle:Category c WHERE c.parent IS NULL '
+            )->getResult();
+    }
+
+    public function getAllSubCat($id)
+    {
+
+        var_dump($id);die;
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT c FROM CategoryBundle:Category c WHERE c.parent = :id'
+            )->setParameter(':id', $id)->getResult();
+
+    }
+
     
 
 }

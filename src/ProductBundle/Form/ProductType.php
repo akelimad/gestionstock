@@ -11,6 +11,8 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
 class ProductType extends AbstractType
 {
@@ -64,28 +66,30 @@ class ProductType extends AbstractType
            'data_class' => null,
            'required' => false
         ))
-        ->add('categories',EntityType::class, array(
-            'class'=>'CategoryBundle:Category', 
-            'choice_label'=>'name', 
-            'query_builder' => function ($er) {
-               return $er->createQueryBuilder('c')->where("c.deleted_at IS NULL AND c.parent IS NULL");
-            },
-            'multiple'=> false,
-            //'group_by' => 'parent',
-            //'required' => false,
-            'placeholder' => 'Vuillez choisir une catégorie'
-        ))
-        ->add('subcat',EntityType::class, array(
-            'class'=>'CategoryBundle:Category', 
-            'choice_label'=>'name', 
-            'query_builder' => function ($er) {
-               return $er->createQueryBuilder('c')->where("c.deleted_at IS NULL AND c.parent IS NOT NULL");
-            },
-            'multiple'=> false,
-            'required' => false,
-            'placeholder' => 'Sous catégorie',
-            'mapped' => false
-        ))
+        // ->add('categories',EntityType::class, array(
+        //     'class'=>'CategoryBundle:Category', 
+        //     'choice_label'=>'name',
+        //     'query_builder' => function ($er) {
+        //        return $er->createQueryBuilder('c')->where("c.deleted_at IS NULL AND c.parent IS NULL");
+        //     },
+        //     'multiple'=> false,
+        //     'required' => false,
+        //     'mapped' => false,
+        //     'placeholder' => 'Vuillez choisir une catégorie'
+        // ))
+        // ->add('subcat',EntityType::class, array(
+        //     'class'=>'CategoryBundle:Category', 
+        //     'choice_label'=>'name', 
+        //     'query_builder' => function ($er) {
+        //        return $er->createQueryBuilder('c')->where("c.deleted_at IS NULL AND c.parent IS NOT NULL");
+        //     },
+        //     'mapped' => false,
+        //     'multiple'=> false,
+        //     //'group_by' => 'parent',
+        //     //'required' => false,
+        //     'placeholder' => 'Sous categorie'
+        // ))
+
         ->add('packages', EntityType::class, array(
             'class'=>'PackageBundle:Package', 
             'choice_label'=>'name', 
@@ -98,6 +102,8 @@ class ProductType extends AbstractType
             'multiple'=>true,
             'required' => false
         ));
+
+        
     }
     
     /**
