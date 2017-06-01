@@ -62,7 +62,7 @@ class DefaultController extends Controller
                     if(!$header) {
                         $header = $row;
                     } else {
-                        $data[] = array_combine($header, $row);
+                        $data[] = $row;
                     }
                 }
                 fclose($handle);
@@ -83,31 +83,34 @@ class DefaultController extends Controller
             // $progress->start();
             
             // Processing on each row of data
-            
+            //"codebar" 0
+            //"Article" 1
+            // ....
             if($data){
                 
-                foreach($data as $row) {     
+                foreach($data as $row) {  
                     $product = new Product();  
 
-                    $product->setName($row["Article"]);
-                    $product->setDescription($row["Description"]);
-                    $product->setSizeInch($row["Taille ( inch )"]);
-                    $product->setSizeCm($row["Taille ( cm )"]);
-                    $product->setColor($row["Couleur"]);
-                    $product->setComposition($row["Composition"]);
-                    $product->setForm($row["Forme"]);
-                    $product->setWeight($row["Poids"]);
-                    $product->setUnitPrice($row["Prix unitaire"]);
-                    $product->setWholesalePrice($row["Prix grossiste"]);
-                    $product->setSpecialPrice($row["Prix special"]);
-                    $product->setInternetPrice($row["Prix internet"]);
+                    $product->setCodeBar($row[0]);
+                    $product->setName($row[1]);
+                    $product->setDescription($row[4]);
+                    $product->setSizeInch($row[5]);
+                    $product->setSizeCm($row[6]);
+                    $product->setColor($row[7]);
+                    $product->setComposition($row[8]);
+                    $product->setForm($row[9]);
+                    $product->setWeight($row[10]);
+                    $product->setUnitPrice($row[14]);
+                    $product->setWholesalePrice($row[15]);
+                    $product->setSpecialPrice($row[16]);
+                    $product->setInternetPrice($row[17]);
                     $product->setActive("1");
 
                     $category = $em->getRepository('CategoryBundle:Category')
-                       ->findOneByName($row['Categorie']);
-                    if($category == null && $row['Categorie'] != ""){
+                       ->findOneByName($row[2]);
+                    if($category == null && $row[2] != ""){
                         $category = new Category;
-                        $category->setName($row["Categorie"]);
+                        $category->setName($row[2]);
                         $category->setActive("1");
                         $em->persist($category);
                         $product->addCategories($category);
@@ -116,10 +119,10 @@ class DefaultController extends Controller
                     }
                     
                     $s_category = $em->getRepository('CategoryBundle:Category')
-                       ->findOneByName($row['Sous-categorie']);
-                    if($s_category == null && $row["Sous-categorie"] != ""){
+                       ->findOneByName($row[3]);
+                    if($s_category == null && $row[3] != ""){
                         $s_category = new Category;
-                        $s_category->setName($row["Sous-categorie"]);
+                        $s_category->setName($row[3]);
                         $s_category->setParent($category);
                         $s_category->setActive("1");
                         $em->persist($s_category);
@@ -129,20 +132,20 @@ class DefaultController extends Controller
                     }
                     
                     $provider = $em->getRepository('ProviderBundle:Provider')
-                       ->findOneByName($row['# Fournisseur']);
-                    if(!is_object($provider) && $row["# Fournisseur"] != ""){
+                       ->findOneByName($row[12]);
+                    if(!is_object($provider) && $row[12] != ""){
                         $provider = new Provider;
-                        $provider->setName($row["# Fournisseur"]);
+                        $provider->setName($row[12]);
                         $provider->setActive("1");
                         $em->persist($s_category);
                         $product->addProviders($provider);
                     }
 
                     $package = $em->getRepository('PackageBundle:Package')
-                       ->findOneByName($row['# Emballage']);
-                    if(!is_object($package) && $row["# Emballage"] != ""){
+                       ->findOneByName($row[13]);
+                    if(!is_object($package) && $row[13] != ""){
                         $package = new Package;
-                        $package->setName($row["# Emballage"]);
+                        $package->setName($row[13]);
                         $package->setActive("1");
                         $em->persist($package);
                         $product->addPackages($package);

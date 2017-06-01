@@ -27,6 +27,13 @@ class Product
     /**
      * @var string
      *
+     * @ORM\Column(name="codeBar", type="string", length=255, nullable=true)
+     */
+    private $codeBar;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -821,4 +828,52 @@ class Product
     }
 
 
+
+    /**
+     * Set codeBar
+     *
+     * @param string $codeBar
+     *
+     * @return Product
+     */
+    public function setCodeBar($codeBar)
+    {
+        $this->codeBar = $codeBar;
+
+        return $this;
+    }
+
+    /**
+     * Get codeBar
+     *
+     * @return string
+     */
+    public function getCodeBar()
+    {
+        return $this->codeBar;
+    }
+
+    /**
+     * Add image
+     *
+     * @param \ProductBundle\Entity\ImageProduct $image
+     *
+     * @return Product
+     */
+    public function addImage(\ProductBundle\Entity\ImageProduct $image)
+    {
+        $this->images[] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param \ProductBundle\Entity\ImageProduct $image
+     */
+    public function removeImage(\ProductBundle\Entity\ImageProduct $image)
+    {
+        $this->images->removeElement($image);
+    }
 }

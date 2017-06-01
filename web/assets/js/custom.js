@@ -65,7 +65,7 @@ $(document).ready(function() {
     // ************************************* //
     //       delete product with ajax
     // ************************************* //
-    $('.remove-product').click(function () {
+    $('.remove-product').on("click", function () {
         var url = Routing.generate('product_delete', {'id': $(this).data('id')});
         var $tr = $(this).closest('tr');
         //alert(url);
