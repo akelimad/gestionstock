@@ -66,6 +66,7 @@ class ProductController extends Controller
         $form = $this->createForm('ProductBundle\Form\ProductType', $product);
         $form->handleRequest($request); 
         $categories = $em->getRepository('CategoryBundle:Category')->getAllRootCat();
+
         $em = $this->getDoctrine()->getEntityManager();
         if ($form->isSubmitted() && $form->isValid()){
             $cat_id=$request->request->get('categories');
@@ -133,11 +134,21 @@ class ProductController extends Controller
     {
         $productlog = new ProductLog();
         $em = $this->getDoctrine()->getEntityManager();
+        $categories = $em->getRepository('CategoryBundle:Category')->getAllRootCat();
+
         $deleteForm = $this->createDeleteForm($product);
         $editForm = $this->createForm('ProductBundle\Form\ProductType', $product);
         $editForm->handleRequest($request);
-        //var_dump($product->getImages()); die();
+        $prod_cat=array();
+        foreach ($product->getCategories() as $cat) {
+            $prod_cat[]=$cat->getId();
+        }
+        //$s_categories = $em->getRepository('CategoryBundle:Category')->findBy(array('parent' => $prod_cat[0]));
+        //var_dump($product->getCategories()); die();
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $cat_id=$request->request->get('categories');
+            $sub_cat_id= $request->request->get('s_categories');
+            $Category=$em->getRepository('CategoryBundle:Category')->findById( array($cat_id, $sub_cat_id));
             $files = $product->getImages();
             $images = array();
             if($files != null) {
@@ -152,6 +163,7 @@ class ProductController extends Controller
                 }
             }
             $product->setImages($images);
+            $product->setCategories($Category);
             $productlog->setProduct($product);
             $productlog->setUser($this->getUser());
             $productlog->setAction("Edit");
@@ -161,6 +173,10 @@ class ProductController extends Controller
         }
         return $this->render('product/edit.html.twig', array(
             'product' => $product,
+            'categories' => $categories,
+            //'s_categories' => $categories,
+            'cat_selected' => $prod_cat[0],
+            //'sub_cat_selected' => $prod_cat[1],
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

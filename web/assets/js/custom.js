@@ -373,4 +373,6 @@ $(document).ready(function() {
         });
     });
 
+    $("select#categories").change();
+
 });

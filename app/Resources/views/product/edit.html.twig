@@ -185,23 +185,28 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group {{ form_errors(edit_form.categories) ? 'has-error': '' }}">
-                                        <div class="row">
+                                    <div class="col-md-6 form-group ">
+                                        <div class="row form-group">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.categories, "Catégorie", {'label_attr': {'class': 'control-label'}}) }}
+                                                <label>Categorie</label>
                                             </div>
                                             <div class="col-md-8">
-                                                {{ form_widget(edit_form.categories, {'attr': {'class': 'form-control'}}) }}
-                                                <span class="help-block">{{ form_errors(edit_form.categories) }}</span>
+                                                <select name="categories" id="categories" class="form-control">
+                                                    <option value="0">Choisissez la categorie</option>
+                                                    {% for cat in categories %}
+                                                        <option value="{{cat.id}}" {{ cat_selected == cat.id ? 'selected': '' }}> {{cat.name}} </option>
+                                                    {% endfor %}
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.subcat, "Sous catégorie", {'label_attr': {'class': 'control-label'}}) }}
+                                                <label>Sous categorie</label>
                                             </div>
                                             <div class="col-md-8">
-                                                {{ form_widget(edit_form.subcat, {'attr': {'class': 'form-control', 'id': 'subCategory'}}) }}
-                                                <span class="help-block">{{ form_errors(edit_form.subcat) }}</span>
+                                                <select name="s_categories" id="s_categories" class="form-control">
+                                                    <option value="0">Choisissez sous categorie</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
