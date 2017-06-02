@@ -1,5 +1,8 @@
 $(document).ready(function() {
-	'use strict'
+	'use strict';
+
+    
+
     //init product images switcher
     $(".sidebar-wrapper .nav li").click(function(){
         $(this).addClass('active').siblings().removeClass('active');
@@ -65,10 +68,9 @@ $(document).ready(function() {
     // ************************************* //
     //       delete product with ajax
     // ************************************* //
-    $('.remove-product').on("click", function () {
+    $('.remove-product').on('click', function () {
         var url = Routing.generate('product_delete', {'id': $(this).data('id')});
         var $tr = $(this).closest('tr');
-        //alert(url);
         swal({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -291,6 +293,73 @@ $(document).ready(function() {
     $("#filter-by-cat").change(function(){
         var category_id = $(this).val();
         var url = Routing.generate('filter-by-cat', {'category_id': category_id});
+        var product_results = $('#product-results');
+        //var table;
+        $.ajax({
+            //ajax: true,
+            type: 'GET',
+            url:  url,
+            dataType: 'html',
+            success: function(response){
+                if(response){
+                    //var response = $.parseJSON(response);
+                    product_results.html(response);
+                    //console.log(response);
+                    //$('#datatables').DataTable();
+                    // table = $('#datatables').DataTable({
+                    //     destroy: true,
+                    //     bLengthChange: false,
+                    //     paging: false
+                    // });
+                    // if (table) table.clear();
+                    // $.each(response, function(i, item) {
+                    //     //console.log("inserting", item);
+                    //     table.row.add([
+                    //         item.id,
+                    //         item.name,
+                    //     ]).draw();
+                    // });
+                }else{
+                    alert("Aucune donnée trouvée");
+                }
+            },
+            error: function(){
+                console.log("error ...");
+            }
+        });
+
+        // var category_id = $(this).val();
+        // var url = Routing.generate('filter-by-cat', {'category_id': category_id});
+        // var table;
+        // $.ajax({
+        //     url : url,
+        //     type : 'GET',
+        //     dataType: 'JSON',
+        //     success: function(response, statut) {
+        //         var response = $.parseJSON(response.data);
+        //         //reinitialise the dataTable   
+        //         table = $('#datatables').DataTable({
+        //             destroy: true,
+        //             bLengthChange: false,
+        //             paging: false
+                    
+        //         });
+        //         //clear the table, if it exists
+        //         if (table) table.clear();
+        //         $.each(response, function(i, item) {
+        //             //console.log("inserting", item);
+        //             table.row.add([
+        //                 item.id,
+        //                 item.name,
+        //             ]).draw();
+        //         });
+        //     }
+        // });
+    });
+
+    $("#filter-by-sub-cat").change(function(){
+        var sub_category_id = $(this).val();
+        var url = Routing.generate('filter-by-sub-cat', {'sub_category_id': sub_category_id});
         var product_results = $('#product-results');
         //alert(url);
         $.ajax({

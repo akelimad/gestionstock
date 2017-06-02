@@ -34,6 +34,35 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <div class="col-md-6 form-group ">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label>Categorie</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <select name="categories" id="categories" class="form-control">
+                                                    <option value="0">Choisissez la categorie</option>
+                                                    {% for cat in categories %}
+                                                        <option value="{{cat.id}}" {{ cat_selected == cat.id ? 'selected': '' }}> {{cat.name}} </option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group ">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label>Sous categorie</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <select name="s_categories" id="s_categories" class="form-control">
+                                                    <option value="0">Choisissez sous categorie</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.sizeInch) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
@@ -69,17 +98,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group {{ form_errors(edit_form.composition) ? 'has-error': '' }}">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.weight) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.composition, "Composition", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.weight, "Poids", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
-                                                {{ form_widget(edit_form.composition, {'attr': {'class': 'form-control'}}) }}
-                                                <span class="help-block">{{ form_errors(edit_form.composition) }}</span> 
+                                                {{ form_widget(edit_form.weight, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(edit_form.weight) }}</span> 
                                             </div>
                                         </div>
                                     </div>
+                                    
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.form) ? 'has-error': '' }}">
@@ -93,14 +123,45 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group {{ form_errors(edit_form.weight) ? 'has-error': '' }}">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.composition) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.weight, "Poids", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.composition, "Composition", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
-                                                {{ form_widget(edit_form.weight, {'attr': {'class': 'form-control'}}) }}
-                                                <span class="help-block">{{ form_errors(edit_form.weight) }}</span> 
+                                                {{ form_widget(edit_form.composition, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(edit_form.composition) }}</span> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.images) ? 'has-error': '' }}">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                {{ form_label(edit_form.images, "Images", {'label_attr': {'class': 'control-label'}}) }}
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(edit_form.images, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(edit_form.images) }}</span> 
+                                                {% for image in product.images %}
+                                                <div class="media" id="media-{{image.id}}">
+                                                    <a data-id="{{ image.id }}" class="remove-img-link btn btn-simple btn-danger btn-icon btn-fill pull-right" title="Remove this image">X</a>
+                                                    <img src="{{ asset('uploads/images/' ~ image.path) }}" alt="image" width="60" class="img-responsive inline-block" title="{{image.path}}">
+                                                    <span id="csrf_token" data-token="{{ csrf_token('form') }}"></span>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.collection) ? 'has-error': '' }}">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                {{ form_label(edit_form.collection, "Collection", {'label_attr': {'class': 'control-label'}}) }}
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(edit_form.collection, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(edit_form.collection) }}</span> 
                                             </div>
                                         </div>
                                     </div>
@@ -129,19 +190,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 form-group {{ form_errors(edit_form.collection) ? 'has-error': '' }}">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                {{ form_label(edit_form.collection, "Collection", {'label_attr': {'class': 'control-label'}}) }}
-                                            </div>
-                                            <div class="col-md-8">
-                                                {{ form_widget(edit_form.collection, {'attr': {'class': 'form-control'}}) }}
-                                                <span class="help-block">{{ form_errors(edit_form.collection) }}</span> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="row">
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.specialPrice) ? 'has-error': '' }}">
                                         <div class="row">
@@ -166,51 +215,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 form-group {{ form_errors(edit_form.images) ? 'has-error': '' }}">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                {{ form_label(edit_form.images, "Images", {'label_attr': {'class': 'control-label'}}) }}
-                                            </div>
-                                            <div class="col-md-8">
-                                                {{ form_widget(edit_form.images, {'attr': {'class': 'form-control'}}) }}
-                                                <span class="help-block">{{ form_errors(edit_form.images) }}</span> 
-                                                {% for image in product.images %}
-                                                <div class="media" id="media-{{image.id}}">
-                                                    <a data-id="{{ image.id }}" class="remove-img-link btn btn-simple btn-danger btn-icon btn-fill pull-right" title="Remove this image">X</a>
-                                                    <img src="{{ asset('uploads/images/' ~ image.path) }}" alt="image" width="60" class="img-responsive inline-block" title="{{image.path}}">
-                                                    <span id="csrf_token" data-token="{{ csrf_token('form') }}"></span>
-                                                </div>
-                                                {% endfor %}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 form-group ">
-                                        <div class="row form-group">
-                                            <div class="col-md-4">
-                                                <label>Categorie</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <select name="categories" id="categories" class="form-control">
-                                                    <option value="0">Choisissez la categorie</option>
-                                                    {% for cat in categories %}
-                                                        <option value="{{cat.id}}" {{ cat_selected == cat.id ? 'selected': '' }}> {{cat.name}} </option>
-                                                    {% endfor %}
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <label>Sous categorie</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <select name="s_categories" id="s_categories" class="form-control">
-                                                    <option value="0">Choisissez sous categorie</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="row">
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.packages) ? 'has-error': '' }}">
                                         <div class="row">

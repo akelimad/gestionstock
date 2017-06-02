@@ -21,6 +21,13 @@ class User extends BaseUser{
     protected $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="pseudo", type="string", length=255, nullable=true)
+     */
+    private $pseudo;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime", options={"default"="CURRENT_TIMESTAMP"})

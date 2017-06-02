@@ -27,14 +27,12 @@ class CategoryRepository extends \Doctrine\ORM\EntityRepository
             )->getResult();
     }
 
-    public function getAllSubCat($id)
+    public function getAllSubCat()
     {
-
-        var_dump($id);die;
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT c FROM CategoryBundle:Category c WHERE c.parent = :id'
-            )->setParameter(':id', $id)->getResult();
+                'SELECT c FROM CategoryBundle:Category c WHERE c.parent IS NOT NULL'
+            )->getResult();
 
     }
 

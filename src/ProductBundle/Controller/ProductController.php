@@ -14,6 +14,10 @@ use ProductBundle\Form\ProductType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 /**
  * Product controller.
  *
@@ -36,7 +40,8 @@ class ProductController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $products = $em->getRepository('ProductBundle:Product')->getAllProducts();
-        $categories = $em->getRepository('CategoryBundle:Category')->findAll();
+        $categories = $em->getRepository('CategoryBundle:Category')->getAllRootCat();
+        $sub_categories = $em->getRepository('CategoryBundle:Category')->getAllSubCat();
         $providers = $em->getRepository('ProviderBundle:Provider')->findAll();
 
         $defaultData = array('message' => 'Type your message here');
@@ -49,6 +54,7 @@ class ProductController extends Controller
         return $this->render('product/index.html.twig', array(
             'products' => $products,
             'categories' => $categories,
+            'sub_categories' => $sub_categories,
             'providers' => $providers,
             'form' => $form->createView()
         ));
@@ -223,6 +229,7 @@ class ProductController extends Controller
             ->getForm()
         ;
     }
+
     /**
      * Lists searched entities.
      *
@@ -231,18 +238,44 @@ class ProductController extends Controller
      */
     public function FilterByCatAction($category_id)
     {
+            $em = $this->getDoctrine()->getManager();
+            $categories = $em->getRepository('CategoryBundle:Category')->findAll();
+            $category = $this->getDoctrine()
+            ->getRepository('CategoryBundle:Category')
+            ->find($category_id);
+            $products = $category->getProduct();
+                return $this->render('product/results.html.twig', array(
+                'products' => $products,
+            ));
+            // $response = array();
+            // foreach ($products as $p) {
+            //     $response[] = array(
+            //         'id' => $p->getId(),
+            //         'name' => $p->getName(),                   
+            //     );
+            // }
+            // return new JsonResponse(json_encode($response));
+    }
+
+    /**
+     * Lists searched entities.
+     *
+     * @Route("/subcat/{sub_category_id}", name="filter-by-sub-cat" ,options={"expose"=true})
+     * @Method("GET")
+     */
+    public function FilterBySubCatAction($sub_category_id)
+    {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('CategoryBundle:Category')->findAll();
-        $providers = $em->getRepository('ProviderBundle:Provider')->findAll();
-        $category = $this->getDoctrine()
+        $categories = $em->getRepository('CategoryBundle:Category')->getAllSubCat();
+        $sub_category = $this->getDoctrine()
         ->getRepository('CategoryBundle:Category')
-        ->find($category_id);
-        $products = $category->getProduct();
+        ->find($sub_category_id);
+        $products = $sub_category->getProduct();
         return $this->render('product/results.html.twig', array(
             'products' => $products,
-        ));
-        
+        ));  
     }
+
     /**
      * Lists searched entities.
      *
