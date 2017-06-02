@@ -16,9 +16,9 @@ class ProviderType extends AbstractType
         $builder
         ->add('name')
         ->add('address')
-        ->add('price')
-        ->add('moq')
-        ->add('productionCapacity')
+        // ->add('price')
+        // ->add('moq')
+        // ->add('productionCapacity')
         ->add('active');
     }
     

@@ -35,26 +35,7 @@ class Provider
      */
     private $address;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="price", type="decimal", precision=10, scale=2, nullable=true)
-     */
-    private $price;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="moq", type="integer", nullable=true)
-     */
-    private $moq;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="productionCapacity", type="integer", nullable=true)
-     */
-    private $productionCapacity;
 
     /**
      * @var bool
@@ -147,77 +128,6 @@ class Provider
         return $this->address;
     }
 
-    /**
-     * Set price
-     *
-     * @param string $price
-     *
-     * @return Provider
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * Get price
-     *
-     * @return string
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
-     * Set moq
-     *
-     * @param integer $moq
-     *
-     * @return Provider
-     */
-    public function setMoq($moq)
-    {
-        $this->moq = $moq;
-
-        return $this;
-    }
-
-    /**
-     * Get moq
-     *
-     * @return int
-     */
-    public function getMoq()
-    {
-        return $this->moq;
-    }
-
-    /**
-     * Set productionCapacity
-     *
-     * @param integer $productionCapacity
-     *
-     * @return Provider
-     */
-    public function setProductionCapacity($productionCapacity)
-    {
-        $this->productionCapacity = $productionCapacity;
-
-        return $this;
-    }
-
-    /**
-     * Get productionCapacity
-     *
-     * @return int
-     */
-    public function getProductionCapacity()
-    {
-        return $this->productionCapacity;
-    }
 
     /**
      * Set active

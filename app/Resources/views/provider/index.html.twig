@@ -23,9 +23,6 @@
                                         <th>#</th>
                                         <th>Nom</th>
                                         <th>Adresse</th>
-                                        <th>Prix</th>
-                                        <th>MOQ</th>
-                                        <th>Capacité de Production</th>
                                         <th>Statut</th>
                                         <th class="disabled-sorting text-right">Actions</th>
                                     </tr>
@@ -36,9 +33,6 @@
                                         <td>{{p.id}}</td>
                                         <td>{{p.name}}</td>
                                         <td>{{p.address}}</td>
-                                        <td>{{p.price}}</td>
-                                        <td>{{p.moq}}</td>
-                                        <td>{{p.productionCapacity}}</td>
                                         <td>{{p.active == 1 ? 'Active' : 'Not active'}}</td>
                                         <td class="text-right">
                                             <a href="{{ path('provider_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
@@ -54,9 +48,6 @@
                                         <th>#</th>
                                         <th>Nom</th>
                                         <th>Adresse</th>
-                                        <th>Prix</th>
-                                        <th>MOQ</th>
-                                        <th>Capacité de Production</th>
                                         <th>Statut</th>
                                         <th class="text-right">Actions</th>
                                     </tr>

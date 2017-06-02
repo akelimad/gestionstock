@@ -9,6 +9,7 @@
                         {{ form_start(form, {'attr': {'class':'test', 'id':'test'}}) }}
                             <div class="content">
                                 <h4 class="title text-center">Ajouter un produit </h4>
+
                                 <div class="row">
                                     <div class="col-md-6 form-group {{ form_errors(form.name) ? 'has-error': '' }}">
                                         <div class="row">
@@ -29,6 +30,35 @@
                                             <div class="col-md-8">
                                                 {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
                                                 <span class="help-block">{{ form_errors(form.description) }}</span> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label>Categorie</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <select name="categories" id="categories" class="form-control">
+                                                    <option value="0">Choisissez la categorie</option>
+                                                    {% for cat in categories %}
+                                                        <option value="{{cat.id}}"> {{cat.name}} </option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label>Sous categorie</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <select name="s_categories" id="s_categories" class="form-control">
+                                                    <option value="0">Choisissez sous categorie</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -69,17 +99,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group {{ form_errors(form.composition) ? 'has-error': '' }}">
+                                    <div class="col-md-6 form-group {{ form_errors(form.weight) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(form.composition, "Composition", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(form.weight, "Poids", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
-                                                {{ form_widget(form.composition, {'attr': {'class': 'form-control'}}) }}
-                                                <span class="help-block">{{ form_errors(form.composition) }}</span> 
+                                                {{ form_widget(form.weight, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(form.weight) }}</span> 
                                             </div>
                                         </div>
                                     </div>
+                                    
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 form-group {{ form_errors(form.form) ? 'has-error': '' }}">
@@ -93,14 +124,38 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group {{ form_errors(form.weight) ? 'has-error': '' }}">
+                                    <div class="col-md-6 form-group {{ form_errors(form.composition) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(form.weight, "Poids", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(form.composition, "Composition", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
-                                                {{ form_widget(form.weight, {'attr': {'class': 'form-control'}}) }}
-                                                <span class="help-block">{{ form_errors(form.weight) }}</span> 
+                                                {{ form_widget(form.composition, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(form.composition) }}</span> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 form-group {{ form_errors(form.images) ? 'has-error': '' }}">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                {{ form_label(form.images, "Images", {'label_attr': {'class': 'control-label'}}) }}
+                                            </div>
+                                            <div class="col-md-8">
+                                                <span class="help-block">{{ form_errors(form.images) }}</span> 
+                                                {{ form_widget(form.images, {'attr': {'class': 'form-control'}}) }}                        
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group {{ form_errors(form.collection) ? 'has-error': '' }}">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                {{ form_label(form.collection, "Collection", {'label_attr': {'class': 'control-label'}}) }}
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(form.collection, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(form.collection) }}</span> 
                                             </div>
                                         </div>
                                     </div>
@@ -130,19 +185,6 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group {{ form_errors(form.collection) ? 'has-error': '' }}">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                {{ form_label(form.collection, "Collection", {'label_attr': {'class': 'control-label'}}) }}
-                                            </div>
-                                            <div class="col-md-8">
-                                                {{ form_widget(form.collection, {'attr': {'class': 'form-control'}}) }}
-                                                <span class="help-block">{{ form_errors(form.collection) }}</span> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-6 form-group {{ form_errors(form.specialPrice) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
@@ -166,44 +208,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 form-group {{ form_errors(form.images) ? 'has-error': '' }}">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                {{ form_label(form.images, "Images", {'label_attr': {'class': 'control-label'}}) }}
-                                            </div>
-                                            <div class="col-md-8">
-                                                <span class="help-block">{{ form_errors(form.images) }}</span> 
-                                                {{ form_widget(form.images, {'attr': {'class': 'form-control'}}) }}                        
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 form-group ">
-                                        <div class="row form-group">
-                                            <div class="col-md-4">
-                                                <label>Categorie</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <select name="categories" id="categories" class="form-control">
-                                                    <option value="0">Choisissez la categorie</option>
-                                                    {% for cat in categories %}
-                                                        <option value="{{cat.id}}"> {{cat.name}} </option>
-                                                    {% endfor %}
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <label>Sous categorie</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <select name="s_categories" id="s_categories" class="form-control">
-                                                    <option value="0">Choisissez sous categorie</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="row">
                                     <div class="col-md-6 form-group {{ form_errors(form.packages) ? 'has-error': '' }}">
                                         <div class="row">
