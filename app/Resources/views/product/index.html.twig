@@ -59,7 +59,7 @@
                                         <th>ID Produit</th>
                                         <th>Photo</th>
                                         <th>Name</th>
-                                        <th>Prix internet (&euro;)</th>
+                                        <th>Prix internet</th>
                                         <th>Categorie</th>
                                         <th>Sous categorie</th>
                                         <th>Statut</th>
@@ -129,19 +129,19 @@
         {% for prov in p.providers %} provProd.push('{{prov.name}}'); {% endfor %}
         {% for pack in p.packages %}  packProd.push('{{pack.name}}'); {% endfor %}
         detailProduct = {
-            codeBar            : {{p.codeBar}},
-            name          :'{{p.name}}',
-            description   :'{{p.description ? p.description : "null"}}',
-            sizeInch      :'{{p.sizeInch ? p.sizeInch : "null"}}',
-            sizeCm        :'{{p.sizeCm ? p.sizeCm : "null"}}',
-            color         :'{{p.color ? p.color : "null"}}',
-            composition   :'{{p.composition ? p.composition : "null"}}',
-            form          :'{{p.form ? p.form : "null"}}',
-            weight        : {{p.weight ? p.weight : "null"}},
-            unitPrice     : {{p.unitPrice ? p.unitPrice : "null"}},
-            wholesalePrice: {{p.wholesalePrice ? p.wholesalePrice : "null"}},
-            specialPrice  : {{p.specialPrice ? p.specialPrice : "null"}},
-            internetPrice : {{p.internetPrice ? p.internetPrice : "null"}},
+            codeBar       :"{{p.codeBar ? p.codeBar : 'null'}}",
+            name          :"{{p.name}}",
+            description   :"{{p.description ? p.description : 'null'}}",
+            sizeInch      :"{{p.sizeInch ? p.sizeInch : 'null'}}",
+            sizeCm        :"{{p.sizeCm ? p.sizeCm : 'null'}}",
+            color         :"{{p.color ? p.color : 'null'}}",
+            composition   :"{{p.composition ? p.composition : 'null'}}",
+            form          :"{{p.form ? p.form : 'null'}}",
+            weight        :"{{p.weight ? p.weight : 'null'}}",
+            unitPrice     :"{{p.unitPrice ? p.unitPrice : 'null'}}",
+            wholesalePrice:"{{p.wholesalePrice ? p.wholesalePrice : 'null'}}",
+            specialPrice  :"{{p.specialPrice ? p.specialPrice : 'null'}}",
+            internetPrice :"{{p.internetPrice ? p.internetPrice : 'null'}}",
             images        : imgProd,
             category      : catProd,
             provider      : provProd,

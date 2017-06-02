@@ -375,4 +375,10 @@ $(document).ready(function() {
 
     $("select#categories").change();
 
+    if ($.fn.DataTable.isDataTable( '#datatables' ) ) {
+        $('#datatables').DataTable().rows().invalidate().draw('full-reset');
+    }else{
+        $('#datatables').DataTable();
+    }
+
 });
