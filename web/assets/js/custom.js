@@ -68,7 +68,7 @@ $(document).ready(function() {
     // ************************************* //
     //       delete product with ajax
     // ************************************* //
-    $('.remove-product').on('click', function () {
+    $("#datatables").on('click', '.remove-product', function () {
         var url = Routing.generate('product_delete', {'id': $(this).data('id')});
         var $tr = $(this).closest('tr');
         swal({
@@ -105,7 +105,7 @@ $(document).ready(function() {
     // ************************************* //
     //       delete cat with ajax
     // ************************************* //
-    $('.remove-category').click(function () {
+    $("#datatables").on('click', '.remove-category',function () {
         var url = Routing.generate('category_delete', {'id': $(this).data('id')});
         var $tr = $(this).closest('tr');
         swal({
@@ -142,7 +142,7 @@ $(document).ready(function() {
     // ************************************* //
     //       delete package with ajax
     // ************************************* //
-    $('.remove-package').click(function () {
+    $("#datatables").on('click', '.remove-package',function () {
         var url = Routing.generate('package_delete', {'id': $(this).data('id')});
         var $tr = $(this).closest('tr');
         swal({
@@ -179,7 +179,7 @@ $(document).ready(function() {
     // ************************************* //
     //       delete provider with ajax
     // ************************************* //
-    $('.remove-provider').click(function () {
+    $("#datatables").on('click', '.remove-provider', function () {
         var url = Routing.generate('provider_delete', {'id': $(this).data('id')});
         var $tr = $(this).closest('tr');
         swal({
@@ -216,7 +216,7 @@ $(document).ready(function() {
     // ************************************* //
     //       delete user with ajax
     // ************************************* //
-    $('.remove-user').click(function () {
+    $("#datatables").on('click', '.remove-user', function () {
         var url = Routing.generate('user_delete', {'id': $(this).data('id')});
         var $tr = $(this).closest('tr');
         swal({
@@ -294,7 +294,7 @@ $(document).ready(function() {
         var category_id = $(this).val();
         var url = Routing.generate('filter-by-cat', {'category_id': category_id});
         var product_results = $('#product-results');
-        //var table;
+        var table;
         $.ajax({
             //ajax: true,
             type: 'GET',
@@ -304,8 +304,9 @@ $(document).ready(function() {
                 if(response){
                     //var response = $.parseJSON(response);
                     product_results.html(response);
-                    //console.log(response);
-                    //$('#datatables').DataTable();
+                    $("#datatables").ajax.reload();
+                    // console.log(response);
+                    // $('#datatables').DataTable();
                     // table = $('#datatables').DataTable({
                     //     destroy: true,
                     //     bLengthChange: false,
@@ -328,33 +329,6 @@ $(document).ready(function() {
             }
         });
 
-        // var category_id = $(this).val();
-        // var url = Routing.generate('filter-by-cat', {'category_id': category_id});
-        // var table;
-        // $.ajax({
-        //     url : url,
-        //     type : 'GET',
-        //     dataType: 'JSON',
-        //     success: function(response, statut) {
-        //         var response = $.parseJSON(response.data);
-        //         //reinitialise the dataTable   
-        //         table = $('#datatables').DataTable({
-        //             destroy: true,
-        //             bLengthChange: false,
-        //             paging: false
-                    
-        //         });
-        //         //clear the table, if it exists
-        //         if (table) table.clear();
-        //         $.each(response, function(i, item) {
-        //             //console.log("inserting", item);
-        //             table.row.add([
-        //                 item.id,
-        //                 item.name,
-        //             ]).draw();
-        //         });
-        //     }
-        // });
     });
 
     $("#filter-by-sub-cat").change(function(){

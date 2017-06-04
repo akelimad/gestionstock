@@ -3,7 +3,7 @@
         <tr>
             <th>ID Produit</th>
             <th>Photo</th>
-            <th>Name</th>
+            <th>Article</th>
             <th>Prix internet</th>
             <th>Categorie</th>
             <th>Sous categorie</th>
@@ -14,7 +14,7 @@
     <tbody id ="product-results"> 
         {% for p in products %}
         <tr>
-            <td>{{p.codeBar}}</td>
+            <td>{{p.id}}</td>
             <td>
             {% for image in p.images|slice(0, 1) %}
             <img src="{{ asset('uploads/images/' ~ image.path) }}" alt="" width="50">
@@ -38,7 +38,8 @@
 
                 <a href="{{ path('product_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
 
-                <button data-id="{{ p.id }}"  class="btn btn-simple btn-danger btn-icon btn-fill remove-product"><i class="ti-close"></i></button>
+                <button data-id="{{ p.id }}"  class="btn btn-simple btn-danger btn-icon btn-fill remove-product {{p.active == 1 ? 'prevent-remove' : ''}}" {{p.active == 1 ? 'disabled' : ''}}><i class="ti-close"></i></button>
+
                 <span id="csrf_token" data-token="{{ csrf_token('form') }}"></span>
             </td>
         </tr>
