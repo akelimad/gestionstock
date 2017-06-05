@@ -40,12 +40,19 @@
                                                 <label>Categorie</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <select name="categories" id="categories" class="form-control">
-                                                    <option value="0">Choisissez la categorie</option>
-                                                    {% for cat in categories %}
-                                                        <option value="{{cat.id}}" {{ cat_selected == cat.id ? 'selected': '' }}> {{cat.name}} </option>
-                                                    {% endfor %}
-                                                </select>
+                                                <div class="row">
+                                                    <div class="col-md-10">
+                                                        <select name="categories" id="categories" class="form-control">
+                                                            <option value="0">Choisissez la categorie</option>
+                                                            {% for cat in categories %}
+                                                                <option value="{{cat.id}}" {{ cat_selected == cat.id ? 'selected': '' }}> {{cat.name}} </option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-2" id="loading-child-cat">
+                                                        <img src="{{ asset('assets/img/loading.gif') }}" class="img-responsive" alt="">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

@@ -18,6 +18,7 @@ class RegistrationType extends AbstractType
     {
 
         $builder
+            ->add('nom', TextType::class)
             ->add('roles', ChoiceType::class, array(
                 'choices'   => [
                     #'ROLE SUPER ADMIN' => 'ROLE_SUPER_ADMIN',

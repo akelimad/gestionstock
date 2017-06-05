@@ -1102,7 +1102,11 @@
             "keywords": [
                 "User management"
             ],
+<<<<<<< HEAD
             "time": "2017-05-31 11:50:14"
+=======
+            "time": "2017-05-31T11:50:14+00:00"
+>>>>>>> ed185c193ccad70274d240c8b066feeb4f1f3fd6
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -3135,7 +3139,11 @@
             "keywords": [
                 "framework"
             ],
+<<<<<<< HEAD
             "time": "2017-05-29 19:32:17"
+=======
+            "time": "2017-05-29T19:32:17+00:00"
+>>>>>>> ed185c193ccad70274d240c8b066feeb4f1f3fd6
         },
         {
             "name": "twig/twig",
@@ -3461,7 +3469,11 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-05-28 11:10:04"
+=======
+            "time": "2017-05-28T11:10:04+00:00"
+>>>>>>> ed185c193ccad70274d240c8b066feeb4f1f3fd6
         }
     ],
     "aliases": [],

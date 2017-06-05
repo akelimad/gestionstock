@@ -195,13 +195,6 @@ class ProductController extends Controller
      */
     public function deleteAction(Request $request, Product $product)
     {
-        // $form = $this->createDeleteForm($product);
-        // $form->handleRequest($request);
-        // if ($form->isSubmitted() && $form->isValid()) {
-        //     $em = $this->getDoctrine()->getManager();
-        //     $em->remove($product);
-        //     $em->flush();
-        // }
         $productlog = new ProductLog();
         $em = $this->getDoctrine()->getEntityManager();
         
@@ -212,8 +205,9 @@ class ProductController extends Controller
         $em->persist($productlog);
         $this->getDoctrine()->getManager()->flush();
         return $this->redirectToRoute('product_index');
-        //return new Response("product deleted");
+        
     }
+
     /**
      * Creates a form to delete a product entity.
      *
@@ -247,14 +241,6 @@ class ProductController extends Controller
                 return $this->render('product/results.html.twig', array(
                 'products' => $products,
             ));
-            // $response = array();
-            // foreach ($products as $p) {
-            //     $response[] = array(
-            //         'id' => $p->getId(),
-            //         'name' => $p->getName(),                   
-            //     );
-            // }
-            // return new JsonResponse(json_encode($response));
     }
 
     /**

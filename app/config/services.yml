@@ -17,5 +17,10 @@ services:
         tags:
           - { name: form.type, alias: app_user_profile }
 
+    app.form.change_password:
+        class: UserBundle\Form\ChangePasswordType
+        tags:
+        - { name: form.type, alias: app_user_change_password }
+
     import.csvtoarray:
         class: ImportBundle\Services\ConvertCsvToArray

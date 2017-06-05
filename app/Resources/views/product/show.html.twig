@@ -66,13 +66,13 @@
                                     <div class="col-md-6">
                                         <div class="item">
                                             <span> Prix unitaire : </span>
-                                            {{ product.unitPrice }} &euro;
+                                            {{ product.unitPrice }} 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="item">
                                             <span> Prix grossiste : </span>
-                                            {{ product.wholesalePrice }} &euro;
+                                            {{ product.wholesalePrice }} 
                                         </div>
                                     </div>
                                 </div>
@@ -88,13 +88,13 @@
                                     <div class="col-md-6">
                                         <div class="item">
                                             <span> Prix spécial : </span>
-                                            {{ product.specialPrice }} &euro;
+                                            {{ product.specialPrice }} 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="item">
                                             <span> Prix internet : </span>
-                                            {{ product.internetPrice }} &euro;
+                                            {{ product.internetPrice }} 
                                         </div>
                                     </div>
                                 </div>
@@ -102,7 +102,7 @@
                                     <div class="col-md-6">
                                         <div class="item">
                                             <span> Catégorie : </span>
-                                            {% for cat in product.categories %}
+                                            {% for cat in product.categories| slice(0,1) %}
                                                 {{ cat.name }}
                                             {% endfor %}
                                         </div>
@@ -130,6 +130,8 @@
                                             <span> Active : </span>
                                             {% if product.active == 1 %}
                                                 <i class="fa fa-check"></i>
+                                            {% else %}
+                                                <i class="fa fa-stop"></i>
                                             {% endif %}
                                         </div>
                                     </div>

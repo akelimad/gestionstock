@@ -20,28 +20,49 @@
                         <div class="material-datatables product-table">
                             <div class="row">
                                 <div class="col-md-4 filter">
-                                    <select name="filter-by-cat" id="filter-by-cat" class="form-control">
-                                        <option value="0">Filtrez par catégorie</option>
-                                        {% for cat in categories %}
-                                        <option value="{{cat.id}}">{{ cat.name }}</option>
-                                        {% endfor %} 
-                                    </select>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <select name="filter-by-cat" id="filter-by-cat" class="form-control">
+                                                <option value="0">Filtrez par catégorie</option>
+                                                {% for cat in categories %}
+                                                <option value="{{cat.id}}">{{ cat.name }}</option>
+                                                {% endfor %} 
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2" id="loading-cat">
+                                            <img src="{{ asset('assets/img/loading.gif') }}" class="img-responsive" alt="">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <select name="filter-by-prov" id="filter-by-sub-cat" class="form-control">
-                                        <option value="0">Filtrez par sous categorie</option>
-                                        {% for sub in sub_categories %}
-                                        <option value="{{sub.id}}">{{ sub.name }}</option>
-                                        {% endfor %}
-                                    </select>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <select name="filter-by-prov" id="filter-by-sub-cat" class="form-control">
+                                                <option value="0">Filtrez par sous categorie</option>
+                                                {% for sub in sub_categories %}
+                                                <option value="{{sub.id}}">{{ sub.name }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2" id="loading-sub-cat">
+                                            <img src="{{ asset('assets/img/loading.gif') }}" class="img-responsive" alt="">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <select name="filter-by-prov" id="filter-by-prov" class="form-control">
-                                        <option value="0">Filtrez par fournisseur</option>
-                                        {% for prov in providers %}
-                                        <option value="{{prov.id}}">{{ prov.name }}</option>
-                                        {% endfor %}
-                                    </select>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <select name="filter-by-prov" id="filter-by-prov" class="form-control">
+                                                <option value="0">Filtrez par fournisseur</option>
+                                                {% for prov in providers %}
+                                                <option value="{{prov.id}}">{{ prov.name }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2" id="loading-prov">
+                                            <img src="{{ asset('assets/img/loading.gif') }}" class="img-responsive" alt="">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             {% include 'product/results.html.twig' %}
@@ -56,44 +77,5 @@
     </div>
 </div>
 <script src="{{ asset('assets/js/product.js') }}"></script>
-<script>
 
-
-    var products = [];
-    var detailProduct = {};
-
-    {% for p in products %}
-        var imgProd=[];
-        var catProd=[];
-        var provProd=[];
-        var packProd=[];
-
-        {% for image in p.images %}  imgProd .push('{{image.path}}'); {% endfor %}
-        {% for cat in p.categories %}  catProd .push('{{cat.name}}');   {% endfor %}
-        {% for prov in p.providers %} provProd.push('{{prov.name}}'); {% endfor %}
-        {% for pack in p.packages %}  packProd.push('{{pack.name}}'); {% endfor %}
-        detailProduct = {
-            codeBar       :"{{p.codeBar ? p.codeBar : 'null'}}",
-            name          :"{{p.name}}",
-            description   :"{{p.description ? p.description : 'null'}}",
-            sizeInch      :"{{p.sizeInch ? p.sizeInch : 'null'}}",
-            sizeCm        :"{{p.sizeCm ? p.sizeCm : 'null'}}",
-            color         :"{{p.color ? p.color : 'null'}}",
-            composition   :"{{p.composition ? p.composition : 'null'}}",
-            form          :"{{p.form ? p.form : 'null'}}",
-            weight        :"{{p.weight ? p.weight : 'null'}}",
-            unitPrice     :"{{p.unitPrice ? p.unitPrice : 'null'}}",
-            wholesalePrice:"{{p.wholesalePrice ? p.wholesalePrice : 'null'}}",
-            specialPrice  :"{{p.specialPrice ? p.specialPrice : 'null'}}",
-            internetPrice :"{{p.internetPrice ? p.internetPrice : 'null'}}",
-            images        : imgProd,
-            category      : catProd,
-            provider      : provProd,
-            package       : packProd,
-        }
-        products.push(detailProduct);
-    {% endfor %}
-    Product.init(products);
-
-</script>
 {% endblock %}

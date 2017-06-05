@@ -91,9 +91,16 @@ fos_user:
     registration:
         form:
             name: app_user_registration
+            validation_groups: [Registration, Default]
     profile:
         form:
             name: app_user_profile
+            validation_groups: [Profile, Default]
+
+    change_password:
+        form:
+            name: app_user_change_password
+
 
 # Assetic Configuration
 assetic:
