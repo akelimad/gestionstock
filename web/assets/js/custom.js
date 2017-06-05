@@ -94,7 +94,7 @@ $(document).ready(function() {
                     $tr.find('td').fadeOut(1000,function(){ $tr.remove(); });
                     location.reload();
                 }).fail(function(){
-                    swal('Oops...', 'Something went wrong with ajax !', 'error');
+                    swal('Oops...', 'Something went wrong with ajax !', 'error') .catch(swal.noop);
                 });
             });
             },
