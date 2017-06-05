@@ -41,9 +41,9 @@
                                         <td>{{p.airCost}}</td>
                                         <td>{{p.active == 1 ? 'Active' : 'Not active'}}</td>
                                         <td class="text-right">
-                                            <a href="{{ path('package_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
+                                            <a href="{{ path('package_edit', { 'id': p.id }) }}" title="Modifier" class="btn btn-simple btn-warning btn-icon btn-fill edit " ><i class="ti-pencil-alt"></i></a>
 
-                                            <button data-id="{{ p.id }}"  class="btn btn-simple btn-danger btn-icon btn-fill remove-package"><i class="ti-close"></i></button>
+                                            <button data-id="{{ p.id }}" title="{{ p.active == 0 ? 'Supprimer' : 'Vueillez désactiver pour pouvoir supprimer' }}" class="btn btn-simple btn-danger btn-icon btn-fill remove-package {{p.active == 1 ? 'prevent-remove' : ''}}" {{p.active == 1 ? 'disabled' : ''}}><i class="ti-close"></i></button>
                                             <span id="csrf_token" data-token="{{ csrf_token('form') }}"></span>
                                         </td>
                                     </tr>

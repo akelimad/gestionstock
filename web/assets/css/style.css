@@ -184,3 +184,14 @@ select#productbundle_product_categories optgroup option {
 	background: #cdcdcd !important;
     cursor: not-allowed;
 }
+table#datatables thead th{
+	color: black;
+	padding: 26px 6px;
+}
+
+#loading-cat,
+#loading-sub-cat,
+#loading-prov,
+#loading-child-cat{
+	display: none;
+}

@@ -23,9 +23,9 @@ class User extends BaseUser{
     /**
      * @var string
      *
-     * @ORM\Column(name="pseudo", type="string", length=255, nullable=true)
+     * @ORM\Column(name="nom", type="string", length=255, nullable=true)
      */
-    private $pseudo;
+    private $nom;
 
     /**
      * @var \DateTime
@@ -144,5 +144,29 @@ class User extends BaseUser{
     public function removeUserLog(\ProductBundle\Entity\ProductLog $userLog)
     {
         $this->user_log->removeElement($userLog);
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return User
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
     }
 }
