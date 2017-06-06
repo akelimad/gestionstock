@@ -32,6 +32,13 @@ class Category
     /**
      * @var string
      *
+     * @ORM\Column(name="code", type="string", unique= true, nullable=true)
+     */
+    private $code;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="description", type="string", nullable=true)
      */
     private $description;
@@ -316,5 +323,29 @@ class Category
     public function getDeletedAt()
     {
         return $this->deleted_at;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return Category
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
     }
 }

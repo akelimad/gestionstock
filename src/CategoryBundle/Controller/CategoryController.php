@@ -41,12 +41,20 @@ class CategoryController extends Controller
     public function newAction(Request $request)
     {
         $category = new Category();
+
         $form = $this->createForm('CategoryBundle\Form\CategoryType', $category);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-            
             $em = $this->getDoctrine()->getManager();
+            $catQuery = $em->createQuery("SELECT COUNT(c) FROM 
+                            CategoryBundle:Category c WHERE c.parent IS NULL");
+            $catCount = $catQuery->getSingleScalarResult();
+            if($catCount < 10){
+                $code='0'.$catCount;
+            }else{
+                $code=$catCount;
+            }
+            $category->setCode($code);
             $em->persist($category);
             $em->flush();
 
@@ -65,15 +73,23 @@ class CategoryController extends Controller
      * @Route("/sub_cat", name="subcategorie")
      * @Method({"GET", "POST"})
      */
-    public function newSubCategorieAction(Request $request)
+    public function newSubCategori(Request $request)
     {
         $category = new Category();
         $form = $this->createForm('CategoryBundle\Form\CategoryType', $category);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
             $em = $this->getDoctrine()->getManager();
+            $sub_catQuery = $em->createQuery("SELECT COUNT(c) FROM 
+                            CategoryBundle:Category c WHERE c.parent IS NOT NULL");
+            $sub_catCount = $sub_catQuery->getSingleScalarResult();
+            if($sub_catCount < 10){
+                $code='00'.$sub_catCount;
+            }elseif ($sub_catCount > 10 && $sub_catCount < 1000) {
+                $code='0'.$sub_catCount;
+            }
+            $category->setCode($code);
             $em->persist($category);
             $em->flush();
 

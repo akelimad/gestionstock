@@ -10,7 +10,7 @@
                     <div class="content">
                         
                         <h4 class="title">La liste des categories
-                        {% if is_granted('ROLE_ADMIN') %}
+                        {% if is_granted('ROLE_USER') %}
                             <a href=" {{path('category_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nouveau</a> 
                         {% endif %}
                         </h4>
@@ -24,6 +24,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Nom</th>
+                                        <th>Code</th>
                                         <th>Description</th>
                                         <th>Categorie parente</th>
                                         <th>Statut</th>
@@ -35,6 +36,7 @@
                                     <tr>
                                         <td>{{c.id}}</td>
                                         <td>{{c.name}}</td>
+                                        <td>{{c.code}}</td>
                                         <td>{{c.description}}</td>
                                         <td>{{c.parent is null ? 'No parent' : c.parent }}</td>
                                         <td>{{c.active == 1 ? 'Active' : 'Not active'}}</td>
@@ -51,6 +53,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Nom</th>
+                                        <th>Code</th>
                                         <th>Description</th>
                                         <th>Categorie parente</th>
                                         <th>Statut</th>
