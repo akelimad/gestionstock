@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="content">
                         <h4 class="title">La liste des emballages
-                        {% if is_granted('ROLE_ADMIN') %}
+                        {% if is_granted('ROLE_USER') %}
                             <a href=" {{path('package_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nouveau</a>
                         {% endif %}
                         </h4>
