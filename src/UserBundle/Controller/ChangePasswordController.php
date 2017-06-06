@@ -74,6 +74,14 @@ class ChangePasswordController extends Controller
             //$dispatcher->dispatch(FOSUserEvents::CHANGE_PASSWORD_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
 
             //return $response;
+            $this->get('session')->getFlashBag()->add(
+                'passwordChanged',
+                array(
+                    'alert' => 'success',
+                    'title' => 'Succés! ',
+                    'message' => 'Votre mot de passe a été rénitialisé avec succés.'
+                )
+            );
             return $this->redirectToRoute('app_default_index');
         }
 
