@@ -6,6 +6,16 @@
     <div class="container-fluid">
         <div class="row">
 			<div class="col-md-12">
+				{% if app.session.started %}
+				    {% for flashMessage in app.session.flashbag.get('passwordChanged') %}
+				        <div class="alert alert-{{ flashMessage.alert }} alert-dismissible" role="alert">
+				            <button type="button" class="close" data-dismiss="alert">
+				                <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				            </button>
+				            <strong>{{ flashMessage.title }}</strong> {{ flashMessage.message }}
+				        </div>
+				    {% endfor %}
+				{% endif %}
 				<h3>Bienvenue a l'espace d'administration de gestions de produits !</h3>
 				<img src="{{ asset('assets/img/home.jpg') }}" class="img-responsive" alt="">
 			</div>

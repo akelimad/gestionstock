@@ -195,3 +195,9 @@ table#datatables thead th{
 #loading-child-cat{
 	display: none;
 }
+
+.alert-dismissable .close, 
+.alert-dismissible .close
+{
+	right: 0 !important;
+}
