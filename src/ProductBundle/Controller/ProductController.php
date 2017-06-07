@@ -75,14 +75,17 @@ class ProductController extends Controller
 
         $em = $this->getDoctrine()->getEntityManager();
         if ($form->isSubmitted() && $form->isValid()){
+            //cat and subcat selected
             $cat_id=$request->request->get('categories');
             $sub_cat_id= $request->request->get('s_categories');
+            //add product to cat selected
             $Category=$em->getRepository('CategoryBundle:Category')->findById( array($cat_id, $sub_cat_id));
-            //var_dump($Category);die;
-            $query=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c WHERE c.id = '.$cat_id);
+            //get code of cat and subcat selected
+            $query=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
+              WHERE c.id = '.$cat_id);
             $catCode = $query->getResult();
-
-            $query1=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c WHERE c.id = '.$sub_cat_id);
+            $query1=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
+              WHERE c.id = '.$sub_cat_id);
             $subcatCode = $query1->getResult();
             $countryCode="6";
             $prodQuery = $em->createQuery("SELECT COUNT(p) FROM 
@@ -177,12 +180,40 @@ class ProductController extends Controller
         foreach ($product->getCategories() as $cat) {
             $prod_cat[]=$cat->getId();
         }
-        //$s_categories = $em->getRepository('CategoryBundle:Category')->findBy(array('parent' => $prod_cat[0]));
-        //var_dump($product->getCategories()); die();
+
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $cat_id=$request->request->get('categories');
             $sub_cat_id= $request->request->get('s_categories');
             $Category=$em->getRepository('CategoryBundle:Category')->findById( array($cat_id, $sub_cat_id));
+
+            $query=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
+              WHERE c.id = '.$cat_id);
+            $catCode = $query->getResult();
+            $query1=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
+              WHERE c.id = '.$sub_cat_id);
+            $subcatCode = $query1->getResult();
+            //var_dump($subcatCode); die();
+            $countryCode="6";
+            $prodQuery = $em->createQuery("SELECT COUNT(p) FROM 
+                            ProductBundle:Product p");
+            $productCount = $prodQuery->getSingleScalarResult();
+            if($productCount < 10){
+              $prodCode = '000000'.$productCount; 
+            }elseif($productCount < 100){
+              $prodCode = '00000'.$productCount; 
+            }elseif($productCount < 1000){
+              $prodCode = '0000'.$productCount; 
+            }elseif($productCount < 10000){
+              $prodCode = '000'.$productCount; 
+            }elseif($productCount < 100000){
+              $prodCode = '00'.$productCount; 
+            }elseif($productCount < 1000000){
+              $prodCode = '0'.$productCount; 
+            }else{
+              $prodCode = $productCount; 
+            }
+            $serialNumber=$prodCode;
+
             $files = $product->getImages();
             $images = array();
             if($files != null) {
@@ -196,6 +227,8 @@ class ProductController extends Controller
                     $images[] = $imageProduct;
                 }
             }
+            $productCodeBar=$countryCode.$catCode[0]['code'].$subcatCode[0]['code'].$serialNumber;
+            $product->setCodeBar($productCodeBar);
             $product->setImages($images);
             $product->setCategories($Category);
             $productlog->setProduct($product);
@@ -210,7 +243,7 @@ class ProductController extends Controller
             'categories' => $categories,
             //'s_categories' => $categories,
             'cat_selected' => $prod_cat[0],
-            //'sub_cat_selected' => $prod_cat[1],
+            'sub_cat_selected' => $prod_cat[1],
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
