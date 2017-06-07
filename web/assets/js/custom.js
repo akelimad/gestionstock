@@ -399,11 +399,11 @@ $(document).ready(function() {
                 var sub = $('select#s_categories');
                 sub.empty();
                 $.each(data , function(key, value) { 
-                    sub.append(
-                        $("<option></option>")
-                        .attr("value",value.id)
-                        .text(value.name)
-                    ); 
+                    if(sub_cat_selected == value.id){
+                        sub.append( $("<option selected></option>").attr("value",value.id).text(value.name) ); 
+                    }else{
+                        sub.append( $("<option></option>").attr("value",value.id).text(value.name) ); 
+                    }
                 });
                 $("#loading-child-cat").hide();
             },
