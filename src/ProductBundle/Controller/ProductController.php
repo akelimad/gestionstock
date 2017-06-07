@@ -260,7 +260,7 @@ class ProductController extends Controller
             array(
                 'alert' => 'success',
                 'title' => 'Succés! ',
-                'message' => 'Le produit a été modifier avec succés.'
+                'message' => 'Le produit a été modifié avec succés.'
             )
         );
         return $this->render('product/edit.html.twig', array(
