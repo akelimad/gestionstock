@@ -73,7 +73,7 @@ class CategoryController extends Controller
      * @Route("/sub_cat", name="subcategorie")
      * @Method({"GET", "POST"})
      */
-    public function newSubCategori(Request $request)
+    public function newSubCategory(Request $request)
     {
         $category = new Category();
         $form = $this->createForm('CategoryBundle\Form\CategoryType', $category);
@@ -129,9 +129,31 @@ class CategoryController extends Controller
         $deleteForm = $this->createDeleteForm($category);
         $editForm = $this->createForm('CategoryBundle\Form\CategoryType', $category);
         $editForm->handleRequest($request);
-
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $em = $this->getDoctrine()->getManager();
+            $data = $editForm->getData();
+            if($data->getParent() != null){
+                $sub_catQuery = $em->createQuery("SELECT COUNT(c) FROM 
+                            CategoryBundle:Category c WHERE c.parent IS NOT NULL");
+                $sub_catCount = $sub_catQuery->getSingleScalarResult();
+                if($sub_catCount < 10){
+                    $code='00'.$sub_catCount;
+                }elseif ($sub_catCount > 10 && $sub_catCount < 1000) {
+                    $code='0'.$sub_catCount;
+                }
+            }else{
+                $catQuery = $em->createQuery("SELECT COUNT(c) FROM 
+                            CategoryBundle:Category c WHERE c.parent IS NULL");
+                $catCount = $catQuery->getSingleScalarResult();
+                if($catCount < 10){
+                    $code='0'.$catCount;
+                }else{
+                    $code=$catCount;
+                }
+            }
+            $category->setCode($code);
+            $em->persist($category);
+            $em->flush();
 
             return $this->redirectToRoute('category_index');
         }
