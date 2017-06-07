@@ -84,9 +84,11 @@ class ProductController extends Controller
             $query=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
               WHERE c.id = '.$cat_id);
             $catCode = $query->getResult();
-            $query1=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
-              WHERE c.id = '.$sub_cat_id);
-            $subcatCode = $query1->getResult();
+            if(!empty($sub_cat_id)){
+              $query1=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
+                WHERE c.id = '.$sub_cat_id);
+              $subcatCode = $query1->getResult();
+            }
             $countryCode="6";
             $prodQuery = $em->createQuery("SELECT COUNT(p) FROM 
                             ProductBundle:Product p");
@@ -122,7 +124,11 @@ class ProductController extends Controller
                     $images[] = $imageProduct;
                 }
             }
-            $productCodeBar=$countryCode.$catCode[0]['code'].$subcatCode[0]['code'].$serialNumber;
+            if(! empty($subcatCode) ){
+              $productCodeBar=$countryCode.$catCode[0]['code'].$subcatCode[0]['code'].$serialNumber;
+            }else{
+              $productCodeBar=$countryCode.$catCode[0]['code'].$serialNumber;
+            }
             $product->setCodeBar($productCodeBar);
             $product->setImages($images);
             $product->setCategories($Category);
@@ -179,6 +185,11 @@ class ProductController extends Controller
         $prod_cat=array();
         foreach ($product->getCategories() as $cat) {
             $prod_cat[]=$cat->getId();
+        }
+        if(!empty($prod_cat[1])){
+          $sub_cat_selected=$prod_cat[1];
+        }else{
+          $sub_cat_selected=0;
         }
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -243,7 +254,7 @@ class ProductController extends Controller
             'categories' => $categories,
             //'s_categories' => $categories,
             'cat_selected' => $prod_cat[0],
-            'sub_cat_selected' => $prod_cat[1],
+            'sub_cat_selected' => $sub_cat_selected ,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
