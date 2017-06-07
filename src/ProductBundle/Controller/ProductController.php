@@ -200,9 +200,11 @@ class ProductController extends Controller
             $query=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
               WHERE c.id = '.$cat_id);
             $catCode = $query->getResult();
-            $query1=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
-              WHERE c.id = '.$sub_cat_id);
-            $subcatCode = $query1->getResult();
+            if(!empty($sub_cat_id)){
+              $query1=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
+                WHERE c.id = '.$sub_cat_id);
+              $subcatCode = $query1->getResult();
+            }
             //var_dump($subcatCode); die();
             $countryCode="6";
             $prodQuery = $em->createQuery("SELECT COUNT(p) FROM 
@@ -238,7 +240,11 @@ class ProductController extends Controller
                     $images[] = $imageProduct;
                 }
             }
-            $productCodeBar=$countryCode.$catCode[0]['code'].$subcatCode[0]['code'].$serialNumber;
+            if(! empty($subcatCode) ){
+              $productCodeBar=$countryCode.$catCode[0]['code'].$subcatCode[0]['code'].$serialNumber;
+            }else{
+              $productCodeBar=$countryCode.$catCode[0]['code'].$serialNumber;
+            }
             $product->setCodeBar($productCodeBar);
             $product->setImages($images);
             $product->setCategories($Category);
