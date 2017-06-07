@@ -389,6 +389,7 @@ $(document).ready(function() {
         var id =  $( "select#categories option:selected" ).val();          
         var url = Routing.generate('ajax_subcategories',{'id':id});
         $("#loading-child-cat").show();
+        var sub_cat_selected=$("#sub_cat_selected").data("sub-cat-selected");
         $.ajax({
             //ajax: true,
             type: 'GET',
@@ -398,8 +399,7 @@ $(document).ready(function() {
                 var sub = $('select#s_categories');
                 sub.empty();
                 $.each(data , function(key, value) { 
-                    sub
-                    .append(
+                    sub.append(
                         $("<option></option>")
                         .attr("value",value.id)
                         .text(value.name)
