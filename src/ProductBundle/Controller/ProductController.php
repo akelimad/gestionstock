@@ -255,6 +255,14 @@ class ProductController extends Controller
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('product_index');
         }
+        $this->get('session')->getFlashBag()->add(
+            'editProduct',
+            array(
+                'alert' => 'success',
+                'title' => 'Succés! ',
+                'message' => 'Le produit a été modifier avec succés.'
+            )
+        );
         return $this->render('product/edit.html.twig', array(
             'product' => $product,
             'categories' => $categories,

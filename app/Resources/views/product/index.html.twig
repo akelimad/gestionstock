@@ -8,6 +8,16 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="content">
+                        {% if app.session.started %}
+                            {% for flashMessage in app.session.flashbag.get('editProduct') %}
+                                <div class="alert alert-{{ flashMessage.alert }} alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                    </button>
+                                    <strong>{{ flashMessage.title }}</strong> {{ flashMessage.message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
                         <h4 class="title">La liste des produits 
                         {% if is_granted('ROLE_USER') %}
                             <a href=" {{path('product_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nouveau</a>
