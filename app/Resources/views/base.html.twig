@@ -45,7 +45,7 @@
         -->
             <div class="logo">
                 <a href="{{ path('app_default_index') }}" class="simple-text">
-                    <img src="{{ asset('assets/img/logo_dw.png') }}" alt="">
+                    <img src="{{ asset('assets/img/logo_mp.png') }}" alt="">
                 </a>
             </div>
             <div class="logo logo-mini">
@@ -56,10 +56,22 @@
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="{{ app.request.attributes.get('_route') == 'product_index' ? 'active' : '' }}">
-                        <a href=" {{path('product_index')}} ">
+                        <a data-toggle="collapse" href="#products" class="collapsed" aria-expanded="false">
                             <i class="fa fa-product-hunt"></i>
-                            <p>Produits</p>
+                            <p>Produits
+                                <b class="caret"></b>
+                            </p>
                         </a>
+                        <div class="collapse" id="products" role="navigation" aria-expanded="false" style="height: 0px;">
+                            <ul class="nav">
+                                <li>
+                                    <a href="{{path('product_index')}}"><i class="fa fa-list"></i> Affichage</a>
+                                </li>
+                                <li>
+                                    <a href="{{path('product_deleted')}}"><i class="fa fa-trash"></i> Les produits supprimés</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="{{ app.request.attributes.get('_route') == 'category_index' ? 'active' : '' }}">
                         <a data-toggle="collapse" href="#categories" class="collapsed" aria-expanded="false">
@@ -71,13 +83,10 @@
                         <div class="collapse" id="categories" role="navigation" aria-expanded="false" style="height: 0px;">
                             <ul class="nav">
                                 <li>
-                                    <a href="{{path('category_index')}}"><i class="fa fa-list"></i> Affichage</a>
+                                    <a href="{{path('category_index')}}"><i class="fa fa-plus"></i> Categorie</a>
                                 </li>
                                 <li>
-                                    <a href="{{path('category_new')}}"><i class="fa fa-plus"></i> Categorie</a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('subcategorie') }}"><i class="fa fa-plus"></i> Sous categorie</a>
+                                    <a href="{{ path('sub_category_index') }}"><i class="fa fa-plus"></i> Sous categorie</a>
                                 </li>
                             </ul>
                         </div>
@@ -102,14 +111,23 @@
                         </a>
                     </li>
                     {% endif %}
-                    <li class="{{ app.request.attributes.get('_route') == 'color_index' ? 'active' : '' }}">
+                    <li class="{{ app.request.attributes.get('_route') == 'color_index' ? 'active' : '' }}" style="display: none;">
                         <a href="{{path('color_index')}}">
                             <i class="fa fa-google-wallet"></i>
                             <p>Couleurs</p>
                         </a>
                     </li>
                 </ul>
-
+                <div class="copyright-section">
+                    <p class="copyright">
+                        &copy;
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script>
+                        <a href="#">Digital Works.</a>
+                        <span>Version : 1.1</span>
+                    </p>
+                </div>
             </div>
         </div> <!-- endside bar -->
         <div class="main-panel">
@@ -167,7 +185,7 @@
             <div class="content">
                 {% block body %}{% endblock %}
             </div>
-            <footer class="footer">
+            <footer class="footer" style="display: none">
                 <div class="container-fluid">
                     <nav class="pull-left">
                         <ul>

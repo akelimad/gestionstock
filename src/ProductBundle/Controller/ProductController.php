@@ -157,7 +157,7 @@ class ProductController extends Controller
     /**
      * Finds and displays a product entity.
      *
-     * @Route("/{id}", name="product_show" ,options={"expose"=true})
+     * @Route("/details/{id}", name="product_show" ,options={"expose"=true})
      * @Method("GET")
      */
     public function showAction(Product $product)
@@ -167,6 +167,23 @@ class ProductController extends Controller
             'product' => $product,
         ));
     }
+
+    /**
+     * Finds and displays a removed product entity.
+     *
+     * @Route("/trash", name="product_deleted" ,options={"expose"=true})
+     * @Method("GET")
+     */
+    public function trashAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $products = $em->getRepository('ProductBundle:Product')->getAllTrashedProducts();
+        return $this->render('product/trash.html.twig', array(
+            'products' => $products,
+        ));
+    }
+
+
     /**
      * Displays a form to edit an existing product entity.
      *
@@ -290,8 +307,27 @@ class ProductController extends Controller
         $productlog->setDeletedAt(new \DateTime());
         $em->persist($productlog);
         $this->getDoctrine()->getManager()->flush();
-        return $this->redirectToRoute('product_index');
+        return $this->redirectToRoute('product_index'); 
+    }
+
+    /**
+     * Deletes a product entity.
+     *
+     * @Route("/revert/{id}", options={"expose"=true}, name="product_revert")
+     * @Method("PUT")
+     */
+    public function revertAction(Request $request, Product $product)
+    {
+        $productlog = new ProductLog();
+        $em = $this->getDoctrine()->getEntityManager();
         
+        $productlog->setProduct($product);
+        $productlog->setUser($this->getUser());
+        $productlog->setAction("revert");
+        $productlog->setDeletedAt(NULL);
+        $em->persist($productlog);
+        $this->getDoctrine()->getManager()->flush();
+        return $this->redirectToRoute('product_index'); 
     }
 
     /**

@@ -32,7 +32,7 @@
                                     <tr>
                                         <td>{{p.id}}</td>
                                         <td>{{p.name}}</td>
-                                        <td>{{p.address}}</td>
+                                        <td>{{p.address ? p.address : '---'}}</td>
                                         <td>{{p.active == 1 ? 'Active' : 'Not active'}}</td>
                                         <td class="text-right">
                                             <a href="{{ path('provider_edit', { 'id': p.id }) }}" title="Modifier" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>

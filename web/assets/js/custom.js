@@ -18,8 +18,8 @@ $(document).ready(function() {
     $('#datatables').DataTable({
         "pagingType": "full_numbers",
         "lengthMenu": [
-            [10, 25, 50, -1],
-            [10, 25, 50, "Tous"]
+            [25, 50, 100, -1],
+            [25, 50, 100, "Tous"]
         ],
         responsive: true,
         language: {
@@ -29,14 +29,15 @@ $(document).ready(function() {
             "first":      "Premier",
             "last":       "Dernier",
             "next":       "Suivant",
-            "previous":   "Precedent"
+            "previous":   "Précedent"
             },
             "lengthMenu":     "Affichage _MENU_ entrées",
             "zeroRecords":    "Aucun resultat trouvée !",
             "emptyTable":     "Aucune donnée dans la table",
             "info":           "Affichage _START_ à _END_ du _TOTAL_ entrées",
             "infoEmpty":      "Affichage 0 à 0 du 0 entrées",
-        }
+        },
+        "sDom": 'Rfrtlip',
 
     });
 

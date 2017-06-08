@@ -25,9 +25,24 @@ class CategoryController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('CategoryBundle:Category')->getAllCategories();
+        $categories = $em->getRepository('CategoryBundle:Category')->getAllRootCat();
 
         return $this->render('category/index.html.twig', array(
+            'categories' => $categories,
+        ));
+    }
+
+    /**
+     * Lists all category entities.
+     *
+     * @Route("/subcategory", name="sub_category_index")
+     */
+    public function sub_indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('CategoryBundle:Category')->getAllSubCat();
+
+        return $this->render('category/sub_index.html.twig', array(
             'categories' => $categories,
         ));
     }
@@ -64,13 +79,14 @@ class CategoryController extends Controller
         return $this->render('category/new.html.twig', array(
             'category' => $category,
             'form' => $form->createView(),
+            'is_sub_cat' => false
         ));
     }
 
     /**
      * Creates a new category entity.
      *
-     * @Route("/sub_cat", name="subcategorie")
+     * @Route("/sub_cat", name="subcategorie_new")
      * @Method({"GET", "POST"})
      */
     public function newSubCategory(Request $request)
@@ -93,12 +109,13 @@ class CategoryController extends Controller
             $em->persist($category);
             $em->flush();
 
-            return $this->redirectToRoute('category_index');
+            return $this->redirectToRoute('sub_category_index');
         }
 
-        return $this->render('category/sub_cat.html.twig', array(
+        return $this->render('category/new.html.twig', array(
             'category' => $category,
             'form' => $form->createView(),
+            'is_sub_cat' => true
         ));
     }
 
@@ -151,6 +168,8 @@ class CategoryController extends Controller
                     $code=$catCount;
                 }
             }
+            $status=$is_sub_cat;
+
             $category->setCode($code);
             $em->persist($category);
             $em->flush();
@@ -162,8 +181,59 @@ class CategoryController extends Controller
             'category' => $category,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'is_sub_cat' => $status
         ));
     }
+
+    /**
+     * Displays a form to edit an existing category entity.
+     *
+     * @Route("/{id}/edit", name="sub_category_edit")
+     * @Method({"GET", "POST"})
+     */
+    public function editSubAction(Request $request, Category $category)
+    {
+        $deleteForm = $this->createDeleteForm($category);
+        $editForm = $this->createForm('CategoryBundle\Form\CategoryType', $category);
+        $editForm->handleRequest($request);
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $data = $editForm->getData();
+            if($data->getParent() != null){
+                $sub_catQuery = $em->createQuery("SELECT COUNT(c) FROM 
+                            CategoryBundle:Category c WHERE c.parent IS NOT NULL");
+                $sub_catCount = $sub_catQuery->getSingleScalarResult();
+                if($sub_catCount < 10){
+                    $code='00'.$sub_catCount;
+                }elseif ($sub_catCount > 10 && $sub_catCount < 1000) {
+                    $code='0'.$sub_catCount;
+                }
+            }else{
+                $catQuery = $em->createQuery("SELECT COUNT(c) FROM 
+                            CategoryBundle:Category c WHERE c.parent IS NULL");
+                $catCount = $catQuery->getSingleScalarResult();
+                if($catCount < 10){
+                    $code='0'.$catCount;
+                }else{
+                    $code=$catCount;
+                }
+            }
+            $status=$is_sub_cat;
+
+            $category->setCode($code);
+            $em->persist($category);
+            $em->flush();
+
+            return $this->redirectToRoute('sub_category_index');
+        }
+
+        return $this->render('category/edit.html.twig', array(
+            'category' => $category,
+            'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
 
     /**
      * Deletes a category entity.

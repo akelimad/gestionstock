@@ -82,6 +82,12 @@ class Category
      * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="categories")
      */
     private $product;
+
+    /**
+     * Many cat have Many color.
+     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Color", mappedBy="colors")
+     */
+    private $color;
     
 
     /**
@@ -90,6 +96,7 @@ class Category
     public function __construct()
     {
         $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->color = new \Doctrine\Common\Collections\ArrayCollection();
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();
         $this->created_at = new \DateTime(); 
     }
@@ -347,5 +354,39 @@ class Category
     public function getCode()
     {
         return $this->code;
+    }
+
+    /**
+     * Add color
+     *
+     * @param \ProductBundle\Entity\Color $color
+     *
+     * @return Category
+     */
+    public function addColor(\ProductBundle\Entity\Color $color)
+    {
+        $this->color[] = $color;
+
+        return $this;
+    }
+
+    /**
+     * Remove color
+     *
+     * @param \ProductBundle\Entity\Color $color
+     */
+    public function removeColor(\ProductBundle\Entity\Color $color)
+    {
+        $this->color->removeElement($color);
+    }
+
+    /**
+     * Get color
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getColor()
+    {
+        return $this->color;
     }
 }

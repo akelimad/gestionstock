@@ -3,6 +3,7 @@
 namespace ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Color
@@ -34,6 +35,20 @@ class Color
      * @ORM\Column(name="code", type="string", length=255, nullable=true)
      */
     private $code;
+
+
+    /**
+     * Many color can have Many cat.
+     * @ORM\ManyToMany(targetEntity="CategoryBundle\Entity\Category", inversedBy="Color", cascade={"remove"})
+     * @ORM\JoinTable(name="category_color")
+     */
+    private $colors;
+
+
+    public function __construct() {
+        $this->colors = new \Doctrine\Common\Collections\ArrayCollection();
+        
+    }
 
 
     /**
@@ -93,5 +108,38 @@ class Color
     {
         return $this->code;
     }
-}
 
+    /**
+     * Add color
+     *
+     * @param \CategoryBundle\Entity\Category $color
+     *
+     * @return Color
+     */
+    public function addColor(\CategoryBundle\Entity\Category $color)
+    {
+        $this->colors[] = $color;
+
+        return $this;
+    }
+
+    /**
+     * Remove color
+     *
+     * @param \CategoryBundle\Entity\Category $color
+     */
+    public function removeColor(\CategoryBundle\Entity\Category $color)
+    {
+        $this->colors->removeElement($color);
+    }
+
+    /**
+     * Get colors
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getColors()
+    {
+        return $this->colors;
+    }
+}

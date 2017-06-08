@@ -18,6 +18,14 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
         ")->getResult();
     }
 
+    public function getAllTrashedProducts()
+    {
+        return $this->getEntityManager()->createQuery("
+        	SELECT p FROM ProductBundle:Product p where p IN (select p1 from ProductBundle:Product p1, ProductBundle:ProductLog pl
+            WHERE p1.id=pl.product AND pl.deleted_at IS NOT NULL )
+        ")->getResult();
+    }
+
     
 	
 }
