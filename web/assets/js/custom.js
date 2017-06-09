@@ -18,8 +18,8 @@ $(document).ready(function() {
     $('#datatables').DataTable({
         "pagingType": "full_numbers",
         "lengthMenu": [
-            [10, 25, 50, -1],
-            [10, 25, 50, "Tous"]
+            [25, 50, 100, -1],
+            [25, 50, 100, "Tous"]
         ],
         responsive: true,
         language: {
@@ -29,14 +29,15 @@ $(document).ready(function() {
             "first":      "Premier",
             "last":       "Dernier",
             "next":       "Suivant",
-            "previous":   "Precedent"
+            "previous":   "Précedent"
             },
             "lengthMenu":     "Affichage _MENU_ entrées",
             "zeroRecords":    "Aucun resultat trouvée !",
             "emptyTable":     "Aucune donnée dans la table",
             "info":           "Affichage _START_ à _END_ du _TOTAL_ entrées",
             "infoEmpty":      "Affichage 0 à 0 du 0 entrées",
-        }
+        },
+        "sDom": 'Rfrtlip',
 
     });
 
@@ -66,6 +67,80 @@ $(document).ready(function() {
     $('.card .material-datatables label').addClass('form-group');
 
     // ************************************* //
+    //       desactivate product with ajax
+    // ************************************* //
+    $("#datatables").on('click', '.desactivate-product', function () {
+        var url = Routing.generate('product_desactivate', {'id': $(this).data('id')});
+        var $tr = $(this).closest('tr');
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            showLoaderOnConfirm: true,
+            preConfirm: function() {
+            return new Promise(function(resolve) {
+                $.ajax({
+                    type: 'POST',
+                    url:  url,
+                    data: {
+                    "_method": "PUT",
+                    "form[_token]": $("#csrf_token").data("token")
+                    }
+                }).done(function(response){
+                    swal('Deleted!', 'Product has been deleted.', 'success');
+                    $tr.find('td').fadeOut(1000,function(){ $tr.remove(); });
+                    location.reload();
+                }).fail(function(){
+                    swal('Oops...', 'Something went wrong with ajax !', 'error') .catch(swal.noop);
+                });
+            });
+            },
+            allowOutsideClick: false     
+        }); 
+    });
+
+    // ************************************* //
+    //       revert product with ajax
+    // ************************************* //
+    $("#datatables").on('click', '.revert-product', function () {
+        var url = Routing.generate('product_revert', {'id': $(this).data('id')});
+        var $tr = $(this).closest('tr');
+        swal({
+            title: 'Are you sure?',
+            text: "Do you want to revert it ?",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, revert it!',
+            showLoaderOnConfirm: true,
+            preConfirm: function() {
+            return new Promise(function(resolve) {
+                $.ajax({
+                    type: 'POST',
+                    url:  url,
+                    data: {
+                    "_method": "PUT",
+                    "form[_token]": $("#csrf_token").data("token")
+                    }
+                }).done(function(response){
+                    swal('Reverted!', 'Product has been reverted.', 'success');
+                    $tr.find('td').fadeOut(1000,function(){ $tr.remove(); });
+                    location.reload();
+                }).fail(function(){
+                    swal('Oops...', 'Something went wrong with ajax !', 'error') .catch(swal.noop);
+                });
+            });
+            },
+            allowOutsideClick: false     
+        }); 
+    });
+
+    // ************************************* //
     //       delete product with ajax
     // ************************************* //
     $("#datatables").on('click', '.remove-product', function () {
@@ -86,7 +161,7 @@ $(document).ready(function() {
                     type: 'POST',
                     url:  url,
                     data: {
-                    "_method": "PUT",
+                    "_method": "DELETE",
                     "form[_token]": $("#csrf_token").data("token")
                     }
                 }).done(function(response){

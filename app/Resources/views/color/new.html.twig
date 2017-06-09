@@ -8,8 +8,7 @@
                     <div class="card">
                         {{ form_start(form) }}
                             <div class="content">
-                                <h4 class="title text-center">Ajouter une categorie </h4>
-                                
+                                <h4 class="title text-center">Ajouter une couleur </h4>
                                 <div class="form-group {{ form_errors(form.name) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
@@ -21,41 +20,49 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group {{ form_errors(form.description) ? 'has-error': '' }}">
+                                <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(form.description, "Description", {'label_attr': {'class': 'control-label'}}) }}
+                                            <label for="">Code</label>
                                         </div>
                                         <div class="col-md-8">
-                                            {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
-                                            <span class="help-block">{{ form_errors(form.description) }}</span> 
+                                            <input type="color" name="color" class="form-control">
+                                            <span class="help-block"></span> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group {{ form_errors(form.parent) ? 'has-error': '' }}">
+                                <div class=" form-group">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(form.parent, "Categorie parente ", {'label_attr': {'class': 'control-label'}}) }}
+                                            <label>Categorie</label>
                                         </div>
                                         <div class="col-md-8">
-                                            {{ form_widget(form.parent, {'attr': {'class': 'form-control'}}) }}
-                                            <span class="help-block">{{ form_errors(form.parent) }}</span> 
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <select name="categories" id="categories" class="form-control">
+                                                        <option value="0">Choisissez la categorie</option>
+                                                        {% for cat in categories %}
+                                                            <option value="{{cat.id}}"> {{cat.name}} </option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-2" id="loading-child-cat">
+                                                    <img src="{{ asset('assets/img/loading.gif') }}" class="img-responsive" alt="">
+                                                </div>
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group {{ form_errors(form.active) ? 'has-error': '' }}">
+                                <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(form.active, "Active", {'label_attr': {'class': 'control-label'}}) }}
+                                            <label>Sous categorie</label>
                                         </div>
                                         <div class="col-md-8">
-                                            <label class="checkbox">
-                                                <span class="icons">
-                                                <span class="first-icon fa fa-square"></span>
-                                                <span class="second-icon fa fa-check-square "></span>
-                                                {{ form_widget(form.active, {'attr': {'class': ''}}) }}
-                                            </label>
-                                            <span class="help-block">{{ form_errors(form.active) }}</span> 
+                                            <select name="s_categories" id="s_categories" class="form-control">
+                                                <option value="0">Choisissez sous categorie</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

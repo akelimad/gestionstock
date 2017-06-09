@@ -127,7 +127,7 @@ class ProductController extends Controller
             if(! empty($subcatCode) ){
               $productCodeBar=$countryCode.$catCode[0]['code'].$subcatCode[0]['code'].$serialNumber;
             }else{
-              $productCodeBar=$countryCode.$catCode[0]['code'].$serialNumber;
+              $productCodeBar=$countryCode.$catCode[0]['code']."000".$serialNumber;
             }
             $product->setCodeBar($productCodeBar);
             $product->setImages($images);
@@ -157,7 +157,7 @@ class ProductController extends Controller
     /**
      * Finds and displays a product entity.
      *
-     * @Route("/{id}", name="product_show" ,options={"expose"=true})
+     * @Route("/details/{id}", name="product_show" ,options={"expose"=true})
      * @Method("GET")
      */
     public function showAction(Product $product)
@@ -167,6 +167,7 @@ class ProductController extends Controller
             'product' => $product,
         ));
     }
+
     /**
      * Displays a form to edit an existing product entity.
      *
@@ -207,24 +208,14 @@ class ProductController extends Controller
             }
             //var_dump($subcatCode); die();
             $countryCode="6";
-            $prodQuery = $em->createQuery("SELECT COUNT(p) FROM 
-                            ProductBundle:Product p");
-            $productCount = $prodQuery->getSingleScalarResult();
-            if($productCount < 10){
-              $prodCode = '000000'.$productCount; 
-            }elseif($productCount < 100){
-              $prodCode = '00000'.$productCount; 
-            }elseif($productCount < 1000){
-              $prodCode = '0000'.$productCount; 
-            }elseif($productCount < 10000){
-              $prodCode = '000'.$productCount; 
-            }elseif($productCount < 100000){
-              $prodCode = '00'.$productCount; 
-            }elseif($productCount < 1000000){
-              $prodCode = '0'.$productCount; 
-            }else{
-              $prodCode = $productCount; 
-            }
+
+            $prodCodeQuery = $em->createQuery("SELECT p.codeBar FROM 
+                            ProductBundle:Product p where p.id =".$product->getId());
+            $productCode = $prodCodeQuery->getSingleScalarResult();
+
+            
+            $prodCode = substr($productCode, -7); 
+            
             $serialNumber=$prodCode;
 
             $files = $product->getImages();
@@ -243,7 +234,7 @@ class ProductController extends Controller
             if(! empty($subcatCode) ){
               $productCodeBar=$countryCode.$catCode[0]['code'].$subcatCode[0]['code'].$serialNumber;
             }else{
-              $productCodeBar=$countryCode.$catCode[0]['code'].$serialNumber;
+              $productCodeBar=$countryCode.$catCode[0]['code']."000".$serialNumber;
             }
             $product->setCodeBar($productCodeBar);
             $product->setImages($images);
@@ -260,7 +251,7 @@ class ProductController extends Controller
             array(
                 'alert' => 'success',
                 'title' => 'Succés! ',
-                'message' => 'Le produit a été modifier avec succés.'
+                'message' => 'Le produit a été modifié avec succés.'
             )
         );
         return $this->render('product/edit.html.twig', array(
@@ -273,25 +264,75 @@ class ProductController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
+    
     /**
      * Deletes a product entity.
      *
-     * @Route("/{id}", options={"expose"=true}, name="product_delete")
+     * @Route("/{id}/desactivate", options={"expose"=true}, name="product_desactivate")
      * @Method("PUT")
      */
-    public function deleteAction(Request $request, Product $product)
+    public function desactivateAction(Request $request, Product $product)
     {
         $productlog = new ProductLog();
         $em = $this->getDoctrine()->getEntityManager();
         
         $productlog->setProduct($product);
         $productlog->setUser($this->getUser());
-        $productlog->setAction("Delete");
+        $productlog->setAction("Desactivate");
         $productlog->setDeletedAt(new \DateTime());
         $em->persist($productlog);
         $this->getDoctrine()->getManager()->flush();
-        return $this->redirectToRoute('product_index');
+        return $this->redirectToRoute('product_index'); 
+    }
+
+    /**
+     * Deletes a product entity.
+     *
+     * @Route("/{id}/delete", options={"expose"=true}, name="product_delete")
+     * @Method("DELETE")
+     */
+    public function deleteAction(Request $request, Product $product)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($product);
+        $em->flush();
+        return $this->redirectToRoute('product_desactiveted'); 
+    }
+
+    /**
+     * Finds and displays a removed product entity.
+     *
+     * @Route("/trash", name="product_desactiveted" ,options={"expose"=true})
+     * @Method("GET")
+     */
+    public function trashAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $products = $em->getRepository('ProductBundle:Product')->getAllTrashedProducts();
+        return $this->render('product/trash.html.twig', array(
+            'products' => $products,
+        ));
+    }
+
+    /**
+     * Deletes a product entity.
+     *
+     * @Route("/{id}/revert", options={"expose"=true}, name="product_revert")
+     * @Method("PUT")
+     */
+    public function revertAction(Request $request, Product $product)
+    {
+        $productlog = new ProductLog();
+        $em = $this->getDoctrine()->getEntityManager();
         
+        $productlog->setProduct($product);
+        $productlog->setUser($this->getUser());
+        $productlog->setAction("revert");
+        $productlog->setDeletedAt(NULL);
+        $em->persist($productlog);
+        $this->getDoctrine()->getManager()->flush();
+        return $this->redirectToRoute('product_index'); 
     }
 
     /**

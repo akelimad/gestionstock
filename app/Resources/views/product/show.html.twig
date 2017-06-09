@@ -8,9 +8,10 @@
                     <div class="card">
                         <div class="row">
                             <div class="col-md-12">
+                                <a href="#" OnClick="javascript:window.print()" class="pull-right" title="Imprimer"><i class="fa fa-print fa-2x"></i></a>
                                 <div class="product-title">
                                     <h4>{{product.name}}</h4>
-                                    <p>ID Produit : {{product.id}} </p>
+                                    <p>ID Produit : {{product.codeBar}} </p>
                                 </div>
                             </div>
                         </div>
@@ -24,13 +25,14 @@
                                     <div class="col-md-6">
                                         <div class="item">
                                             <span> Taille(inch) : </span>
-                                            {{ product.sizeInch }}
+                                            {{ product.sizeInch ? product.sizeInch : '---' }}
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="item">
                                             <span> Couleur : </span>
                                             <div class="color" style="background: {{ product.color }}"> </div>
+                                            <span> {{ product.color ? product.color : '---' }} </span>
                                         </div>
                                     </div>
                                 </div>
@@ -38,13 +40,13 @@
                                     <div class="col-md-6">
                                         <div class="item">
                                             <span> Taille(cm) : </span>
-                                            {{ product.sizeCm }}
+                                            {{ product.sizeCm ? product.sizeCm : '---' }}
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="item">
                                             <span> Poids (g) : </span>
-                                            {{ product.weight }}
+                                            {{ product.weight ? product.weight : '---' }}
                                         </div>
                                     </div>
                                 </div>
@@ -52,27 +54,13 @@
                                     <div class="col-md-6">
                                         <div class="item">
                                             <span> Composition : </span>
-                                            {{ product.composition }}
+                                            {{ product.composition ? product.composition : '---' }}
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="item">
                                             <span> Forme : </span>
-                                            {{ product.form }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="item">
-                                            <span> Prix unitaire : </span>
-                                            {{ product.unitPrice }} 
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="item">
-                                            <span> Prix grossiste : </span>
-                                            {{ product.wholesalePrice }} 
+                                            {{ product.form ? product.form : '---' }}
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +68,21 @@
                                     <div class="col-md-6">
                                         <div class="item">
                                             <span> Collection : </span>
-                                            {{ product.collection }} 
+                                            {{ product.collection ? product.collection : '---' }} 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Prix unitaire : </span>
+                                            {{ product.unitPrice ? product.unitPrice : '---' }} 
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Prix grossiste : </span>
+                                            {{ product.wholesalePrice ? product.wholesalePrice : '---' }} 
                                         </div>
                                     </div>
                                 </div>
@@ -88,13 +90,13 @@
                                     <div class="col-md-6">
                                         <div class="item">
                                             <span> Prix spécial : </span>
-                                            {{ product.specialPrice }} 
+                                            {{ product.specialPrice ? product.specialPrice : '---' }} 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="item">
                                             <span> Prix internet : </span>
-                                            {{ product.internetPrice }} 
+                                            {{ product.internetPrice ? product.internetPrice : '---' }} 
                                         </div>
                                     </div>
                                 </div>
@@ -103,35 +105,54 @@
                                         <div class="item">
                                             <span> Catégorie : </span>
                                             {% for cat in product.categories| slice(0,1) %}
-                                                {{ cat.name }}
+                                                {{ cat.name ? cat.name : '---' }}
                                             {% endfor %}
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="item">
-                                            <span> Emballage : </span>
-                                            {% for pack in product.packages %}
-                                                {{ pack.name }}
+                                            <span> Sous catégorie : </span>
+                                            {% for cat in product.categories | slice(1,2) %}
+                                                {{ cat.parent != null ? cat.name : '---' }}
                                             {% endfor %}
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Fournisseur : </span>
+                                            {% if product.packages is not empty  %}
+                                                {% for prov in product.providers %}
+                                                    {{ prov.name }}
+                                                {% endfor %}
+                                            {% else %}
+                                                ---
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <span> Emballage : </span>
+                                            {% if product.packages is not empty  %}
+                                                {% for pack in product.packages %}
+                                                    {{ pack.name }}
+                                                {% endfor %}
+                                            {% else %}
+                                                ---
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="item">
-                                            <span> Sous catégorie : </span>
-                                            {% for cat in product.categories %}
-                                                {{ cat.parent != null ? cat.name : '' }}
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="item">
-                                            <span> Active : </span>
+                                            <span> Statut : </span>
                                             {% if product.active == 1 %}
                                                 <i class="fa fa-check"></i>
                                             {% else %}
-                                                <i class="fa fa-stop"></i>
+                                                <i class="fa fa-ban"></i>
                                             {% endif %}
                                         </div>
                                     </div>
@@ -139,28 +160,23 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="item">
-                                            <span> Fournisseur : </span>
-                                            {% for prov in product.providers %}
-                                                {{ prov.name }}
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="item">
                                             <span> Description : </span>
-                                            {{ product.description }}
+                                            {{ product.description ? product.description : '---' }}
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="col-md-6 images">
-                                <div class="fotorama" data-nav="thumbs" data-allowfullscreen="native">
-                                    {% for image in product.images %}
-                                        <img src="{{ asset('uploads/images/') ~ image.path }}" alt="">
-                                    {% endfor %}
-                                </div>
+                                {% if product.images is not empty  %}
+                                    <div class="fotorama" data-nav="thumbs" data-allowfullscreen="native">
+                                        {% for image in product.images %}
+                                            <img src="{{ asset('uploads/images/') ~ image.path }}" alt="">
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    <img src="{{ asset('assets/img/default-no-image.png') }}" class="img-circle" alt="img prod">
+                                {% endif %}
                             </div>
                         </div>
                         

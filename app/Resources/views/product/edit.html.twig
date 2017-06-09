@@ -42,8 +42,8 @@
                                             <div class="col-md-8">
                                                 <div class="row">
                                                     <div class="col-md-10">
-                                                        <select name="categories" id="categories" class="form-control">
-                                                            <option value="0">Choisissez la categorie</option>
+                                                        <select name="categories" id="categories" class="form-control" required="required">
+                                                            <option value="">Choisissez la categorie</option>
                                                             {% for cat in categories %}
                                                                 <option value="{{cat.id}}" {{ cat_selected == cat.id ? 'selected': '' }}> {{cat.name}} </option>
                                                             {% endfor %}
