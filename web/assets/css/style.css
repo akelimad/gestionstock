@@ -231,3 +231,10 @@ table#datatables thead th{
 .card .content .title{
 	margin-bottom: 30px;
 }
+
+.table > thead > tr > th{
+	font-size: 16px;
+}
+.table a {
+	color: #000000;
+}

@@ -127,7 +127,7 @@ class ProductController extends Controller
             if(! empty($subcatCode) ){
               $productCodeBar=$countryCode.$catCode[0]['code'].$subcatCode[0]['code'].$serialNumber;
             }else{
-              $productCodeBar=$countryCode.$catCode[0]['code'].$serialNumber;
+              $productCodeBar=$countryCode.$catCode[0]['code']."000".$serialNumber;
             }
             $product->setCodeBar($productCodeBar);
             $product->setImages($images);
@@ -183,7 +183,6 @@ class ProductController extends Controller
         ));
     }
 
-
     /**
      * Displays a form to edit an existing product entity.
      *
@@ -224,24 +223,14 @@ class ProductController extends Controller
             }
             //var_dump($subcatCode); die();
             $countryCode="6";
-            $prodQuery = $em->createQuery("SELECT COUNT(p) FROM 
-                            ProductBundle:Product p");
-            $productCount = $prodQuery->getSingleScalarResult();
-            if($productCount < 10){
-              $prodCode = '000000'.$productCount; 
-            }elseif($productCount < 100){
-              $prodCode = '00000'.$productCount; 
-            }elseif($productCount < 1000){
-              $prodCode = '0000'.$productCount; 
-            }elseif($productCount < 10000){
-              $prodCode = '000'.$productCount; 
-            }elseif($productCount < 100000){
-              $prodCode = '00'.$productCount; 
-            }elseif($productCount < 1000000){
-              $prodCode = '0'.$productCount; 
-            }else{
-              $prodCode = $productCount; 
-            }
+
+            $prodCodeQuery = $em->createQuery("SELECT p.codeBar FROM 
+                            ProductBundle:Product p where p.id =".$product->getId());
+            $productCode = $prodCodeQuery->getSingleScalarResult();
+
+            
+            $prodCode = substr($productCode, -7); 
+            
             $serialNumber=$prodCode;
 
             $files = $product->getImages();
@@ -260,7 +249,7 @@ class ProductController extends Controller
             if(! empty($subcatCode) ){
               $productCodeBar=$countryCode.$catCode[0]['code'].$subcatCode[0]['code'].$serialNumber;
             }else{
-              $productCodeBar=$countryCode.$catCode[0]['code'].$serialNumber;
+              $productCodeBar=$countryCode.$catCode[0]['code']."000".$serialNumber;
             }
             $product->setCodeBar($productCodeBar);
             $product->setImages($images);
@@ -290,6 +279,8 @@ class ProductController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
+    
     /**
      * Deletes a product entity.
      *

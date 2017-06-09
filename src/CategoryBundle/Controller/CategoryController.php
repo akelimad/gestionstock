@@ -148,27 +148,23 @@ class CategoryController extends Controller
         $editForm->handleRequest($request);
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $data = $editForm->getData();
-            if($data->getParent() != null){
-                $sub_catQuery = $em->createQuery("SELECT COUNT(c) FROM 
-                            CategoryBundle:Category c WHERE c.parent IS NOT NULL");
-                $sub_catCount = $sub_catQuery->getSingleScalarResult();
-                if($sub_catCount < 10){
-                    $code='00'.$sub_catCount;
-                }elseif ($sub_catCount > 10 && $sub_catCount < 1000) {
-                    $code='0'.$sub_catCount;
-                }
-            }else{
-                $catQuery = $em->createQuery("SELECT COUNT(c) FROM 
-                            CategoryBundle:Category c WHERE c.parent IS NULL");
-                $catCount = $catQuery->getSingleScalarResult();
+
+            $catcodeQuery = $em->createQuery("SELECT c.code FROM 
+                        CategoryBundle:Category c WHERE c.id = ".$category->getId());
+            $catCode = $catcodeQuery->getSingleScalarResult();
+
+            $catQuery = $em->createQuery("SELECT COUNT(c) FROM 
+                        CategoryBundle:Category c WHERE c.parent IS NULL");
+            $catCount = $catQuery->getSingleScalarResult();
+            if(empty($catCode)){
                 if($catCount < 10){
                     $code='0'.$catCount;
                 }else{
                     $code=$catCount;
                 }
+            }else{
+                $code=$catCode;
             }
-            $status=$is_sub_cat;
 
             $category->setCode($code);
             $em->persist($category);
@@ -181,14 +177,14 @@ class CategoryController extends Controller
             'category' => $category,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-            'is_sub_cat' => $status
+            'is_sub_cat' => false
         ));
     }
 
     /**
      * Displays a form to edit an existing category entity.
      *
-     * @Route("/{id}/edit", name="sub_category_edit")
+     * @Route("/sub_cat/{id}/edit", name="sub_category_edit")
      * @Method({"GET", "POST"})
      */
     public function editSubAction(Request $request, Category $category)
@@ -198,27 +194,23 @@ class CategoryController extends Controller
         $editForm->handleRequest($request);
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $data = $editForm->getData();
-            if($data->getParent() != null){
-                $sub_catQuery = $em->createQuery("SELECT COUNT(c) FROM 
-                            CategoryBundle:Category c WHERE c.parent IS NOT NULL");
-                $sub_catCount = $sub_catQuery->getSingleScalarResult();
+
+            $sub_catcodeQuery = $em->createQuery("SELECT c.code FROM 
+                        CategoryBundle:Category c WHERE c.id = ".$category->getId());
+            $sub_catCode = $sub_catcodeQuery->getSingleScalarResult();
+
+            $sub_catQuery = $em->createQuery("SELECT COUNT(c) FROM 
+                        CategoryBundle:Category c WHERE c.parent IS NOT NULL");
+            $sub_catCount = $sub_catQuery->getSingleScalarResult();
+            if(empty($sub_catCode)){
                 if($sub_catCount < 10){
                     $code='00'.$sub_catCount;
                 }elseif ($sub_catCount > 10 && $sub_catCount < 1000) {
                     $code='0'.$sub_catCount;
                 }
             }else{
-                $catQuery = $em->createQuery("SELECT COUNT(c) FROM 
-                            CategoryBundle:Category c WHERE c.parent IS NULL");
-                $catCount = $catQuery->getSingleScalarResult();
-                if($catCount < 10){
-                    $code='0'.$catCount;
-                }else{
-                    $code=$catCount;
-                }
+                $code=$sub_catCode;
             }
-            $status=$is_sub_cat;
 
             $category->setCode($code);
             $em->persist($category);
@@ -231,6 +223,7 @@ class CategoryController extends Controller
             'category' => $category,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'is_sub_cat' => true
         ));
     }
 
