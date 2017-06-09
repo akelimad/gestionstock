@@ -212,9 +212,27 @@ class ProductController extends Controller
             $prodCodeQuery = $em->createQuery("SELECT p.codeBar FROM 
                             ProductBundle:Product p where p.id =".$product->getId());
             $productCode = $prodCodeQuery->getSingleScalarResult();
-
-            
-            $prodCode = substr($productCode, -7); 
+            if(empty($productCode)){
+              $productCount = $product->getId();
+              if($productCount < 10){
+                $prodCode = '000000'.$productCount; 
+              }elseif($productCount < 100){
+                $prodCode = '00000'.$productCount; 
+              }elseif($productCount < 1000){
+                $prodCode = '0000'.$productCount; 
+              }elseif($productCount < 10000){
+                $prodCode = '000'.$productCount; 
+              }elseif($productCount < 100000){
+                $prodCode = '00'.$productCount; 
+              }elseif($productCount < 1000000){
+                $prodCode = '0'.$productCount; 
+              }else{
+                $prodCode = $productCount; 
+              }
+            }else{
+              $prodCode = substr($productCode, -7);
+            }
+             
             
             $serialNumber=$prodCode;
 
