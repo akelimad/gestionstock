@@ -79,7 +79,7 @@ class Category
 
     /**
      * Many cat have Many prod.
-     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="categories")
+     * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="categories", cascade={"remove"})
      */
     private $product;
 

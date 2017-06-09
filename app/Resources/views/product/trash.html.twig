@@ -49,7 +49,7 @@
                                     <td>{{p.active == 1 ? 'Active' : 'Desactivé' }}</td>
                                     <td class="text-right">
 
-                                        <a href="{{ path('product_revert', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill revert-product" title="Récuperer"><i class="ti-back-right"></i></a>
+                                        <button data-id="{{ p.id }}" title="Récuperer" class="btn btn-simple btn-warning btn-icon btn-fill revert-product"><i class="ti-back-right"></i></button>
 
                                         <button data-id="{{ p.id }}" title="Supprimer définitivement" class="btn btn-simple btn-danger btn-icon btn-fill remove-product">
                                         <i class="ti-trash"></i></button>

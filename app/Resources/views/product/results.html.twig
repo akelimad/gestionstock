@@ -48,7 +48,7 @@
 
                 <a href="{{ path('product_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit" title="Modifier"><i class="ti-pencil-alt"></i></a>
 
-                <button data-id="{{ p.id }}" title="{{ p.active == 0 ? 'Supprimer' : 'Vueillez désactiver ce produit pour pouvoir le supprimer' }}" class="btn btn-simple btn-danger btn-icon btn-fill remove-product {{p.active == 1 ? 'prevent-remove' : ''}}" {{p.active == 1 ? 'disabled' : ''}}><i class="ti-close"></i></button>
+                <button data-id="{{ p.id }}" title="{{ p.active == 0 ? 'Supprimer' : 'Vueillez désactiver ce produit pour pouvoir le supprimer' }}" class="btn btn-simple btn-danger btn-icon btn-fill desactivate-product {{p.active == 1 ? 'prevent-remove' : ''}}" {{p.active == 1 ? 'disabled' : ''}}><i class="ti-close"></i></button>
 
                 <span id="csrf_token" data-token="{{ csrf_token('form') }}"></span>
             </td>

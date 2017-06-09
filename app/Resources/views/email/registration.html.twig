@@ -1,0 +1,13 @@
+{% block subject %}Registration{% endblock %}
+
+{% block body_text %}
+	<h3>You did it! You registered!</h3>
+	Hi {{ name }}! You're successfully registered.
+{% endblock %}
+
+{% block body_html %}
+	To login, go to: <a href="{{ url('fos_user_security_login') }}">...</a>.
+	Thanks!
+	{# Makes an absolute URL to the /images/logo.png file #}
+	<img src="{{ absolute_url(asset('images/logo.png')) }}">
+{% endblock %}
