@@ -18,6 +18,7 @@ class CategoryType extends AbstractType
     {
         $builder
         ->add('name')
+        ->add('code')
         ->add('description')
         ->add('parent', EntityType::class, array(
             'class'=>'CategoryBundle:Category', 

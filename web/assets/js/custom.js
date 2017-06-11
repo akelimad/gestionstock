@@ -496,4 +496,37 @@ $(document).ready(function() {
         $('#datatables').DataTable();
     }
 
+    //to change size inch and sizecm automatically
+    var sizeInch=$("#productbundle_product_sizeInch");
+    var sizeCm=$("#productbundle_product_sizeCm");
+    sizeInch.blur(function(){
+        var inch = $(this).val();
+        if(isNaN(inch)){
+            $("span#sizeInchError").show().html("valeur invalide");
+            $("#sizeInchdiv").addClass("has-error");
+            sizeInch.focus();
+            sizeCm.val(0);
+        }else{
+            var cm   = Number( inch * 2.54 );
+            sizeCm.val(cm);
+            $("span#sizeInchError").hide();
+            $("#sizeInchdiv").removeClass("has-error");
+        }
+    });
+
+    sizeCm.on('blur', function(){
+        var cm = $(this).val();
+        if(isNaN(cm)){
+            $("span#sizeCmError").show().html("valeur invalide");
+            $("#sizeCmdiv").addClass("has-error");
+            sizeCm.focus();
+            sizeInch.val(0);
+        }else{
+            var inch   = Number( cm * 0.39 );
+            sizeInch.val(inch);
+            $("span#sizeCmError").hide();
+            $("#sizeCmdiv").removeClass("has-error");
+        }
+    })
+
 });

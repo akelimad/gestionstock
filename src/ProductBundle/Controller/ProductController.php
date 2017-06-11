@@ -44,19 +44,13 @@ class ProductController extends Controller
         $sub_categories = $em->getRepository('CategoryBundle:Category')->getAllSubCat();
         $providers = $em->getRepository('ProviderBundle:Provider')->findAll();
 
-        $defaultData = array('message' => 'Type your message here');
-        $form = $this->createFormBuilder($defaultData)
-            ->add('fileExcel', FileType::class, array('label' => 'choisissez un fichier excel(csv)'))
-            ->getForm();
-
-        $form->handleRequest($request);
+        
 
         return $this->render('product/index.html.twig', array(
             'products' => $products,
             'categories' => $categories,
             'sub_categories' => $sub_categories,
             'providers' => $providers,
-            'form' => $form->createView()
         ));
     }
     /**
@@ -81,18 +75,30 @@ class ProductController extends Controller
             //add product to cat selected
             $Category=$em->getRepository('CategoryBundle:Category')->findById( array($cat_id, $sub_cat_id));
             //get code of cat and subcat selected
-            $query=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
+            if(!empty($cat_id)){
+              $query=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
               WHERE c.id = '.$cat_id);
-            $catCode = $query->getResult();
+              $catCode = $query->getSingleScalarResult();
+              $getcatcode = $catCode[0]['code'];
+            }
+
             if(!empty($sub_cat_id)){
               $query1=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
                 WHERE c.id = '.$sub_cat_id);
-              $subcatCode = $query1->getResult();
+              $subcatCode = $query1->getSingleScalarResult();
+              if(!empty($subcatCode)){
+                $getsubcatCode = $subcatCode[0]['code'];
+              }else{
+                $getsubcatCode = "000";
+              }
+            }else{
+              $getsubcatCode = "000";
             }
             $countryCode="6";
             $prodQuery = $em->createQuery("SELECT COUNT(p) FROM 
                             ProductBundle:Product p");
             $productCount = $prodQuery->getSingleScalarResult();
+            $productCount +=1;
             if($productCount < 10){
               $prodCode = '000000'.$productCount; 
             }elseif($productCount < 100){
@@ -124,11 +130,12 @@ class ProductController extends Controller
                     $images[] = $imageProduct;
                 }
             }
-            if(! empty($subcatCode) ){
-              $productCodeBar=$countryCode.$catCode[0]['code'].$subcatCode[0]['code'].$serialNumber;
+            if($getcatcode != null ){
+              $productCodeBar=$countryCode.$getcatcode.$getsubcatCode.$serialNumber;
             }else{
-              $productCodeBar=$countryCode.$catCode[0]['code']."000".$serialNumber;
+              $productCodeBar=$countryCode.'00'.$getsubcatCode.$serialNumber;
             }
+
             $product->setCodeBar($productCodeBar);
             $product->setImages($images);
             $product->setCategories($Category);
@@ -198,13 +205,24 @@ class ProductController extends Controller
             $sub_cat_id= $request->request->get('s_categories');
             $Category=$em->getRepository('CategoryBundle:Category')->findById( array($cat_id, $sub_cat_id));
 
-            $query=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
+            if(!empty($cat_id)){
+              $query=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
               WHERE c.id = '.$cat_id);
-            $catCode = $query->getResult();
+              $catCode = $query->getResult();
+              $getcatcode = $catCode[0]['code'];
+            }
+
             if(!empty($sub_cat_id)){
               $query1=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
                 WHERE c.id = '.$sub_cat_id);
               $subcatCode = $query1->getResult();
+              if($subcatCode != null){
+                $getsubcatCode = $subcatCode[0]['code'];
+              }else{
+                $getsubcatCode = "000";
+              }
+            }else{
+              $getsubcatCode = "000";
             }
             //var_dump($subcatCode); die();
             $countryCode="6";
@@ -249,10 +267,10 @@ class ProductController extends Controller
                     $images[] = $imageProduct;
                 }
             }
-            if(! empty($subcatCode) ){
-              $productCodeBar=$countryCode.$catCode[0]['code'].$subcatCode[0]['code'].$serialNumber;
+            if($getcatcode != null ){
+              $productCodeBar=$countryCode.$getcatcode.$getsubcatCode.$serialNumber;
             }else{
-              $productCodeBar=$countryCode.$catCode[0]['code']."000".$serialNumber;
+              $productCodeBar=$countryCode.'00'.$getsubcatCode.$serialNumber;
             }
             $product->setCodeBar($productCodeBar);
             $product->setImages($images);
