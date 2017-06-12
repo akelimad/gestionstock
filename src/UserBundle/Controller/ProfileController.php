@@ -59,4 +59,18 @@ class ProfileController extends Controller
             'form' => $form->createView(),
         ));
     }
+
+    /**
+     * @Route("/user/{id}/delete", name="user_delete", options={"expose"=true})
+     * @Method({"DELETE"})
+     */
+    public function deleteAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('UserBundle:User')->find($id);
+        $em->remove($user);
+        $em->flush();
+        return $this->redirectToRoute('user_default_index');
+    }
+
 }

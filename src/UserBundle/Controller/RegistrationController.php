@@ -7,6 +7,7 @@ use UserBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
@@ -14,6 +15,7 @@ class RegistrationController extends Controller
 {
     /**
      * @Route("/register", name="user_registration")
+     * @Method({"GET", "POST"})
      */
     public function registerAction(Request $request)
     {
@@ -46,6 +48,28 @@ class RegistrationController extends Controller
             //}
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
+            // $to=$form->get('email')->getData();
+            // $name=$form->get('username')->getData();
+            // $message = new \Swift_Message('Hello Email');
+            //         $message->setFrom('akel.dev@gmail.com')
+            //         ->setTo($to)
+            //         ->setBody(
+            //             $this->renderView(
+            //                 // app/Resources/views/Emails/registration.html.twig
+            //                 'email/registration.html.twig',
+            //                 array('name' => $name)
+            //             ),
+            //             'text/html'
+            //         );
+            //     $this->get('mailer')->send($message);
+            $to      = 'akel.dev@gmail.com';
+            $subject = 'the subject';
+            $message = 'hello';
+            $headers = 'From: webmaster@example.com' . "\r\n" .
+                'Reply-To: webmaster@example.com' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+
+            mail($to, $subject, $message, $headers);
 
             return $this->redirectToRoute('user_default_index');
         }

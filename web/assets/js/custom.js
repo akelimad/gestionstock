@@ -309,7 +309,7 @@ $(document).ready(function() {
                     type: 'POST',
                     url:  url,
                     data: {
-                    "_method": "PUT",
+                    "_method": "DELETE",
                     "form[_token]": $("#csrf_token").data("token")
                     }
                 }).done(function(response){

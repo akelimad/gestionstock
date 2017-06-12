@@ -23,17 +23,4 @@ class DefaultController extends Controller
 
     }
 
-    /**
-     * Deletes a user entity.
-     *
-     * @Route("/{id}", options={"expose"=true}, name="user_delete")
-     * @Method("PUT")
-     */
-    public function deleteAction(Request $request , User $user)
-    {
-        $user->setDeletedAt(new \DateTime());
-        $this->getDoctrine()->getManager()->flush();
-
-        return $this->redirectToRoute('user_default_index');
-    }
 }

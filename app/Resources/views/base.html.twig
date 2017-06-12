@@ -117,7 +117,7 @@
                             <p>Couleurs</p>
                         </a>
                     </li>
-                    <li class="{{ app.request.attributes.get('_route') == 'product_import' ? 'active' : '' }}" >
+                    <li class="{{ app.request.attributes.get('_route') == 'product_import' ? 'active' : '' }}" style="display: none;">
                         <a href="{{path('product_import')}}">
                             <i class="fa fa-download"></i>
                             <p>Importer</p>
