@@ -364,8 +364,11 @@ $(document).ready(function() {
         }); 
     });
 
-    
-    $("#filter-by-cat").change(function(){
+    // ************************************* //
+    //       filter product by cat
+    // ************************************* //
+
+    $("select#categories").change(function(){
         var category_id = $(this).val();
         var url = Routing.generate('filter-by-cat', {'category_id': category_id});
         var product_results = $('#product-results');
@@ -387,12 +390,17 @@ $(document).ready(function() {
             },
             error: function(){
                 console.log("error ...");
+                $('#loading-cat').hide();
             }
         });
 
     });
 
-    $("#filter-by-sub-cat").change(function(){
+    // ************************************* //
+    //       filter product by sub cat
+    // ************************************* //
+
+    $("select#s_categories").change(function(){
         var sub_category_id = $(this).val();
         var url = Routing.generate('filter-by-sub-cat', {'sub_category_id': sub_category_id});
         var product_results = $('#product-results');
@@ -488,7 +496,9 @@ $(document).ready(function() {
         });
     });
 
+
     $("select#categories").change();
+
 
     if ($.fn.DataTable.isDataTable( '#datatables' ) ) {
         $('#datatables').DataTable().rows().invalidate().draw('full-reset');

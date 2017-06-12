@@ -49,23 +49,35 @@ class RegistrationController extends Controller
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
             $to=$form->get('email')->getData();
-            $name=$form->get('username')->getData();
-            $message = new \Swift_Message('Hello Email');
-                    $message->setFrom('akel.dev@gmail.com')
-                    ->setTo($to)
-                    ->setBody(
-                        $this->renderView('email/registration.html.twig',array('name' => $name)),
-                        'text/html'
-                    );
-                $this->get('mailer')->send($message);
-            // $to      = 'akel.dev@gmail.com';
-            // $subject = 'Registration';
-            // $message = 'You did it! You registered!';
-            // $headers = 'From: contact@digitalwork.com' . "\r\n" .
-            //     'Reply-To: contact@digitalwork.com' . "\r\n" .
-            //     'X-Mailer: PHP/' . phpversion();
+            $nom=$form->get('nom')->getData();
+            $username=$form->get('username')->getData();
+            $password=$form->get('plainPassword')->getData();
 
-            // mail($to, $subject, $message, $headers);
+            $subject = "Registration";
+             
+            $message = "<b>You did it! You registered! </b> <br>";
+            $message .= "Hi ".$nom."! You're successfully registered. <br>";
+            $message .= "To login, go to: <a href='http://gestion.hubdw.com/login'>login</a>.Thanks!";
+            $message .= "login with your username : ".$username." and password : ".$password;
+             
+            $header = "From:contact@digitalwork.com \r\n";
+            $header .= "MIME-Version: 1.0\r\n";
+            $header .= "Content-type: text/html\r\n";
+             
+            $retval = mail ($to,$subject,$message,$header);
+             
+            if( $retval == true ) {
+                $this->get('session')->getFlashBag()->add(
+                    'registered',
+                    array(
+                        'alert' => 'success',
+                        'title' => 'Succés! ',
+                        'message' => 'Un email de confirmation a été envoyé a : '. $to .'.'
+                    )
+                );
+            }else {
+                echo "Message could not be sent...";
+            }
 
             return $this->redirectToRoute('user_default_index');
         }

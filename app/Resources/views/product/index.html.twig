@@ -32,7 +32,7 @@
                                 <div class="col-md-4 filter">
                                     <div class="row">
                                         <div class="col-md-10">
-                                            <select name="filter-by-cat" id="filter-by-cat" class="form-control">
+                                            <select name="filter-by-cat" id="categories" class="form-control">
                                                 <option value="0">Filtrez par catégorie</option>
                                                 {% for cat in categories %}
                                                 <option value="{{cat.id}}">{{ cat.name }}</option>
@@ -47,7 +47,7 @@
                                 <div class="col-md-4">
                                     <div class="row">
                                         <div class="col-md-10">
-                                            <select name="filter-by-prov" id="filter-by-sub-cat" class="form-control">
+                                            <select name="filter-by-prov" id="s_categories" class="form-control">
                                                 <option value="0">Filtrez par sous categorie</option>
                                                 {% for sub in sub_categories %}
                                                 <option value="{{sub.id}}">{{ sub.name }}</option>
