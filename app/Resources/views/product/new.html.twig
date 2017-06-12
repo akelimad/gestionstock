@@ -72,25 +72,25 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group {{ form_errors(form.sizeInch) ? 'has-error': '' }}">
+                                    <div class="col-md-6 form-group {{ form_errors(form.sizeInch) ? 'has-error': '' }}" id="sizeInchdiv">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(form.sizeInch, "Taille (inch)", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(form.sizeInch, {'attr': {'class': 'form-control'}}) }}
-                                                <span class="help-block">{{ form_errors(form.sizeInch) }}</span> 
+                                                <span class="help-block" id="sizeInchError">{{ form_errors(form.sizeInch) }}</span> 
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group {{ form_errors(form.sizeCm) ? 'has-error': '' }}">
+                                    <div class="col-md-6 form-group {{ form_errors(form.sizeCm) ? 'has-error': '' }}" id="sizeCmdiv">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 {{ form_label(form.sizeCm, "Taille (cm)", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(form.sizeCm, {'attr': {'class': 'form-control'}}) }}
-                                                <span class="help-block">{{ form_errors(form.sizeCm) }}</span> 
+                                                <span class="help-block" id="sizeCmError">{{ form_errors(form.sizeCm) }}</span> 
                                             </div>
                                         </div>
                                     </div>

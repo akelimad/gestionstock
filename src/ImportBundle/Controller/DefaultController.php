@@ -165,10 +165,7 @@ class DefaultController extends Controller
         }
 
 
-        return $this->render('product/index.html.twig', array(
-            'products' => $products,
-            'categories' => $categories,
-            'providers' => $providers,
+        return $this->render('dataExcel/import.html.twig', array(
             'form' => $form->createView()
         ));
     }

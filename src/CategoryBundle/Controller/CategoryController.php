@@ -61,15 +61,15 @@ class CategoryController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $catQuery = $em->createQuery("SELECT COUNT(c) FROM 
-                            CategoryBundle:Category c WHERE c.parent IS NULL");
-            $catCount = $catQuery->getSingleScalarResult();
-            if($catCount < 10){
-                $code='0'.$catCount;
-            }else{
-                $code=$catCount;
-            }
-            $category->setCode($code);
+            // $catQuery = $em->createQuery("SELECT COUNT(c) FROM 
+            //                 CategoryBundle:Category c WHERE c.parent IS NULL");
+            // $catCount = $catQuery->getSingleScalarResult();
+            // if($catCount < 10){
+            //     $code='0'.$catCount;
+            // }else{
+            //     $code=$catCount;
+            // }
+            // $category->setCode($code);
             $em->persist($category);
             $em->flush();
 
@@ -97,15 +97,15 @@ class CategoryController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $sub_catQuery = $em->createQuery("SELECT COUNT(c) FROM 
-                            CategoryBundle:Category c WHERE c.parent IS NOT NULL");
-            $sub_catCount = $sub_catQuery->getSingleScalarResult();
-            if($sub_catCount < 10){
-                $code='00'.$sub_catCount;
-            }elseif ($sub_catCount > 10 && $sub_catCount < 1000) {
-                $code='0'.$sub_catCount;
-            }
-            $category->setCode($code);
+            // $sub_catQuery = $em->createQuery("SELECT COUNT(c) FROM 
+            //                 CategoryBundle:Category c WHERE c.parent IS NOT NULL");
+            // $sub_catCount = $sub_catQuery->getSingleScalarResult();
+            // if($sub_catCount < 10){
+            //     $code='00'.$sub_catCount;
+            // }elseif ($sub_catCount > 10 && $sub_catCount < 1000) {
+            //     $code='0'.$sub_catCount;
+            // }
+            // $category->setCode($code);
             $em->persist($category);
             $em->flush();
 
@@ -149,24 +149,20 @@ class CategoryController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
-            $catcodeQuery = $em->createQuery("SELECT c.code FROM 
-                        CategoryBundle:Category c WHERE c.id = ".$category->getId());
-            $catCode = $catcodeQuery->getSingleScalarResult();
+            // $catcodeQuery = $em->createQuery("SELECT c.code FROM 
+            //             CategoryBundle:Category c WHERE c.id = ".$category->getId());
+            // $catCode = $catcodeQuery->getSingleScalarResult();
 
-            $catQuery = $em->createQuery("SELECT COUNT(c) FROM 
-                        CategoryBundle:Category c WHERE c.parent IS NULL");
-            $catCount = $catQuery->getSingleScalarResult();
-            if(empty($catCode)){
-                if($catCount < 10){
-                    $code='0'.$catCount;
-                }else{
-                    $code=$catCount;
-                }
-            }else{
-                $code=$catCode;
-            }
+            // $catfromcodebarQuery = $em->createQuery("SELECT p.codeBar from ProductBundle:Product p, CategoryBundle:Category c where c=p");
+            // $cat_code = $catfromcodebarQuery->getResult();
+            // var_dump($cat_code); die();
+            // if(empty($catCode)){
+            //     $code=substr($cat_code, 1, 2);
+            // }else{
+            //     $code=$catCode;
+            // }
 
-            $category->setCode($code);
+            // $category->setCode($code);
             $em->persist($category);
             $em->flush();
 
@@ -195,24 +191,20 @@ class CategoryController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
-            $sub_catcodeQuery = $em->createQuery("SELECT c.code FROM 
-                        CategoryBundle:Category c WHERE c.id = ".$category->getId());
-            $sub_catCode = $sub_catcodeQuery->getSingleScalarResult();
+            // $sub_catcodeQuery = $em->createQuery("SELECT c.code FROM 
+            //             CategoryBundle:Category c WHERE c.id = ".$category->getId());
+            // $sub_catCode = $sub_catcodeQuery->getSingleScalarResult();
 
-            $sub_catQuery = $em->createQuery("SELECT COUNT(c) FROM 
-                        CategoryBundle:Category c WHERE c.parent IS NOT NULL");
-            $sub_catCount = $sub_catQuery->getSingleScalarResult();
-            if(empty($sub_catCode)){
-                if($sub_catCount < 10){
-                    $code='00'.$sub_catCount;
-                }elseif ($sub_catCount > 10 && $sub_catCount < 1000) {
-                    $code='0'.$sub_catCount;
-                }
-            }else{
-                $code=$sub_catCode;
-            }
+            // $sub_catfromcodebarQuery = $em->createQuery("SELECT p.codeBar from ProductBundle:Product p, CategoryBundle:Category c where c=p and p.codeBar is not null");
+            // $sub_cat_code = $sub_catfromcodebarQuery->getSingleScalarResult();
+            // //var_dump($sub_cat_code);die();
+            // if(empty($sub_catCode) and !empty($sub_cat_code)){
+            //     $code=substr($sub_cat_code, 3, 3);
+            // }else{
+            //     $code=$sub_catCode;
+            // }
 
-            $category->setCode($code);
+            //$category->setCode($code);
             $em->persist($category);
             $em->flush();
 
