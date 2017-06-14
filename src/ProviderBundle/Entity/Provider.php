@@ -71,7 +71,6 @@ class Provider
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=true)
-     * @Assert\Email()
      */
     private $email;
 
@@ -428,5 +427,125 @@ class Provider
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set rateQuality
+     *
+     * @param integer $rateQuality
+     *
+     * @return Provider
+     */
+    public function setRateQuality($rateQuality)
+    {
+        $this->rateQuality = $rateQuality;
+
+        return $this;
+    }
+
+    /**
+     * Get rateQuality
+     *
+     * @return integer
+     */
+    public function getRateQuality()
+    {
+        return $this->rateQuality;
+    }
+
+    /**
+     * Set rateQualityPrice
+     *
+     * @param integer $rateQualityPrice
+     *
+     * @return Provider
+     */
+    public function setRateQualityPrice($rateQualityPrice)
+    {
+        $this->rateQualityPrice = $rateQualityPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get rateQualityPrice
+     *
+     * @return integer
+     */
+    public function getRateQualityPrice()
+    {
+        return $this->rateQualityPrice;
+    }
+
+    /**
+     * Set rateDelivery
+     *
+     * @param integer $rateDelivery
+     *
+     * @return Provider
+     */
+    public function setRateDelivery($rateDelivery)
+    {
+        $this->rateDelivery = $rateDelivery;
+
+        return $this;
+    }
+
+    /**
+     * Get rateDelivery
+     *
+     * @return integer
+     */
+    public function getRateDelivery()
+    {
+        return $this->rateDelivery;
+    }
+
+    /**
+     * Set rateCommunication
+     *
+     * @param integer $rateCommunication
+     *
+     * @return Provider
+     */
+    public function setRateCommunication($rateCommunication)
+    {
+        $this->rateCommunication = $rateCommunication;
+
+        return $this;
+    }
+
+    /**
+     * Get rateCommunication
+     *
+     * @return integer
+     */
+    public function getRateCommunication()
+    {
+        return $this->rateCommunication;
+    }
+
+    /**
+     * Set ratePartnership
+     *
+     * @param integer $ratePartnership
+     *
+     * @return Provider
+     */
+    public function setRatePartnership($ratePartnership)
+    {
+        $this->ratePartnership = $ratePartnership;
+
+        return $this;
+    }
+
+    /**
+     * Get ratePartnership
+     *
+     * @return integer
+     */
+    public function getRatePartnership()
+    {
+        return $this->ratePartnership;
     }
 }

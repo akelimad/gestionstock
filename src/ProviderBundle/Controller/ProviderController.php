@@ -47,6 +47,19 @@ class ProviderController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            $rateQuality=$request->request->get('star-q');
+            $rateQualityPrice=$request->request->get('star-rqp');
+            $rateDelivery=$request->request->get('star-dl');
+            $rateComm=$request->request->get('star-c');
+            $rateRelationship=$request->request->get('star-ep');
+            //var_dump($rateQuality.$rateQualityPrice.$rateDelivery.$rateComm.$rateRelationship);die();
+            $provider->setRateQuality($rateQuality);
+            $provider->setRateQualityPrice($rateQualityPrice);
+            $provider->setRateDelivery($rateDelivery);
+            $provider->setRateCommunication($rateComm);
+            $provider->setRatePartnership($rateRelationship);
+
             $em->persist($provider);
             $em->flush();
 
@@ -88,8 +101,22 @@ class ProviderController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $em = $this->getDoctrine()->getManager();
 
+            $rateQuality=$request->request->get('star-q');
+            $rateQualityPrice=$request->request->get('star-rqp');
+            $rateDelivery=$request->request->get('star-dl');
+            $rateComm=$request->request->get('star-c');
+            $rateRelationship=$request->request->get('star-ep');
+
+            $provider->setRateQuality($rateQuality);
+            $provider->setRateQualityPrice($rateQualityPrice);
+            $provider->setRateDelivery($rateDelivery);
+            $provider->setRateCommunication($rateComm);
+            $provider->setRatePartnership($rateRelationship);
+
+            $em->persist($provider);
+            $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('provider_index');
         }
 

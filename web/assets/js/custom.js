@@ -540,4 +540,32 @@ $(document).ready(function() {
         }
     })
 
+    //get selected start of prodvider by criteres
+    $(".stars.quality").each(function(index,elem){
+        var $this=$(".stars.quality").eq(index);
+        var value=$this.data('value');
+        $this.find('#star-'+value+'-q').attr('checked','checked');
+    });
+    $(".stars.qualityPrice").each(function(index,elem){
+        var $this=$(".stars.qualityPrice").eq(index);
+        var value=$this.data('value');
+        $this.find('#star-'+value+'-rqp').attr('checked','checked');
+    });
+    $(".stars.delivery").each(function(index,elem){
+        var $this=$(".stars.delivery").eq(index);
+        var value=$this.data('value');
+        $this.find('#star-'+value+'-dl').attr('checked','checked');
+    });
+    $(".stars.communication").each(function(index,elem){
+        var $this=$(".stars.communication").eq(index);
+        var value=$this.data('value');
+        $this.find('#star-'+value+'-c').attr('checked','checked');
+    });
+    $(".stars.partnership").each(function(index,elem){
+        var $this=$(".stars.partnership").eq(index);
+        var value=$this.data('value');
+        $this.find('#star-'+value+'-ep').attr('checked','checked');
+    });
+
+
 });
