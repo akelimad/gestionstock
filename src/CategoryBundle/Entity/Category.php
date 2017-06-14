@@ -35,7 +35,7 @@ class Category
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="string", unique= true, nullable=false)
+     * @ORM\Column(name="code", type="string", unique= true, nullable= true)
      * @Assert\Length(
      *      min = 2,
      *      max = 3,
