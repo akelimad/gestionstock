@@ -540,4 +540,21 @@ $(document).ready(function() {
         }
     })
 
+    //get selected start of prodvider by criteres
+    $(".quality input").click(function(){
+        //alert($(this).val());
+    });
+    $(".qualityPrice input").click(function(){
+        //alert($(this).val());
+    });
+    $(".delivery input").click(function(){
+        //alert($(this).val());
+    });
+    $(".communication input").click(function(){
+        //alert($(this).val());
+    });
+    $(".partnership input").click(function(){
+        //alert($(this).val());
+    });
+
 });
