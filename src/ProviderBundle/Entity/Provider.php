@@ -75,7 +75,40 @@ class Provider
      */
     private $email;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rateQuality", type="integer", nullable=true)
+     */
+    private $rateQuality;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rateQualityPrice", type="integer", nullable=true)
+     */
+    private $rateQualityPrice;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rateDelivery", type="integer", nullable=true)
+     */
+    private $rateDelivery;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rateCommunication", type="integer", nullable=true)
+     */
+    private $rateCommunication;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ratePartnership", type="integer", nullable=true)
+     */
+    private $ratePartnership;
 
     /**
      * @var bool
