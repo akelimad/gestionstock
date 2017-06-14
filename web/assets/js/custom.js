@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	'use strict';
 
-    
+    $('[data-toggle="tooltip"]').tooltip(); 
 
     //init product images switcher
     $(".sidebar-wrapper .nav li").click(function(){
@@ -16,6 +16,7 @@ $(document).ready(function() {
     });
 
     $('#datatables').DataTable({
+        "order": [],
         "pagingType": "full_numbers",
         "lengthMenu": [
             [25, 50, 100, -1],

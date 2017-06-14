@@ -53,14 +53,16 @@ class RegistrationController extends Controller
             $username=$form->get('username')->getData();
             $password=$form->get('plainPassword')->getData();
 
-            $subject = "Registration";
+            $subject = "Confirmation d'email";
              
-            $message = "<b>You did it! You registered! </b> <br>";
-            $message .= "Hi ".$nom."! You're successfully registered. <br>";
-            $message .= "To login, go to: <a href='http://gestion.hubdw.com/login'>login</a>.Thanks!";
-            $message .= "login with your username : ".$username." and password : ".$password;
+            $message = "<div class='emailMessage'><p>Bonjour ".$nom.", </p>";
+            $message .= "Votre compte a bien été crée pour accéder à l'application .Entrez votre login et mot de passe .";
+            $message .= "<p>Login : ".$username." </p>";
+            $message .= "<p>Mot de passe : ".$password." </p>";
+
+            $message .= "<p> Veuillez  <a href='http://gestion.hubdw.com/login'>Cliquer ici</a> pour accéder à l'application</p> </div>";
              
-            $header = "From:contact@digitalwork.com \r\n";
+            $header = "From:youness.jabri@dgitalworks.com \r\n";
             $header .= "MIME-Version: 1.0\r\n";
             $header .= "Content-type: text/html\r\n";
              

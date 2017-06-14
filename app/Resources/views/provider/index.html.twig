@@ -22,7 +22,11 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Nom</th>
+                                        <th>Societé</th>
+                                        <th>Activité</th>
                                         <th>Adresse</th>
+                                        <th>Tel</th>
+                                        <th>E-mail</th>
                                         <th>Statut</th>
                                         <th class="disabled-sorting text-right">Actions</th>
                                     </tr>
@@ -32,7 +36,11 @@
                                     <tr>
                                         <td>{{p.id}}</td>
                                         <td>{{p.name}}</td>
-                                        <td>{{p.address ? p.address : '---'}}</td>
+                                        <td>{{p.society ? p.society : '---'}}</td>
+                                        <td>{{p.activity ? p.activity : '---' }}</td>
+                                        <td>{{p.address ? p.address : '---' }}</td>
+                                        <td>{{p.tel ? p.tel : '---'}}</td>
+                                        <td>{{p.email ? p.email : '---'}}</td>
                                         <td>{{p.active == 1 ? 'Active' : 'Not active'}}</td>
                                         <td class="text-right">
                                             <a href="{{ path('provider_edit', { 'id': p.id }) }}" title="Modifier" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
@@ -47,7 +55,11 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Nom</th>
+                                        <th>Societé</th>
+                                        <th>Activité</th>
                                         <th>Adresse</th>
+                                        <th>Tel</th>
+                                        <th>E-mail</th>
                                         <th>Statut</th>
                                         <th class="text-right">Actions</th>
                                     </tr>

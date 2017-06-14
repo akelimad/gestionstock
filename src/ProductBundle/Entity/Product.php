@@ -123,11 +123,11 @@ class Product
     private $collection;
 
     /**
-     * @var bool
+     * @var string
      *
-     * @ORM\Column(name="active", type="boolean", nullable=true, options={"default" : true})
+     * @ORM\Column(name="status", type="string", nullable=true)
      */
-    private $active;
+    private $status;
 
     /**
      * Many prod can have Many cat.
@@ -472,35 +472,6 @@ class Product
     {
         return $this->internetPrice;
     }
-
-    
-
-    /**
-     * Set active
-     *
-     * @param boolean $active
-     *
-     * @return Product
-     */
-    public function setActive($active)
-    {
-        $this->active = $active;
-
-        return $this;
-    }
-
-    /**
-     * Get active
-     *
-     * @return boolean
-     */
-    public function getActive()
-    {
-        return $this->active;
-    }
-
-
-
 
 
     /**
@@ -853,4 +824,52 @@ class Product
     }
 
 
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     *
+     * @return Product
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Add image
+     *
+     * @param \ProductBundle\Entity\ImageProduct $image
+     *
+     * @return Product
+     */
+    public function addImage(\ProductBundle\Entity\ImageProduct $image)
+    {
+        $this->images[] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param \ProductBundle\Entity\ImageProduct $image
+     */
+    public function removeImage(\ProductBundle\Entity\ImageProduct $image)
+    {
+        $this->images->removeElement($image);
+    }
 }

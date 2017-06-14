@@ -26,6 +26,13 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
         ")->getResult();
     }
 
+    public function getPricesLog($id)
+    {
+        return $this->getEntityManager()->createQuery("
+            SELECT DISTINCT  p.unitPrice,  p.wholesalePrice, p.specialPrice, p.internetPrice from ProductBundle:ProductLog p where p.product = ".$id. "  AND p.unitPrice IS NOT NULL OR p.wholesalePrice IS NOT NULL OR p.specialPrice IS NOT NULL OR p.internetPrice IS NOT NULL
+        ")->getResult();
+    }
+
     
 	
 }

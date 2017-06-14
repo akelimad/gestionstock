@@ -232,12 +232,12 @@ class CategoryController extends Controller
         // $form->handleRequest($request);
 
         // if ($form->isSubmitted() && $form->isValid()) {
-        //     $em = $this->getDoctrine()->getManager();
-        //     $em->remove($category);
-        //     $em->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($category);
+            $em->flush();
         // }
-        $category->setDeletedAt(new \DateTime());
-        $this->getDoctrine()->getManager()->flush();
+        // $category->setDeletedAt(new \DateTime());
+        // $this->getDoctrine()->getManager()->flush();
 
         return $this->redirectToRoute('category_index');
     }

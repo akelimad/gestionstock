@@ -30,6 +30,7 @@ class ProductLog
      * @ORM\Column(name="deleted_at", type="datetime" , nullable=true)
      */
     private $deleted_at; 
+
     /**
      * @var string
      *
@@ -46,6 +47,36 @@ class ProductLog
      * @ORM\JoinColumn(name="product_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $product;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="unitPrice", type="string", length=255,nullable=true)
+     */
+    private $unitPrice;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="wholesalePrice", type="string", length=255,nullable=true)
+     */
+    private $wholesalePrice;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="specialPrice", type="string", length=255,nullable=true)
+     */
+    private $specialPrice;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="internetPrice", type="string", length=255,nullable=true)
+     */
+    private $internetPrice;
+
+
     public function __construct()
     {
         $this->updated_at = new \DateTime(); 
@@ -186,5 +217,101 @@ class ProductLog
     public function getDeletedAt()
     {
         return $this->deleted_at;
+    }
+
+    /**
+     * Set unitPrice
+     *
+     * @param string $unitPrice
+     *
+     * @return ProductLog
+     */
+    public function setUnitPrice($unitPrice)
+    {
+        $this->unitPrice = $unitPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get unitPrice
+     *
+     * @return string
+     */
+    public function getUnitPrice()
+    {
+        return $this->unitPrice;
+    }
+
+    /**
+     * Set wholesalePrice
+     *
+     * @param string $wholesalePrice
+     *
+     * @return ProductLog
+     */
+    public function setWholesalePrice($wholesalePrice)
+    {
+        $this->wholesalePrice = $wholesalePrice;
+
+        return $this;
+    }
+
+    /**
+     * Get wholesalePrice
+     *
+     * @return string
+     */
+    public function getWholesalePrice()
+    {
+        return $this->wholesalePrice;
+    }
+
+    /**
+     * Set specialPrice
+     *
+     * @param string $specialPrice
+     *
+     * @return ProductLog
+     */
+    public function setSpecialPrice($specialPrice)
+    {
+        $this->specialPrice = $specialPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get specialPrice
+     *
+     * @return string
+     */
+    public function getSpecialPrice()
+    {
+        return $this->specialPrice;
+    }
+
+    /**
+     * Set internetPrice
+     *
+     * @param string $internetPrice
+     *
+     * @return ProductLog
+     */
+    public function setInternetPrice($internetPrice)
+    {
+        $this->internetPrice = $internetPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get internetPrice
+     *
+     * @return string
+     */
+    public function getInternetPrice()
+    {
+        return $this->internetPrice;
     }
 }

@@ -3,6 +3,7 @@
 namespace ProviderBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Provider
@@ -31,9 +32,48 @@ class Provider
     /**
      * @var string
      *
+     * @ORM\Column(name="lastName", type="string", length=255, nullable=true)
+     */
+    private $lastName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="society", type="string", length=255, nullable=true)
+     */
+    private $society;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="activity", type="string", length=255, nullable=true)
+     */
+    private $activity;
+
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="address", type="string", length=255, nullable=true)
      */
     private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tel", type="string", length=255, nullable=true)
+     * @Assert\Length(min="10", minMessage="minimum 10 chiffres")
+     * @Assert\Regex(pattern="/^[0-9]{10}$/", message="juste les numero svp") 
+     */
+    private $tel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     * @Assert\Email()
+     */
+    private $email;
 
 
 
@@ -235,5 +275,125 @@ class Provider
     public function getDeletedAt()
     {
         return $this->deleted_at;
+    }
+
+    /**
+     * Set lastName
+     *
+     * @param string $lastName
+     *
+     * @return Provider
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * Get lastName
+     *
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * Set society
+     *
+     * @param string $society
+     *
+     * @return Provider
+     */
+    public function setSociety($society)
+    {
+        $this->society = $society;
+
+        return $this;
+    }
+
+    /**
+     * Get society
+     *
+     * @return string
+     */
+    public function getSociety()
+    {
+        return $this->society;
+    }
+
+    /**
+     * Set activity
+     *
+     * @param string $activity
+     *
+     * @return Provider
+     */
+    public function setActivity($activity)
+    {
+        $this->activity = $activity;
+
+        return $this;
+    }
+
+    /**
+     * Get activity
+     *
+     * @return string
+     */
+    public function getActivity()
+    {
+        return $this->activity;
+    }
+
+    /**
+     * Set tel
+     *
+     * @param string $tel
+     *
+     * @return Provider
+     */
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
+
+        return $this;
+    }
+
+    /**
+     * Get tel
+     *
+     * @return string
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Provider
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 }

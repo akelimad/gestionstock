@@ -4,46 +4,222 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-10 col-md-offset-1">
                     <div class="card">
                         {{ form_start(form) }}
                             <div class="content">
                                 <h4 class="title text-center">Ajouter un fournisseur</h4>
-                                <div class="form-group {{ form_errors(form.name) ? 'has-error': '' }}">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            {{ form_label(form.name, "Nom", {'label_attr': {'class': 'control-label'}}) }}
+                                <div class="row">
+                                    <div class="form-group col-md-6 {{ form_errors(form.name) ? 'has-error': '' }}">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                {{ form_label(form.name, "Nom", {'label_attr': {'class': 'control-label'}}) }}
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(form.name) }}</span> 
+                                            </div>
                                         </div>
-                                        <div class="col-md-8">
-                                            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
-                                            <span class="help-block">{{ form_errors(form.name) }}</span> 
+                                    </div>
+                                    <div class="form-group col-md-6 {{ form_errors(form.lastName) ? 'has-error': '' }}">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                {{ form_label(form.lastName, "Prénom", {'label_attr': {'class': 'control-label'}}) }}
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(form.lastName, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(form.lastName) }}</span> 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group {{ form_errors(form.address) ? 'has-error': '' }}">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            {{ form_label(form.address, "Adresse", {'label_attr': {'class': 'control-label'}}) }}
+                                <div class="row">
+                                    <div class="form-group col-md-6 {{ form_errors(form.society) ? 'has-error': '' }}">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                {{ form_label(form.society, "Société", {'label_attr': {'class': 'control-label'}}) }}
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(form.society, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(form.society) }}</span> 
+                                            </div>
                                         </div>
-                                        <div class="col-md-8">
-                                            {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
-                                            <span class="help-block">{{ form_errors(form.address) }}</span> 
+                                    </div>
+                                    <div class="form-group col-md-6 {{ form_errors(form.activity) ? 'has-error': '' }}">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                {{ form_label(form.activity, "Activité", {'label_attr': {'class': 'control-label'}}) }}
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(form.activity, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(form.activity) }}</span> 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group {{ form_errors(form.active) ? 'has-error': '' }}">
-                                    <div class="row">
+                                <div class="row">
+                                    <div class="form-group col-md-6 {{ form_errors(form.address) ? 'has-error': '' }}">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                {{ form_label(form.address, "Addresse", {'label_attr': {'class': 'control-label'}}) }}
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(form.address) }}</span> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6 {{ form_errors(form.tel) ? 'has-error': '' }}">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                {{ form_label(form.tel, "Télephone", {'label_attr': {'class': 'control-label'}}) }}
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(form.tel, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(form.tel) }}</span> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6 {{ form_errors(form.email) ? 'has-error': '' }}">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                {{ form_label(form.email, "E-mail", {'label_attr': {'class': 'control-label'}}) }}
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(form.email) }}</span> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="form-group col-md-6 {{ form_errors(form.active) ? 'has-error': '' }}">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                {{ form_label(form.active, "Active", {'label_attr': {'class': 'control-label'}}) }}
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label class="checkbox">
+                                                    <span class="icons">
+                                                    <span class="first-icon fa fa-square"></span>
+                                                    <span class="second-icon fa fa-check-square "></span>
+                                                    {{ form_widget(form.active, {'attr': {'class': ''}}) }}
+                                                </label>
+                                                <span class="help-block">{{ form_errors(form.active) }} </span> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row qualification">
+                                    <h6>Qualification fournisseur</h6>
+                                    <div class="col-md-6">
                                         <div class="col-md-4">
-                                            {{ form_label(form.active, "Active", {'label_attr': {'class': 'control-label'}}) }}
+                                            <label class="control-label">Qualité</label>
                                         </div>
                                         <div class="col-md-8">
-                                            <label class="checkbox">
-                                                <span class="icons">
-                                                <span class="first-icon fa fa-square"></span>
-                                                <span class="second-icon fa fa-check-square "></span>
-                                                {{ form_widget(form.active, {'attr': {'class': ''}}) }}
-                                            </label>
-                                            <span class="help-block">{{ form_errors(form.active) }}</span> 
+                                            <div class="stars">
+                                                <form action="">
+                                                    <input class="star star-5-q" id="star-5-q" type="radio" name="star" />
+                                                    <label class="star star-5-q" for="star-5-q" title=" Qualité 5/5"></label>
+                                                    <input class="star star-4-q" id="star-4-q" type="radio" name="star"/>
+                                                    <label class="star star-4-q" for="star-4-q" title=" Qualité 4/5"></label>
+                                                    <input class="star star-3-q" id="star-3-q" type="radio" name="star"/>
+                                                    <label class="star star-3-q" for="star-3-q" title=" Qualité 3/5"></label>
+                                                    <input class="star star-2-q" id="star-2-q" type="radio" name="star"/>
+                                                    <label class="star star-2-q" for="star-2-q" title=" Qualité 2/5"></label>
+                                                    <input class="star star-1-q" id="star-1-q" type="radio" name="star"/>
+                                                    <label class="star star-1-q" for="star-1-q" title=" Qualité 1/5"></label>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-4">
+                                            <label class="control-label">Rapport Qualité prix</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="stars">
+                                                <form action="">
+                                                    <input class="star star-5-rqp" id="star-5-rqp" type="radio" name="star"/>
+                                                    <label class="star star-5-rqp" for="star-5-rqp"></label>
+                                                    <input class="star star-4-rqp" id="star-4-rqp" type="radio" name="star"/>
+                                                    <label class="star star-4-rqp" for="star-4-rqp"></label>
+                                                    <input class="star star-3-rqp" id="star-3-rqp" type="radio" name="star"/>
+                                                    <label class="star star-3-rqp" for="star-3-rqp"></label>
+                                                    <input class="star star-2-rqp" id="star-2-rqp" type="radio" name="star"/>
+                                                    <label class="star star-2-rqp" for="star-2-rqp"></label>
+                                                    <input class="star star-1-rqp" id="star-1-rqp" type="radio" name="star"/>
+                                                    <label class="star star-1-rqp" for="star-1-rqp"></label>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="col-md-4">
+                                            <label class="control-label">Délais de livraison</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="stars">
+                                                <form action="">
+                                                    <input class="star star-5-dl" id="star-5-dl" type="radio" name="star"/>
+                                                    <label class="star star-5-dl" for="star-5-dl"></label>
+                                                    <input class="star star-4-dl" id="star-4-dl" type="radio" name="star"/>
+                                                    <label class="star star-4-dl" for="star-4-dl"></label>
+                                                    <input class="star star-3-dl" id="star-3-dl" type="radio" name="star"/>
+                                                    <label class="star star-3-dl" for="star-3-dl"></label>
+                                                    <input class="star star-2-dl" id="star-2-dl" type="radio" name="star"/>
+                                                    <label class="star star-2-dl" for="star-2-dl"></label>
+                                                    <input class="star star-1-dl" id="star-1-dl" type="radio" name="star"/>
+                                                    <label class="star star-1-dl" for="star-1-dl"></label>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-4">
+                                            <label class="control-label">Communication</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="stars">
+                                                <form action="">
+                                                    <input class="star star-5-c" id="star-5-c" type="radio" name="star"/>
+                                                    <label class="star star-5-c" for="star-5-c"></label>
+                                                    <input class="star star-4-c" id="star-4-c" type="radio" name="star"/>
+                                                    <label class="star star-4-c" for="star-4-c"></label>
+                                                    <input class="star star-3-c" id="star-3-c" type="radio" name="star"/>
+                                                    <label class="star star-3-c" for="star-3-c"></label>
+                                                    <input class="star star-2-c" id="star-2-c" type="radio" name="star"/>
+                                                    <label class="star star-2-c" for="star-2-c"></label>
+                                                    <input class="star star-1-c" id="star-1-c" type="radio" name="star"/>
+                                                    <label class="star star-1-c" for="star-1-c"></label>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="col-md-4">
+                                            <label class="control-label">Esprit de partenariat </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="stars">
+                                                <form action="">
+                                                    <input class="star star-5-ep" id="star-5-ep" type="radio" name="star"/>
+                                                    <label class="star star-5-ep" for="star-5-ep"></label>
+                                                    <input class="star star-4-ep" id="star-4-ep" type="radio" name="star"/>
+                                                    <label class="star star-4-ep" for="star-4-ep"></label>
+                                                    <input class="star star-3-ep" id="star-3-ep" type="radio" name="star"/>
+                                                    <label class="star star-3-ep" for="star-3-ep"></label>
+                                                    <input class="star star-2-ep" id="star-2-ep" type="radio" name="star"/>
+                                                    <label class="star star-2-ep" for="star-2-ep"></label>
+                                                    <input class="star star-1-ep" id="star-1-ep" type="radio" name="star"/>
+                                                    <label class="star star-1-ep" for="star-1-ep"></label>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
