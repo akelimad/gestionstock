@@ -10,7 +10,12 @@
                             <div class="col-md-12">
                                 <a href="#" OnClick="javascript:window.print()" class="pull-right" title="Imprimer"><i class="fa fa-print fa-2x"></i></a>
                                 <div class="product-title">
-                                    <h4>{{product.name}}</h4>
+                                    <h4>{{product.name}}
+                                        <a href="{{ path('product_edit', { 'id': product.id }) }}" data-toggle="tooltip" data-placement="bottom" title="Editer">
+                                            <i class="glyphicon glyphicon-pencil"></i>
+                                        </a>
+                                    </h4> 
+                                    
                                     <p>ID Produit : {{product.codeBar}} </p>
                                 </div>
                             </div>
@@ -76,27 +81,43 @@
                                     <div class="col-md-6">
                                         <div class="item">
                                             <span> Prix unitaire : </span>
-                                            {{ product.unitPrice ? product.unitPrice : '---' }} 
+                                            <select name="" id="">
+                                                {% for price in priceslog %}
+                                                    <option {% if product.unitPrice == price.unitPrice %} selected {% endif %}>{{ price.unitPrice }}</option>
+                                                {% endfor %}
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="item">
-                                            <span> Prix grossiste : </span>
-                                            {{ product.wholesalePrice ? product.wholesalePrice : '---' }} 
+                                            <span> Prix grossiste : </span> 
+                                            <select name="" id="">
+                                                {% for price in priceslog %}
+                                                    <option {% if product.wholesalePrice == price.wholesalePrice %} selected {% endif %}>{{ price.wholesalePrice }}</option>
+                                                {% endfor %}
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="item">
-                                            <span> Prix spécial : </span>
-                                            {{ product.specialPrice ? product.specialPrice : '---' }} 
+                                            <span> Prix MP : </span>
+                                            <select name="" id="">
+                                                {% for price in priceslog %}
+                                                    <option {% if product.specialPrice == price.specialPrice %} selected {% endif %}>{{ price.specialPrice }}</option>
+                                                {% endfor %}
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="item">
-                                            <span> Prix internet : </span>
-                                            {{ product.internetPrice ? product.internetPrice : '---' }} 
+                                            <span>  Prix internet : </span>
+                                            <select name="" id="">
+                                                {% for price in priceslog %}
+                                                    <option {% if product.internetPrice == price.internetPrice %} selected {% endif %}>{{ price.internetPrice }}</option>
+                                                {% endfor %}
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -149,10 +170,10 @@
                                     <div class="col-md-6">
                                         <div class="item">
                                             <span> Statut : </span>
-                                            {% if product.active == 1 %}
-                                                <i class="fa fa-check"></i>
-                                            {% else %}
+                                            {% if product.status == "desactivé" %}
                                                 <i class="fa fa-ban"></i>
+                                            {% else %}
+                                                {{ product.status }}
                                             {% endif %}
                                         </div>
                                     </div>

@@ -4,9 +4,10 @@
             <th>ID Produit</th>
             <th style="width: 49px">Photo</th>
             <th style="width: 98px">Article</th>
-            <th style="width: 109px">Prix internet</th>
-            <th>Categorie</th>
+            <th style="width: 109px">Fournisseur</th>
+            <th style="width: 107px">Categorie</th>
             <th style="width: 107px">Sous categorie</th>
+            <th style="width: 107px">Collection</th>
             <th style="width: 58px">Statut</th>
             <th class="disabled-sorting text-right">Actions</th>
         </tr>
@@ -27,7 +28,13 @@
                 </a>
             </td>
             <td><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.name}}</a></td>
-            <td><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.internetPrice ? p.internetPrice : "---"}} </a></td>
+            <td>
+                <a href="{{ path('product_show', { 'id': p.id }) }}"> 
+                    {% for pack in p.packages| slice(0,1) %}
+                    {{ pack.name != null ? pack.name : '---' }}
+                {% endfor %}
+                </a>
+            </td>
             <td>
                 <a href="{{ path('product_show', { 'id': p.id }) }}">
                 {% for cat in p.categories| slice(0,1) %}
@@ -42,13 +49,14 @@
                 {% endfor %}
                 </a>
             </td>
-            <td>{{p.active == 1 ? 'Active' : 'Desactivé' }}</td>
+            <td>{{p.collection ? p.collection : '---' }}</td>
+            <td>{{p.status ? p.status : '---' }}</td>
             <td class="text-right">
                 <a href="{{ path('product_show', { 'id': p.id }) }}" class="btn btn-simple btn-default btn-icon btn-fill edit showProduct" title="Afficher"><i class="ti-eye"></i></a>
 
                 <a href="{{ path('product_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit" title="Modifier"><i class="ti-pencil-alt"></i></a>
 
-                <button data-id="{{ p.id }}" title="{{ p.active == 0 ? 'Supprimer' : 'Vueillez désactiver ce produit pour pouvoir le supprimer' }}" class="btn btn-simple btn-danger btn-icon btn-fill desactivate-product {{p.active == 1 ? 'prevent-remove' : ''}}" {{p.active == 1 ? 'disabled' : ''}}><i class="ti-close"></i></button>
+                <button data-id="{{ p.id }}" title="{{ p.status == 'des' ? 'Supprimer' : 'Vueillez désactiver ce produit pour pouvoir le supprimer' }}" class="btn btn-simple btn-danger btn-icon btn-fill desactivate-product {{p.status != 'des' ? 'prevent-remove' : ''}}" {{p.status != 'des' ? 'disabled' : ''}}><i class="ti-close"></i></button>
 
                 <span id="csrf_token" data-token="{{ csrf_token('form') }}"></span>
             </td>

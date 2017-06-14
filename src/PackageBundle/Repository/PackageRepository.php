@@ -14,7 +14,7 @@ class PackageRepository extends \Doctrine\ORM\EntityRepository
     {
         return $this->getEntityManager()->createQuery("
         	SELECT p FROM PackageBundle:Package p 
-            WHERE p.deleted_at IS NULL  ORDER BY p.name ASC
+            WHERE p.deleted_at IS NULL  ORDER BY p.id DESC
         ")->getResult();
     }
 }

@@ -79,7 +79,8 @@ class ProductController extends Controller
               $query=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
               WHERE c.id = '.$cat_id);
               $catCode = $query->getSingleScalarResult();
-              $getcatcode = $catCode[0]['code'];
+              //var_dump($catCode); die();
+              $getcatcode = $catCode;
             }
 
             if(!empty($sub_cat_id)){
@@ -87,7 +88,7 @@ class ProductController extends Controller
                 WHERE c.id = '.$sub_cat_id);
               $subcatCode = $query1->getSingleScalarResult();
               if(!empty($subcatCode)){
-                $getsubcatCode = $subcatCode[0]['code'];
+                $getsubcatCode = $subcatCode;
               }else{
                 $getsubcatCode = "000";
               }
@@ -139,17 +140,15 @@ class ProductController extends Controller
             $product->setCodeBar($productCodeBar);
             $product->setImages($images);
             $product->setCategories($Category);
+
             $productlog->setProduct($product);
             $productlog->setUser($this->getUser());
             $productlog->setAction("Add");
-            // $catsProd=array();
-            // $cats= array();
-            // $cats[]=$request->request->get('cat_product');
-            // foreach ($cats as $cat) {
-            //     $catsProd[]=$cat;
-            // }
-            // $product->setCategories($catsProd);
-            //$product->setCategories($catsProd);
+            $productlog->setUnitPrice($product->getUnitPrice());
+            $productlog->setWholesalePrice($product->getWholesalePrice());
+            $productlog->setSpecialPrice($product->getSpecialPrice());
+            $productlog->setInternetPrice($product->getInternetPrice());
+
             $em->persist($product);
             $em->persist($productlog);
             $em->flush();
@@ -169,10 +168,14 @@ class ProductController extends Controller
      */
     public function showAction(Product $product)
     {
-        return $this->render('product/show.html.twig', array(
-            'id'      => $product->getId(),
-            'product' => $product,
-        ));
+      $em = $this->getDoctrine()->getEntityManager();
+      $priceslog = $em->getRepository('ProductBundle:Product')->getPricesLog($product->getId());
+      //echo '<pre>' ; print_r($priceslog); echo '</pre>' ; die();
+      return $this->render('product/show.html.twig', array(
+          'id'      => $product->getId(),
+          'product' => $product,
+          'priceslog' => $priceslog,
+      ));
     }
 
     /**
@@ -208,16 +211,16 @@ class ProductController extends Controller
             if(!empty($cat_id)){
               $query=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
               WHERE c.id = '.$cat_id);
-              $catCode = $query->getResult();
-              $getcatcode = $catCode[0]['code'];
+              $catCode = $query->getSingleScalarResult();
+              $getcatcode = $catCode;
             }
 
             if(!empty($sub_cat_id)){
               $query1=$em->createQuery('SELECT c.code FROM CategoryBundle:Category c 
                 WHERE c.id = '.$sub_cat_id);
-              $subcatCode = $query1->getResult();
+              $subcatCode = $query1->getSingleScalarResult();
               if($subcatCode != null){
-                $getsubcatCode = $subcatCode[0]['code'];
+                $getsubcatCode = $subcatCode;
               }else{
                 $getsubcatCode = "000";
               }
@@ -275,9 +278,15 @@ class ProductController extends Controller
             $product->setCodeBar($productCodeBar);
             $product->setImages($images);
             $product->setCategories($Category);
+
             $productlog->setProduct($product);
             $productlog->setUser($this->getUser());
             $productlog->setAction("Edit");
+            $productlog->setUnitPrice($product->getUnitPrice());
+            $productlog->setWholesalePrice($product->getWholesalePrice());
+            $productlog->setSpecialPrice($product->getSpecialPrice());
+            $productlog->setInternetPrice($product->getInternetPrice());
+
             $em->persist($productlog);
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('product_index');

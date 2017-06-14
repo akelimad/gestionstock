@@ -196,7 +196,7 @@
                                     <div class="col-md-6 form-group {{ form_errors(form.specialPrice) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(form.specialPrice, "Prix spécial", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(form.specialPrice, "Prix MP", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(form.specialPrice, {'attr': {'class': 'form-control'}}) }}
@@ -207,7 +207,7 @@
                                     <div class="col-md-6 form-group {{ form_errors(form.internetPrice) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(form.internetPrice, "Prix internet", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(form.internetPrice, " Prix internet", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(form.internetPrice, {'attr': {'class': 'form-control'}}) }}
@@ -242,19 +242,14 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group {{ form_errors(form.active) ? 'has-error': '' }}">
+                                    <div class="col-md-6 form-group {{ form_errors(form.status) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(form.active, "Active", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(form.status, "Statut", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
-                                                <label class="checkbox">
-                                                    <span class="icons">
-                                                    <span class="first-icon fa fa-square"></span>
-                                                    <span class="second-icon fa fa-check-square "></span>
-                                                    {{ form_widget(form.active, {'attr': {'class': ''}}) }}
-                                                </label>
-                                                <span class="help-block">{{ form_errors(form.active) }}</span> 
+                                                {{ form_widget(form.status, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(form.status) }}</span> 
                                             </div>
                                         </div>
                                     </div>

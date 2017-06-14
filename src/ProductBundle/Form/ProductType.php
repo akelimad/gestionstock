@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
+
 class ProductType extends AbstractType
 {
     /**
@@ -60,7 +61,15 @@ class ProductType extends AbstractType
         ->add('specialPrice')
         ->add('internetPrice')
         ->add('collection')
-        ->add('active')
+        ->add('status', ChoiceType::class, array(
+            'choices' => array(
+                'Inventaire' => 'Inventaire',
+                'Produit dev' => 'Produit en développement',
+                'Disponible à la vente'   => 'Disponible à la vente',
+                'Fin de cycle' => 'Fin de cycle',
+                'Desactivé' => 'Desactivé'
+            )
+        ))
         ->add('images', FileType::class, array(
            'multiple' => true,
            'data_class' => null,

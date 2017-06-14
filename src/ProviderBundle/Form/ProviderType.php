@@ -5,6 +5,8 @@ namespace ProviderBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+
 
 class ProviderType extends AbstractType
 {
@@ -15,10 +17,12 @@ class ProviderType extends AbstractType
     {
         $builder
         ->add('name')
+        ->add('lastName')
+        ->add('society')
+        ->add('activity')
         ->add('address')
-        // ->add('price')
-        // ->add('moq')
-        // ->add('productionCapacity')
+        ->add('tel')
+        ->add('email', EmailType::class)
         ->add('active');
     }
     

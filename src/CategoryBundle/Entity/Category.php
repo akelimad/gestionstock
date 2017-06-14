@@ -3,13 +3,16 @@
 namespace CategoryBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Category
  *
  * @ORM\Table(name="category")
  * @ORM\Entity(repositoryClass="CategoryBundle\Repository\CategoryRepository")
+ * @UniqueEntity(fields={"name"}, message="Cette categorie existe déjà !")
+ * @UniqueEntity(fields={"code"}, message="Ce code est déjà réservé !")
  */
 class Category
 {
@@ -32,8 +35,16 @@ class Category
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="string", unique= true, nullable=true)
+     * @ORM\Column(name="code", type="string", unique= true)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 3,
+     *      minMessage = "le code de la categorie doit edtre au min {{ limit }} chiffres",
+     *      maxMessage = "le code de la categorie doit edtre au max {{ limit }} chiffres"
+     * )
+     @Assert\Type(type="integer")
      */
+
     private $code;
 
     /**
