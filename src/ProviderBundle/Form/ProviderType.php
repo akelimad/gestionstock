@@ -22,7 +22,7 @@ class ProviderType extends AbstractType
         ->add('activity')
         ->add('address')
         ->add('tel')
-        ->add('email', EmailType::class)
+        ->add('email', EmailType::class, array('required' => false))
         ->add('active');
     }
     

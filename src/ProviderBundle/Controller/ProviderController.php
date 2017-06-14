@@ -53,7 +53,7 @@ class ProviderController extends Controller
             $rateDelivery=$request->request->get('star-dl');
             $rateComm=$request->request->get('star-c');
             $rateRelationship=$request->request->get('star-ep');
-
+            //var_dump($rateQuality.$rateQualityPrice.$rateDelivery.$rateComm.$rateRelationship);die();
             $provider->setRateQuality($rateQuality);
             $provider->setRateQualityPrice($rateQualityPrice);
             $provider->setRateDelivery($rateDelivery);

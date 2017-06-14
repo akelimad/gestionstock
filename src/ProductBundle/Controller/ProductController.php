@@ -461,12 +461,6 @@ class ProductController extends Controller
      */
     public function ajaxSubCategoriesAction(Request $request)
     {
-        
-        // $em = $this->getDoctrine()->getManager();
-        // $s_categories = $em->getRepository('CategoryBundle:Category')->getAllSubCat($id);
-
-        // var_dump($s_categories);die();
-        //return new JsonResponse(array('data' => $s_categories));
           $id = $request->get('id');
           $em = $this->getDoctrine()->getManager();
           $entities = $em->getRepository('CategoryBundle:Category')->findBy(array('parent' => $id));
