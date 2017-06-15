@@ -1,22 +1,22 @@
 <table id="datatables" class="table table-striped table-no-bordered table-hover" style="width:100%;cellspacing:0">
     <thead>
         <tr>
-            <th>ID Produit</th>
-            <th style="width: 49px">Photo</th>
-            <th style="width: 98px">Article</th>
-            <th style="width: 109px">Fournisseur</th>
-            <th style="width: 107px">Categorie</th>
-            <th style="width: 107px">Sous categorie</th>
-            <th style="width: 107px">Collection</th>
-            <th style="width: 58px">Statut</th>
+            <th class="id">ID Produit</th>
+            <th class="photo" style="width: 49px">Photo</th>
+            <th class="article" style="width: 98px">Article</th>
+            <th class="provider" style="width: 109px">Fournisseur</th>
+            <th class="category" style="width: 107px">Categorie</th>
+            <th class="sub_category" style="width: 107px">Sous categorie</th>
+            <th class="collection" style="width: 107px">Collection</th>
+            <th class="status" style="width: 58px">Statut</th>
             <th class="disabled-sorting text-right">Actions</th>
         </tr>
     </thead>
     <tbody id ="product-results"> 
         {% for p in products %}
         <tr>
-            <td><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.codeBar}}</a></td>
-            <td>
+            <td class="id"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.codeBar}}</a></td>
+            <td class="photo">
                 <a href="{{ path('product_show', { 'id': p.id }) }}">
                 {% if p.images is not empty %}
                     {% for image in p.images|slice(0, 1) %}
@@ -27,30 +27,30 @@
                 {% endif %}
                 </a>
             </td>
-            <td><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.name}}</a></td>
-            <td>
+            <td class="article"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.name}}</a></td>
+            <td class="provider">
                 <a href="{{ path('product_show', { 'id': p.id }) }}"> 
                     {% for prov in p.providers| slice(0,1) %}
                     {{ prov.name != null ? prov.name : '---' }}
                 {% endfor %}
                 </a>
             </td>
-            <td>
+            <td class="category">
                 <a href="{{ path('product_show', { 'id': p.id }) }}">
                 {% for cat in p.categories| slice(0,1) %}
                     {{ cat.parent == null ? cat.name : '---' }}
                 {% endfor %}
                 </a>
             </td>  
-            <td>
+            <td class="sub_category">
                 <a href="{{ path('product_show', { 'id': p.id }) }}">
                 {% for cat in p.categories| slice(1,2) %}
                     {{ cat.parent != null ? cat.name : '---' }}
                 {% endfor %}
                 </a>
             </td>
-            <td>{{p.collection ? p.collection : '---' }}</td>
-            <td>{{p.status ? p.status : '---' }}</td>
+            <td class="collection">{{p.collection ? p.collection : '---' }}</td>
+            <td class="status">{{p.status ? p.status : '---' }}</td>
             <td class="text-right">
                 <a href="{{ path('product_show', { 'id': p.id }) }}" class="btn btn-simple btn-default btn-icon btn-fill edit showProduct" title="Afficher"><i class="ti-eye"></i></a>
 

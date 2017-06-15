@@ -8,9 +8,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="content">
-                    <div class="fieldtoshow" style="display: none;">
-                        type here your field
-                    </div>
+                        
                         {% if app.session.started %}
                             {% for flashMessage in app.session.flashbag.get('editProduct') %}
                                 <div class="alert alert-{{ flashMessage.alert }} alert-dismissible" role="alert">
@@ -75,6 +73,45 @@
                                         <div class="col-md-2" id="loading-prov">
                                             <img src="{{ asset('assets/img/loading.gif') }}" class="img-responsive" alt="">
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-column">
+                                <div class="entete">
+                                    <span><i class="fa fa-filter fa-2x"></i></span>
+                                </div>
+                                <div class="fieldtoshow">
+                                    <div class="checkbox-field">
+                                        <input type="checkbox" id="id" name="id" checked="checked">
+                                        <label for="id">ID produit</label>
+                                    </div>
+                                    <div class="checkbox-field">
+                                        <input type="checkbox" id="photo" name="photo" checked="checked">
+                                        <label for="photo">Photo</label>
+                                    </div>
+                                    <div class="checkbox-field">
+                                        <input type="checkbox" id="article" name="article" checked="checked">
+                                        <label for="article">Article</label>
+                                    </div>
+                                    <div class="checkbox-field">
+                                        <input type="checkbox" id="provider" name="provider" checked="checked">
+                                        <label for="provider">Fournisseur</label>
+                                    </div>
+                                    <div class="checkbox-field">
+                                        <input type="checkbox" id="category" name="category" checked="checked">
+                                        <label for="category">Catégorie</label>
+                                    </div>
+                                    <div class="checkbox-field">
+                                        <input type="checkbox" id="sub_category" name="sub_category" checked="checked">
+                                        <label for="sub_category">Sous catégorie</label>
+                                    </div>
+                                    <div class="checkbox-field">
+                                        <input type="checkbox" id="collection" name="collection" checked="checked">
+                                        <label for="collection">Collection</label>
+                                    </div>
+                                    <div class="checkbox-field">
+                                        <input type="checkbox" id="status" name="status" checked="checked">
+                                        <label for="status">Status</label>
                                     </div>
                                 </div>
                             </div>
