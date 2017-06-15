@@ -30,8 +30,8 @@
             <td><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.name}}</a></td>
             <td>
                 <a href="{{ path('product_show', { 'id': p.id }) }}"> 
-                    {% for pack in p.packages| slice(0,1) %}
-                    {{ pack.name != null ? pack.name : '---' }}
+                    {% for prov in p.providers| slice(0,1) %}
+                    {{ prov.name != null ? prov.name : '---' }}
                 {% endfor %}
                 </a>
             </td>

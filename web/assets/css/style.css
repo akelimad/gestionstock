@@ -309,3 +309,9 @@ label.star:before {
     width: 93%;
     text-transform: capitalize;
 }
+
+.fieldtoshow{
+	width: 100%;
+	min-height: 150px;
+	background: #ccc;
+}
