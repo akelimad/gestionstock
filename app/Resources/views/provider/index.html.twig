@@ -27,6 +27,7 @@
                                         <th>Adresse</th>
                                         <th>Tel</th>
                                         <th>E-mail</th>
+                                        <th>Ring</th>
                                         <th>Statut</th>
                                         <th class="disabled-sorting text-right">Actions</th>
                                     </tr>
@@ -41,7 +42,8 @@
                                         <td>{{p.address ? p.address : '---' }}</td>
                                         <td>{{p.tel ? p.tel : '---'}}</td>
                                         <td>{{p.email ? p.email : '---'}}</td>
-                                        <td>{{p.active == 1 ? 'Active' : 'Not active'}}</td>
+                                        <td>{% if p.ring %} {{p.ring}} % {% else %} --- {% endif %}</td>
+                                        <td>{{p.active == 1 ? 'Actif' : 'Inactif'}}</td>
                                         <td class="text-right">
                                             <a href="{{ path('provider_edit', { 'id': p.id }) }}" title="Modifier" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
 
@@ -60,6 +62,7 @@
                                         <th>Adresse</th>
                                         <th>Tel</th>
                                         <th>E-mail</th>
+                                        <th>Ring</th>
                                         <th>Statut</th>
                                         <th class="text-right">Actions</th>
                                     </tr>

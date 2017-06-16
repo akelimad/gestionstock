@@ -46,7 +46,7 @@
                                         {{ cat.parent != null ? cat.name : '' }}
                                     {% endfor %}
                                     </td>
-                                    <td>{{p.active == 1 ? 'Active' : 'Desactivé' }}</td>
+                                    <td>{{p.status }}</td>
                                     <td class="text-right">
 
                                         <button data-id="{{ p.id }}" title="Récuperer" class="btn btn-simple btn-warning btn-icon btn-fill revert-product"><i class="ti-back-right"></i></button>

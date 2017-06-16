@@ -64,10 +64,10 @@ class ProductType extends AbstractType
         ->add('status', ChoiceType::class, array(
             'choices' => array(
                 'Inventaire' => 'Inventaire',
-                'Produit dev' => 'Produit en développement',
+                'Produit en développement' => 'Produit en développement',
                 'Disponible à la vente'   => 'Disponible à la vente',
                 'Fin de cycle' => 'Fin de cycle',
-                'Desactivé' => 'Desactivé'
+                'Inactif' => 'Inactif'
             )
         ))
         ->add('images', FileType::class, array(

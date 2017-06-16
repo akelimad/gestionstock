@@ -30,9 +30,13 @@
             <td class="article"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.name}}</a></td>
             <td class="provider">
                 <a href="{{ path('product_show', { 'id': p.id }) }}"> 
-                    {% for prov in p.providers| slice(0,1) %}
-                    {{ prov.name != null ? prov.name : '---' }}
-                {% endfor %}
+                    {% if p.providers is not empty  %}
+                        {% for prov in p.providers %}
+                            {{ prov.name }}
+                        {% endfor %}
+                    {% else %}
+                        ---
+                    {% endif %}
                 </a>
             </td>
             <td class="category">
@@ -56,7 +60,7 @@
 
                 <a href="{{ path('product_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit" title="Modifier"><i class="ti-pencil-alt"></i></a>
 
-                <button data-id="{{ p.id }}" title="{{ p.status == 'des' ? 'Supprimer' : 'Vueillez désactiver ce produit pour pouvoir le supprimer' }}" class="btn btn-simple btn-danger btn-icon btn-fill desactivate-product {{p.status != 'des' ? 'prevent-remove' : ''}}" {{p.status != 'des' ? 'disabled' : ''}}><i class="ti-close"></i></button>
+                <button data-id="{{ p.id }}" title="{{ p.status == 'Inactif' ? 'Supprimer' : 'Vueillez désactiver ce produit pour pouvoir le supprimer' }}" class="btn btn-simple btn-danger btn-icon btn-fill desactivate-product {{p.status != 'Inactif' ? 'prevent-remove' : ''}}" {{p.status != 'Inactif' ? 'disabled' : ''}}><i class="ti-close"></i></button>
 
                 <span id="csrf_token" data-token="{{ csrf_token('form') }}"></span>
             </td>
