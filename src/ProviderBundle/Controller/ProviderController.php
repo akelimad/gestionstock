@@ -53,12 +53,14 @@ class ProviderController extends Controller
             $rateDelivery=$request->request->get('star-dl');
             $rateComm=$request->request->get('star-c');
             $rateRelationship=$request->request->get('star-ep');
-            //var_dump($rateQuality.$rateQualityPrice.$rateDelivery.$rateComm.$rateRelationship);die();
+            $ring=(($rateQuality+$rateQualityPrice+$rateDelivery+$rateComm+$rateRelationship)*20/5);
+            
             $provider->setRateQuality($rateQuality);
             $provider->setRateQualityPrice($rateQualityPrice);
             $provider->setRateDelivery($rateDelivery);
             $provider->setRateCommunication($rateComm);
             $provider->setRatePartnership($rateRelationship);
+            $provider->setRing($ring);
 
             $em->persist($provider);
             $em->flush();
@@ -108,12 +110,14 @@ class ProviderController extends Controller
             $rateDelivery=$request->request->get('star-dl');
             $rateComm=$request->request->get('star-c');
             $rateRelationship=$request->request->get('star-ep');
+            $ring=(($rateQuality+$rateQualityPrice+$rateDelivery+$rateComm+$rateRelationship)*20/5);
 
             $provider->setRateQuality($rateQuality);
             $provider->setRateQualityPrice($rateQualityPrice);
             $provider->setRateDelivery($rateDelivery);
             $provider->setRateCommunication($rateComm);
             $provider->setRatePartnership($rateRelationship);
+            $provider->setRing($ring);
 
             $em->persist($provider);
             $this->getDoctrine()->getManager()->flush();

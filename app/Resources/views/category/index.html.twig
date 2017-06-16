@@ -37,7 +37,7 @@
                                         <td>{{c.name}}</td>
                                         <td>{{c.code}}</td>
                                         <td>{{c.description ? c.description : '---'}}</td>
-                                        <td>{{c.active == 1 ? 'Active' : 'Desactivé'}}</td>
+                                        <td>{{c.active == 1 ? 'Active' : 'Inactive'}}</td>
                                         <td class="text-right">
                                             <a href="{{ path('category_edit', { 'id': c.id }) }}" title="Modifier" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
 
