@@ -6,7 +6,7 @@ ul{
 	padding: 0;
 }
 .logo img{
-	max-width: 175px ;
+	max-width: 221px ;
 }
 /*login page */
 .card{
@@ -337,3 +337,35 @@ label.star:before {
 	color: #5679a8;
 }
 
+.home-interface{
+	position: relative;
+}
+.welcome-text{
+	position: absolute;
+    z-index: 9;
+    top: 64px;
+    color: white;
+    font-style: italic;
+}
+.admin-icon{
+	padding: 50px;
+}
+.user-icon{
+	padding: 50px 50px 50px 70px;
+}
+.icon{
+	background: #e2e2e2;
+	padding: 20px;
+	min-height: 150px;
+	box-shadow: 1px 1px 9px #353030;
+}
+.icon:hover{
+	background: #ffffff;
+}
+.icon img{
+	margin: 0 auto;
+	cursor: pointer;
+}
+.user-item{
+	margin-right: 70px;
+}
