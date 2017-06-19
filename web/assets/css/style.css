@@ -6,7 +6,7 @@ ul{
 	padding: 0;
 }
 .logo img{
-	max-width: 175px ;
+	max-width: 221px ;
 }
 /*login page */
 .card{
@@ -308,4 +308,87 @@ label.star:before {
     border-bottom: 1px solid;
     width: 93%;
     text-transform: capitalize;
+}
+
+.fieldtoshow{
+	display: none;
+	width: 100%;
+	min-height: 75px;
+    background: #f6f6f6;
+    padding: 14px;
+    border: 1px solid rgba(54, 65, 80, 0.09);
+}
+.fieldtoshow .checkbox-field{
+	float: left;
+    margin-right: 40px;
+}
+.fieldtoshow .checkbox-field label{
+	cursor: pointer;
+}
+.fieldtoshow .checkbox-field input{
+	  width: 19px;
+	  height: 19px;
+	  position: relative;
+	  margin: 12px auto;
+	  background: #fcfff4;
+}
+.entete span{
+	cursor: pointer;
+	color: #5679a8;
+}
+
+.home-interface{
+	position: relative;
+}
+.welcome-text{
+	position: absolute;
+    z-index: 9;
+    top: 64px;
+    color: white;
+    font-style: italic;
+    padding: 0 20px;
+}
+.admin-icon{
+	padding-top: 39px ;
+}
+.admin-item{
+	margin: 0 auto;
+	max-width: 183px;
+}
+.user-icon{
+	padding-top: 39px ;
+}
+.icon{
+	position: relative;
+	background: #e2e2e2;
+	padding: 20px 5px 0;
+	min-height: 156px;
+	box-shadow: 1px 1px 9px #353030;
+}
+.icon p{
+	text-align: center;
+    font-style: italic;
+    margin-top: 10px;
+    color: #7d7d7d;
+}
+.icon p.search-title{
+	margin-top: 25px !important;
+}
+.icon:hover{
+	background: #ffffff;
+}
+.icon img{
+	margin: 0 auto;
+	cursor: pointer;
+	transition: all 2s;
+}
+.icon img:hover{
+	transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+}
+.user-item{
+	margin: 0 auto;
+	max-width: 183px;
 }

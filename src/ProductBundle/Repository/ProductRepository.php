@@ -14,15 +14,14 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
     {
         return $this->getEntityManager()->createQuery("
         	SELECT p FROM ProductBundle:Product p where p NOT IN (select p1 from ProductBundle:Product p1, ProductBundle:ProductLog pl
-            WHERE p1.id=pl.product AND pl.deleted_at IS NOT NULL ) ORDER BY p.id DESC
+            WHERE p1.id=pl.product AND pl.deleted_at IS NOT NULL  ) or p not in (select p2 from ProductBundle:Product p2, ProductBundle:ProductLog pl1 where p2.id = pl1.product and pl1.action ='revert' and pl1.deleted_at IS NOT NULL) ORDER BY p.id ASC
         ")->getResult();
     }
 
     public function getAllTrashedProducts()
     {
         return $this->getEntityManager()->createQuery("
-        	SELECT p FROM ProductBundle:Product p where p IN (select p1 from ProductBundle:Product p1, ProductBundle:ProductLog pl
-            WHERE p1.id=pl.product AND pl.deleted_at IS NOT NULL AND pl.action != 'revert' )
+        	SELECT p from ProductBundle:Product p, ProductBundle:ProductLog pl WHERE p.id = pl.product and pl.deleted_at is not null and pl.product not in (select p1 from ProductBundle:Product p1, ProductBundle:ProductLog pl1 where p1.id = pl1.product and pl1.action ='revert')
         ")->getResult();
     }
 

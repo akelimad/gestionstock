@@ -498,7 +498,7 @@ $(document).ready(function() {
     });
 
 
-    $("select#categories").change();
+    //$("select#categories").change();
 
 
     if ($.fn.DataTable.isDataTable( '#datatables' ) ) {
@@ -565,6 +565,29 @@ $(document).ready(function() {
         var $this=$(".stars.partnership").eq(index);
         var value=$this.data('value');
         $this.find('#star-'+value+'-ep').attr('checked','checked');
+    });
+
+    //slide toggle div that show field to show table product
+    $(".entete").click(function () {
+        var contenu = $(this).next();
+        //Ouvre le contenu s'il est masqué, sinon le masque avec un effet de glissement
+        contenu.slideToggle(500, function () {
+            //On change le texte de l'entête suivant si le contenu est affiché ou non
+            $(".entete span").html(function () {
+                return contenu.is(':visible') ? '<i class="fa fa-eye-slash fa-2x"></i>' : '<i class="fa fa-filter fa-2x"></i>';
+            });
+            return false;
+        });
+    });
+
+    $("input:checkbox:not(:checked)").each(function() {
+        var column = "table ." + $(this).attr("name");
+        $(column).hide();
+    });
+
+    $("input[type='checkbox']").click(function(){
+        var column = "table ." + $(this).attr("name");
+        $(column).toggle();
     });
 
 

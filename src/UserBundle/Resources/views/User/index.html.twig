@@ -48,7 +48,7 @@
 											   {{ role == "ROLE_USER" ? "Utilisateur"}}
 											{% endfor %}
                                         </td>
-                                        <td>{{user.enabled == 1 ? 'Active' : 'Desactivé'}}</td>
+                                        <td>{{user.enabled == 1 ? 'Actif' : 'Inactif'}}</td>
                                         <td class="text-right">
 											<a href="{{ path('user_edit', { 'id': user.id }) }}" title="Modifier" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
 

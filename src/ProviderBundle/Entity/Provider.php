@@ -109,6 +109,13 @@ class Provider
      */
     private $ratePartnership;
 
+        /**
+     * @var integer
+     *
+     * @ORM\Column(name="ring", type="integer", nullable=true)
+     */
+    private $ring;
+
     /**
      * @var bool
      *
@@ -547,5 +554,29 @@ class Provider
     public function getRatePartnership()
     {
         return $this->ratePartnership;
+    }
+
+    /**
+     * Set ring
+     *
+     * @param integer $ring
+     *
+     * @return Provider
+     */
+    public function setRing($ring)
+    {
+        $this->ring = $ring;
+
+        return $this;
+    }
+
+    /**
+     * Get ring
+     *
+     * @return integer
+     */
+    public function getRing()
+    {
+        return $this->ring;
     }
 }
