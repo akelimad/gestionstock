@@ -5,9 +5,24 @@ ul{
 	list-style-type: none;
 	padding: 0;
 }
+.hidden{
+	display: none;
+}
 .logo img{
 	max-width: 221px ;
 }
+
+#datatables {
+  overflow: auto;
+}
+.table > thead > tr > th{
+	/*padding: 0 !important;
+    margin: 0 !important;
+    white-space: nowrap;
+    text-align: center;*/
+    padding-right: 0 !important;
+}
+
 /*login page */
 .card{
 	padding-bottom: 30px;
@@ -312,15 +327,16 @@ label.star:before {
 
 .fieldtoshow{
 	display: none;
-	width: 100%;
-	min-height: 75px;
+    width: 100%;
+    min-height: 173px;
     background: #f6f6f6;
     padding: 14px;
     border: 1px solid rgba(54, 65, 80, 0.09);
+    margin-bottom: 20px;
 }
 .fieldtoshow .checkbox-field{
 	float: left;
-    margin-right: 40px;
+    margin-right: 37px;
 }
 .fieldtoshow .checkbox-field label{
 	cursor: pointer;
@@ -346,18 +362,33 @@ label.star:before {
     top: 64px;
     color: white;
     font-style: italic;
+    padding: 0 20px;
 }
 .admin-icon{
-	padding: 50px;
+	padding-top: 39px ;
+}
+.admin-item{
+	margin: 0 auto;
+	max-width: 183px;
 }
 .user-icon{
-	padding: 50px 50px 50px 70px;
+	padding-top: 39px ;
 }
 .icon{
+	position: relative;
 	background: #e2e2e2;
-	padding: 20px;
-	min-height: 150px;
+	padding: 20px 5px 0;
+	min-height: 156px;
 	box-shadow: 1px 1px 9px #353030;
+}
+.icon p{
+	text-align: center;
+    font-style: italic;
+    margin-top: 10px;
+    color: #7d7d7d;
+}
+.icon p.search-title{
+	margin-top: 25px !important;
 }
 .icon:hover{
 	background: #ffffff;
@@ -365,7 +396,15 @@ label.star:before {
 .icon img{
 	margin: 0 auto;
 	cursor: pointer;
+	transition: all 2s;
+}
+.icon img:hover{
+	transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
 }
 .user-item{
-	margin-right: 70px;
+	margin: 0 auto;
+	max-width: 183px;
 }

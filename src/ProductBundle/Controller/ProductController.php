@@ -44,8 +44,6 @@ class ProductController extends Controller
         $sub_categories = $em->getRepository('CategoryBundle:Category')->getAllSubCat();
         $providers = $em->getRepository('ProviderBundle:Provider')->findAll();
 
-        
-
         return $this->render('product/index.html.twig', array(
             'products' => $products,
             'categories' => $categories,
@@ -461,22 +459,20 @@ class ProductController extends Controller
      */
     public function ajaxSubCategoriesAction(Request $request)
     {
-          $id = $request->get('id');
-          $em = $this->getDoctrine()->getManager();
-          $entities = $em->getRepository('CategoryBundle:Category')->findBy(array('parent' => $id));
-          
-          $output = array();
-            foreach ($entities as $member) {
-              $output[] = array(
-                  'id' => $member->getId(),
-                  'name' => $member->getName(),
-              );
-            }
-
-          $response = new Response();
-          $response->headers->set('Content-Type', 'application/json');
-          $response->setContent(json_encode($output));
-          return $response;
+      $id = $request->get('id');
+      $em = $this->getDoctrine()->getManager();
+      $entities = $em->getRepository('CategoryBundle:Category')->findBy(array('parent' => $id));
+      $output = array();
+        foreach ($entities as $member) {
+          $output[] = array(
+              'id' => $member->getId(),
+              'name' => $member->getName(),
+          );
+        }
+      $response = new Response();
+      $response->headers->set('Content-Type', 'application/json');
+      $response->setContent(json_encode($output));
+      return $response;
     }
 
 }
