@@ -5,9 +5,24 @@ ul{
 	list-style-type: none;
 	padding: 0;
 }
+.hidden{
+	display: none;
+}
 .logo img{
 	max-width: 221px ;
 }
+
+#datatables {
+  overflow: auto;
+}
+.table > thead > tr > th{
+	/*padding: 0 !important;
+    margin: 0 !important;
+    white-space: nowrap;
+    text-align: center;*/
+    padding-right: 0 !important;
+}
+
 /*login page */
 .card{
 	padding-bottom: 30px;
@@ -312,15 +327,16 @@ label.star:before {
 
 .fieldtoshow{
 	display: none;
-	width: 100%;
-	min-height: 75px;
+    width: 100%;
+    min-height: 173px;
     background: #f6f6f6;
     padding: 14px;
     border: 1px solid rgba(54, 65, 80, 0.09);
+    margin-bottom: 20px;
 }
 .fieldtoshow .checkbox-field{
 	float: left;
-    margin-right: 40px;
+    margin-right: 37px;
 }
 .fieldtoshow .checkbox-field label{
 	cursor: pointer;

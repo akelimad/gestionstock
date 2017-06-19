@@ -17,6 +17,7 @@ $(document).ready(function() {
 
     $('#datatables').DataTable({
         "order": [],
+        "sScrollX": '100%',
         "pagingType": "full_numbers",
         "lengthMenu": [
             [25, 50, 100, -1],
@@ -589,6 +590,14 @@ $(document).ready(function() {
         var column = "table ." + $(this).attr("name");
         $(column).toggle();
     });
+
+    $("input[type='checkbox']").click(function(){
+        var column = "table ." + $(this).attr("name");
+        $(column).removeClass('hidden');
+    });
+
+
+     
 
 
 });

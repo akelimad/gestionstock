@@ -13,8 +13,7 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
 	public function getAllProducts()
     {
         return $this->getEntityManager()->createQuery("
-        	SELECT p FROM ProductBundle:Product p where p NOT IN (select p1 from ProductBundle:Product p1, ProductBundle:ProductLog pl
-            WHERE p1.id=pl.product AND pl.deleted_at IS NOT NULL  ) or p not in (select p2 from ProductBundle:Product p2, ProductBundle:ProductLog pl1 where p2.id = pl1.product and pl1.action ='revert' and pl1.deleted_at IS NOT NULL) ORDER BY p.id ASC
+        	SELECT p FROM ProductBundle:Product p, ProductBundle:ProductLog pl where p.id in(SELECT p1.id from ProductBundle:Product p1, ProductBundle:ProductLog pl1 where p1.id=pl1.product and pl1.deleted_at is not null or pl1.action = 'revert') ORDER BY p.id
         ")->getResult();
     }
 
