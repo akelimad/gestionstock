@@ -40,9 +40,40 @@ $(document).ready(function() {
             "infoEmpty":      "Affichage 0 à 0 du 0 entrées",
         },
         "sDom": 'Rfrtlip',
+        scrollCollapse: true,
+    }); 
 
-    });
-
+    function InitOverviewDataTable(){
+        $("#datatables").DataTable({ 
+            "order": [],
+            "bDestroy": true,
+            "lengthMenu": [
+                [25, 50, 100, -1],
+                [25, 50, 100, "Tous"]
+            ],
+            responsive: true,
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "Recherche . e.g(prix= 100)",
+                "paginate": {
+                "first":      "Premier",
+                "last":       "Dernier",
+                "next":       "Suivant",
+                "previous":   "Précedent"
+                },
+                "lengthMenu":     "Affichage _MENU_ entrées",
+                "zeroRecords":    "Aucun resultat trouvée !",
+                "emptyTable":     "Aucune donnée dans la table",
+                "info":           "Affichage _START_ à _END_ du _TOTAL_ entrées",
+                "infoEmpty":      "Affichage 0 à 0 du 0 entrées",
+            },
+            "sDom": 'Rfrtlip',
+            drawCallback: function () { // this gets rid of duplicate headers
+                $('.table tbody tr:first-child').css({ display: 'none' }); 
+            },
+            scrollCollapse: true,
+        });
+    }
 
     var table = $('#datatables').DataTable();
 
@@ -200,7 +231,7 @@ $(document).ready(function() {
                     type: 'POST',
                     url:  url,
                     data: {
-                    "_method": "PUT",
+                    "_method": "DELETE",
                     "form[_token]": $("#csrf_token").data("token")
                     }
                 }).done(function(response){
@@ -385,9 +416,9 @@ $(document).ready(function() {
                     $("#datatables").dataTable().fnDestroy();
                     product_results.html(response);
                     $('#loading-cat').hide();
-                    $("#datatables").DataTable({ "bDestroy": true});
+                    InitOverviewDataTable();
                 }else{
-                    alert("Aucune donnée trouvée");
+                    
                 }
             },
             error: function(){
@@ -417,9 +448,9 @@ $(document).ready(function() {
                     $("#datatables").dataTable().fnDestroy();
                     product_results.html(response);
                     $('#loading-sub-cat').hide();
-                    $("#datatables").DataTable({ "bDestroy": true});
+                    InitOverviewDataTable();
                 }else{
-                    alert("Aucune donnée trouvée");
+                    
                 }
             },
             error: function(){
@@ -443,9 +474,9 @@ $(document).ready(function() {
                     $("#datatables").dataTable().fnDestroy();
                     product_results.html(response);
                     $('#loading-prov').hide();
-                    $("#datatables").DataTable({ "bDestroy": true});
+                    InitOverviewDataTable();
                 }else{
-                    alert("Aucune donnée trouvée");
+                    
                 }
             },
             error: function(){

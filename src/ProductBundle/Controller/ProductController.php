@@ -42,7 +42,7 @@ class ProductController extends Controller
         $products = $em->getRepository('ProductBundle:Product')->getAllProducts();
         $categories = $em->getRepository('CategoryBundle:Category')->getAllRootCat();
         $sub_categories = $em->getRepository('CategoryBundle:Category')->getAllSubCat();
-        $providers = $em->getRepository('ProviderBundle:Provider')->findAll();
+        $providers = $em->getRepository('ProviderBundle:Provider')->findBy(array('deleted_at' => NULL));
 
         return $this->render('product/index.html.twig', array(
             'products' => $products,
@@ -448,7 +448,7 @@ class ProductController extends Controller
         ->find($provider_id);
         $products = $provider->getProduct();
         return $this->render('product/results.html.twig', array(
-            'products' => $products,
+              'products' => $products,
         ));
         
     }
