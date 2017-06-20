@@ -17,11 +17,10 @@
                                 <tr>
                                     <th>ID Produit</th>
                                     <th>Photo</th>
-                                    <th style="width: 98px">Article</th>
-                                    <th style="width: 109px">Prix internet</th>
+                                    <th>Article</th>
                                     <th>Categorie</th>
-                                    <th style="width: 107px">Sous categorie</th>
-                                    <th style="width: 58px">Statut</th>
+                                    <th>Sous categorie</th>
+                                    <th>Statut</th>
                                     <th class="disabled-sorting text-right">Actions</th>
                                 </tr>
                             </thead>
@@ -35,7 +34,6 @@
                                     {% endfor %}
                                     </td>
                                     <td>{{p.name}}</td>
-                                    <td>{{p.internetPrice ? p.internetPrice : ""}} </td>
                                     <td>
                                     {% for cat in p.categories %}
                                         {{ cat.parent == null ? cat.name : '' }}

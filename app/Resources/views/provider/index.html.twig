@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="content">
+                    <div class="content providers">
                         <h4 class="title">La liste des fournisseurs 
                         {% if is_granted('ROLE_USER') %}
                             <a href=" {{path('provider_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nouveau</a>
@@ -29,7 +29,7 @@
                                         <th>E-mail</th>
                                         <th>Ring</th>
                                         <th>Statut</th>
-                                        <th class="disabled-sorting text-right">Actions</th>
+                                        <th class="disabled-sorting text-center">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>

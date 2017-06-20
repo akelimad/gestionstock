@@ -42,7 +42,6 @@ class Category
      *      minMessage = "le code de la categorie doit edtre au min {{ limit }} chiffres",
      *      maxMessage = "le code de la categorie doit edtre au max {{ limit }} chiffres"
      * )
-     @Assert\Type(type="integer")
      */
 
     private $code;
@@ -62,8 +61,8 @@ class Category
 
     /**
      * Many Categories have One Category.
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="children", cascade={"remove"})
-     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $parent;
 

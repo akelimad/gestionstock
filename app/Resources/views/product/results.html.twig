@@ -1,4 +1,5 @@
-<table id="datatables" class="table table-striped table-no-bordered table-hover" style="width:100%;cellspacing:0">
+
+<table id="datatables" class="table table-striped table-no-bordered table-hover products-table" style="width:100%;cellspacing:0">
     <thead>
         <tr>
             <th class="id">ID Produit</th>
@@ -21,109 +22,112 @@
             <th class="specialPrice hidden" >Prix MP</th>
             <th class="internetPrice hidden" >Prix internet</th>
             <th class="status" >Statut</th>
-            <th class="disabled-sorting text-right">Actions</th>
+            <th class="disabled-sorting text-center">Actions</th>
         </tr>
     </thead>
-    <tbody id ="product-results"> 
-        {% for p in products %}
-        <tr>
-            <td class="id"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.codeBar}}</a></td>
+        <tbody id ="product-results"> 
+            {% for p in products %}
+            <tr>
+                <td class="id"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.codeBar}}</a></td>
 
-            <td class="photo">
-                <a href="{{ path('product_show', { 'id': p.id }) }}">
-                {% if p.images is not empty %}
-                    {% for image in p.images|slice(0, 1) %}
-                        <img src="{{ asset('uploads/images/' ~ image.path) }}" class="img-circle" alt="img prod" width="50">
+                <td class="photo">
+                    <a href="{{ path('product_show', { 'id': p.id }) }}">
+                    {% if p.images is not empty %}
+                        {% for image in p.images|slice(0, 1) %}
+                            <img src="{{ asset('uploads/images/' ~ image.path) }}" class="img-circle" alt="img prod" width="50">
+                        {% endfor %}
+                    {% else %}
+                        <img src="{{ asset('assets/img/default-no-image.png') }}" class="img-circle" alt="img prod" width="50">
+                    {% endif %}
+                    </a>
+                </td>
+
+                <td class="article"><a href="{{ path('product_show', { 'id': p.id }) }}" title="{{p.name}}">{{p.name|slice(0, 10) ~ '...'}}</a></td>
+
+                <td class="categorie">
+                    <a href="{{ path('product_show', { 'id': p.id }) }}">
+                    {% for cat in p.categories| slice(0,1) %}
+                        {{ cat.parent == null ? cat.name : '---' }}
                     {% endfor %}
-                {% else %}
-                    <img src="{{ asset('assets/img/default-no-image.png') }}" class="img-circle" alt="img prod" width="50">
-                {% endif %}
-                </a>
-            </td>
+                    </a>
+                </td>  
 
-            <td class="article"><a href="{{ path('product_show', { 'id': p.id }) }}" title="{{p.name}}">{{p.name|slice(0, 15) ~ '...'}}</a></td>
-
-            <td class="categorie">
-                <a href="{{ path('product_show', { 'id': p.id }) }}">
-                {% for cat in p.categories| slice(0,1) %}
-                    {{ cat.parent == null ? cat.name : '---' }}
-                {% endfor %}
-                </a>
-            </td>  
-
-            <td class="sub_category">
-                <a href="{{ path('product_show', { 'id': p.id }) }}">
-                {% if p.providers is not empty  %}
-                    {% for cat in p.categories| slice(1,2) %}
-                        {{ cat.parent != null ? cat.name : '---' }}
-                    {% endfor %}
-                {% else %}
-                    ---
-                {% endif %}
-                </a>
-            </td>
-
-            <td class="description hidden"><a href="{{ path('product_show', { 'id': p.id }) }}" title="p.description">{{p.description|slice(0, 15) ~ '...' }}</a></td>
-
-            <td class="sizeInch hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.sizeInch}}</a></td>
-
-            <td class="sizeCm hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.sizeCm}}</a></td>
-
-            <td class="color hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.color}}</a></td>
-
-            <td class="composition hidden"><a href="{{ path('product_show', { 'id': p.id }) }}" title="p.composition">{{p.composition|slice(0, 15) ~ '...'}}</a></td>
-
-            <td class="form hidden"><a href="{{ path('product_show', { 'id': p.id }) }}" title="p.form">{{p.form|slice(0, 15) ~ '...'}}</a></td>
-
-            <td class="weight hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.weight}}</a></td>
-
-            <td class="provider">
-                <a href="{{ path('product_show', { 'id': p.id }) }}"> 
-                    {% if p.providers is not empty  %}
-                        {% for prov in p.providers %}
-                            {{ prov.name }}
+                <td class="sub_category">
+                    <a href="{{ path('product_show', { 'id': p.id }) }}">
+                    {% if p.categories is not empty  %}
+                        {% for cat in p.categories| slice(1,2) %}
+                            {{ cat.parent != null ? cat.name : '---' }}
                         {% endfor %}
                     {% else %}
                         ---
                     {% endif %}
-                </a>
-            </td>
+                    </a>
+                </td>
 
-            <td class="package hidden">
-                <a href="{{ path('product_show', { 'id': p.id }) }}"> 
-                    {% if p.packages is not empty  %}
-                        {% for pack in p.packages %}
-                            {{ pack.name }}
-                        {% endfor %}
-                    {% else %}
-                        ---
-                    {% endif %}
-                </a>
-            </td>
+                <td class="description hidden"><a href="{{ path('product_show', { 'id': p.id }) }}" title="p.description">{{p.description|slice(0, 15) ~ '...' }}</a></td>
 
-            <td class="collection"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.collection ? p.collection : '---'}}</a></td>
+                <td class="sizeInch hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.sizeInch}}</a></td>
 
-            <td class="unitPrice hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.unitPrice}}</a></td>
+                <td class="sizeCm hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.sizeCm}}</a></td>
 
-            <td class="wholesalePrice hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.wholesalePrice}}</a></td>
+                <td class="color hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.color}}</a></td>
 
-            <td class="specialPrice hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.specialPrice}}</a></td>
+                <td class="composition hidden"><a href="{{ path('product_show', { 'id': p.id }) }}" title="p.composition">{{p.composition|slice(0, 15) ~ '...'}}</a></td>
 
-            <td class="internetPrice hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.internetPrice}}</a></td>
+                <td class="form hidden"><a href="{{ path('product_show', { 'id': p.id }) }}" title="p.form">{{p.form|slice(0, 15) ~ '...'}}</a></td>
 
-            <td class="status">{{p.status ? p.status : '---' }}</td>
+                <td class="weight hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.weight}}</a></td>
 
-            <td class="text-right">
-                <a href="{{ path('product_show', { 'id': p.id }) }}" class="btn btn-simple btn-default btn-icon btn-fill edit showProduct" title="Afficher"><i class="ti-eye"></i></a>
+                <td class="provider">
+                    <a href="{{ path('product_show', { 'id': p.id }) }}"> 
+                        {% if p.providers is not empty  %}
+                            {% for prov in p.providers %}
+                                {{ prov.name }}
+                            {% endfor %}
+                        {% else %}
+                            ---
+                        {% endif %}
+                    </a>
+                </td>
 
-                <a href="{{ path('product_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit" title="Modifier"><i class="ti-pencil-alt"></i></a>
+                <td class="package hidden">
+                    <a href="{{ path('product_show', { 'id': p.id }) }}"> 
+                        {% if p.packages is not empty  %}
+                            {% for pack in p.packages %}
+                                {{ pack.name }}
+                            {% endfor %}
+                        {% else %}
+                            ---
+                        {% endif %}
+                    </a>
+                </td>
 
-                <button data-id="{{ p.id }}" title="{{ p.status == 'Inactif' ? 'Supprimer' : 'Vueillez désactiver ce produit pour pouvoir le supprimer' }}" class="btn btn-simple btn-danger btn-icon btn-fill desactivate-product {{p.status != 'Inactif' ? 'prevent-remove' : ''}}" {{p.status != 'Inactif' ? 'disabled' : ''}}><i class="ti-close"></i></button>
+                <td class="collection"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.collection ? p.collection : '---'}}</a></td>
 
-                <span id="csrf_token" data-token="{{ csrf_token('form') }}"></span>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-    
+                <td class="unitPrice hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.unitPrice}}</a></td>
+
+                <td class="wholesalePrice hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.wholesalePrice}}</a></td>
+
+                <td class="specialPrice hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.specialPrice}}</a></td>
+
+                <td class="internetPrice hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.internetPrice}}</a></td>
+
+                <td class="status">{{p.status ? p.status : '---' }}</td>
+
+                <td class="text-right">
+                    <a href="{{ path('product_show', { 'id': p.id }) }}" class="btn btn-simple btn-default btn-icon btn-fill edit showProduct" title="Afficher"><i class="ti-eye"></i></a>
+
+                    <a href="{{ path('product_edit', { 'id': p.id }) }}" class="btn btn-simple btn-warning btn-icon btn-fill edit" title="Modifier"><i class="ti-pencil-alt"></i></a>
+
+                    <button data-id="{{ p.id }}" title="{{ p.status == 'Inactif' ? 'Supprimer' : 'Vueillez désactiver ce produit pour pouvoir le supprimer' }}" class="btn btn-simple btn-danger btn-icon btn-fill desactivate-product {{p.status != 'Inactif' ? 'prevent-remove' : ''}}" {{p.status != 'Inactif' ? 'disabled' : ''}}><i class="ti-close"></i></button>
+
+                    <span id="csrf_token" data-token="{{ csrf_token('form') }}"></span>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+
 </table>
+
+    

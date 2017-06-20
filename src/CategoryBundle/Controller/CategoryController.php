@@ -224,7 +224,7 @@ class CategoryController extends Controller
      * Deletes a category entity.
      *
      * @Route("/{id}", name="category_delete" , options={"expose"=true})
-     * @Method("PUT")
+     * @Method("DELETE")
      */
     public function deleteAction(Request $request, Category $category)
     {

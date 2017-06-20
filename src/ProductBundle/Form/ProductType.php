@@ -103,13 +103,19 @@ class ProductType extends AbstractType
             'class'=>'PackageBundle:Package', 
             'choice_label'=>'name', 
             'multiple'=>true,
-            'required' => false
+            'required' => false,
+            'query_builder' => function ($er) {
+               return $er->createQueryBuilder('p')->where("p.deleted_at IS NULL");
+            },
         ))
         ->add('providers',EntityType::class, array(
             'class'=>'ProviderBundle:Provider', 
             'choice_label'=>'name',
             'multiple'=>true,
-            'required' => false
+            'required' => false,
+            'query_builder' => function ($er) {
+               return $er->createQueryBuilder('p')->where("p.deleted_at IS NULL");
+            },
         ));
 
         
