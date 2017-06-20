@@ -9,14 +9,18 @@ ul{
 	display: none;
 }
 .logo img{
-	max-width: 221px ;
+	min-width: 239px; ;
 }
 
 #datatables {
   overflow: auto;
 }
+.sidebar .logo{
+	height: 91px;
+}
 
 /*login page */
+
 .card{
 	padding-bottom: 30px;
 }
@@ -221,6 +225,10 @@ select#productbundle_product_categories optgroup option {
 	position: absolute;
     bottom: 0;
 }
+.copyright-section p{
+	font-size: 12px;
+	border-bottom: 1px dotted gray;
+}
 .details .card h4 {
 	margin-top: 0;
 }
@@ -401,4 +409,7 @@ label.star:before {
 .user-item{
 	margin: 0 auto;
 	max-width: 183px;
+}
+.ring-provider{
+	padding: 15px 14px;	
 }
