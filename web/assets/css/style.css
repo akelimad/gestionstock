@@ -413,3 +413,25 @@ label.star:before {
 .ring-provider{
 	padding: 15px 14px;	
 }
+
+select[name="pricelog"]{
+	display: none;
+}
+.item i{
+	cursor: pointer;
+}
+#unitPriceEle:hover #unitPriceLogSelect{
+	display: block;
+}
+.item .description p{
+	text-align: justify;
+	font-size: 14px;
+}
+select.price{
+	min-width: 58px;
+    padding: 0 3px;
+    margin-left: -9px;
+}
+.form-control{
+	padding: 7px 13px;
+}

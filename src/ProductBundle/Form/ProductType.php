@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 
 
 class ProductType extends AbstractType
@@ -68,6 +69,13 @@ class ProductType extends AbstractType
                 'Disponible à la vente'   => 'Disponible à la vente',
                 'Fin de cycle' => 'Fin de cycle',
                 'Inactif' => 'Inactif'
+            )
+        ))
+        ->add('currency', ChoiceType::class, array(
+            'choices' => array(
+                'EUR' => 'EUR',
+                'USD' => 'USD',
+                'DH'=> 'DH',
             )
         ))
         ->add('images', FileType::class, array(

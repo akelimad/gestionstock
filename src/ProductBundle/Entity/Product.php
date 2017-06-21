@@ -90,28 +90,28 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="unitPrice", type="string", length=255,nullable=true)
+     * @ORM\Column(name="unitPrice", type="decimal",precision=8, scale=2, nullable=true)
      */
     private $unitPrice;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="wholesalePrice", type="string", length=255,nullable=true)
+     * @ORM\Column(name="wholesalePrice", type="decimal",precision=8, scale=2, nullable=true)
      */
     private $wholesalePrice;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="specialPrice", type="string", length=255,nullable=true)
+     * @ORM\Column(name="specialPrice", type="decimal",precision=8, scale=2, nullable=true)
      */
     private $specialPrice;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="internetPrice", type="string", length=255,nullable=true)
+     * @ORM\Column(name="internetPrice", type="decimal",precision=8, scale=2, nullable=true)
      */
     private $internetPrice;
 
@@ -128,6 +128,13 @@ class Product
      * @ORM\Column(name="status", type="string", nullable=true)
      */
     private $status;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="currency", type="string", nullable=true)
+     */
+    private $currency;
 
     /**
      * Many prod can have Many cat.
@@ -375,102 +382,6 @@ class Product
     public function getWeight()
     {
         return $this->weight;
-    }
-
-    /**
-     * Set unitPrice
-     *
-     * @param string $unitPrice
-     *
-     * @return Product
-     */
-    public function setUnitPrice($unitPrice)
-    {
-        $this->unitPrice = $unitPrice;
-
-        return $this;
-    }
-
-    /**
-     * Get unitPrice
-     *
-     * @return string
-     */
-    public function getUnitPrice()
-    {
-        return $this->unitPrice;
-    }
-
-    /**
-     * Set wholesalePrice
-     *
-     * @param string $wholesalePrice
-     *
-     * @return Product
-     */
-    public function setWholesalePrice($wholesalePrice)
-    {
-        $this->wholesalePrice = $wholesalePrice;
-
-        return $this;
-    }
-
-    /**
-     * Get wholesalePrice
-     *
-     * @return string
-     */
-    public function getWholesalePrice()
-    {
-        return $this->wholesalePrice;
-    }
-
-    /**
-     * Set specialPrice
-     *
-     * @param string $specialPrice
-     *
-     * @return Product
-     */
-    public function setSpecialPrice($specialPrice)
-    {
-        $this->specialPrice = $specialPrice;
-
-        return $this;
-    }
-
-    /**
-     * Get specialPrice
-     *
-     * @return string
-     */
-    public function getSpecialPrice()
-    {
-        return $this->specialPrice;
-    }
-
-    /**
-     * Set internetPrice
-     *
-     * @param string $internetPrice
-     *
-     * @return Product
-     */
-    public function setInternetPrice($internetPrice)
-    {
-        $this->internetPrice = $internetPrice;
-
-        return $this;
-    }
-
-    /**
-     * Get internetPrice
-     *
-     * @return string
-     */
-    public function getInternetPrice()
-    {
-        return $this->internetPrice;
     }
 
 
@@ -850,4 +761,150 @@ class Product
     }
 
     
+
+    /**
+     * Set currency
+     *
+     * @param string $currency
+     *
+     * @return Product
+     */
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Get currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+
+
+    /**
+     * Set unitPrice
+     *
+     * @param string $unitPrice
+     *
+     * @return Product
+     */
+    public function setUnitPrice($unitPrice)
+    {
+        $this->unitPrice = $unitPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get unitPrice
+     *
+     * @return string
+     */
+    public function getUnitPrice()
+    {
+        return $this->unitPrice;
+    }
+
+    /**
+     * Set wholesalePrice
+     *
+     * @param string $wholesalePrice
+     *
+     * @return Product
+     */
+    public function setWholesalePrice($wholesalePrice)
+    {
+        $this->wholesalePrice = $wholesalePrice;
+
+        return $this;
+    }
+
+    /**
+     * Get wholesalePrice
+     *
+     * @return string
+     */
+    public function getWholesalePrice()
+    {
+        return $this->wholesalePrice;
+    }
+
+    /**
+     * Set specialPrice
+     *
+     * @param string $specialPrice
+     *
+     * @return Product
+     */
+    public function setSpecialPrice($specialPrice)
+    {
+        $this->specialPrice = $specialPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get specialPrice
+     *
+     * @return string
+     */
+    public function getSpecialPrice()
+    {
+        return $this->specialPrice;
+    }
+
+    /**
+     * Set internetPrice
+     *
+     * @param string $internetPrice
+     *
+     * @return Product
+     */
+    public function setInternetPrice($internetPrice)
+    {
+        $this->internetPrice = $internetPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get internetPrice
+     *
+     * @return string
+     */
+    public function getInternetPrice()
+    {
+        return $this->internetPrice;
+    }
+
+    /**
+     * Add image
+     *
+     * @param \ProductBundle\Entity\ImageProduct $image
+     *
+     * @return Product
+     */
+    public function addImage(\ProductBundle\Entity\ImageProduct $image)
+    {
+        $this->images[] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param \ProductBundle\Entity\ImageProduct $image
+     */
+    public function removeImage(\ProductBundle\Entity\ImageProduct $image)
+    {
+        $this->images->removeElement($image);
+    }
 }

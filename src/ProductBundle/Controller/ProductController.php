@@ -280,13 +280,15 @@ class ProductController extends Controller
             $productlog->setProduct($product);
             $productlog->setUser($this->getUser());
             $productlog->setAction("Edit");
+
             $productlog->setUnitPrice($product->getUnitPrice());
             $productlog->setWholesalePrice($product->getWholesalePrice());
             $productlog->setSpecialPrice($product->getSpecialPrice());
             $productlog->setInternetPrice($product->getInternetPrice());
 
+            $em->persist($product);
             $em->persist($productlog);
-            $this->getDoctrine()->getManager()->flush();
+            $em->flush();
             return $this->redirectToRoute('product_index');
         }
         $this->get('session')->getFlashBag()->add(

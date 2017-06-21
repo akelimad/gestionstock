@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	'use strict';
+	
 
     $('[data-toggle="tooltip"]').tooltip(); 
 
@@ -7,15 +7,12 @@ $(document).ready(function() {
     $(".sidebar-wrapper .nav li").click(function(){
         $(this).addClass('active').siblings().removeClass('active');
     });
-    //demo.initStatsDashboard();
-    demo.initVectorMap();
-    demo.initCirclePercentage();
 
     $('div.dataTables_wrapper div.dataTables_filter input').click(function(){
         alert("ok");
     });
 
-    $('#datatables').DataTable({
+    var oTable=$('#datatables').DataTable({
         "order": [],
         "sScrollX": '100%',
         "pagingType": "full_numbers",
@@ -76,26 +73,6 @@ $(document).ready(function() {
     }
 
     var table = $('#datatables').DataTable();
-
-    // Edit record
-    // table.on('click', '.edit', function() {
-    //     $tr = $(this).closest('tr');
-
-    //     var data = table.row($tr).data();
-    //     alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
-    // });
-
-    // Delete a record
-    // table.on('click', '.remove', function(e) {
-    //     $tr = $(this).closest('tr');
-    //     table.row($tr).remove().draw();
-    //     e.preventDefault();
-    // });
-
-    //Like record
-    // table.on('click', '.like', function() {
-    //     alert('You clicked on Like button');
-    // });
 
     $('.card .material-datatables label').addClass('form-group');
 
@@ -459,6 +436,9 @@ $(document).ready(function() {
         });
     });
 
+    // ************************************* //
+    //       filter product by provider
+    // ************************************* //
     $(".material-datatables").on('change', '#filter-by-prov',function(){
         var provider_id = $(this).val();
         var url = Routing.generate('filter-by-prov', {'provider_id': provider_id});
@@ -491,11 +471,7 @@ $(document).ready(function() {
         $("label.checkbox").addClass("checked");
     }
 
-    //to customize select of category & subcategory in product form
-    $("#productbundle_product_categories optgroup").attr("label", "-----------------------------------");
-
     //to make background for color select
-    $("select#productbundle_product_color option").find()
 
     //make backgroud for product color div 
 
@@ -628,7 +604,18 @@ $(document).ready(function() {
     });
 
 
-     
-
+    //show price log select
+    $("#unitPriceIcon").click(function(){
+        $("#unitPriceLogSelect").toggle();
+    });
+    $("#wholesalePriceIcon").click(function(){
+        $("#wholesalePriceSelect").toggle();
+    });
+    $("#specialPriceIcon").click(function(){
+        $("#specialPriceSelect").toggle();
+    });
+    $("#internetPriceIcon").click(function(){
+        $("#internetPriceSelect").toggle();
+    });
 
 });

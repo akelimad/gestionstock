@@ -181,7 +181,14 @@
                                                 {{ form_label(edit_form.unitPrice, "Prix unitaire", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
-                                                {{ form_widget(edit_form.unitPrice, {'attr': {'class': 'form-control'}}) }}
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        {{ form_widget(edit_form.unitPrice, {'attr': {'class': 'form-control'}})}}
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        {{ form_widget(edit_form.currency, {'attr': {'class': 'form-control price'}}) }}
+                                                    </div>
+                                                </div>
                                                 <span class="help-block">{{ form_errors(edit_form.unitPrice) }}</span> 
                                             </div>
                                         </div>

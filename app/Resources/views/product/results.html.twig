@@ -104,13 +104,13 @@
 
                 <td class="collection"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.collection ? p.collection : '---'}}</a></td>
 
-                <td class="unitPrice hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.unitPrice}}</a></td>
+                <td class="unitPrice hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.unitPrice}} {{ p.currency }}</a></td>
 
-                <td class="wholesalePrice hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.wholesalePrice}}</a></td>
+                <td class="wholesalePrice hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.wholesalePrice}} {{ p.currency }}</a></td>
 
-                <td class="specialPrice hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.specialPrice}}</a></td>
+                <td class="specialPrice hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.specialPrice}} {{ p.currency }}</a></td>
 
-                <td class="internetPrice hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.internetPrice}}</a></td>
+                <td class="internetPrice hidden"><a href="{{ path('product_show', { 'id': p.id }) }}">{{p.internetPrice}} {{ p.currency }}</a></td>
 
                 <td class="status">{{p.status ? p.status : '---' }}</td>
 

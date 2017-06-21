@@ -8,10 +8,10 @@
                     <div class="card">
                         <div class="row">
                             <div class="col-md-12">
-                                <a href="#" OnClick="javascript:window.print()" class="pull-right" title="Imprimer"><i class="fa fa-print fa-2x"></i></a>
+                                <a href="#" OnClick="javascript:window.print()" class="pull-right printIcon" title="Imprimer"><i class="fa fa-print fa-2x"></i></a>
                                 <div class="product-title">
                                     <h4>{{product.name}}
-                                        <a href="{{ path('product_edit', { 'id': product.id }) }}" data-toggle="tooltip" data-placement="bottom" title="Editer">
+                                        <a href="{{ path('product_edit', { 'id': product.id }) }}" data-toggle="tooltip" data-placement="bottom" title="Editer" class="editIcon">
                                             <i class="glyphicon glyphicon-pencil"></i>
                                         </a>
                                     </h4> 
@@ -21,34 +21,35 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 details">
+                            <div class="col-md-6 col-sm-6 col-xs-6 details">
                                 <span class="detail-title"> Details </span>
                                 <div class="detail-hr">
                                     <span class="delimeter"></span>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
                                             <span> Taille(inch) : </span>
                                             {{ product.sizeInch ? product.sizeInch : '---' }}
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
                                             <span> Couleur : </span>
-                                            <div class="color" style="background: {{ product.color }}"> </div>
-                                            <span> {{ product.color ? product.color : '---' }} </span>
+                                            <div class="color" style="background: {{ product.color }}">
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
                                             <span> Taille(cm) : </span>
                                             {{ product.sizeCm ? product.sizeCm : '---' }}
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
                                             <span> Poids (g) : </span>
                                             {{ product.weight ? product.weight : '---' }}
@@ -56,13 +57,13 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
                                             <span> Composition : </span>
                                             {{ product.composition ? product.composition : '---' }}
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
                                             <span> Forme : </span>
                                             {{ product.form ? product.form : '---' }}
@@ -70,7 +71,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
                                             <span> Collection : </span>
                                             {{ product.collection ? product.collection : '---' }} 
@@ -78,20 +79,26 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6">
                                         <div class="item">
                                             <span> Prix unitaire : </span>
-                                            <select name="" id="">
+                                            {{ product.unitPrice ? product.unitPrice : '---' }}
+                                            {{ product.currency }}
+                                            <i class="fa fa-question-circle" id="unitPriceIcon"></i>
+                                            <select name="pricelog" id="unitPriceLogSelect">
                                                 {% for price in priceslog %}
                                                     <option {% if product.unitPrice == price.unitPrice %} selected {% endif %}>{{ price.unitPrice }}</option>
                                                 {% endfor %}
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6">
                                         <div class="item">
-                                            <span> Prix grossiste : </span> 
-                                            <select name="" id="">
+                                            <span> Prix grossiste : </span>
+                                            {{ product.wholesalePrice ? product.wholesalePrice : '---' }}
+                                            {{ product.currency }}
+                                            <i class="fa fa-question-circle" id="wholesalePriceIcon"></i> 
+                                            <select name="pricelog" id="wholesalePriceSelect">
                                                 {% for price in priceslog %}
                                                     <option {% if product.wholesalePrice == price.wholesalePrice %} selected {% endif %}>{{ price.wholesalePrice }}</option>
                                                 {% endfor %}
@@ -100,20 +107,26 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6">
                                         <div class="item">
                                             <span> Prix MP : </span>
-                                            <select name="" id="">
+                                            {{ product.specialPrice ? product.specialPrice : '---' }}
+                                            {{ product.currency }}
+                                            <i class="fa fa-question-circle" id="specialPriceIcon"></i> 
+                                            <select name="pricelog" id="specialPriceSelect">
                                                 {% for price in priceslog %}
                                                     <option {% if product.specialPrice == price.specialPrice %} selected {% endif %}>{{ price.specialPrice }}</option>
                                                 {% endfor %}
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6">
                                         <div class="item">
                                             <span>  Prix internet : </span>
-                                            <select name="" id="">
+                                            {{ product.internetPrice ? product.internetPrice : '---' }}
+                                            {{ product.currency }}
+                                            <i class="fa fa-question-circle" id="internetPriceIcon"></i> 
+                                            <select name="pricelog" id="internetPriceSelect">
                                                 {% for price in priceslog %}
                                                     <option {% if product.internetPrice == price.internetPrice %} selected {% endif %}>{{ price.internetPrice }}</option>
                                                 {% endfor %}
@@ -122,7 +135,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
                                             <span> Catégorie : </span>
                                             {% for cat in product.categories| slice(0,1) %}
@@ -130,7 +143,7 @@
                                             {% endfor %}
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
                                             <span> Sous catégorie : </span>
                                             {% for cat in product.categories | slice(1,2) %}
@@ -141,7 +154,7 @@
                                     
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
                                             <span> Fournisseur : </span>
                                             {% if product.providers is not empty  %}
@@ -153,7 +166,7 @@
                                             {% endif %}
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
                                             <span> Emballage : </span>
                                             {% if product.packages is not empty  %}
@@ -167,13 +180,13 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6">
                                         <div class="item">
                                             <span> Statut : </span>
                                             {% if product.status == "desactivé" %}
                                                 <i class="fa fa-ban"></i>
                                             {% else %}
-                                                {{ product.status }}
+                                                {{ product.status ? product.status : '---' }}
                                             {% endif %}
                                         </div>
                                     </div>
@@ -182,17 +195,21 @@
                                     <div class="col-md-12">
                                         <div class="item">
                                             <span> Description : </span>
-                                            {{ product.description ? product.description : '---' }}
+                                            <div class="description">
+                                                <p>
+                                                    {{ product.description ? product.description : '---' }}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="col-md-6 images">
+                            <div class="col-md-6 col-sm-6 col-xs-6 images">
                                 {% if product.images is not empty  %}
                                     <div class="fotorama" data-nav="thumbs" data-allowfullscreen="native">
                                         {% for image in product.images %}
-                                            <img src="{{ asset('uploads/images/') ~ image.path }}" alt="">
+                                            <img src="{{ asset('uploads/images/') ~ image.path }}" class="img-responsive" alt="">
                                         {% endfor %}
                                     </div>
                                 {% else %}
