@@ -1,0 +1,19 @@
+a.printIcon,
+a.editIcon,
+#unitPriceIcon,
+#wholesalePriceIcon,
+#specialPriceIcon,
+#internetPriceIcon,
+ol.breadcrumb
+{
+	display: none;
+}
+.details .detail-title{
+	border-bottom: 1px solid black;
+	width: 100%;
+}
+
+.item span{
+	font-weight: normal;
+	color: red;
+}

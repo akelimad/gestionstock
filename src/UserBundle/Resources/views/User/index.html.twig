@@ -6,6 +6,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="{{path('user_default_index')}}">Ulitisateurs</a></li>
+                </ol>
                 <div class="card">
                     <div class="content users">
                         {% if app.session.started %}
@@ -18,7 +22,7 @@
                                 </div>
                             {% endfor %}
                         {% endif %}
-                        <h4 class="title">La liste des utilisateurs <a href=" {{path('fos_user_registration_register')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nouveau</a></h4>
+                        <h4 class="title"> {{ 'title.userlist'|trans }} <a href=" {{path('fos_user_registration_register')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nouveau</a></h4>
                         
                         <div class="toolbar">
                             <!--        Here you can write extra buttons/actions for the toolbar              -->

@@ -4,7 +4,12 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-10 col-md-offset-1">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">Accueil</a></li>
+                        <li class="breadcrumb-item"><a href="{{path('package_index')}}">Emballages</a></li>
+                        <li class="breadcrumb-item active">{{package.name}}</li>
+                    </ol>
                     <div class="card">
                         {{ form_start(edit_form) }}
                             <div class="content">
