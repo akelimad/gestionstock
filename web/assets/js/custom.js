@@ -520,33 +520,59 @@ $(document).ready(function() {
     var sizeCm=$("#productbundle_product_sizeCm");
     sizeInch.blur(function(){
         var inch = $(this).val();
-        if(isNaN(inch)){
-            $("span#sizeInchError").show().html("valeur invalide");
-            $("#sizeInchdiv").addClass("has-error");
-            sizeInch.focus();
-            sizeCm.val(0);
+        var delim= "x";
+        var result="";
+        var num=inch.split(delim);
+        if(inch !== ""){
+            for(var i=0 ; i< num.length; i++){
+                if($.isNumeric(num[i])){
+                    var trunc = (Math.floor((num[i] * 2.54) * 100) / 100).toFixed(2);
+                    result += trunc;
+                    if(i<num.length-1){
+                       result +=' '+ delim +' ';
+                    }
+                    $("span#sizeInchError").hide();
+                    $("#sizeInchdiv").removeClass("has-error");
+                }else{
+                    $("span#sizeInchError").show().html("Valeur invalide");
+                    $("#sizeInchdiv").addClass("has-error");
+                    result=""
+                }
+            }
+            sizeCm.val(result);
         }else{
-            var cm   = Number( inch * 2.54 );
-            sizeCm.val(cm);
             $("span#sizeInchError").hide();
             $("#sizeInchdiv").removeClass("has-error");
         }
     });
 
-    sizeCm.on('blur', function(){
+    sizeCm.blur(function(){
         var cm = $(this).val();
-        if(isNaN(cm)){
-            $("span#sizeCmError").show().html("valeur invalide");
-            $("#sizeCmdiv").addClass("has-error");
-            sizeCm.focus();
-            sizeInch.val(0);
+        var delim= "x";
+        var result="";
+        var num=cm.split(delim);
+        if(cm !== ""){
+            for(var i=0 ; i< num.length; i++){
+                if($.isNumeric(num[i])){
+                    var trunc = (Math.floor((num[i] / 2.54) * 100) / 100).toFixed(2);
+                    result += trunc;
+                    if(i<num.length-1){
+                       result +=' '+ delim +' ';
+                    }
+                    $("span#sizeCmError").hide();
+                    $("#sizeCmdiv").removeClass("has-error");
+                }else{
+                    $("span#sizeCmError").show().html("Valeur invalide");
+                    $("#sizeCmdiv").addClass("has-error");
+                    result=""
+                }
+            }
+            sizeInch.val(result);
         }else{
-            var inch   = Number( cm * 0.39 );
-            sizeInch.val(inch);
             $("span#sizeCmError").hide();
             $("#sizeCmdiv").removeClass("has-error");
         }
-    })
+    });
 
     //get selected start of prodvider by criteres
     $(".stars.quality").each(function(index,elem){
