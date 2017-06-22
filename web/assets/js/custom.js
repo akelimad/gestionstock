@@ -524,7 +524,8 @@ $(document).ready(function() {
         var result="";
         for(var i=0 ;i< num.length; i++)
         {
-            result += num[i] * 2.54;
+            var trunc = (Math.floor((num[i] * 2.54) * 100) / 100).toFixed(2);
+            result += trunc;
             if(i<num.length-1){
                result +=' x ';
             }
@@ -539,8 +540,8 @@ $(document).ready(function() {
         var result="";
         for(var i=0 ;i< num.length; i++)
         {
-            var digit = (Math.floor((num[i] / 2.54) * 100) / 100).toFixed(2);
-            result += digit;
+            var trunc = (Math.floor((num[i] / 2.54) * 100) / 100).toFixed(2);
+            result += trunc;
             if(i<num.length-1){
                result +=' x ';
             }
