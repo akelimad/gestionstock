@@ -520,34 +520,58 @@ $(document).ready(function() {
     var sizeCm=$("#productbundle_product_sizeCm");
     sizeInch.blur(function(){
         var inch = $(this).val();
-        var num=inch.split('x');
+        var delim= "x";
         var result="";
-        for(var i=0 ;i< num.length; i++)
-        {
-            var trunc = (Math.floor((num[i] * 2.54) * 100) / 100).toFixed(2);
-            result += trunc;
-            if(i<num.length-1){
-               result +=' x ';
+        var num=inch.split(delim);
+        if(inch !== ""){
+            for(var i=0 ; i< num.length; i++){
+                if($.isNumeric(num[i])){
+                    var trunc = (Math.floor((num[i] * 2.54) * 100) / 100).toFixed(2);
+                    result += trunc;
+                    if(i<num.length-1){
+                       result +=' '+ delim +' ';
+                    }
+                    $("span#sizeInchError").hide();
+                    $("#sizeInchdiv").removeClass("has-error");
+                }else{
+                    $("span#sizeInchError").show().html("Valeur invalide");
+                    $("#sizeInchdiv").addClass("has-error");
+                    result=""
+                }
             }
-            //console.log(num[i]);
+            sizeCm.val(result);
+        }else{
+            $("span#sizeInchError").hide();
+            $("#sizeInchdiv").removeClass("has-error");
         }
-        sizeCm.val(result);
     });
 
     sizeCm.blur(function(){
         var cm = $(this).val();
-        var num=cm.split('x');
+        var delim= "x";
         var result="";
-        for(var i=0 ;i< num.length; i++)
-        {
-            var trunc = (Math.floor((num[i] / 2.54) * 100) / 100).toFixed(2);
-            result += trunc;
-            if(i<num.length-1){
-               result +=' x ';
+        var num=cm.split(delim);
+        if(cm !== ""){
+            for(var i=0 ; i< num.length; i++){
+                if($.isNumeric(num[i])){
+                    var trunc = (Math.floor((num[i] / 2.54) * 100) / 100).toFixed(2);
+                    result += trunc;
+                    if(i<num.length-1){
+                       result +=' '+ delim +' ';
+                    }
+                    $("span#sizeCmError").hide();
+                    $("#sizeCmdiv").removeClass("has-error");
+                }else{
+                    $("span#sizeCmError").show().html("Valeur invalide");
+                    $("#sizeCmdiv").addClass("has-error");
+                    result=""
+                }
             }
-            //console.log(num[i]);
+            sizeInch.val(result);
+        }else{
+            $("span#sizeCmError").hide();
+            $("#sizeCmdiv").removeClass("has-error");
         }
-        sizeInch.val(result);
     });
 
     //get selected start of prodvider by criteres
