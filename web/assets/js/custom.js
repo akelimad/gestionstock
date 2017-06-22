@@ -520,33 +520,34 @@ $(document).ready(function() {
     var sizeCm=$("#productbundle_product_sizeCm");
     sizeInch.blur(function(){
         var inch = $(this).val();
-        if(isNaN(inch)){
-            $("span#sizeInchError").show().html("valeur invalide");
-            $("#sizeInchdiv").addClass("has-error");
-            sizeInch.focus();
-            sizeCm.val(0);
-        }else{
-            var cm   = Number( inch * 2.54 );
-            sizeCm.val(cm);
-            $("span#sizeInchError").hide();
-            $("#sizeInchdiv").removeClass("has-error");
+        var num=inch.split('x');
+        var result="";
+        for(var i=0 ;i< num.length; i++)
+        {
+            result += num[i] * 2.54;
+            if(i<num.length-1){
+               result +=' x ';
+            }
+            //console.log(num[i]);
         }
+        sizeCm.val(result);
     });
 
-    sizeCm.on('blur', function(){
+    sizeCm.blur(function(){
         var cm = $(this).val();
-        if(isNaN(cm)){
-            $("span#sizeCmError").show().html("valeur invalide");
-            $("#sizeCmdiv").addClass("has-error");
-            sizeCm.focus();
-            sizeInch.val(0);
-        }else{
-            var inch   = Number( cm * 0.39 );
-            sizeInch.val(inch);
-            $("span#sizeCmError").hide();
-            $("#sizeCmdiv").removeClass("has-error");
+        var num=cm.split('x');
+        var result="";
+        for(var i=0 ;i< num.length; i++)
+        {
+            var digit = (Math.floor((num[i] / 2.54) * 100) / 100).toFixed(2);
+            result += digit;
+            if(i<num.length-1){
+               result +=' x ';
+            }
+            //console.log(num[i]);
         }
-    })
+        sizeInch.val(result);
+    });
 
     //get selected start of prodvider by criteres
     $(".stars.quality").each(function(index,elem){
