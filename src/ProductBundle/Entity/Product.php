@@ -884,27 +884,5 @@ class Product
         return $this->internetPrice;
     }
 
-    /**
-     * Add image
-     *
-     * @param \ProductBundle\Entity\ImageProduct $image
-     *
-     * @return Product
-     */
-    public function addImage(\ProductBundle\Entity\ImageProduct $image)
-    {
-        $this->images[] = $image;
 
-        return $this;
-    }
-
-    /**
-     * Remove image
-     *
-     * @param \ProductBundle\Entity\ImageProduct $image
-     */
-    public function removeImage(\ProductBundle\Entity\ImageProduct $image)
-    {
-        $this->images->removeElement($image);
-    }
 }
