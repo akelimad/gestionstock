@@ -29,6 +29,7 @@ class CategoryController extends Controller
 
         return $this->render('category/index.html.twig', array(
             'categories' => $categories,
+            'is_sub_cat' => false
         ));
     }
 
@@ -44,6 +45,7 @@ class CategoryController extends Controller
 
         return $this->render('category/sub_index.html.twig', array(
             'categories' => $categories,
+            'is_sub_cat' => true
         ));
     }
 

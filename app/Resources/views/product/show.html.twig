@@ -5,6 +5,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">Accueil</a></li>
+                        <li class="breadcrumb-item"><a href="{{path('product_index')}}">produits</a></li>
+                        <li class="breadcrumb-item active">{{product.name}}</li>
+                    </ol>
                     <div class="card">
                         <div class="row">
                             <div class="col-md-12">
@@ -84,10 +89,14 @@
                                             <span> Prix unitaire : </span>
                                             {{ product.unitPrice ? product.unitPrice : '---' }}
                                             {{ product.currency }}
-                                            <i class="fa fa-question-circle" id="unitPriceIcon"></i>
-                                            <select name="pricelog" id="unitPriceLogSelect">
+                                            <i class="fa fa-history" id="unitPriceIcon" title="Cliquer pour consulter les anciens prix"></i>
+                                            <select name="pricelog" class="form-control" id="unitPriceLogSelect">
+                                                {% set newArray = [] %}
                                                 {% for price in priceslog %}
-                                                    <option {% if product.unitPrice == price.unitPrice %} selected {% endif %}>{{ price.unitPrice }}</option>
+                                                    {% if price.unitPrice != NULL and price.unitPrice not in newArray %}
+                                                        <option {% if product.unitPrice == price.unitPrice %} selected {% endif %}>{{ price.unitPrice }}</option>
+                                                        {% set newArray = newArray|merge([price.unitPrice]) %}
+                                                    {% endif %}
                                                 {% endfor %}
                                             </select>
                                         </div>
@@ -97,10 +106,14 @@
                                             <span> Prix grossiste : </span>
                                             {{ product.wholesalePrice ? product.wholesalePrice : '---' }}
                                             {{ product.currency }}
-                                            <i class="fa fa-question-circle" id="wholesalePriceIcon"></i> 
-                                            <select name="pricelog" id="wholesalePriceSelect">
+                                            <i class="fa fa-history" id="wholesalePriceIcon" title="Cliquer pour consulter les anciens prix"></i> 
+                                            <select name="pricelog" class="form-control" id="wholesalePriceSelect">
+                                                {% set newArray = [] %}
                                                 {% for price in priceslog %}
-                                                    <option {% if product.wholesalePrice == price.wholesalePrice %} selected {% endif %}>{{ price.wholesalePrice }}</option>
+                                                    {% if price.wholesalePrice != NULL and price.wholesalePrice not in newArray %}
+                                                        <option {% if product.wholesalePrice == price.wholesalePrice %} selected {% endif %}>{{ price.wholesalePrice }}</option>
+                                                        {% set newArray = newArray|merge([price.wholesalePrice]) %}
+                                                    {% endif %}
                                                 {% endfor %}
                                             </select>
                                         </div>
@@ -112,10 +125,14 @@
                                             <span> Prix MP : </span>
                                             {{ product.specialPrice ? product.specialPrice : '---' }}
                                             {{ product.currency }}
-                                            <i class="fa fa-question-circle" id="specialPriceIcon"></i> 
-                                            <select name="pricelog" id="specialPriceSelect">
+                                            <i class="fa fa-history" id="specialPriceIcon" title="Cliquer pour consulter les anciens prix"></i> 
+                                            <select name="pricelog" class="form-control" id="specialPriceSelect">
+                                                {% set newArray = [] %}
                                                 {% for price in priceslog %}
-                                                    <option {% if product.specialPrice == price.specialPrice %} selected {% endif %}>{{ price.specialPrice }}</option>
+                                                    {% if price.specialPrice != NULL and price.specialPrice not in newArray %}
+                                                        <option {% if product.specialPrice == price.specialPrice %} selected {% endif %}>{{ price.specialPrice }}</option>
+                                                        {% set newArray = newArray|merge([price.specialPrice]) %}
+                                                    {% endif %}
                                                 {% endfor %}
                                             </select>
                                         </div>
@@ -125,10 +142,14 @@
                                             <span>  Prix internet : </span>
                                             {{ product.internetPrice ? product.internetPrice : '---' }}
                                             {{ product.currency }}
-                                            <i class="fa fa-question-circle" id="internetPriceIcon"></i> 
-                                            <select name="pricelog" id="internetPriceSelect">
+                                            <i class="fa fa-history" id="internetPriceIcon" title="Cliquer pour consulter les anciens prix"></i> 
+                                            <select name="pricelog" class="form-control" id="internetPriceSelect">
+                                                {% set newArray = [] %}
                                                 {% for price in priceslog %}
-                                                    <option {% if product.internetPrice == price.internetPrice %} selected {% endif %}>{{ price.internetPrice }}</option>
+                                                    {% if price.internetPrice != NULL and price.internetPrice not in newArray %}
+                                                        <option {% if product.internetPrice == price.internetPrice %} selected {% endif %}>{{ price.internetPrice }}</option>
+                                                        {% set newArray = newArray|merge([price.internetPrice]) %}
+                                                    {% endif %}
                                                 {% endfor %}
                                             </select>
                                         </div>

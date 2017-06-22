@@ -3,7 +3,8 @@ a.editIcon,
 #unitPriceIcon,
 #wholesalePriceIcon,
 #specialPriceIcon,
-#internetPriceIcon
+#internetPriceIcon,
+ol.breadcrumb
 {
 	display: none;
 }

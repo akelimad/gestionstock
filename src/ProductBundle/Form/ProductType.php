@@ -75,7 +75,7 @@ class ProductType extends AbstractType
             'choices' => array(
                 'EUR' => 'EUR',
                 'USD' => 'USD',
-                'DH'=> 'DH',
+                'MAD'=> 'MAD',
             )
         ))
         ->add('images', FileType::class, array(

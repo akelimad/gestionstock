@@ -142,6 +142,7 @@ class ProductController extends Controller
             $productlog->setProduct($product);
             $productlog->setUser($this->getUser());
             $productlog->setAction("Add");
+
             $productlog->setUnitPrice($product->getUnitPrice());
             $productlog->setWholesalePrice($product->getWholesalePrice());
             $productlog->setSpecialPrice($product->getSpecialPrice());
@@ -291,6 +292,7 @@ class ProductController extends Controller
             $em->flush();
             return $this->redirectToRoute('product_index');
         }
+        $url = $this->generateUrl('product_show',array('id' => $product->getId()));
         $this->get('session')->getFlashBag()->add(
             'editProduct',
             array(

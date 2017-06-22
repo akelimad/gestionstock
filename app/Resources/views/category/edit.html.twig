@@ -4,7 +4,17 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">Accueil</a></li>
+                        {% if is_sub_cat == false %}
+                            <li class="breadcrumb-item"><a href="{{path('category_index')}}">Catégories</a></li>
+                        {% else %}
+                            <li class="breadcrumb-item"><a href="{{path('sub_category_index')}}">Sous catégorie</a></li>
+                        {% endif %}
+
+                        <li class="breadcrumb-item active">{{category.name}}</li>
+                    </ol>
                     <div class="card">
                         {{ form_start(edit_form) }}
                             <div class="content">
