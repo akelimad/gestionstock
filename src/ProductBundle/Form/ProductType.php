@@ -25,10 +25,10 @@ class ProductType extends AbstractType
     {
         
         $builder
-        ->add('name')
-        ->add('description')
-        ->add('sizeInch')
-        ->add('sizeCm')
+        ->add('name', null, array('label' => 'product.label.name') )
+        ->add('description', array('label' => 'product.label.description'))
+        ->add('sizeInch', array('label' => 'product.label.sizeInch'))
+        ->add('sizeCm', array('label' => 'product.label.sizeCm'))
         ->add('color', ChoiceType::class, array(
             'choices' => array(
                 'Black' => '#000000',
@@ -53,15 +53,16 @@ class ProductType extends AbstractType
                 'BurlyWood' => '#DEB887',
                 'Beige' => '#F5F5DC',
             ),
+            'label' => 'product.label.color'
         ))
-        ->add('composition')
-        ->add('form')
-        ->add('weight')
-        ->add('unitPrice')
-        ->add('wholesalePrice')
-        ->add('specialPrice')
-        ->add('internetPrice')
-        ->add('collection')
+        ->add('composition', array('label' => 'product.label.composition'))
+        ->add('form', array('label' => 'product.label.form'))
+        ->add('weight', array('label' => 'product.label.weight'))
+        ->add('unitPrice', array('label' => 'product.label.unitPrice'))
+        ->add('wholesalePrice', array('label' => 'product.label.wholesalePrice'))
+        ->add('specialPrice', array('label' => 'product.label.specialPrice'))
+        ->add('internetPrice', array('label' => 'product.label.internetPrice'))
+        ->add('collection', array('label' => 'product.label.collection'))
         ->add('status', ChoiceType::class, array(
             'choices' => array(
                 'Inventaire' => 'Inventaire',
@@ -69,7 +70,8 @@ class ProductType extends AbstractType
                 'Disponible à la vente'   => 'Disponible à la vente',
                 'Fin de cycle' => 'Fin de cycle',
                 'Inactif' => 'Inactif'
-            )
+            ),
+            'label' => 'product.label.status'
         ))
         ->add('currency', ChoiceType::class, array(
             'choices' => array(

@@ -37,27 +37,27 @@ app:
 product:
     resource: "@ProductBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /{_locale}/
 
 category:
     resource: "@CategoryBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /{_locale}/
 
 package:
     resource: "@PackageBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /{_locale}/
 
 provider:
     resource: "@ProviderBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /{_locale}/
 
 user:
     resource: "@UserBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /{_locale}/
 
 
 fos_user_security:

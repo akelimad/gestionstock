@@ -55,20 +55,20 @@
                     <li class="{{ app.request.attributes.get('_route') == 'product_index' ? 'active' : '' }}">
                         <a data-toggle="collapse" href="#products" class="collapsed" aria-expanded="false">
                             <i class="fa fa-product-hunt"></i>
-                            <p>Produits
+                            <p>{{'home.sidebar.product'|trans }}
                                 <b class="caret"></b>
                             </p>
                         </a>
                         <div class="collapse" id="products" role="navigation" aria-expanded="false" style="height: 0px;">
                             <ul class="nav">
                                 <li>
-                                    <a href="{{path('product_index')}}"><i class="fa fa-list"></i> Liste des produits</a>
+                                    <a href="{{path('product_index')}}"><i class="fa fa-list"></i> {{'home.sidebar.product.submenu.product_list'|trans }}</a>
                                 </li>
                                 <li>
-                                    <a href="{{path('product_desactiveted')}}"><i class="fa fa-trash"></i> Les produits supprimés</a>
+                                    <a href="{{path('product_desactiveted')}}"><i class="fa fa-trash"></i> {{'home.sidebar.product.submenu.product_trashed'|trans }}</a>
                                 </li>
                                 <li>
-                                    <a href="{{path('product_new')}}"><i class="fa fa-plus"></i> Nouveau </a>
+                                    <a href="{{path('product_new')}}"><i class="fa fa-plus"></i> {{'home.sidebar.product.submenu.product_add'|trans }} </a>
                                 </li>
                             </ul>
                         </div>
@@ -76,17 +76,17 @@
                     <li class="{{ app.request.attributes.get('_route') == 'category_index' ? 'active' : '' }}">
                         <a data-toggle="collapse" href="#categories" class="collapsed" aria-expanded="false">
                             <i class="fa fa-tag"></i>
-                            <p>Categories
+                            <p>{{'home.sidebar.category'|trans }}
                                 <b class="caret"></b>
                             </p>
                         </a>
                         <div class="collapse" id="categories" role="navigation" aria-expanded="false" style="height: 0px;">
                             <ul class="nav">
                                 <li>
-                                    <a href="{{path('category_index')}}"><i class="fa fa-plus"></i> Categorie</a>
+                                    <a href="{{path('category_index')}}"><i class="fa fa-plus"></i> {{'home.sidebar.category.submenu.categoy_list'|trans }}</a>
                                 </li>
                                 <li>
-                                    <a href="{{ path('sub_category_index') }}"><i class="fa fa-plus"></i> Sous categorie</a>
+                                    <a href="{{ path('sub_category_index') }}"><i class="fa fa-plus"></i>{{'home.sidebar.category.submenu.sub_categoy_list'|trans }}</a>
                                 </li>
                             </ul>
                         </div>
@@ -94,20 +94,20 @@
                     <li class="{{ app.request.attributes.get('_route') == 'package_index' ? 'active' : '' }}">
                         <a href=" {{path('package_index')}} ">
                             <i class="ti-package"></i>
-                            <p>Emballages</p>
+                            <p>{{'home.sidebar.packages'|trans }}</p>
                         </a>
                     </li>
                     <li class="{{ app.request.attributes.get('_route') == 'provider_index' ? 'active' : '' }}">
                         <a href=" {{path('provider_index')}} ">
                             <i class="fa fa-cubes"></i>
-                            <p>Fournisseurs</p>
+                            <p>{{'home.sidebar.providers'|trans }}</p>
                         </a>
                     </li>
                     {% if is_granted('ROLE_ADMIN') %}
                     <li class="{{ app.request.attributes.get('_route') == 'user_default_index' ? 'active' : '' }}">
                         <a href=" {{path('user_default_index')}} ">
                             <i class="fa fa-users"></i>
-                            <p>Utilisateurs</p>
+                            <p>{{'home.sidebar.user'|trans }}</p>
                         </a>
                     </li>
                     {% endif %}
@@ -151,7 +151,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="{{ path('app_default_index') }}"> Accueil </a>
+                        <a class="navbar-brand" href="{{ path('app_default_index') }}">{{'home.title'|trans}} </a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -162,10 +162,10 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="#"> Français </a>
+                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale' : 'fr'})) }}"> {{'home.language.fr'|trans}} </a>
                                     </li>
                                     <li>
-                                        <a href="#"> Anglais </a>
+                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale' : 'en'})) }}"> {{'home.language.en'|trans}} </a>
                                     </li>
                                 </ul>
                             </li>
@@ -191,10 +191,10 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{path('fos_user_change_password')}}"><i class="fa fa-edit fw"></i>  Changer mot de passe</a>
+                                        <a href="{{path('fos_user_change_password')}}"><i class="fa fa-edit fw"></i>  {{'home.profile.menu.change_password'|trans }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{path('fos_user_security_logout')}}"><i class="fa fa-sign-out fw"></i>  Déconnexion</a>
+                                        <a href="{{path('fos_user_security_logout')}}"><i class="fa fa-sign-out fw"></i>{{'home.profile.menu.logout'|trans }}</a>
                                     </li>
                                 </ul>
                             </li>

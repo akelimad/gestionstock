@@ -16,6 +16,8 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        //echo $locale = $request->getLocale();
+
         $em = $this->getDoctrine()->getManager();
     	$query = $em->createQuery("SELECT u FROM UserBundle:User u where u.deleted_at IS NULL  ORDER BY u.username ASC ");
         $users = $query->getResult();

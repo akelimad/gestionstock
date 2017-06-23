@@ -25,7 +25,7 @@
 					{% endif %}
 					<div class="welcome-text">
 						<h2 class="text-center">
-							Bienvenue à l’espace d’administration et de gestion des produits Moroccan prestige !
+							{{'home.welcome_text'|trans}}
 						</h2>
 					</div>
 				</div>
@@ -37,7 +37,8 @@
 									<div class="icon">
 										<a href="{{path('product_index')}}">
 											<img src="{{ asset('assets/img/search-icon.png') }}" class="img-responsive" alt="">
-											<p class="search-title">Rechercher un produit</p>
+											<p class="search-title">{{'home.icon.product_search'|trans}}
+											</p>
 										</a>
 									</div>
 								</div>
@@ -47,7 +48,9 @@
 									<div class="icon"> 
 										<a href="{{path('product_new')}}">
 											<img src="{{ asset('assets/img/product-icon.png') }}" class="img-responsive" alt="">
-											<p>Ajouter un produit</p>
+											<p>
+												{{'home.icon.product_new'|trans}}
+											</p>
 										</a>
 									</div>
 								</div>
@@ -57,7 +60,9 @@
 									<div class="icon">
 										<a href="{{path('user_default_index')}}">
 											<img src="{{ asset('assets/img/user-icon.png') }}" class="img-responsive" alt="">
-											<p>Gestion des utilisateurs</p>
+											<p>
+												{{'home.icon.user_list'|trans}}
+											</p>
 										</a>
 									</div>
 								</div>
