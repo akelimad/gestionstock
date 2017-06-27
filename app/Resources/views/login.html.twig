@@ -15,14 +15,22 @@
     <!--  Material Dashboard CSS    -->
     
     {% block stylesheets %}
-        <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel='stylesheet' type='text/css'>
+        <script src="{{ asset('assets/vendors/jquery-3.1.1.min.js') }}"></script>
+        <script src="{{ asset('assets/vendors/underscore-min.js') }}"></script>
+        
+        <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel='stylesheet' type='text/css' media="all">
         <link href="{{ asset('assets/css/amaze.css') }}" rel="stylesheet" />
         <!--     Fonts and icons     -->
         <link href="{{ asset('assets/css/font-awesome.min.css')}}" rel='stylesheet' type='text/css'>
         <link href="{{ asset('assets/css/font-muli.css')}}" rel='stylesheet' type='text/css'>
-        <link href="{{ asset('assets/css/themify-icons.css')}}" rel="stylesheet">
+        <link href="{{ asset('assets/css/themify-icons.css')}}" rel="stylesheet" type='text/css'>
+        <link href="{{ asset('assets/vendors/dropzone/dropzone.min.css')}}" rel="stylesheet">
         <link href="{{ asset('assets/vendors/sweetalert/css/sweetalert2.min.css')}}" rel="Stylesheet" >
-        <link href="{{ asset('assets/css/style.css')}}" rel="Stylesheet" >
+        <link href="{{ asset('assets/vendors/jquery-ui-1.12.0/jquery-ui.css')}}" rel="Stylesheet" >
+        <!-- product images switcher fotorama -->
+        <link href="{{ asset('assets/vendors/fotorama/fotorama.css')}}" rel="Stylesheet" >
+        <link href="{{ asset('assets/css/style.css')}}" rel="Stylesheet" media="all" >
+        <link href="{{ asset('assets/css/print.css')}}" rel="Stylesheet" media="print" >
     {% endblock %}
 </head>
 
@@ -36,44 +44,14 @@
     </div>
 <!--   Core JS Files   -->
 {% block javascripts %}
-    <script src="{{ asset('assets/vendors/jquery-3.1.1.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.js') }}" ></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}" ></script>
     <script src="{{ asset('assets/vendors/jquery-ui.min.js') }}" ></script>
+    <script src="{{ asset('assets/vendors/jquery-ui-1.12.0/jquery-ui.js') }}" ></script>
     <script src="{{ asset('assets/vendors/material.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/perfect-scrollbar.jquery.min.js') }}"></script>
-    <!-- Forms Validations Plugin -->
-    <script src="{{ asset('assets/vendors/jquery.validate.min.js') }}"></script>
-    <!--  Plugin for Date Time Picker and Full Calendar Plugin-->
-    <script src="{{ asset('assets/vendors/moment.min.js') }}"></script>
-    <!--  Charts Plugin -->
-    <script src="{{ asset('assets/vendors/charts/flot/jquery.flot.js') }}"></script>
-    <script src="{{ asset('assets/vendors/charts/flot/jquery.flot.resize.js') }}"></script>
-    <script src="{{ asset('assets/vendors/charts/flot/jquery.flot.pie.js') }}"></script>
-    <script src="{{ asset('assets/vendors/charts/flot/jquery.flot.stack.js') }}"></script>
-    <script src="{{ asset('assets/vendors/charts/flot/jquery.flot.categories.js') }}"></script>
-    <script src="{{ asset('assets/vendors/charts/chartjs/Chart.min.js') }}" ></script>
 
-    <!--  Plugin for the Wizard -->
-    <script src="{{ asset('assets/vendors/jquery.bootstrap-wizard.js') }}"></script>
-    <!--  Notifications Plugin    -->
-    <script src="{{ asset('assets/vendors/bootstrap-notify.js') }}"></script>
-    <!-- DateTimePicker Plugin -->
-    <script src="{{ asset('assets/vendors/bootstrap-datetimepicker.js') }}"></script>
-    <!-- Vector Map plugin -->
-    <script src="{{ asset('assets/vendors/jquery-jvectormap.js') }}"></script>
-    <!-- Sliders Plugin -->
-    <script src="{{ asset('assets/vendors/nouislider.min.js') }}"></script>
-    <!--  Google Maps Plugin    -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAurmSUEQDwY86-wOG3kCp855tCI8lHL-I"></script>
     <!-- Select Plugin -->
     <script src="{{ asset('assets/vendors/jquery.select-bootstrap.js') }}"></script>
-
-    <!--  Checkbox, Radio, Switch and Tags Input Plugins -->
-
-    <script src="{{ asset('assets/js/bootstrap-checkbox-radio-switch-tags.js') }}"></script>
-
-    <!-- Circle Percentage-chart -->
-    <script src="{{ asset('assets/js/jquery.easypiechart.min.js') }}"></script>
 
     <!--  DataTables.net Plugin    -->
     <script src="{{ asset('assets/vendors/jquery.datatables.js') }}"></script>
@@ -81,17 +59,17 @@
     <script src="{{ asset('assets/vendors/sweetalert/js/sweetalert2.min.js') }}"></script>
     <!--    Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
     <script src="{{ asset('assets/vendors/jasny-bootstrap.min.js') }}"></script>
-    <!--  Full Calendar Plugin    -->
-    <script src="{{ asset('assets/vendors/fullcalendar.min.js') }}"></script>
-    <!-- TagsInput Plugin -->
-    <script src="{{ asset('assets/vendors/jquery.tagsinput.js') }}"></script>
+
     <!-- Material Dashboard javascript methods -->
     <script src="{{ asset('assets/js/amaze.js') }}"></script>
-    <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-    <script src="{{ asset('assets/js/demo.js') }}"></script>
 
-    <script src="{{ asset('assets/js/charts/flot-charts.js') }}"></script>
-    <script src="{{ asset('assets/js/charts/chartjs-charts.js') }}"></script>
+    <script src="{{ asset('assets/vendors/dropzone/dropzone.min.js') }}"></script>
+
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <!-- product images switcher smoothproduct -->
+    <script src="{{ asset('assets/vendors/fotorama/fotorama.js') }}"></script>
+
     <script src="{{ asset('assets/js/custom.js') }}"></script>
 {% endblock %}
 </body>
