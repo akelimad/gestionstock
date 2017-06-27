@@ -25,10 +25,10 @@ class ProductType extends AbstractType
     {
         
         $builder
-        ->add('name', null, array('label' => 'product.label.name') )
-        ->add('description', array('label' => 'product.label.description'))
-        ->add('sizeInch', array('label' => 'product.label.sizeInch'))
-        ->add('sizeCm', array('label' => 'product.label.sizeCm'))
+        ->add('name', null, array('label' => 'product.label.name') ) 
+        ->add('description', null, array('label' => 'product.label.description'))
+        ->add('sizeInch', null, array('label' => 'product.label.sizeInch'))
+        ->add('sizeCm', null, array('label' => 'product.label.sizeCm'))
         ->add('color', ChoiceType::class, array(
             'choices' => array(
                 'Black' => '#000000',
@@ -55,14 +55,14 @@ class ProductType extends AbstractType
             ),
             'label' => 'product.label.color'
         ))
-        ->add('composition', array('label' => 'product.label.composition'))
-        ->add('form', array('label' => 'product.label.form'))
-        ->add('weight', array('label' => 'product.label.weight'))
-        ->add('unitPrice', array('label' => 'product.label.unitPrice'))
-        ->add('wholesalePrice', array('label' => 'product.label.wholesalePrice'))
-        ->add('specialPrice', array('label' => 'product.label.specialPrice'))
-        ->add('internetPrice', array('label' => 'product.label.internetPrice'))
-        ->add('collection', array('label' => 'product.label.collection'))
+        ->add('composition', null, array('label' => 'product.label.composition'))
+        ->add('form', null, array('label' => 'product.label.form'))
+        ->add('weight', null, array('label' => 'product.label.weight'))
+        ->add('unitPrice', null, array('label' => 'product.label.unitPrice'))
+        ->add('wholesalePrice', null, array('label' => 'product.label.wholesalePrice'))
+        ->add('specialPrice', null, array('label' => 'product.label.specialPrice'))
+        ->add('internetPrice', null, array('label' => 'product.label.internetPrice'))
+        ->add('collection', null, array('label' => 'product.label.collection'))
         ->add('status', ChoiceType::class, array(
             'choices' => array(
                 'Inventaire' => 'Inventaire',

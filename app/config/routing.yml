@@ -37,7 +37,7 @@ app:
 product:
     resource: "@ProductBundle/Controller/"
     type:     annotation
-    prefix:   /{_locale}/
+    prefix:   /
 
 category:
     resource: "@CategoryBundle/Controller/"

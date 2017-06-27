@@ -27,7 +27,7 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
     public function getPricesLog($id)
     {
         return $this->getEntityManager()->createQuery("
-            SELECT DISTINCT  p.unitPrice,  p.wholesalePrice, p.specialPrice, p.internetPrice from ProductBundle:ProductLog p where p.product = ".$id. " ORDER BY p.updated_at DESC
+            SELECT DISTINCT  p from ProductBundle:ProductLog p where p.product = ".$id. " ORDER BY p.updated_at DESC
         ")->getResult();
     }
 

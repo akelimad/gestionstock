@@ -26,5 +26,26 @@ product.index.button.new: New
 product.index.filter_by_cat: Choose a category
 product.index.filter_by_sub_cat: Choose a sub category
 product.index.filter_by_prov: Choose a provider
+
 product.label.id: Product ID
 product.label.name: Article
+product.label.photo: Photo
+product.label.category: Category
+product.label.sub_category: Sub category
+product.label.description: Description
+product.label.sizeInch: Size(inch)
+product.label.sizeCm: Size(cm)
+product.label.color: Color
+product.label.composition: Composition
+product.label.form: Form
+product.label.weight: Weight
+product.label.provider: Provider
+product.label.package: Package
+product.label.collection: Collection
+product.label.unitPrice: Unit price
+product.label.wholesalePrice: Wholesale price
+product.label.specialPrice: MP price
+product.label.internetPrice: Internet price
+product.label.status: Status
+product.action.title: Add new product
+product.btn.add: Add

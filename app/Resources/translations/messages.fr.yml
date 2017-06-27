@@ -1,20 +1,20 @@
-home.welcome_text: 'Bienvenue à l’espace d’administration et de gestion des produits Moroccan prestige !'
+home.welcome_text: Bienvenue à l’espace d’administration et de gestion des produits Moroccan prestige !
 home.icon.product_search: Rechercher un produit
 home.icon.product_new: Ajouter un produit
 home.icon.user_list: Gestion des utilisateurs
 
 home.title: Accueil
 home.sidebar.product: Produits
-home.sidebar.product.submenu.product_list: 'La liste des produits'
-home.sidebar.product.submenu.product_trashed: 'Les produits supprimés'
+home.sidebar.product.submenu.product_list: La liste des produits
+home.sidebar.product.submenu.product_trashed: Les produits supprimés
 home.sidebar.product.submenu.product_add: Nouveau
 home.sidebar.category: Categories
 home.sidebar.category.submenu.categoy_list: Categories
-home.sidebar.category.submenu.sub_categoy_list: 'Sous categories'
+home.sidebar.category.submenu.sub_categoy_list: Sous categories
 home.sidebar.packages: Emballages
 home.sidebar.providers: Fournisseurs
 home.sidebar.user: Utilisateurs
-home.profile.menu.change_password: 'Changer mot de passe'
+home.profile.menu.change_password: Changer mot de passe
 home.profile.menu.logout: Déconnexion
 home.language.en : Anglais
 home.language.fr : Français
@@ -26,5 +26,26 @@ product.index.button.new: Nouveau
 product.index.filter_by_cat: Choissez une catégorie
 product.index.filter_by_sub_cat: Choissez une sous catégorie
 product.index.filter_by_prov: Choissez un Fournisseur
+
 product.label.id: ID produit
 product.label.name: Article
+product.label.photo: Photo
+product.label.category: Catégorie
+product.label.sub_category: Sous catégorie
+product.label.description: Description
+product.label.sizeInch: Taille(inch)
+product.label.sizeCm: Taille(cm)
+product.label.color: Couleur
+product.label.composition: Composition
+product.label.form: Forme
+product.label.weight: Poids
+product.label.provider: Fournisseur
+product.label.package: Emballage
+product.label.collection: Collection
+product.label.unitPrice: Prix unitaire
+product.label.wholesalePrice: Prix grossiste
+product.label.specialPrice: Prix MP
+product.label.internetPrice: Prix internet
+product.label.status: Statut
+product.action.title: Ajouter un produit
+product.btn.add: Ajouter
