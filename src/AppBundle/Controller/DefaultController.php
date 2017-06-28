@@ -9,10 +9,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/{_locale}/")
      */
     public function indexAction()
     {
+        
         return $this->render('AppBundle:Default:index.html.twig');
     }
 

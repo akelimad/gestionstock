@@ -25,10 +25,10 @@ class ProductType extends AbstractType
     {
         
         $builder
-        ->add('name')
-        ->add('description')
-        ->add('sizeInch')
-        ->add('sizeCm')
+        ->add('name', null, array('label' => 'product.label.name') ) 
+        ->add('description', null, array('label' => 'product.label.description'))
+        ->add('sizeInch', null, array('label' => 'product.label.sizeInch'))
+        ->add('sizeCm', null, array('label' => 'product.label.sizeCm'))
         ->add('color', ChoiceType::class, array(
             'choices' => array(
                 'Black' => '#000000',
@@ -53,15 +53,16 @@ class ProductType extends AbstractType
                 'BurlyWood' => '#DEB887',
                 'Beige' => '#F5F5DC',
             ),
+            'label' => 'product.label.color'
         ))
-        ->add('composition')
-        ->add('form')
-        ->add('weight')
-        ->add('unitPrice')
-        ->add('wholesalePrice')
-        ->add('specialPrice')
-        ->add('internetPrice')
-        ->add('collection')
+        ->add('composition', null, array('label' => 'product.label.composition'))
+        ->add('form', null, array('label' => 'product.label.form'))
+        ->add('weight', null, array('label' => 'product.label.weight'))
+        ->add('unitPrice', null, array('label' => 'product.label.unitPrice'))
+        ->add('wholesalePrice', null, array('label' => 'product.label.wholesalePrice'))
+        ->add('specialPrice', null, array('label' => 'product.label.specialPrice'))
+        ->add('internetPrice', null, array('label' => 'product.label.internetPrice'))
+        ->add('collection', null, array('label' => 'product.label.collection'))
         ->add('status', ChoiceType::class, array(
             'choices' => array(
                 'Inventaire' => 'Inventaire',
@@ -69,7 +70,8 @@ class ProductType extends AbstractType
                 'Disponible à la vente'   => 'Disponible à la vente',
                 'Fin de cycle' => 'Fin de cycle',
                 'Inactif' => 'Inactif'
-            )
+            ),
+            'label' => 'product.label.status'
         ))
         ->add('currency', ChoiceType::class, array(
             'choices' => array(
@@ -115,6 +117,7 @@ class ProductType extends AbstractType
             'query_builder' => function ($er) {
                return $er->createQueryBuilder('p')->where("p.deleted_at IS NULL");
             },
+            'label' => 'product.label.package'
         ))
         ->add('providers',EntityType::class, array(
             'class'=>'ProviderBundle:Provider', 
@@ -124,6 +127,7 @@ class ProductType extends AbstractType
             'query_builder' => function ($er) {
                return $er->createQueryBuilder('p')->where("p.deleted_at IS NULL");
             },
+            'label' => 'product.label.provider'
         ));
 
         

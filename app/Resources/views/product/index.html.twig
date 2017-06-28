@@ -7,8 +7,8 @@
         <div class="row">
             <div class="col-md-12">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">Accueil</a></li>
-                    <li class="breadcrumb-item"><a href="{{path('product_index')}}">Produits</a></li>
+                    <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">{{'product.breadcrumb.home'|trans}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{path('product_index')}}">{{'product.breadcrumb.products'|trans}}</a></li>
                 </ol>
                 <div class="card">
                     <div class="content">
@@ -23,9 +23,9 @@
                                 </div>
                             {% endfor %}
                         {% endif %}
-                        <h4 class="title">La liste des produits 
+                        <h4 class="title">{{'product.index.title'|trans}} 
                         {% if is_granted('ROLE_USER') %}
-                            <a href=" {{path('product_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nouveau</a>
+                            <a href=" {{path('product_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> {{'product.index.button.new'|trans}}</a>
                         {% endif %}
                         </h4>
                         <div class="toolbar">
@@ -38,7 +38,7 @@
                                     <div class="row">
                                         <div class="col-md-10">
                                             <select name="filter-by-cat" id="categories" class="form-control">
-                                                <option value="0">Filtrez par catégorie</option>
+                                                <option value="0">{{'product.index.filter_by_cat'|trans}}</option>
                                                 {% for cat in categories %}
                                                 <option value="{{cat.id}}">{{ cat.name }}</option>
                                                 {% endfor %} 
@@ -53,7 +53,7 @@
                                     <div class="row">
                                         <div class="col-md-10">
                                             <select name="filter-by-prov" id="s_categories" class="form-control">
-                                                <option value="0">Filtrez par sous categorie</option>
+                                                <option value="0">{{'product.index.filter_by_sub_cat'|trans}}</option>
                                                 {% for sub in sub_categories %}
                                                 <option value="{{sub.id}}">{{ sub.name }}</option>
                                                 {% endfor %}
@@ -68,7 +68,7 @@
                                     <div class="row">
                                         <div class="col-md-10">
                                             <select name="filter-by-prov" id="filter-by-prov" class="form-control">
-                                                <option value="0">Filtrez par fournisseur</option>
+                                                <option value="0">{{'product.index.filter_by_prov'|trans}}</option>
                                                 {% for prov in providers %}
                                                 <option value="{{prov.id}}">{{ prov.name }}</option>
                                                 {% endfor %}
@@ -87,83 +87,83 @@
                                 <div class="fieldtoshow">
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="id" name="id" checked="checked">
-                                        <label for="id">ID produit</label>
+                                        <label for="id">{{'product.label.id'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="photo" name="photo" checked="checked">
-                                        <label for="photo">Photo</label>
+                                        <label for="photo">{{'product.label.photo'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="article" name="article" checked="checked">
-                                        <label for="article">Article</label>
+                                        <label for="article">{{'product.label.name'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="categorie" name="categorie" checked="checked">
-                                        <label for="categorie">Catégorie</label>
+                                        <label for="categorie">{{'product.label.category'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="sub_category" name="sub_category" checked="checked">
-                                        <label for="sub_category">Sous catégorie</label>
+                                        <label for="sub_category">{{'product.label.sub_category'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="description" name="description">
-                                        <label for="description">Description</label>
+                                        <label for="description">{{'product.label.description'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="sizeInch" name="sizeInch">
-                                        <label for="sizeInch">Taille(inch)</label>
+                                        <label for="sizeInch">{{'product.label.sizeInch'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="sizeCm" name="sizeCm">
-                                        <label for="sizeCm">Taille(cm)</label>
+                                        <label for="sizeCm">{{'product.label.sizeCm'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="color" name="color">
-                                        <label for="color">Couleur</label>
+                                        <label for="color">{{'product.label.color'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="composition" name="composition">
-                                        <label for="composition">Composition</label>
+                                        <label for="composition">{{'product.label.composition'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="form" name="form">
-                                        <label for="form">Forme</label>
+                                        <label for="form">{{'product.label.form'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="weight" name="weight">
-                                        <label for="weight">Poids</label>
+                                        <label for="weight">{{'product.label.weight'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="provider" name="provider" checked="checked">
-                                        <label for="provider">Fournisseur</label>
+                                        <label for="provider">{{'product.label.provider'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="package" name="package">
-                                        <label for="package">Emballage</label>
+                                        <label for="package">{{'product.label.package'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="collection" name="collection" checked="checked">
-                                        <label for="collection">Collection</label>
+                                        <label for="collection">{{'product.label.collection'|trans}}</label>
                                     </div>                                  
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="unitPrice" name="unitPrice">
-                                        <label for="unitPrice">Prix unitaire</label>
+                                        <label for="unitPrice">{{'product.label.unitPrice'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="wholesalePrice" name="wholesalePrice">
-                                        <label for="wholesalePrice">Prix grossiste</label>
+                                        <label for="wholesalePrice">{{'product.label.wholesalePrice'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="specialPrice" name="specialPrice">
-                                        <label for="specialPrice">Prix MP</label>
+                                        <label for="specialPrice">{{'product.label.specialPrice'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="internetPrice" name="internetPrice">
-                                        <label for="internetPrice">Prix internet</label>
+                                        <label for="internetPrice">{{'product.label.internetPrice'|trans}}</label>
                                     </div>
                                     <div class="checkbox-field">
                                         <input type="checkbox" id="status" name="status" checked="checked">
-                                        <label for="status">Statut</label>
+                                        <label for="status">{{'product.label.status'|trans}}</label>
                                     </div>
                                 </div>
                             </div>

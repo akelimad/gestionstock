@@ -1,0 +1,51 @@
+home.welcome_text: 'Welcome to the Moroccan prestige management and administration space!'
+home.icon.product_search: Search for a product
+home.icon.product_new: Add new
+home.icon.user_list: Users management
+
+home.title: Home
+home.sidebar.product: Products
+home.sidebar.product.submenu.product_list: 'Products list'
+home.sidebar.product.submenu.product_trashed: 'Trashed products'
+home.sidebar.product.submenu.product_add: New
+home.sidebar.category: Categories
+home.sidebar.category.submenu.categoy_list: 'Categories list'
+home.sidebar.category.submenu.sub_categoy_list: 'Sub categories list'
+home.sidebar.packages: Packages
+home.sidebar.providers: Providers
+home.sidebar.user: Users
+home.profile.menu.change_password: 'Change password'
+home.profile.menu.logout: Logout
+home.language.en : English
+home.language.fr : Frensh
+
+product.breadcrumb.home: home
+product.breadcrumb.products: products
+product.index.title: Products list
+product.index.button.new: New
+product.index.filter_by_cat: Choose a category
+product.index.filter_by_sub_cat: Choose a sub category
+product.index.filter_by_prov: Choose a provider
+
+product.label.id: Product ID
+product.label.name: Article
+product.label.photo: Photo
+product.label.category: Category
+product.label.sub_category: Sub category
+product.label.description: Description
+product.label.sizeInch: Size(inch)
+product.label.sizeCm: Size(cm)
+product.label.color: Color
+product.label.composition: Composition
+product.label.form: Form
+product.label.weight: Weight
+product.label.provider: Provider
+product.label.package: Package
+product.label.collection: Collection
+product.label.unitPrice: Unit price
+product.label.wholesalePrice: Wholesale price
+product.label.specialPrice: MP price
+product.label.internetPrice: Internet price
+product.label.status: Status
+product.action.title: Add new product
+product.btn.add: Add

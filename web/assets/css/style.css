@@ -439,3 +439,7 @@ select.price{
     padding: 0 8px;
     height: 29px;
 }
+
+.sidebar-mini .sidebar .sidebar-wrapper .collapse .nav {
+    width: 265px;
+}
