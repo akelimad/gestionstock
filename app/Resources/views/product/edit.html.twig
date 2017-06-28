@@ -6,14 +6,14 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">Accueil</a></li>
-                        <li class="breadcrumb-item"><a href="{{path('product_index')}}">Produits</a></li>
+                        <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">{{'breadcrumb.home'|trans}}</a></li>
+                        <li class="breadcrumb-item"><a href="{{path('product_index')}}">{{'product.breadcrumb.products'|trans}}</a></li>
                         <li class="breadcrumb-item">{{product.name}}</li>
                     </ol>
                     <div class="card">
                         {{ form_start(edit_form) }}
                             <div class="content">
-                                <h4 class="title text-center">Editer le produit </h4>
+                                <h4 class="title text-center">{{'product.action.edit.title'|trans}} </h4>
                                 <div class="row">
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.name) ? 'has-error': '' }}">
                                         <div class="row">
@@ -42,13 +42,13 @@
                                     <div class="col-md-6 form-group ">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <label>Categorie</label>
+                                                <label>{{'product.label.category'|trans}}</label>
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="row">
                                                     <div class="col-md-10">
                                                         <select name="categories" id="categories" class="form-control" required="required">
-                                                            <option value="">Choisissez la categorie</option>
+                                                            <option value="">{{'product.index.filter_by_cat'|trans}}</option>
                                                             {% for cat in categories %}
                                                                 <option value="{{cat.id}}" {{ cat_selected == cat.id ? 'selected': '' }}> {{cat.name}} </option>
                                                             {% endfor %}
@@ -64,12 +64,12 @@
                                     <div class="col-md-6 form-group ">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <label>Sous categorie</label>
+                                                <label>{{'product.label.sub_category'|trans}}</label>
                                             </div>
                                             <div class="col-md-8">
                                                 <span id="sub_cat_selected" data-sub-cat-selected="{{sub_cat_selected}}"></span>
                                                 <select name="s_categories" id="s_categories" class="form-control">
-                                                    <option value="0">Choisissez sous categorie</option>
+                                                    <option value="0">{{'product.index.filter_by_sub_cat'|trans}}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -79,7 +79,7 @@
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.sizeInch) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.sizeInch, "Taille (inch)", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.sizeInch, 'product.label.sizeInch', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.sizeInch, {'attr': {'class': 'form-control'}}) }}
@@ -90,7 +90,7 @@
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.sizeCm) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.sizeCm, "Taille (cm)", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.sizeCm, 'product.label.sizeCm', {'label_attr': {'class': 'control-label'}})|trans | raw  }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.sizeCm, {'attr': {'class': 'form-control'}}) }}
@@ -103,7 +103,7 @@
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.color) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.color, "Couleur", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.color, 'product.label.color', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.color, {'attr': {'class': 'form-control'}}) }}
@@ -114,7 +114,7 @@
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.weight) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.weight, "Poids", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.weight, 'product.label.weight', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.weight, {'attr': {'class': 'form-control'}}) }}
@@ -128,7 +128,7 @@
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.form) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.form, "Forme", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.form, 'product.label.form', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.form, {'attr': {'class': 'form-control'}}) }}
@@ -183,7 +183,7 @@
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.unitPrice) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.unitPrice, "Prix unitaire", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.unitPrice, 'product.label.unitPrice', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="row">
@@ -201,7 +201,7 @@
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.wholesalePrice) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.wholesalePrice, "Prix grossiste", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.wholesalePrice, 'product.label.wholesalePrice', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.wholesalePrice, {'attr': {'class': 'form-control'}}) }}
@@ -215,7 +215,7 @@
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.specialPrice) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.specialPrice, "Prix MP", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.specialPrice, 'product.label.specialPrice', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.specialPrice, {'attr': {'class': 'form-control'}}) }}
@@ -226,7 +226,7 @@
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.internetPrice) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.internetPrice, " prix internet", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.internetPrice, 'product.label.internetPrice', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.internetPrice, {'attr': {'class': 'form-control'}}) }}
@@ -240,7 +240,7 @@
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.packages) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.packages, "Emballage", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.packages, 'product.label.package', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.packages, {'attr': {'class': 'form-control'}}) }}
@@ -251,7 +251,7 @@
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.providers) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.providers, "Fournisseur", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.providers, 'product.label.provider', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.providers, {'attr': {'class': 'form-control'}}) }}
@@ -264,7 +264,7 @@
                                     <div class="col-md-6 form-group {{ form_errors(edit_form.status) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.status, "Status", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.status, 'label.status', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.status, {'attr': {'class': 'form-control'}}) }}
@@ -275,7 +275,7 @@
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-edit"></i> Mettre à jour </button>
+                                <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-edit"></i> {{'btn.edit'|trans}} </button>
                             </div>
                         {{ form_end(edit_form) }}
                     </div>

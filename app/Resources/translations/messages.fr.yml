@@ -19,14 +19,18 @@ home.profile.menu.logout: Déconnexion
 home.language.en : Anglais
 home.language.fr : Français
 
-product.breadcrumb.home: accueil
-product.breadcrumb.products: produits
+btn.add: Ajouter
+btn.new: Nouveau
+btn.edit: Mettre à jour
+breadcrumb.home: Accueil
+label.status: Statut
+
+product.breadcrumb.products: Produits
 product.index.title: La liste des produits
-product.index.button.new: Nouveau
+product.show.pencil.hover: Editer
 product.index.filter_by_cat: Choissez une catégorie
 product.index.filter_by_sub_cat: Choissez une sous catégorie
 product.index.filter_by_prov: Choissez un Fournisseur
-
 product.label.id: ID produit
 product.label.name: Article
 product.label.photo: Photo
@@ -46,6 +50,45 @@ product.label.unitPrice: Prix unitaire
 product.label.wholesalePrice: Prix grossiste
 product.label.specialPrice: Prix MP
 product.label.internetPrice: Prix internet
-product.label.status: Statut
-product.action.title: Ajouter un produit
-product.btn.add: Ajouter
+product.action.add.title: Ajouter un produit
+product.action.edit.title: Modifier le produit
+
+
+category.breadcrumb.categories: Categories
+category.index.title: La liste des categories
+s_category.breadcrumb.s_categories: Sous categories
+s_category.index.title: La liste des sous categories
+category.label.name: Nom
+category.label.parent: Catégorie parente
+category.action.add.title: Ajouter une categorie
+category.action.edit.title: Modifier la categorie
+
+package.breadcrumb.packages: Emballages
+package.index.title: La liste des emballages
+package.label.name: Nom
+package.label.size: Taille
+package.label.cbm: CBM
+package.label.marineCost: Fret maritime
+package.label.airCost: Fret air
+package.action.add.title: Ajouter un  emballage
+package.action.edit.title: Modifier l'emballage
+
+provider.breadcrumb.providers: Fournisseurs
+provider.index.title: La liste des Fournisseurs
+provider.label.name: Nom
+provider.label.lastName: Prénom
+provider.label.lastName: Prénom
+provider.label.society: Société
+provider.label.activity: Activité
+provider.label.address: Activité
+provider.label.tel: Tél
+provider.label.email: E-mail
+provider.action.add.title: Ajouter un  forrnisseur
+provider.action.edit.title: Modifier le fournisseur
+provider.qualification.title: Qualification fournisseur
+provider.qualification.quality: Qualité
+provider.qualification.qualityPrice: Rapport qualité prix
+provider.qualification.delivery: Délais de livraison
+provider.qualification.communication: Communication
+provider.qualification.relationShip: Esprit de partenariat
+

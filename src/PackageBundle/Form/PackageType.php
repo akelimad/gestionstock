@@ -13,7 +13,13 @@ class PackageType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('size')->add('cbm')->add('marineCost')->add('airCost')->add('active');
+        $builder
+        ->add('name', null, array('label' => 'package.label.name'))
+        ->add('size', null, array('label' => 'package.label.size'))
+        ->add('cbm', null, array('label' => 'package.label.cbm'))
+        ->add('marineCost', null, array('label' => 'package.label.marineCost'))
+        ->add('airCost', null, array('label' => 'package.label.airCost'))
+        ->add('active', null, array('label' => 'package.label.status'));
     }
     
     /**

@@ -8,12 +8,12 @@
                     <div class="card">
                         {{ form_start(form) }}
                             <div class="content">
-                                <h4 class="title text-center">Ajouter un fournisseur</h4>
+                                <h4 class="title text-center">{{'provider.action.add.title'|trans}}</h4>
                                 <div class="row">
                                     <div class="form-group col-md-6 {{ form_errors(form.name) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(form.name, "Nom", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(form.name, 'provider.label.name', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
@@ -24,7 +24,7 @@
                                     <div class="form-group col-md-6 {{ form_errors(form.lastName) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(form.lastName, "Prénom", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(form.lastName, 'provider.label.lastName', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(form.lastName, {'attr': {'class': 'form-control'}}) }}
@@ -37,7 +37,7 @@
                                     <div class="form-group col-md-6 {{ form_errors(form.society) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(form.society, "Société", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(form.society, 'provider.label.society', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(form.society, {'attr': {'class': 'form-control'}}) }}
@@ -48,7 +48,7 @@
                                     <div class="form-group col-md-6 {{ form_errors(form.activity) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(form.activity, "Activité", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(form.activity, 'provider.label.activity', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(form.activity, {'attr': {'class': 'form-control'}}) }}
@@ -61,7 +61,7 @@
                                     <div class="form-group col-md-6 {{ form_errors(form.address) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(form.address, "Addresse", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(form.address, 'provider.label.address', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
@@ -72,7 +72,7 @@
                                     <div class="form-group col-md-6 {{ form_errors(form.tel) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(form.tel, "Télephone", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(form.tel, 'provider.label.tel', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(form.tel, {'attr': {'class': 'form-control'}}) }}
@@ -85,7 +85,7 @@
                                     <div class="form-group col-md-6 {{ form_errors(form.email) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(form.email, "E-mail", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(form.email, 'provider.label.email', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
@@ -97,7 +97,7 @@
                                     <div class="form-group col-md-6 {{ form_errors(form.active) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(form.active, "Active", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(form.active, 'label.status', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
                                                 <label class="checkbox">
@@ -112,10 +112,10 @@
                                     </div>
                                 </div>
                                 <div class="row qualification">
-                                    <h6>Qualification fournisseur</h6>
+                                    <h6>{{'provider.qualification.title'|trans}}</h6>
                                     <div class="col-md-6">
                                         <div class="col-md-4">
-                                            <label class="control-label">Qualité</label>
+                                            <label class="control-label">{{'provider.qualification.quality'|trans}}</label>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="stars quality">
@@ -135,7 +135,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="col-md-4">
-                                            <label class="control-label">Rapport Qualité prix</label>
+                                            <label class="control-label">{{'provider.qualification.qualityPrice'|trans}}</label>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="stars qualityPrice">
@@ -158,7 +158,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="col-md-4">
-                                            <label class="control-label">Délais de livraison</label>
+                                            <label class="control-label">{{'provider.qualification.delivery'|trans}}</label>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="stars delivery">
@@ -179,7 +179,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="col-md-4">
-                                            <label class="control-label">Communication</label>
+                                            <label class="control-label">{{'provider.qualification.communication'|trans}}</label>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="stars communication">
@@ -202,7 +202,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="col-md-4">
-                                            <label class="control-label">Esprit de partenariat </label>
+                                            <label class="control-label">{{'provider.qualification.relationShip'|trans}}</label>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="stars partnership">
@@ -224,7 +224,7 @@
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-plus"></i> Ajouter</button>
+                                <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-plus"></i> {{'btn.add'|trans}}</button>
                             </div>
                         {{ form_end(form) }}
                     </div>
