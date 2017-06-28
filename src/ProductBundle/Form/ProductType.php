@@ -117,6 +117,7 @@ class ProductType extends AbstractType
             'query_builder' => function ($er) {
                return $er->createQueryBuilder('p')->where("p.deleted_at IS NULL");
             },
+            'label' => 'product.label.package'
         ))
         ->add('providers',EntityType::class, array(
             'class'=>'ProviderBundle:Provider', 
@@ -126,6 +127,7 @@ class ProductType extends AbstractType
             'query_builder' => function ($er) {
                return $er->createQueryBuilder('p')->where("p.deleted_at IS NULL");
             },
+            'label' => 'product.label.provider'
         ));
 
         

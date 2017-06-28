@@ -54,9 +54,9 @@
 
                 <td class="sub_category">
                     <a href="{{ path('product_show', { 'id': p.id }) }}">
-                    {% if p.categories is not empty  %}
+                    {% if p.categories| slice(1,2) is not empty  %}
                         {% for cat in p.categories| slice(1,2) %}
-                            {{ cat.parent != null ? cat.name : '---' }}
+                            {{ cat.parent }}
                         {% endfor %}
                     {% else %}
                         ---
