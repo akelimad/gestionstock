@@ -451,11 +451,11 @@ select.price{
 .sidebar-mini .sidebar .sidebar-wrapper .collapse .nav {
     width: 265px;
 }
-/*@media only print and (max-width : 680px) {
+@media (max-width: 400px) {
 	.images .fotorama img{
-		margin-right: 20px;
+		background: red;
 	}
-}*/
+}
 .icon-small
 {
     height:18px;

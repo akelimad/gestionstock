@@ -78,7 +78,7 @@ $(document).ready(function() {
     //       desactivate product with ajax
     // ************************************* //
     $("#datatables").on('click', '.desactivate-product', function () {
-        var url = Routing.generate('product_desactivate', {'id': $(this).data('id')});
+        var url = Routing.generate('product_desactivate', {'id': $(this).data('id'), '_locale':locale});
         var $tr = $(this).closest('tr');
         swal({
             title: 'Are you sure?',
@@ -115,7 +115,7 @@ $(document).ready(function() {
     //       revert product with ajax
     // ************************************* //
     $("#datatables").on('click', '.revert-product', function () {
-        var url = Routing.generate('product_revert', {'id': $(this).data('id')});
+        var url = Routing.generate('product_revert', {'id': $(this).data('id'), '_locale':locale});
         var $tr = $(this).closest('tr');
         swal({
             title: 'Are you sure?',
@@ -152,7 +152,7 @@ $(document).ready(function() {
     //       delete product with ajax
     // ************************************* //
     $("#datatables").on('click', '.remove-product', function () {
-        var url = Routing.generate('product_delete', {'id': $(this).data('id')});
+        var url = Routing.generate('product_delete', {'id': $(this).data('id'), '_locale':locale});
         var $tr = $(this).closest('tr');
         swal({
             title: 'Are you sure?',
@@ -189,7 +189,7 @@ $(document).ready(function() {
     //       delete cat with ajax
     // ************************************* //
     $("#datatables").on('click', '.remove-category',function () {
-        var url = Routing.generate('category_delete', {'id': $(this).data('id')});
+        var url = Routing.generate('category_delete', {'id': $(this).data('id'), '_locale':locale});
         var $tr = $(this).closest('tr');
         swal({
             title: 'Are you sure?',
@@ -226,7 +226,7 @@ $(document).ready(function() {
     //       delete package with ajax
     // ************************************* //
     $("#datatables").on('click', '.remove-package',function () {
-        var url = Routing.generate('package_delete', {'id': $(this).data('id')});
+        var url = Routing.generate('package_delete', {'id': $(this).data('id'), '_locale':locale});
         var $tr = $(this).closest('tr');
         swal({
             title: 'Are you sure?',
@@ -263,7 +263,7 @@ $(document).ready(function() {
     //       delete provider with ajax
     // ************************************* //
     $("#datatables").on('click', '.remove-provider', function () {
-        var url = Routing.generate('provider_delete', {'id': $(this).data('id')});
+        var url = Routing.generate('provider_delete', {'id': $(this).data('id'), '_locale':locale});
         var $tr = $(this).closest('tr');
         swal({
             title: 'Are you sure?',
@@ -300,7 +300,7 @@ $(document).ready(function() {
     //       delete user with ajax
     // ************************************* //
     $("#datatables").on('click', '.remove-user', function () {
-        var url = Routing.generate('user_delete', {'id': $(this).data('id')});
+        var url = Routing.generate('user_delete', {'id': $(this).data('id'), '_locale':locale});
         var $tr = $(this).closest('tr');
         swal({
             title: 'Are you sure?',
@@ -338,7 +338,7 @@ $(document).ready(function() {
     // ************************************* //
     $('.remove-img-link').click(function(){
         var id= $(this).data('id');
-        var url = Routing.generate('imageproduct_delete', {'id': id });
+        var url = Routing.generate('imageproduct_delete', {'id': id, '_locale':locale  });
         swal({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -411,7 +411,7 @@ $(document).ready(function() {
 
     $("select#s_categories").change(function(){
         var sub_category_id = $(this).val();
-        var url = Routing.generate('filter-by-sub-cat', {'sub_category_id': sub_category_id});
+        var url = Routing.generate('filter-by-sub-cat', {'sub_category_id': sub_category_id, '_locale':locale});
         var product_results = $('#product-results');
         $('#loading-sub-cat').show();
         $.ajax({
@@ -440,7 +440,7 @@ $(document).ready(function() {
     // ************************************* //
     $(".material-datatables").on('change', '#filter-by-prov',function(){
         var provider_id = $(this).val();
-        var url = Routing.generate('filter-by-prov', {'provider_id': provider_id});
+        var url = Routing.generate('filter-by-prov', {'provider_id': provider_id, '_locale':locale});
         var product_results = $('#product-results');
         $('#loading-prov').show();
         $.ajax({
