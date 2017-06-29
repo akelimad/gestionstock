@@ -5,6 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
+                    <span id="locale" data-locale="{{ app.request.locale }}"></span>
                     <div class="card">
                         {{ form_start(form, {'attr': {'class':'test', 'id':'test'}}) }}
                             <div class="content">

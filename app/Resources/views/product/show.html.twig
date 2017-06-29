@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">{{'product.breadcrumb.home'|trans}}</a></li>
+                        <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">{{'breadcrumb.home'|trans}}</a></li>
                         <li class="breadcrumb-item"><a href="{{path('product_index')}}">{{'product.breadcrumb.products'|trans}}</a></li>
                         <li class="breadcrumb-item active">{{product.name}}</li>
                     </ol>
@@ -228,7 +228,7 @@
                             
                             <div class="col-md-6 col-sm-6 col-xs-7 images">
                                 {% if product.images is not empty  %}
-                                    <div class="fotorama" data-nav="thumbs" data-allowfullscreen="native">
+                                    <div class="fotorama text-center" data-nav="thumbs" data-allowfullscreen="native" data-maxwidth="370">
                                         {% for image in product.images %}
                                             <img src="{{ asset('uploads/images/') ~ image.path }}" class="img-responsive" alt="">
                                         {% endfor %}
