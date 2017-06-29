@@ -19,14 +19,19 @@ home.profile.menu.logout: Logout
 home.language.en : English
 home.language.fr : Frensh
 
-product.breadcrumb.home: home
-product.breadcrumb.products: products
+btn.new: New
+btn.add: Add
+btn.edit: Update
+breadcrumb.home: Home
+label.status: Status
+
+product.breadcrumb.products: Products
 product.index.title: Products list
-product.index.button.new: New
+product.desactivated.title: The list of disabled products
+product.show.pencil.hover: Edit
 product.index.filter_by_cat: Choose a category
 product.index.filter_by_sub_cat: Choose a sub category
 product.index.filter_by_prov: Choose a provider
-
 product.label.id: Product ID
 product.label.name: Article
 product.label.photo: Photo
@@ -46,6 +51,68 @@ product.label.unitPrice: Unit price
 product.label.wholesalePrice: Wholesale price
 product.label.specialPrice: MP price
 product.label.internetPrice: Internet price
-product.label.status: Status
-product.action.title: Add new product
-product.btn.add: Add
+product.action.add.title: Add new product
+product.action.edit.title: Update a product
+product.status.inventory: Inventory
+product.status.underdev: Product under development
+product.status.available : Available for sale
+product.status.expired: End of cycle
+product.status.inactive: Inactive
+
+category.breadcrumb.categories: Categories
+category.index.title: Categories list
+s_category.breadcrumb.s_categories: Sub categories
+s_category.index.title: Sub categories list
+category.label.name: Name
+category.label.parent: Parent category
+category.action.add.title: Add category
+category.action.edit.title: Edit category
+
+package.breadcrumb.packages: Packages
+package.index.title: Packages list
+package.label.name: Name
+package.label.size: Size
+package.label.cbm: CBM
+package.label.marineCost: Marine cost
+package.label.airCost: Air cost
+package.action.add.title: Add package
+package.action.edit.title: Edit package
+
+provider.breadcrumb.providers: Providers
+provider.index.title: Providers list
+provider.label.name: Name
+provider.label.lastName: Last name
+provider.label.society: Society
+provider.label.activity: Activity
+provider.label.address: Address
+provider.label.tel: Tel
+provider.label.email: E-mail
+provider.action.add.title: Add provider
+provider.action.edit.title: Edit provider
+provider.qualification.title: Provider qualification
+provider.qualification.quality: Quality
+provider.qualification.qualityPrice: Quality price rapport
+provider.qualification.delivery: Delivery
+provider.qualification.communication: Communication
+provider.qualification.relationShip: Relaionship
+
+user.breadcrumb.users: Users
+user.index.title: Users list
+user.label.login: Login
+user.label.nom: Name
+user.label.email: E-mail address
+user.label.password: Password
+user.label.password.second: Confirm password
+user.label.roles: Roles
+user.action.add.title: Add a user account
+user.action.edit.title: Edit user account
+
+change_password.title: Change your password !
+
+success.title: 'Success !'
+change_password.flush.success: 'Your password has been reset successfully.'
+
+product.edit.flush.success: 'The product has been modified successfully.'
+
+
+

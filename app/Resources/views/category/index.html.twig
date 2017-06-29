@@ -7,15 +7,15 @@
         <div class="row">
             <div class="col-md-12">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">Accueil</a></li>
-                    <li class="breadcrumb-item"><a href="{{path('category_index')}}">Catégories</a></li>
+                    <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">{{'breadcrumb.home'|trans}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{path('category_index')}}">{{'category.breadcrumb.categories'|trans}}</a></li>
                 </ol>
                 <div class="card">
                     <div class="content categories">
                         
-                        <h4 class="title">La liste des categories
+                        <h4 class="title">{{'category.index.title'|trans}}
                         {% if is_granted('ROLE_USER') %}
-                            <a href=" {{path('category_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nouveau</a> 
+                            <a href=" {{path('category_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> {{'btn.new'|trans}}</a> 
                         {% endif %}
                         </h4>
                         <div class="toolbar">
@@ -27,10 +27,10 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nom</th>
+                                        <th>{{'category.label.name'|trans}}</th>
                                         <th>Code</th>
                                         <th>Description</th>
-                                        <th>Statut</th>
+                                        <th>{{'label.status'|trans}}</th>
                                         <th class="disabled-sorting text-center">Actions</th>
                                     </tr>
                                 </thead>
@@ -54,10 +54,10 @@
                                 <tfoot>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nom</th>
+                                        <th>{{'category.label.name'|trans}}</th>
                                         <th>Code</th>
                                         <th>Description</th>
-                                        <th>Statut</th>
+                                        <th>{{'label.status'|trans}}</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                 </tfoot>

@@ -4,15 +4,15 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-10 col-md-offset-1">
                     <div class="card">
                         {{ form_start(form) }}
                             <div class="content">
-                                <h4 class="title text-center">Ajouter un emballage</h4>
+                                <h4 class="title text-center">{{'package.action.add.title'|trans}}</h4>
                                 <div class="form-group {{ form_errors(form.name) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(form.name, "Nom", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(form.name, 'package.label.name', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
@@ -23,7 +23,7 @@
                                 <div class="form-group {{ form_errors(form.size) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(form.size, "Taille", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(form.size, 'package.label.size', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.size, {'attr': {'class': 'form-control'}}) }}
@@ -34,7 +34,7 @@
                                 <div class="form-group {{ form_errors(form.cbm) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(form.cbm, "CMB", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(form.cbm, 'package.label.cbm', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.cbm, {'attr': {'class': 'form-control'}}) }}
@@ -45,7 +45,7 @@
                                 <div class="form-group {{ form_errors(form.marineCost) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(form.marineCost, "Fret Maritime", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(form.marineCost, 'package.label.marineCost', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.marineCost, {'attr': {'class': 'form-control'}}) }}
@@ -56,7 +56,7 @@
                                 <div class="form-group {{ form_errors(form.airCost) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(form.airCost, "Air Fret", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(form.airCost, 'package.label.airCost', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                         </div>
                                         <div class="col-md-8">
                                             {{ form_widget(form.airCost, {'attr': {'class': 'form-control'}}) }}
@@ -67,7 +67,7 @@
                                 <div class="form-group {{ form_errors(form.active) ? 'has-error': '' }}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{ form_label(form.active, "Active", {'label_attr': {'class': 'control-label'}}) }}
+                                            {{ form_label(form.active, 'label.status', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                         </div>
                                         <div class="col-md-8">
                                             <label class="checkbox">
@@ -82,7 +82,7 @@
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-plus"></i> Ajouter</button>
+                                <button type="submit" class="btn btn-info btn-fill"><i class="fa fa-plus"></i> {{'btn.add'|trans}}</button>
                             </div>
                         {{ form_end(form) }}
                     </div>

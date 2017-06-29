@@ -65,11 +65,11 @@ class ProductType extends AbstractType
         ->add('collection', null, array('label' => 'product.label.collection'))
         ->add('status', ChoiceType::class, array(
             'choices' => array(
-                'Inventaire' => 'Inventaire',
-                'Produit en développement' => 'Produit en développement',
-                'Disponible à la vente'   => 'Disponible à la vente',
-                'Fin de cycle' => 'Fin de cycle',
-                'Inactif' => 'Inactif'
+                'product.status.inventory' => 'Inventaire',
+                'product.status.underdev' => 'Produit en développement',
+                'product.status.available'   => 'Disponible à la vente',
+                'product.status.expired' => 'Fin de cycle',
+                'product.status.inactive' => 'Inactif'
             ),
             'label' => 'product.label.status'
         ))

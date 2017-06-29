@@ -6,8 +6,8 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">Accueil</a></li>
-                        <li class="breadcrumb-item"><a href="{{path('product_index')}}">produits</a></li>
+                        <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">{{'product.breadcrumb.home'|trans}}</a></li>
+                        <li class="breadcrumb-item"><a href="{{path('product_index')}}">{{'product.breadcrumb.products'|trans}}</a></li>
                         <li class="breadcrumb-item active">{{product.name}}</li>
                     </ol>
                     <div class="card">
@@ -16,12 +16,12 @@
                                 <a href="#" OnClick="javascript:window.print()" class="pull-right printIcon" title="Imprimer"><i class="fa fa-print fa-2x"></i></a>
                                 <div class="product-title">
                                     <h4>{{product.name}}
-                                        <a href="{{ path('product_edit', { 'id': product.id }) }}" data-toggle="tooltip" data-placement="bottom" title="Editer" class="editIcon">
+                                        <a href="{{ path('product_edit', { 'id': product.id }) }}" data-toggle="tooltip" data-placement="bottom" title="{{'product.show.pencil.hover'|trans}}" class="editIcon">
                                             <i class="glyphicon glyphicon-pencil"></i>
                                         </a>
                                     </h4> 
                                     
-                                    <p>ID Produit : {{product.codeBar}} </p>
+                                    <p>{{'product.label.id'|trans}} : {{product.codeBar}} </p>
                                 </div>
                             </div>
                         </div>
@@ -34,13 +34,13 @@
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
-                                            <span> Taille(inch) : </span>
+                                            <span> {{'product.label.sizeInch'|trans}} : </span>
                                             {{ product.sizeInch ? product.sizeInch : '---' }}
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
-                                            <span> Couleur : </span>
+                                            <span> {{'product.label.color'|trans}} : </span>
                                             <div class="color" style="background: {{ product.color }}">
                                             </div>
                                             
@@ -50,13 +50,13 @@
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
-                                            <span> Taille(cm) : </span>
+                                            <span> {{'product.label.sizeCm'|trans}} : </span>
                                             {{ product.sizeCm ? product.sizeCm : '---' }}
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
-                                            <span> Poids (g) : </span>
+                                            <span> {{'product.label.weight'|trans}} : </span>
                                             {{ product.weight ? product.weight : '---' }}
                                         </div>
                                     </div>
@@ -64,13 +64,13 @@
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
-                                            <span> Composition : </span>
+                                            <span> {{'product.label.composition'|trans}} : </span>
                                             {{ product.composition ? product.composition : '---' }}
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
-                                            <span> Forme : </span>
+                                            <span> {{'product.label.form'|trans}} : </span>
                                             {{ product.form ? product.form : '---' }}
                                         </div>
                                     </div>
@@ -78,7 +78,7 @@
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
-                                            <span> Collection : </span>
+                                            <span> {{'product.label.collection'|trans}} : </span>
                                             {{ product.collection ? product.collection : '---' }} 
                                         </div>
                                     </div>
@@ -86,7 +86,7 @@
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6">
                                         <div class="item">
-                                            <span> Prix unitaire : </span>
+                                            <span> {{'product.label.unitPrice'|trans}} : </span>
                                             {{ product.unitPrice ? product.unitPrice : '---' }}
                                             {{ product.currency }}
                                             <i class="fa fa-history" id="unitPriceIcon" title="Cliquer pour consulter les anciens prix"></i>
@@ -103,7 +103,7 @@
                                     </div>
                                     <div class="col-md-6 col-sm-6">
                                         <div class="item">
-                                            <span> Prix grossiste : </span>
+                                            <span> {{'product.label.wholesalePrice'|trans}} : </span>
                                             {{ product.wholesalePrice ? product.wholesalePrice : '---' }}
                                             {{ product.currency }}
                                             <i class="fa fa-history" id="wholesalePriceIcon" title="Cliquer pour consulter les anciens prix"></i> 
@@ -122,7 +122,7 @@
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6">
                                         <div class="item">
-                                            <span> Prix MP : </span>
+                                            <span> {{'product.label.specialPrice'|trans}} : </span>
                                             {{ product.specialPrice ? product.specialPrice : '---' }}
                                             {{ product.currency }}
                                             <i class="fa fa-history" id="specialPriceIcon" title="Cliquer pour consulter les anciens prix"></i> 
@@ -139,7 +139,7 @@
                                     </div>
                                     <div class="col-md-6 col-sm-6">
                                         <div class="item">
-                                            <span>  Prix internet : </span>
+                                            <span>  {{'product.label.internetPrice'|trans}} : </span>
                                             {{ product.internetPrice ? product.internetPrice : '---' }}
                                             {{ product.currency }}
                                             <i class="fa fa-history" id="internetPriceIcon" title="Cliquer pour consulter les anciens prix"></i> 
@@ -158,7 +158,7 @@
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
-                                            <span> Catégorie : </span>
+                                            <span> {{'product.label.category'|trans}} : </span>
                                             {% for cat in product.categories| slice(0,1) %}
                                                 {{ cat.name ? cat.name : '---' }}
                                             {% endfor %}
@@ -166,7 +166,7 @@
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
-                                            <span> Sous catégorie : </span>
+                                            <span> {{'product.label.sub_category'|trans}} : </span>
                                             {% for cat in product.categories | slice(1,2) %}
                                                 {{ cat.parent != null ? cat.name : '---' }}
                                             {% endfor %}
@@ -177,7 +177,7 @@
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
-                                            <span> Fournisseur : </span>
+                                            <span> {{'product.label.provider'|trans}} : </span>
                                             {% if product.providers is not empty  %}
                                                 {% for prov in product.providers %}
                                                     {{ prov.name }}
@@ -189,7 +189,7 @@
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="item">
-                                            <span> Emballage : </span>
+                                            <span> {{'product.label.package'|trans}} : </span>
                                             {% if product.packages is not empty  %}
                                                 {% for pack in product.packages %}
                                                     {{ pack.name }}
@@ -203,7 +203,7 @@
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6">
                                         <div class="item">
-                                            <span> Statut : </span>
+                                            <span> {{'product.label.status'|trans}} : </span>
                                             {% if product.status == "desactivé" %}
                                                 <i class="fa fa-ban"></i>
                                             {% else %}
@@ -215,7 +215,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="item">
-                                            <span> Description : </span>
+                                            <span> {{'product.label.description'|trans}} : </span>
                                             <div class="description">
                                                 <p>
                                                     {{ product.description ? product.description : '---' }}

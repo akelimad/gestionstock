@@ -17,7 +17,7 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('name', null, array('label' => 'Category.label.name'))
+        ->add('name', null, array('label' => 'category.label.name'))
         ->add('code')
         ->add('description')
         ->add('parent', EntityType::class, array(
@@ -27,8 +27,9 @@ class CategoryType extends AbstractType
             'query_builder' => function ($er) {
                return $er->createQueryBuilder('c')->distinct('c.name')->where("c.parent is NULL ");
             },
+            'label' => 'category.label.parent'
         ))
-        ->add('active');
+        ->add('active', null, array('label' => 'label.status'));
     }
     
     /**

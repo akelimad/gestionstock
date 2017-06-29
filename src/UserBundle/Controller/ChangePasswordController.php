@@ -78,8 +78,8 @@ class ChangePasswordController extends Controller
                 'passwordChanged',
                 array(
                     'alert' => 'success',
-                    'title' => 'Succés! ',
-                    'message' => 'Votre mot de passe a été rénitialisé avec succés.'
+                    'title' => 'change_password.title',
+                    'message' => 'change_password.success'
                 )
             );
             return $this->redirectToRoute('app_default_index');

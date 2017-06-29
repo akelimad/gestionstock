@@ -16,14 +16,17 @@ class ProviderType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('name')
-        ->add('lastName')
-        ->add('society')
-        ->add('activity')
-        ->add('address')
-        ->add('tel')
-        ->add('email', EmailType::class, array('required' => false))
-        ->add('active');
+        ->add('name', null, array('label' => 'provider.label.name'))
+        ->add('lastName', null, array('label' => 'provider.label.lastName'))
+        ->add('society', null, array('label' => 'provider.label.society'))
+        ->add('activity', null, array('label' => 'provider.label.activity'))
+        ->add('address', null, array('label' => 'provider.label.address'))
+        ->add('tel', null, array('label' => 'provider.label.tel'))
+        ->add('email', EmailType::class, array(
+            'required' => false,
+            'label'   => 'provider.label.email'
+        ))
+        ->add('active', null, array('label' => 'provider.label.status'));
     }
     
     /**

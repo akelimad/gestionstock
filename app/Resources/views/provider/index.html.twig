@@ -7,14 +7,14 @@
         <div class="row">
             <div class="col-md-12">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">Accueil</a></li>
-                    <li class="breadcrumb-item"><a href="{{path('provider_index')}}">Fournisseurs</a></li>
+                    <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">{{'breadcrumb.home'|trans}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{path('provider_index')}}">{{'provider.breadcrumb.providers'|trans}}</a></li>
                 </ol>
                 <div class="card">
                     <div class="content providers">
-                        <h4 class="title">La liste des fournisseurs 
+                        <h4 class="title">{{'provider.index.title'|trans}}
                         {% if is_granted('ROLE_USER') %}
-                            <a href=" {{path('provider_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nouveau</a>
+                            <a href=" {{path('provider_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> {{'btn.new'|trans}} </a>
                         {% endif %}
                         </h4>
                         <div class="toolbar">
@@ -25,14 +25,14 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nom</th>
-                                        <th>Societé</th>
-                                        <th>Activité</th>
-                                        <th>Adresse</th>
-                                        <th>Tel</th>
-                                        <th>E-mail</th>
+                                        <th>{{'provider.label.name'|trans}}</th>
+                                        <th>{{'provider.label.society'|trans}}</th>
+                                        <th>{{'provider.label.activity'|trans}}</th>
+                                        <th>{{'provider.label.address'|trans}}</th>
+                                        <th>{{'provider.label.tel'|trans}}</th>
+                                        <th>{{'provider.label.email'|trans}}</th>
                                         <th>Ring</th>
-                                        <th>Statut</th>
+                                        <th>{{'label.status'|trans}}</th>
                                         <th class="disabled-sorting text-center">Actions</th>
                                     </tr>
                                 </thead>
@@ -47,7 +47,7 @@
                                         <td>{{p.tel ? p.tel : '---'}}</td>
                                         <td>{{p.email ? p.email : '---'}}</td>
                                         <td>{% if p.ring %} {{p.ring}} % {% else %} --- {% endif %}</td>
-                                        <td>{{p.active == 1 ? 'Actif' : 'Inactif'}}</td>
+                                        <td>{{p.active == 1 ? 'Active' : 'Inactive'}}</td>
                                         <td class="text-right">
                                             <a href="{{ path('provider_edit', { 'id': p.id }) }}" title="Modifier" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
 
@@ -60,14 +60,14 @@
                                 <tfoot>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nom</th>
-                                        <th>Societé</th>
-                                        <th>Activité</th>
-                                        <th>Adresse</th>
-                                        <th>Tel</th>
-                                        <th>E-mail</th>
+                                        <th>{{'provider.label.name'|trans}}</th>
+                                        <th>{{'provider.label.society'|trans}}</th>
+                                        <th>{{'provider.label.activity'|trans}}</th>
+                                        <th>{{'provider.label.address'|trans}}</th>
+                                        <th>{{'provider.label.tel'|trans}}</th>
+                                        <th>{{'provider.label.email'|trans}}</th>
                                         <th>Ring</th>
-                                        <th>Statut</th>
+                                        <th>{{'label.status'|trans}}</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                 </tfoot>

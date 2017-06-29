@@ -7,14 +7,14 @@
         <div class="row">
             <div class="col-md-12">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">Accueil</a></li>
-                    <li class="breadcrumb-item"><a href="{{path('package_index')}}">Emballages</a></li>
+                    <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">{{'breadcrumb.home'|trans}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{path('package_index')}}">{{'package.breadcrumb.packages'|trans}}</a></li>
                 </ol>
                 <div class="card">
                     <div class="content packages">
-                        <h4 class="title">La liste des emballages
+                        <h4 class="title">{{'package.index.title'|trans}}
                         {% if is_granted('ROLE_USER') %}
-                            <a href=" {{path('package_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nouveau</a>
+                            <a href=" {{path('package_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> {{'btn.new'|trans}} </a>
                         {% endif %}
                         </h4>
                         <div class="toolbar">
@@ -25,12 +25,12 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nom</th>
-                                        <th>Taille</th>
-                                        <th>CBM</th>
-                                        <th>Fret Maritime</th>
-                                        <th>Air Fret</th>
-                                        <th>Statut</th>
+                                        <th>{{'package.label.name'|trans}}</th>
+                                        <th>{{'package.label.size'|trans}}</th>
+                                        <th>{{'package.label.cbm'|trans}}</th>
+                                        <th>{{'package.label.marineCost'|trans}}</th>
+                                        <th>{{'package.label.airCost'|trans}}</th>
+                                        <th>{{'label.status'|trans}}</th>
                                         <th class="disabled-sorting text-center">Actions</th>
                                     </tr>
                                 </thead>
@@ -43,7 +43,7 @@
                                         <td>{{p.cbm ? p.cbm : '---' }}</td>
                                         <td>{{p.marineCost ? p.marineCost : '---' }}</td>
                                         <td>{{p.airCost ? p.airCost : '---' }}</td>
-                                        <td>{{p.active == 1 ? 'Actif' : 'Inactif'}}</td>
+                                        <td>{{p.active == 1 ? 'Active' : 'Inactive'}}</td>
                                         <td class="text-right">
                                             <a href="{{ path('package_edit', { 'id': p.id }) }}" title="Modifier" class="btn btn-simple btn-warning btn-icon btn-fill edit " ><i class="ti-pencil-alt"></i></a>
 
@@ -56,12 +56,12 @@
                                 <tfoot>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nom</th>
-                                        <th>Taille</th>
-                                        <th>CBM</th>
-                                        <th>Fret Maritime</th>
-                                        <th>Air Fret</th>
-                                        <th>Statut</th>
+                                        <th>{{'package.label.name'|trans}}</th>
+                                        <th>{{'package.label.size'|trans}}</th>
+                                        <th>{{'package.label.cbm'|trans}}</th>
+                                        <th>{{'package.label.marineCost'|trans}}</th>
+                                        <th>{{'package.label.airCost'|trans}}</th>
+                                        <th>{{'label.status'|trans}}</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                 </tfoot>
