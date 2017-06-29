@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
-{% block title %}La liste des utilisateurs{% endblock %}
+{% block title %}{{'user.page.title'|trans}}{% endblock %}
 {% block body %}
 
 <div class="content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
+                <span id="locale" data-locale="{{ app.request.locale }}"></span>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">{{'breadcrumb.home'|trans}}</a></li>
                     <li class="breadcrumb-item"><a href="{{path('user_default_index')}}">{{'user.breadcrumb.users'|trans}}</a></li>
@@ -22,7 +23,7 @@
                                 </div>
                             {% endfor %}
                         {% endif %}
-                        <h4 class="title"> {{ 'user.index.title'|trans }} <a href=" {{path('fos_user_registration_register')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> {{ 'btn.new'|trans }}</a></h4>
+                        <h4 class="title"><i class="fa fa-list"></i>  {{ 'user.index.title'|trans }} <a href=" {{path('fos_user_registration_register')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> {{ 'btn.new'|trans }}</a></h4>
                         
                         <div class="toolbar">
                             <!--        Here you can write extra buttons/actions for the toolbar              -->

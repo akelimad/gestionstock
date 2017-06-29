@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
-{% block title %}Categorie{% endblock %} 
+{% block title %}{{'s_category.page.title'|trans}}{% endblock %} 
 {% block body %}
 
 <div class="content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
+                <span id="locale" data-locale="{{ app.request.locale }}"></span>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">{{'breadcrumb.home'|trans}}</a></li>
                     <li class="breadcrumb-item"><a href="{{path('category_index')}}">{{'s_category.breadcrumb.s_categories'|trans}}</a></li>
@@ -13,7 +14,7 @@
                 <div class="card">
                     <div class="content subcategories">
                         
-                        <h4 class="title">{{'s_category.index.title'|trans}}
+                        <h4 class="title"><i class="fa fa-list"></i> {{'s_category.index.title'|trans}}
                         {% if is_granted('ROLE_USER') %}
                             <a href=" {{path('subcategorie_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> {{'btn.new'|trans}} </a> 
                         {% endif %}

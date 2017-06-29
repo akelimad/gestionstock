@@ -3,14 +3,13 @@ home.icon.product_search: Rechercher un produit
 home.icon.product_new: Ajouter un produit
 home.icon.user_list: Gestion des utilisateurs
 
-home.title: Accueil
 home.sidebar.product: Produits
 home.sidebar.product.submenu.product_list: La liste des produits
 home.sidebar.product.submenu.product_trashed: Les produits supprimés
 home.sidebar.product.submenu.product_add: Nouveau
-home.sidebar.category: Categories
-home.sidebar.category.submenu.categoy_list: Categories
-home.sidebar.category.submenu.sub_categoy_list: Sous categories
+home.sidebar.category: Catégories
+home.sidebar.category.submenu.categoy_list: Catégories
+home.sidebar.category.submenu.sub_categoy_list: Sous catégories
 home.sidebar.packages: Emballages
 home.sidebar.providers: Fournisseurs
 home.sidebar.user: Utilisateurs
@@ -19,12 +18,14 @@ home.profile.menu.logout: Déconnexion
 home.language.en : Anglais
 home.language.fr : Français
 
+home.page.title: Accueil
 btn.add: Ajouter
 btn.new: Nouveau
 btn.edit: Mettre à jour
 breadcrumb.home: Accueil
 label.status: Statut
 
+product.page.title: Produits
 product.breadcrumb.products: Produits
 product.index.title: La liste des produits
 product.desactivated.title: La liste des produits desactivés
@@ -59,16 +60,18 @@ product.status.available : Disponible à la vente
 product.status.expired: Fin de cycle
 product.status.inactive: Inactif
 
-
-category.breadcrumb.categories: Categories
-category.index.title: La liste des categories
-s_category.breadcrumb.s_categories: Sous categories
-s_category.index.title: La liste des sous categories
+category.page.title: Catégories
+s_category.page.title: Sous catégories
+category.breadcrumb.categories: Catégories
+category.index.title: La liste des catégories
+s_category.breadcrumb.s_categories: Sous catégories
+s_category.index.title: La liste des sous catégories
 category.label.name: Nom
 category.label.parent: Catégorie parente
-category.action.add.title: Ajouter une categorie
-category.action.edit.title: Modifier la categorie
+category.action.add.title: Ajouter une catégorie
+category.action.edit.title: Modifier la catégorie
 
+package.page.title: Emballages
 package.breadcrumb.packages: Emballages
 package.index.title: La liste des emballages
 package.label.name: Nom
@@ -79,6 +82,7 @@ package.label.airCost: Fret air
 package.action.add.title: Ajouter un  emballage
 package.action.edit.title: Modifier l'emballage
 
+provider.page.title: Fournisseurs
 provider.breadcrumb.providers: Fournisseurs
 provider.index.title: La liste des Fournisseurs
 provider.label.name: Nom
@@ -98,6 +102,7 @@ provider.qualification.delivery: Délais de livraison
 provider.qualification.communication: Communication
 provider.qualification.relationShip: Esprit de partenariat
 
+user.page.title: Utilisateurs
 user.breadcrumb.users: Utilisateurs
 user.index.title: La liste des utilisateurs
 user.label.login: Login
@@ -109,9 +114,9 @@ user.label.roles: Rôles
 user.action.add.title: Ajouter un  utilisateur
 user.action.edit.title: Modifier le compte utilisateur
 
+change_password.page.title: Changement de mot de passe
 change_password.title: Modifier votre mot de passe !
-
 success.title: 'Succés !'
 change_password.flush.success: 'Votre mot de passe a été rénitialisé avec succés.'
 
-product.edit.flush.success: 'The product has been modified successfully.'
+product.edit.flush.success: 'Le produit a été modifié avec succés.'

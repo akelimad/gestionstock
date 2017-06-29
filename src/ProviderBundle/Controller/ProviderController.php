@@ -134,8 +134,8 @@ class ProviderController extends Controller
     /**
      * Deletes a provider entity.
      *
-     * @Route("/{id}", name="provider_delete", options={"expose"=true})
-     * @Method("PUT")
+     * @Route("/{id}/delete", name="provider_delete", options={"expose"=true})
+     * @Method("DELETE")
      */
     public function deleteAction(Request $request, Provider $provider)
     {
@@ -143,12 +143,12 @@ class ProviderController extends Controller
         // $form->handleRequest($request);
 
         // if ($form->isSubmitted() && $form->isValid()) {
-        //     $em = $this->getDoctrine()->getManager();
-        //     $em->remove($provider);
-        //     $em->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($provider);
+            $em->flush();
         // }
-        $provider->setDeletedAt(new \DateTime());
-        $this->getDoctrine()->getManager()->flush();
+        // $provider->setDeletedAt(new \DateTime());
+        // $this->getDoctrine()->getManager()->flush();
 
         return $this->redirectToRoute('provider_index');
     }

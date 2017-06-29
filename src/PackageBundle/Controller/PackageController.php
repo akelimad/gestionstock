@@ -103,8 +103,8 @@ class PackageController extends Controller
     /**
      * Deletes a package entity.
      *
-     * @Route("/{id}", name="package_delete", options={"expose"=true})
-     * @Method("PUT")
+     * @Route("/{id}/delete", name="package_delete", options={"expose"=true})
+     * @Method("DELETE")
      */
     public function deleteAction(Request $request, Package $package)
     {
@@ -112,12 +112,12 @@ class PackageController extends Controller
         // $form->handleRequest($request);
 
         // if ($form->isSubmitted() && $form->isValid()) {
-        //     $em = $this->getDoctrine()->getManager();
-        //     $em->remove($package);
-        //     $em->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($package);
+            $em->flush();
         // }
-        $package->setDeletedAt(new \DateTime());
-        $this->getDoctrine()->getManager()->flush();
+        // $package->setDeletedAt(new \DateTime());
+        // $this->getDoctrine()->getManager()->flush();
 
         return $this->redirectToRoute('package_index');
     }

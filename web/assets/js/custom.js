@@ -1,5 +1,15 @@
 $(document).ready(function() {
 	
+    'use strict';
+    var langFile="";
+    var locale = $("span#locale").data('locale');
+    if(locale == "fr"){
+        langFile="French"
+    }else if(locale == "en"){
+        langFile == "English"
+    }else{
+        langFile="French"
+    }
 
     $('[data-toggle="tooltip"]').tooltip(); 
 
@@ -21,20 +31,8 @@ $(document).ready(function() {
             [25, 50, 100, "Tous"]
         ],
         responsive: true,
-        language: {
-            search: "_INPUT_",
-            searchPlaceholder: "Recherche . e.g(prix= 100)",
-            "paginate": {
-            "first":      "Premier",
-            "last":       "Dernier",
-            "next":       "Suivant",
-            "previous":   "Précedent"
-            },
-            "lengthMenu":     "Affichage _MENU_ entrées",
-            "zeroRecords":    "Aucun resultat trouvée !",
-            "emptyTable":     "Aucune donnée dans la table",
-            "info":           "Affichage _START_ à _END_ du _TOTAL_ entrées",
-            "infoEmpty":      "Affichage 0 à 0 du 0 entrées",
+        "oLanguage": {
+            "sUrl": "//cdn.datatables.net/plug-ins/1.10.15/i18n/"+ langFile +".json"
         },
         "sDom": 'Rfrtlip',
         scrollCollapse: true,
@@ -245,7 +243,7 @@ $(document).ready(function() {
                     type: 'POST',
                     url:  url,
                     data: {
-                    "_method": "PUT",
+                    "_method": "DELETE",
                     "form[_token]": $("#csrf_token").data("token")
                     }
                 }).done(function(response){
@@ -282,7 +280,7 @@ $(document).ready(function() {
                     type: 'POST',
                     url:  url,
                     data: {
-                    "_method": "PUT",
+                    "_method": "DELETE",
                     "form[_token]": $("#csrf_token").data("token")
                     }
                 }).done(function(response){
@@ -644,6 +642,43 @@ $(document).ready(function() {
     });
     $("#internetPriceIcon").click(function(){
         $("#internetPriceSelect").toggle();
+    });
+
+    //custom language switcher
+    var engImgLink = "http://www.roemheld.de/IT/Data/Images/Address/Grossbritanien.gif";
+    var fraImgLink = "http://www.roemheld.de/IT/Data/Images/Address/Frankreich.gif";
+    var imgBtnSel = $('#imgBtnSel');
+    var imgBtnEng = $('#imgBtnEng');
+    var imgBtnFra = $('#imgBtnFra');
+
+    var imgNavSel = $('#imgNavSel');
+    var imgNavEng = $('#imgNavEng');
+    var imgNavFra = $('#imgNavFra');
+
+    var spanNavSel = $('#lanNavSel');
+    var spanBtnSel = $('#lanBtnSel');
+
+    //imgBtnSel.attr("src",fraImgLink);
+    imgBtnEng.attr("src",engImgLink);
+    imgBtnFra.attr("src",fraImgLink);
+
+    //imgNavSel.attr("src",fraImgLink);
+    imgNavEng.attr("src",engImgLink);
+    imgNavFra.attr("src",fraImgLink);
+
+    $( ".language" ).on( "click", function( event ) {
+
+        var currentId = $(this).attr('id');
+        var currentlocale = $(this).data('locale');
+
+        if (currentlocale == "en") {
+            imgBtnSel.attr("src",engImgLink);
+            spanNavSel.text("ENG");
+        } else if (currentlocale == "fr") {
+            imgBtnSel.attr("src",fraImgLink);
+            spanNavSel.text("FRA");
+        }
+            
     });
 
 });
