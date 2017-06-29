@@ -27,6 +27,7 @@ label.status: Status
 
 product.breadcrumb.products: Products
 product.index.title: Products list
+product.desactivated.title: The list of disabled products
 product.show.pencil.hover: Edit
 product.index.filter_by_cat: Choose a category
 product.index.filter_by_sub_cat: Choose a sub category
@@ -52,6 +53,11 @@ product.label.specialPrice: MP price
 product.label.internetPrice: Internet price
 product.action.add.title: Add new product
 product.action.edit.title: Update a product
+product.status.inventory: Inventory
+product.status.underdev: Product under development
+product.status.available : Available for sale
+product.status.expired: End of cycle
+product.status.inactive: Inactive
 
 category.breadcrumb.categories: Categories
 category.index.title: Categories list
@@ -89,4 +95,24 @@ provider.qualification.qualityPrice: Quality price rapport
 provider.qualification.delivery: Delivery
 provider.qualification.communication: Communication
 provider.qualification.relationShip: Relaionship
+
+user.breadcrumb.users: Users
+user.index.title: Users list
+user.label.login: Login
+user.label.nom: Name
+user.label.email: E-mail address
+user.label.password: Password
+user.label.password.second: Confirm password
+user.label.roles: Roles
+user.action.add.title: Add a user account
+user.action.edit.title: Edit user account
+
+change_password.title: Change your password !
+
+success.title: 'Success !'
+change_password.flush.success: 'Your password has been reset successfully.'
+
+product.edit.flush.success: 'The product has been modified successfully.'
+
+
 

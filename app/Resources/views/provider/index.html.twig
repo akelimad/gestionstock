@@ -47,7 +47,7 @@
                                         <td>{{p.tel ? p.tel : '---'}}</td>
                                         <td>{{p.email ? p.email : '---'}}</td>
                                         <td>{% if p.ring %} {{p.ring}} % {% else %} --- {% endif %}</td>
-                                        <td>{{p.active == 1 ? 'Actif' : 'Inactif'}}</td>
+                                        <td>{{p.active == 1 ? 'Active' : 'Inactive'}}</td>
                                         <td class="text-right">
                                             <a href="{{ path('provider_edit', { 'id': p.id }) }}" title="Modifier" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
 

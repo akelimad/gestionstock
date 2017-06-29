@@ -27,6 +27,7 @@ label.status: Statut
 
 product.breadcrumb.products: Produits
 product.index.title: La liste des produits
+product.desactivated.title: La liste des produits desactivés
 product.show.pencil.hover: Editer
 product.index.filter_by_cat: Choissez une catégorie
 product.index.filter_by_sub_cat: Choissez une sous catégorie
@@ -52,6 +53,11 @@ product.label.specialPrice: Prix MP
 product.label.internetPrice: Prix internet
 product.action.add.title: Ajouter un produit
 product.action.edit.title: Modifier le produit
+product.status.inventory: Inventaire
+product.status.underdev: Produit en développement
+product.status.available : Disponible à la vente
+product.status.expired: Fin de cycle
+product.status.inactive: Inactif
 
 
 category.breadcrumb.categories: Categories
@@ -92,3 +98,20 @@ provider.qualification.delivery: Délais de livraison
 provider.qualification.communication: Communication
 provider.qualification.relationShip: Esprit de partenariat
 
+user.breadcrumb.users: Utilisateurs
+user.index.title: La liste des utilisateurs
+user.label.login: Login
+user.label.nom: Nom d'utilisateur
+user.label.email: Adresse e-mail
+user.label.password: Mot de passe
+user.label.password.second: Retappez mot de passe
+user.label.roles: Rôles
+user.action.add.title: Ajouter un  utilisateur
+user.action.edit.title: Modifier le compte utilisateur
+
+change_password.title: Modifier votre mot de passe !
+
+success.title: 'Succés !'
+change_password.flush.success: 'Votre mot de passe a été rénitialisé avec succés.'
+
+product.edit.flush.success: 'The product has been modified successfully.'

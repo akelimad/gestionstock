@@ -263,7 +263,23 @@
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
     <!-- product images switcher smoothproduct -->
     <script src="{{ asset('assets/vendors/fotorama/fotorama.js') }}"></script>
-
+    <script>
+        $(function () {
+            // change name of initial method
+            Routing.generateImpl = Routing.generate;
+            // override generate fonction by adding a default _locale from request locale
+            Routing.generate = function (url, params) {
+                var paramsExt = {};
+                if (params) {
+                    paramsExt = params;
+                }
+                if (!paramsExt._locale){
+                    paramsExt._locale = '{{ app.request.locale }}';
+                }
+                return Routing.generateImpl(url, paramsExt);
+            }
+        })
+    </script>
     
     
 {% endblock %}

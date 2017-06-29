@@ -6,13 +6,13 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default">
-              <div class="panel-heading"><h3 class="text-center">Ajouter un utilisateur</h3></div>
+              <div class="panel-heading"><h3 class="text-center">{{'user.action.add.title'|trans}}</h3></div>
               <div class="panel-body">
                 {{ form_start(form, {'action': path('fos_user_registration_register')}) }}
                 <div class="form-group {{ form_errors(form.username) ? 'has-error': '' }}">
                     <div class="row">
                         <div class="col-md-4">
-                            {{ form_label(form.username, "Login", {'label_attr': {'class': 'control-label'}}) }}
+                            <label for="profile_username">{{'form.login'|trans({}, 'FOSUserBundle')}}</label>
                         </div>
                         <div class="col-md-8">
                             {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
@@ -23,7 +23,7 @@
                 <div class="form-group {{ form_errors(form.nom) ? 'has-error': '' }}">
                     <div class="row">
                         <div class="col-md-4">
-                            {{ form_label(form.nom, "Nom d'utilisateur", {'label_attr': {'class': 'control-label'}}) }}
+                            <label for="profile_nom">{{'form.username'|trans({}, 'FOSUserBundle')}}</label>
                         </div>
                         <div class="col-md-8">
                             {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
@@ -34,7 +34,7 @@
                 <div class="form-group {{ form_errors(form.email) ? 'has-error': '' }}">
                     <div class="row">
                         <div class="col-md-4">
-                            {{ form_label(form.email, "Adresse email ", {'label_attr': {'class': 'control-label'}}) }}
+                            <label for="profile_email">{{'form.email'|trans({}, 'FOSUserBundle')}}</label>
                         </div>
                         <div class="col-md-8">
                             {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
@@ -45,7 +45,7 @@
                 <div class="form-group {{ form_errors(form.plainPassword.first) ? 'has-error': '' }}">
                     <div class="row">
                         <div class="col-md-4">
-                            {{ form_label(form.plainPassword.first, "Mot de passe ", {'label_attr': {'class': 'control-label'}}) }}
+                            <label for="profile_plainPassword_first">{{'form.password'|trans({}, 'FOSUserBundle')}}</label>
                         </div>
                         <div class="col-md-8">
                             {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
@@ -56,7 +56,7 @@
                 <div class="form-group {{ form_errors(form.plainPassword.second) ? 'has-error': '' }}">
                     <div class="row">
                         <div class="col-md-4">
-                            {{ form_label(form.plainPassword.second, "Retappez mot de passe ", {'label_attr': {'class': 'control-label'}}) }}
+                            <label for="profile_plainPassword_second">{{'form.password_confirmation'|trans({}, 'FOSUserBundle')}}</label>
                         </div>
                         <div class="col-md-8">
                             {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
@@ -67,7 +67,7 @@
                 <div class="form-group {{ form_errors(form.roles) ? 'has-error': '' }}">
                     <div class="row">
                         <div class="col-md-4">
-                            {{ form_label(form.roles, "Roles ", {'label_attr': {'class': 'control-label'}}) }}
+                            {{ form_label(form.roles, 'user.label.roles', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                         </div>
                         <div class="col-md-8">
                             {{ form_widget(form.roles, {'attr': {'class': 'form-control'}}) }}
@@ -78,7 +78,7 @@
                 <div class="form-group {{ form_errors(form.enabled) ? 'has-error': '' }}">
                     <div class="row">
                         <div class="col-md-4">
-                            {{ form_label(form.enabled, "Active", {'label_attr': {'class': 'control-label'}}) }}
+                            {{ form_label(form.enabled, 'label.status', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                         </div>
                         <div class="col-md-8">
                             <label class="checkbox">
@@ -94,7 +94,7 @@
                 <div class="form-group">
                     <div class="col-md-8 col-md-offset-4" style="margin-top:10px;">
                         <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-btn fa-user"></i> Ajouter
+                            <i class="fa fa-btn fa-user"></i> {{'btn.add'|trans}}
                         </button>
                     </div>
                 </div>

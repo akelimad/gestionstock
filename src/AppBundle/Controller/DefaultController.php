@@ -17,6 +17,7 @@ class DefaultController extends Controller
         return $this->render('AppBundle:Default:index.html.twig');
     }
 
+
     /**
      * @Route("/documentation")
      */

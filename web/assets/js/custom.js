@@ -380,7 +380,8 @@ $(document).ready(function() {
 
     $("select#categories").change(function(){
         var category_id = $(this).val();
-        var url = Routing.generate('filter-by-cat', {'category_id': category_id});
+        var locale = $(this).data('locale');
+        var url = Routing.generate('filter-by-cat', {'category_id': category_id, '_locale':locale});
         var product_results = $('#product-results');
         $('#loading-cat').show();
         $.ajax({
@@ -478,8 +479,9 @@ $(document).ready(function() {
 
     //filter sub cat by parent id
     $('select#categories').change(function(){
-        var id =  $( "select#categories option:selected" ).val();          
-        var url = Routing.generate('ajax_subcategories',{'id':id});
+        var id =  $( "select#categories option:selected" ).val(); 
+        var locale = $(this).data('locale');       
+        var url = Routing.generate('ajax_subcategories',{'id':id, '_locale': locale});
         $("#loading-child-cat").show();
         var sub_cat_selected=$("#sub_cat_selected").data("sub-cat-selected");
         $.ajax({

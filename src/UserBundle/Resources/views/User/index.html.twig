@@ -7,8 +7,8 @@
         <div class="row">
             <div class="col-md-12">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">Accueil</a></li>
-                    <li class="breadcrumb-item"><a href="{{path('user_default_index')}}">Ulitisateurs</a></li>
+                    <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">{{'breadcrumb.home'|trans}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{path('user_default_index')}}">{{'user.breadcrumb.users'|trans}}</a></li>
                 </ol>
                 <div class="card">
                     <div class="content users">
@@ -22,7 +22,7 @@
                                 </div>
                             {% endfor %}
                         {% endif %}
-                        <h4 class="title"> {{ 'user.title.user_list'|trans }} <a href=" {{path('fos_user_registration_register')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Nouveau</a></h4>
+                        <h4 class="title"> {{ 'user.index.title'|trans }} <a href=" {{path('fos_user_registration_register')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> {{ 'btn.new'|trans }}</a></h4>
                         
                         <div class="toolbar">
                             <!--        Here you can write extra buttons/actions for the toolbar              -->
@@ -32,10 +32,10 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nom</th>
-                                        <th>Email</th>
-                                        <th>Role</th>
-                                        <th>Statut</th>
+                                        <th>{{'user.label.nom'|trans }}</th>
+                                        <th>{{'user.label.email'|trans }}</th>
+                                        <th>{{'user.label.roles'|trans }}</th>
+                                        <th>{{'label.status'|trans }}</th>
                                         <th class="disabled-sorting text-center">Actions</th>
                                     </tr>
                                 </thead>
@@ -52,7 +52,7 @@
 											   {{ role == "ROLE_USER" ? "Utilisateur"}}
 											{% endfor %}
                                         </td>
-                                        <td>{{user.enabled == 1 ? 'Actif' : 'Inactif'}}</td>
+                                        <td>{{user.enabled == 1 ? 'Active' : 'Inactive'}}</td>
                                         <td class="text-right">
 											<a href="{{ path('user_edit', { 'id': user.id }) }}" title="Modifier" class="btn btn-simple btn-warning btn-icon btn-fill edit"><i class="ti-pencil-alt"></i></a>
 
@@ -65,10 +65,10 @@
                                 <tfoot>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nom</th>
-                                        <th>Email</th>
-                                        <th>Role</th>
-                                        <th>Statut</th>
+                                        <th>{{'user.label.nom'|trans }}</th>
+                                        <th>{{'user.label.email'|trans }}</th>
+                                        <th>{{'user.label.roles'|trans }}</th>
+                                        <th>{{'label.status'|trans }}</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                 </tfoot>
