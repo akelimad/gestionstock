@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
-{% block title %}Accueil{% endblock %}
+{% block title %}{{'home.page.title'|trans}}{% endblock %}
 {% block body %}
 
 <div class="content">
     <div class="container-fluid">
         <div class="row">
 			<div class="col-md-12">
+				
 				{% if app.session.started %}
 				    {% for flashMessage in app.session.flashbag.get('passwordChanged') %}
 				        <div class="alert alert-{{ flashMessage.alert }} alert-dismissible" role="alert">

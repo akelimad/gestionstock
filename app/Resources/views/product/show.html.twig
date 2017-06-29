@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Poduit{% endblock %}
+{% block title %}{{'product.page.title'|trans}}{% endblock %}
 {% block body %}
     <div class="content details">
         <div class="container-fluid">
@@ -26,7 +26,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 col-sm-6 col-xs-6 details">
+                            <div class="col-md-6 col-sm-6 col-xs-5 details">
                                 <span class="detail-title"> Details </span>
                                 <div class="detail-hr">
                                     <span class="delimeter"></span>
@@ -203,7 +203,7 @@
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6">
                                         <div class="item">
-                                            <span> {{'product.label.status'|trans}} : </span>
+                                            <span> {{'label.status'|trans}} : </span>
                                             {% if product.status == "desactivé" %}
                                                 <i class="fa fa-ban"></i>
                                             {% else %}
@@ -226,7 +226,7 @@
                                 </div>
                             </div>
                             
-                            <div class="col-md-6 col-sm-6 col-xs-6 images">
+                            <div class="col-md-6 col-sm-6 col-xs-7 images">
                                 {% if product.images is not empty  %}
                                     <div class="fotorama" data-nav="thumbs" data-allowfullscreen="native">
                                         {% for image in product.images %}

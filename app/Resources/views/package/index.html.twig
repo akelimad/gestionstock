@@ -1,18 +1,19 @@
 {% extends 'base.html.twig' %}
-{% block title %}Emballage{% endblock %} 
+{% block title %}{{'package.page.title'|trans}}{% endblock %} 
 {% block body %}
 
 <div class="content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
+                <span id="locale" data-locale="{{ app.request.locale }}"></span>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{path('app_default_index')}}">{{'breadcrumb.home'|trans}}</a></li>
                     <li class="breadcrumb-item"><a href="{{path('package_index')}}">{{'package.breadcrumb.packages'|trans}}</a></li>
                 </ol>
                 <div class="card">
                     <div class="content packages">
-                        <h4 class="title">{{'package.index.title'|trans}}
+                        <h4 class="title"><i class="fa fa-list"></i> {{'package.index.title'|trans}}
                         {% if is_granted('ROLE_USER') %}
                             <a href=" {{path('package_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> {{'btn.new'|trans}} </a>
                         {% endif %}

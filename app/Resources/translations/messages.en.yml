@@ -3,7 +3,6 @@ home.icon.product_search: Search for a product
 home.icon.product_new: Add new
 home.icon.user_list: Users management
 
-home.title: Home
 home.sidebar.product: Products
 home.sidebar.product.submenu.product_list: 'Products list'
 home.sidebar.product.submenu.product_trashed: 'Trashed products'
@@ -19,12 +18,14 @@ home.profile.menu.logout: Logout
 home.language.en : English
 home.language.fr : Frensh
 
+home.page.title: Home
 btn.new: New
 btn.add: Add
 btn.edit: Update
 breadcrumb.home: Home
 label.status: Status
 
+product.title: Products
 product.breadcrumb.products: Products
 product.index.title: Products list
 product.desactivated.title: The list of disabled products
@@ -59,6 +60,8 @@ product.status.available : Available for sale
 product.status.expired: End of cycle
 product.status.inactive: Inactive
 
+category.title: Categories
+s_category.title: Sub category
 category.breadcrumb.categories: Categories
 category.index.title: Categories list
 s_category.breadcrumb.s_categories: Sub categories
@@ -68,6 +71,7 @@ category.label.parent: Parent category
 category.action.add.title: Add category
 category.action.edit.title: Edit category
 
+package.page.title: packages
 package.breadcrumb.packages: Packages
 package.index.title: Packages list
 package.label.name: Name
@@ -78,6 +82,7 @@ package.label.airCost: Air cost
 package.action.add.title: Add package
 package.action.edit.title: Edit package
 
+provider.page.title: Providers
 provider.breadcrumb.providers: Providers
 provider.index.title: Providers list
 provider.label.name: Name
@@ -96,6 +101,7 @@ provider.qualification.delivery: Delivery
 provider.qualification.communication: Communication
 provider.qualification.relationShip: Relaionship
 
+user.page.title: users
 user.breadcrumb.users: Users
 user.index.title: Users list
 user.label.login: Login
@@ -107,6 +113,7 @@ user.label.roles: Roles
 user.action.add.title: Add a user account
 user.action.edit.title: Edit user account
 
+change_password.page.title: Change password
 change_password.title: Change your password !
 
 success.title: 'Success !'
