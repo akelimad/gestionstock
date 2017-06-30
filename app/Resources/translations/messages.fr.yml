@@ -13,6 +13,7 @@ home.sidebar.category.submenu.sub_categoy_list: Sous catégories
 home.sidebar.packages: Emballages
 home.sidebar.providers: Fournisseurs
 home.sidebar.user: Utilisateurs
+home.sidebar.import: Importer les produits
 home.profile.menu.change_password: Changer mot de passe
 home.profile.menu.logout: Déconnexion
 home.language.en : Anglais
@@ -121,3 +122,19 @@ change_password.flush.success: 'Votre mot de passe a été rénitialisé avec su
 
 product.add.flush.success: 'Le produit a été enregistré avec succés.'
 product.edit.flush.success: 'Le produit a été modifié avec succés.'
+product.show: Afficher
+
+category.add.flush.success: La catégorie a été enregistré avec succés.
+subcategory.add.flush.success: La sous catégorie a été enregistré avec succés.
+category.edit.flush.success: La catégorie a été modifiée avec succés.
+subcategory.edit.flush.success: La sous catégorie a été modifiée avec succés.
+category.edit: Editer
+
+
+package.add.flush.success: L'emballage a été enregistré avec succés.
+package.edit.flush.success: L'emballage a été modifié avec succés.
+
+provider.add.flush.success: Le forrnisseur a été enregistré avec succés.
+provider.edit.flush.success: Le forrnisseur a été modifié avec succés.
+
+user.edit.flush.success: Le compte d'utilisateur a été modifié avec succés.

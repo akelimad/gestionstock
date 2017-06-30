@@ -13,6 +13,23 @@
                 </ol>
                 <div class="card">
                     <div class="content providers">
+                        {% for flashMessage in app.session.flashbag.get('addProvider') %}
+                            <div class="alert alert-{{ flashMessage.alert }} alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert">
+                                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                </button>
+                                <strong>{{'success.title'|trans}}</strong> {{'provider.add.flush.success'|trans}}
+                            </div>
+                        {% endfor %}
+                        {% for flashMessage in app.session.flashbag.get('editProvider') %}
+                            <div class="alert alert-{{ flashMessage.alert }} alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert">
+                                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                </button>
+                                <strong>{{'success.title'|trans}}</strong> {{'provider.edit.flush.success'|trans}}
+                            </div>
+                        {% endfor %}
+                        
                         <h4 class="title"><i class="fa fa-list"></i> {{'provider.index.title'|trans}}
                         {% if is_granted('ROLE_USER') %}
                             <a href=" {{path('provider_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> {{'btn.new'|trans}} </a>
@@ -32,7 +49,7 @@
                                         <th>{{'provider.label.address'|trans}}</th>
                                         <th>{{'provider.label.tel'|trans}}</th>
                                         <th>{{'provider.label.email'|trans}}</th>
-                                        <th>Ring</th>
+                                        <th>Rink</th>
                                         <th>{{'label.status'|trans}}</th>
                                         <th class="disabled-sorting text-center">Actions</th>
                                     </tr>

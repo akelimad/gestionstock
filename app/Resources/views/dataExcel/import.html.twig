@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Categorie{% endblock %} 
+{% block title %}Import{% endblock %} 
 {% block body %}
 
 <div class="content">
@@ -9,13 +9,28 @@
                 <div class="card">
                     <div class="content">
                         
-                        <h4 class="title">import data
-                        </h4>
+                        <h4 class="title">Importer des données depuis fichier csv</h4>
                         <div class="toolbar">
                             <form action="{{path('product_import')}}" method="post" enctype="multipart/form-data">
-                                {{form_widget(form.fileExcel)}}
-                                <input type="submit" value="importer" class="btn btn-primary">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        {{form_widget(form.fileExcel, {'attr': {'accept': '.csv'}}) }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="submit" value="importer" class="btn btn-sm btn-info">
+                                    </div>
+                                </div>
                             </form>
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4 class="title">Exporter les produits sous format excel</h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="" class="btn btn-sm btn-info">Export Data</a>
+                                </div>
+                            </div>
                         </div>
                         
                     </div>

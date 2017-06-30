@@ -347,7 +347,7 @@ label.star:before {
 .fieldtoshow .checkbox-field label{
 	cursor: pointer;
 }
-.fieldtoshow .checkbox-field input{
+.checkbox-field input{
 	  width: 19px;
 	  height: 19px;
 	  position: relative;
@@ -385,7 +385,6 @@ label.star:before {
 	background: #e2e2e2;
 	padding: 20px 5px 0;
 	min-height: 156px;
-	box-shadow: 1px 1px 9px #353030;
 }
 .icon p{
 	text-align: center;
@@ -398,6 +397,7 @@ label.star:before {
 }
 .icon:hover{
 	background: #ffffff;
+	box-shadow: 0px 0px 14px #dcdcdc
 }
 .icon img{
 	margin: 0 auto;

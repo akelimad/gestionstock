@@ -64,7 +64,14 @@ class ProviderController extends Controller
 
             $em->persist($provider);
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+                'addProvider',
+                array(
+                    'alert' => 'success',
+                    'title' => 'success.title',
+                    'message' => 'provider.add.flush.success',
+                )
+            );
             return $this->redirectToRoute('provider_index');
         }
 
@@ -121,6 +128,14 @@ class ProviderController extends Controller
 
             $em->persist($provider);
             $this->getDoctrine()->getManager()->flush();
+            $this->get('session')->getFlashBag()->add(
+                'editProvider',
+                array(
+                    'alert' => 'success',
+                    'title' => 'success.title',
+                    'message' => 'provider.edit.flush.success',
+                )
+            );
             return $this->redirectToRoute('provider_index');
         }
 

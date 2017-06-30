@@ -100,12 +100,9 @@
                                                 {{ form_label(form.active, 'label.status', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
-                                                <label class="checkbox">
-                                                    <span class="icons">
-                                                    <span class="first-icon fa fa-square"></span>
-                                                    <span class="second-icon fa fa-check-square "></span>
+                                                <div class="checkbox-field">
                                                     {{ form_widget(form.active, {'attr': {'class': ''}}) }}
-                                                </label>
+                                                </div>
                                                 <span class="help-block">{{ form_errors(form.active) }} </span> 
                                             </div>
                                         </div>

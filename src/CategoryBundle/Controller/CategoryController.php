@@ -72,6 +72,14 @@ class CategoryController extends Controller
             //     $code=$catCount;
             // }
             // $category->setCode($code);
+            $this->get('session')->getFlashBag()->add(
+                'addCategory',
+                array(
+                    'alert' => 'success',
+                    'title' => 'success.title',
+                    'message' => 'category.add.flush.success',
+                )
+            );
             $em->persist($category);
             $em->flush();
 
@@ -110,7 +118,16 @@ class CategoryController extends Controller
             // $category->setCode($code);
             $em->persist($category);
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+                'addSubCategory',
+                array(
+                    'alert' => 'success',
+                    'title' => 'success.title',
+                    'message' => 'subcategory.add.flush.success',
+                )
+            );
+            $em->persist($category);
+            $em->flush();
             return $this->redirectToRoute('sub_category_index');
         }
 
@@ -167,7 +184,14 @@ class CategoryController extends Controller
             // $category->setCode($code);
             $em->persist($category);
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+                'editCategory',
+                array(
+                    'alert' => 'success',
+                    'title' => 'success.title',
+                    'message' => 'category.edit.flush.success',
+                )
+            );
             return $this->redirectToRoute('category_index');
         }
 
@@ -209,7 +233,14 @@ class CategoryController extends Controller
             //$category->setCode($code);
             $em->persist($category);
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+                'editSubCategory',
+                array(
+                    'alert' => 'success',
+                    'title' => 'success.title',
+                    'message' => 'subcategory.edit.flush.success',
+                )
+            );
             return $this->redirectToRoute('sub_category_index');
         }
 

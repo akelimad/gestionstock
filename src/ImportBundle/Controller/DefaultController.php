@@ -27,7 +27,6 @@ class DefaultController extends Controller
      * Creates a new product entity.
      *
      * @Route("/import", name="product_import", options={"expose"=true})
-
      */
     public function importAction(Request $request)
     {
@@ -38,8 +37,9 @@ class DefaultController extends Controller
         
         $defaultData = array('message' => 'Type your message here');
         $form = $this->createFormBuilder($defaultData)
-            ->add('fileExcel', FileType::class, array('label' => 'choisissez un fichier excel(csv)'))
-            ->getForm();
+            ->add('fileExcel', FileType::class, array(
+                'label' => 'choisissez un fichier excel(csv)'
+            ))->getForm();
 
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
@@ -104,7 +104,6 @@ class DefaultController extends Controller
                     $product->setWholesalePrice($row[15]);
                     $product->setSpecialPrice($row[16]);
                     $product->setInternetPrice($row[17]);
-                    $product->setActive("1");
 
                     $category = $em->getRepository('CategoryBundle:Category')
                        ->findOneByName($row[2]);
@@ -164,9 +163,44 @@ class DefaultController extends Controller
             return $this->redirectToRoute('product_index');
         }
 
-
         return $this->render('dataExcel/import.html.twig', array(
             'form' => $form->createView()
         ));
     }
+
+    /**
+     * export product entity.
+     *
+     * @Route("/product_export", name="product_export", options={"expose"=true})
+     */
+    public function ExcelExportAction(Request $request)
+    {
+        $em=$this->getDoctrine()->getManager();
+
+        $result = $em->getRepository('ProductBundle:Product')->getAllProducts();  
+        $objPHPExcel = new PHPExcel(); 
+        $objPHPExcel->setActiveSheetIndex(0); 
+
+        $rowCount = 1; 
+        $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount,'Firstname');
+        $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowCount,'Lastname');
+        $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowCount,'Branch');
+        $objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowCount,'Gender');
+        $objPHPExcel->getActiveSheet()->SetCellValue('E'.$rowCount,'Mobileno');
+        $objPHPExcel->getActiveSheet()->SetCellValue('F'.$rowCount,'Email');
+
+        while($row = mysql_fetch_array($result)){ 
+            $rowCount++;
+            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount, $row['0']);
+            $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowCount, $row['1']);
+            $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowCount, $row['2']);
+            $objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowCount, $row['3']);
+            $objPHPExcel->getActiveSheet()->SetCellValue('E'.$rowCount, $row['4']);
+            $objPHPExcel->getActiveSheet()->SetCellValue('F'.$rowCount, $row['5']);
+        } 
+
+        $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel); 
+        $objWriter->save('some_excel_file.xlsx'); 
+    }
+
 }

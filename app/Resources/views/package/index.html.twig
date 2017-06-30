@@ -13,6 +13,23 @@
                 </ol>
                 <div class="card">
                     <div class="content packages">
+                        {% for flashMessage in app.session.flashbag.get('addPackage') %}
+                            <div class="alert alert-{{ flashMessage.alert }} alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert">
+                                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                </button>
+                                <strong>{{'success.title'|trans}}</strong> {{'package.add.flush.success'|trans}}
+                            </div>
+                        {% endfor %}
+                        {% for flashMessage in app.session.flashbag.get('editPackage') %}
+                            <div class="alert alert-{{ flashMessage.alert }} alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert">
+                                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                </button>
+                                <strong>{{'success.title'|trans}}</strong> {{'package.edit.flush.success'|trans}}
+                            </div>
+                        {% endfor %}
+
                         <h4 class="title"><i class="fa fa-list"></i> {{'package.index.title'|trans}}
                         {% if is_granted('ROLE_USER') %}
                             <a href=" {{path('package_new')}} " class="btn btn-primary pull-right"><i class="fa fa-plus"></i> {{'btn.new'|trans}} </a>
