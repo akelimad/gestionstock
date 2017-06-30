@@ -13,6 +13,7 @@ home.sidebar.category.submenu.sub_categoy_list: 'Sub categories list'
 home.sidebar.packages: Packages
 home.sidebar.providers: Providers
 home.sidebar.user: Users
+home.sidebar.import: Import products
 home.profile.menu.change_password: 'Change password'
 home.profile.menu.logout: Logout
 home.language.en : English
@@ -121,6 +122,18 @@ change_password.flush.success: 'Your password has been reset successfully.'
 
 product.add.flush.success: 'The product has been added successfully.'
 product.edit.flush.success: 'The product has been modified successfully.'
+product.show: Show
 
+category.add.flush.success: The category was successfully registered.
+subcategory.add.flush.success: The sub category was successfully registered.
+category.edit.flush.success: The category has been modified successfully.
+subcategory.edit.flush.success: The sub category has been modified successfully.
+category.edit: Edit
 
+package.add.flush.success: The package was successfully registered.
+package.edit.flush.success: The package was successfully modified.
 
+provider.add.flush.success: The provider was successfully registered.
+provider.edit.flush.success: The provider was successfully modified.
+
+user.edit.flush.success: The user account has been modified successfully.

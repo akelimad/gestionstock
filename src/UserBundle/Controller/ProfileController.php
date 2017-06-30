@@ -48,9 +48,14 @@ class ProfileController extends Controller
             /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
             $userManager = $this->get('fos_user.user_manager');
             $userManager->updateUser($user);
-
-            // $session = $this->getRequest()->getSession();
-            // $session->getFlashBag()->add('message', 'Successfully updated');
+            $this->get('session')->getFlashBag()->add(
+                'editUser',
+                array(
+                    'alert' => 'success',
+                    'title' => 'success.title',
+                    'message' => 'user.edit.flush.success',
+                )
+            );
             return $this->redirectToRoute('user_default_index');
 
         }

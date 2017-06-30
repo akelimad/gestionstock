@@ -105,12 +105,9 @@
                                                 {{ form_label(edit_form.active, 'label.status', {'label_attr': {'class': 'control-label'}})|trans | raw }}
                                             </div>
                                             <div class="col-md-8">
-                                                <label class="checkbox">
-                                                    <span class="icons">
-                                                    <span class="first-icon fa fa-square"></span>
-                                                    <span class="second-icon fa fa-check-square "></span>
-                                                    {{ form_widget(edit_form.active, {'attr': {'class': ''}}) }}
-                                                </label>
+                                                <div class="checkbox-field">
+                                                {{ form_widget(edit_form.active, {'attr': {'class': ''}}) }}
+                                            </div>
                                                 <span class="help-block">{{ form_errors(edit_form.active) }} </span> 
                                             </div>
                                         </div>
@@ -228,7 +225,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="ring-provider">
-                                            <label for="">Ring : </label> {{provider.ring}} %
+                                            <label for="">Rink : </label> {{provider.ring}} %
                                         </div>
                                     </div>
                                 </div>

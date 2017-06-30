@@ -49,7 +49,14 @@ class PackageController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($package);
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+                'addPackage',
+                array(
+                    'alert' => 'success',
+                    'title' => 'success.title',
+                    'message' => 'package.add.flush.success',
+                )
+            );
             return $this->redirectToRoute('package_index');
         }
 
@@ -89,7 +96,14 @@ class PackageController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->get('session')->getFlashBag()->add(
+                'editPackage',
+                array(
+                    'alert' => 'success',
+                    'title' => 'success.title',
+                    'message' => 'package.edit.flush.success',
+                )
+            );
             return $this->redirectToRoute('package_index');
         }
 

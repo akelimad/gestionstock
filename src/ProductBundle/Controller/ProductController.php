@@ -158,7 +158,7 @@ class ProductController extends Controller
                     'alert' => 'success',
                     'title' => 'success.title',
                     'message' => 'product.add.flush.success',
-                    
+                    'url' => $url
                 )
             );
             return $this->redirectToRoute('product_index');
@@ -301,12 +301,14 @@ class ProductController extends Controller
             $em->persist($product);
             $em->persist($productlog);
             $em->flush();
+            $url = $this->generateUrl('product_show', [ 'id' => $product->getId() ]);
             $this->get('session')->getFlashBag()->add(
                 'editProduct',
                 array(
                     'alert' => 'success',
                     'title' => 'success.title',
-                    'message' => 'product.edit.flush.success'
+                    'message' => 'product.edit.flush.success',
+                    'url' => $url
                 )
             );
             return $this->redirectToRoute('product_index');

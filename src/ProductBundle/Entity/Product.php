@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use ProductBundle\Entity\ImageProduct;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Product
@@ -34,6 +35,13 @@ class Product
     /**
      * @var string
      *
+     * @ORM\Column(name="sku", type="string", length=255, nullable=true)
+     */
+    private $sku;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -42,6 +50,10 @@ class Product
      * @var string
      *
      * @ORM\Column(name="description", type="text", nullable=true)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 648,
+     * )
      */
     private $description;
 
@@ -888,5 +900,30 @@ class Product
         return $this->internetPrice;
     }
 
+
+
+    /**
+     * Set sku
+     *
+     * @param string $sku
+     *
+     * @return Product
+     */
+    public function setSku($sku)
+    {
+        $this->sku = $sku;
+
+        return $this;
+    }
+
+    /**
+     * Get sku
+     *
+     * @return string
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
 
 }

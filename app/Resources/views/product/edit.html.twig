@@ -27,14 +27,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group {{ form_errors(edit_form.description) ? 'has-error': '' }}">
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.sku) ? 'has-error': '' }}">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                {{ form_label(edit_form.description, "Description", {'label_attr': {'class': 'control-label'}}) }}
+                                                {{ form_label(edit_form.sku, "SKU", {'label_attr': {'class': 'control-label'}}) }}
                                             </div>
                                             <div class="col-md-8">
-                                                {{ form_widget(edit_form.description, {'attr': {'class': 'form-control'}}) }}
-                                                <span class="help-block">{{ form_errors(edit_form.description) }}</span> 
+                                                {{ form_widget(edit_form.sku, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(edit_form.sku) }}</span> 
                                             </div>
                                         </div>
                                     </div>
@@ -270,6 +270,17 @@
                                             <div class="col-md-8">
                                                 {{ form_widget(edit_form.status, {'attr': {'class': 'form-control'}}) }}
                                                 <span class="help-block">{{ form_errors(edit_form.status) }}</span> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group {{ form_errors(edit_form.description) ? 'has-error': '' }}">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                {{ form_label(edit_form.description, "Description (max:648 ltr)", {'label_attr': {'class': 'control-label'}}) }}
+                                            </div>
+                                            <div class="col-md-8">
+                                                {{ form_widget(edit_form.description, {'attr': {'class': 'form-control'}}) }}
+                                                <span class="help-block">{{ form_errors(edit_form.description) }}</span> 
                                             </div>
                                         </div>
                                     </div>

@@ -27,6 +27,7 @@ class ProductType extends AbstractType
         $builder
         ->add('name', null, array('label' => 'product.label.name') ) 
         ->add('description', null, array('label' => 'product.label.description'))
+        ->add('sku')
         ->add('sizeInch', null, array('label' => 'product.label.sizeInch'))
         ->add('sizeCm', null, array('label' => 'product.label.sizeCm'))
         ->add('color', ChoiceType::class, array(

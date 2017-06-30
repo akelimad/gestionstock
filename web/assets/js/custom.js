@@ -474,7 +474,7 @@ $(document).ready(function() {
     //to set checkbox checked if edit_form.active == '1'
     var checked=$("input[type=checkbox]").attr("checked");
     if(checked=="checked"){
-        $("label.checkbox").addClass("checked");
+        $("label.checkbox").addClass("checked"); 
     }
 
     //to make background for color select
@@ -685,7 +685,12 @@ $(document).ready(function() {
             imgBtnSel.attr("src",fraImgLink);
             spanNavSel.text("FRA");
         }
-            
+    });
+
+
+
+    $("input[type=checkbox]").on('click', function(){
+        $(this).addClass("checked");
     });
 
 });

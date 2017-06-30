@@ -118,12 +118,14 @@
                             <p>Couleurs</p>
                         </a>
                     </li>
-                    <li class="{{ app.request.attributes.get('_route') == 'product_import' ? 'active' : '' }}" style="display: none;">
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <li class="{{ app.request.attributes.get('_route') == 'product_import' ? 'active' : '' }}">
                         <a href="{{path('product_import')}}">
                             <i class="fa fa-download"></i>
-                            <p>Importer</p>
+                            <p>{{'home.sidebar.import'|trans }}</p>
                         </a>
                     </li>
+                    {% endif %}
                 </ul>
                 <div class="copyright-section">
                     <p class="copyright">
