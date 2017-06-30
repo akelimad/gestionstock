@@ -119,4 +119,5 @@ change_password.title: Modifier votre mot de passe !
 success.title: 'Succés !'
 change_password.flush.success: 'Votre mot de passe a été rénitialisé avec succés.'
 
+product.add.flush.success: 'Le produit a été enregistré avec succés.'
 product.edit.flush.success: 'Le produit a été modifié avec succés.'

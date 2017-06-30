@@ -381,27 +381,29 @@ $(document).ready(function() {
         var locale = $(this).data('locale');
         var url = Routing.generate('filter-by-cat', {'category_id': category_id, '_locale':locale});
         var product_results = $('#product-results');
-        $('#loading-cat').show();
-        $.ajax({
-            //ajax: true,
-            type: 'GET',
-            url:  url,
-            dataType: 'html',
-            success: function(response){
-                if(response){
-                    $("#datatables").dataTable().fnDestroy();
-                    product_results.html(response);
+        if(category_id != 0){
+            $('#loading-cat').show();
+            $.ajax({
+                //ajax: true,
+                type: 'GET',
+                url:  url,
+                dataType: 'html',
+                success: function(response){
+                    if(response){
+                        $("#datatables").dataTable().fnDestroy();
+                        product_results.html(response);
+                        $('#loading-cat').hide();
+                        InitOverviewDataTable();
+                    }else{
+                        
+                    }
+                },
+                error: function(){
+                    console.log("error ...");
                     $('#loading-cat').hide();
-                    InitOverviewDataTable();
-                }else{
-                    
                 }
-            },
-            error: function(){
-                console.log("error ...");
-                $('#loading-cat').hide();
-            }
-        });
+            });
+        }
 
     });
 
@@ -413,55 +415,60 @@ $(document).ready(function() {
         var sub_category_id = $(this).val();
         var url = Routing.generate('filter-by-sub-cat', {'sub_category_id': sub_category_id, '_locale':locale});
         var product_results = $('#product-results');
-        $('#loading-sub-cat').show();
-        $.ajax({
-            //ajax: true,
-            type: 'GET',
-            url:  url,
-            dataType: 'html',
-            success: function(response){
-                if(response){
-                    $("#datatables").dataTable().fnDestroy();
-                    product_results.html(response);
-                    $('#loading-sub-cat').hide();
-                    InitOverviewDataTable();
-                }else{
-                    
+        if(sub_category_id != 0){
+            $('#loading-sub-cat').show();
+            $.ajax({
+                //ajax: true,
+                type: 'GET',
+                url:  url,
+                dataType: 'html',
+                success: function(response){
+                    if(response){
+                        $("#datatables").dataTable().fnDestroy();
+                        product_results.html(response);
+                        $('#loading-sub-cat').hide();
+                        InitOverviewDataTable();
+                    }else{
+                        
+                    }
+                },
+                error: function(){
+                    console.log("error ...");
                 }
-            },
-            error: function(){
-                console.log("error ...");
-            }
-        });
+            });
+        }
     });
 
     // ************************************* //
     //       filter product by provider
     // ************************************* //
+
     $(".material-datatables").on('change', '#filter-by-prov',function(){
         var provider_id = $(this).val();
         var url = Routing.generate('filter-by-prov', {'provider_id': provider_id, '_locale':locale});
         var product_results = $('#product-results');
-        $('#loading-prov').show();
-        $.ajax({
-            //ajax: true,
-            type: 'GET',
-            url:  url,
-            dataType: 'html',
-            success: function(response){
-                if(response){
-                    $("#datatables").dataTable().fnDestroy();
-                    product_results.html(response);
-                    $('#loading-prov').hide();
-                    InitOverviewDataTable();
-                }else{
-                    
+        if(provider_id != 0){
+            $('#loading-prov').show();
+            $.ajax({
+                //ajax: true,
+                type: 'GET',
+                url:  url,
+                dataType: 'html',
+                success: function(response){
+                    if(response){
+                        $("#datatables").dataTable().fnDestroy();
+                        product_results.html(response);
+                        $('#loading-prov').hide();
+                        InitOverviewDataTable();
+                    }else{
+                        
+                    }
+                },
+                error: function(){
+                    console.log("error ...");
                 }
-            },
-            error: function(){
-                console.log("error ...");
-            }
-        });
+            });
+        }
     });
 
     //to set checkbox checked if edit_form.active == '1'

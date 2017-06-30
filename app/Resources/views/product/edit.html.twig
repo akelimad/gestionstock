@@ -48,7 +48,7 @@
                                             <div class="col-md-8">
                                                 <div class="row">
                                                     <div class="col-md-10">
-                                                        <select name="categories" id="categories" class="form-control" required="required" data-locale="{{ app.request.locale }}>
+                                                        <select name="categories" id="categories" class="form-control" required="required" data-locale="{{ app.request.locale }}">
                                                             <option value="">{{'product.index.filter_by_cat'|trans}}</option>
                                                             {% for cat in categories %}
                                                                 <option value="{{cat.id}}" {{ cat_selected == cat.id ? 'selected': '' }}> {{cat.name}} </option>
@@ -70,7 +70,7 @@
                                             <div class="col-md-8">
                                                 <span id="sub_cat_selected" data-sub-cat-selected="{{sub_cat_selected}}"></span>
                                                 <select name="s_categories" id="s_categories" class="form-control">
-                                                    <option value="0">{{'product.index.filter_by_sub_cat'|trans}}</option>
+                                                    <option value="">{{'product.index.filter_by_sub_cat'|trans}}</option>
                                                 </select>
                                             </div>
                                         </div>

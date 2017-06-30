@@ -119,6 +119,7 @@ change_password.title: Change your password !
 success.title: 'Success !'
 change_password.flush.success: 'Your password has been reset successfully.'
 
+product.add.flush.success: 'The product has been added successfully.'
 product.edit.flush.success: 'The product has been modified successfully.'
 
 

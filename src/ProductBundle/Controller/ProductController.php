@@ -151,12 +151,23 @@ class ProductController extends Controller
             $em->persist($product);
             $em->persist($productlog);
             $em->flush();
+            $url = $this->generateUrl('product_show', [ 'id' => $product->getId() ]);
+            $this->get('session')->getFlashBag()->add(
+                'addProduct',
+                array(
+                    'alert' => 'success',
+                    'title' => 'success.title',
+                    'message' => 'product.add.flush.success',
+                    
+                )
+            );
             return $this->redirectToRoute('product_index');
         }
         return $this->render('product/new.html.twig', array(
             'product' => $product,
             'categories' => $categories,
             'form' => $form->createView(),
+
         ));
     }
     /**
@@ -290,17 +301,21 @@ class ProductController extends Controller
             $em->persist($product);
             $em->persist($productlog);
             $em->flush();
+            $this->get('session')->getFlashBag()->add(
+                'editProduct',
+                array(
+                    'alert' => 'success',
+                    'title' => 'success.title',
+                    'message' => 'product.edit.flush.success'
+                )
+            );
             return $this->redirectToRoute('product_index');
+
+
         }
-        $url = $this->generateUrl('product_show',array('id' => $product->getId()));
-        $this->get('session')->getFlashBag()->add(
-            'editProduct',
-            array(
-                'alert' => 'success',
-                'title' => 'success.title',
-                'message' => 'product.edit.flush.success'
-            )
-        );
+            
+    
+
         return $this->render('product/edit.html.twig', array(
             'product' => $product,
             'categories' => $categories,
