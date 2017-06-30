@@ -60,7 +60,7 @@ class RegistrationController extends Controller
             $message .= "<p>Login : ".$username." </p>";
             $message .= "<p>Mot de passe : ".$password." </p>";
 
-            $message .= "<p> Veuillez  <a href='http://gestion.hubdw.com/login'>Cliquer ici</a> pour accéder à l'application</p> </div>";
+            $message .= "<p> Veuillez  <a href='http://gestion.hubdw.com/fr/login'>Cliquer ici</a> pour accéder à l'application</p> </div>";
              
             $header = "From:youness.jabri@dgitalworks.com \r\n";
             $header .= "MIME-Version: 1.0\r\n";

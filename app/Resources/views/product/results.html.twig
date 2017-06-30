@@ -56,7 +56,7 @@
 					<a href="{{ path('product_show', { 'id': p.id }) }}">
 					{% if p.categories| slice(1,2) is not empty  %}
 						{% for cat in p.categories| slice(1,2) %}
-							{{ cat.parent }}
+							{{ cat.name }}
 						{% endfor %}
 					{% else %}
 						---
