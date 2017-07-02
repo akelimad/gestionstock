@@ -16,9 +16,13 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
-
-
+/**
+ * import controller.
+ *
+ * @Route("import")
+ */
 class DefaultController extends Controller
 {
  
@@ -26,7 +30,7 @@ class DefaultController extends Controller
 	/**
      * Creates a new product entity.
      *
-     * @Route("/import", name="product_import", options={"expose"=true})
+     * @Route("/", name="product_import", options={"expose"=true})
      */
     public function importAction(Request $request)
     {
@@ -171,36 +175,136 @@ class DefaultController extends Controller
     /**
      * export product entity.
      *
-     * @Route("/product_export", name="product_export", options={"expose"=true})
+     * @Route("/export", name="product_export", options={"expose"=true})
      */
-    public function ExcelExportAction(Request $request)
+    public function ExcelExportAction()
     {
-        $em=$this->getDoctrine()->getManager();
+        //get list of product
+        $em = $this->getDoctrine()->getManager();
+        $products = $em->getRepository('ProductBundle:Product')->getAllProducts();
+        //echo "<pre>"; var_dump($products);echo "</pre>";  die();
+        // ask the service for a Excel5
+        $phpExcelObject = $this->get('phpexcel')->createPHPExcelObject();
 
-        $result = $em->getRepository('ProductBundle:Product')->getAllProducts();  
-        $objPHPExcel = new PHPExcel(); 
-        $objPHPExcel->setActiveSheetIndex(0); 
+        $phpExcelObject->getProperties()->setCreator("liuggio")
+           ->setLastModifiedBy("Giulio De Donato")
+           ->setTitle("Office 2005 XLSX Test Document")
+           ->setSubject("Office 2005 XLSX Test Document")
+           ->setDescription("Test document for Office 2005 XLSX, generated using PHP classes.")
+           ->setKeywords("office 2005 openxml php")
+           ->setCategory("Test result file");
+        $phpExcelObject->setActiveSheetIndex(0)
+           ->setCellValue("A1", "ID produit")
+           ->setCellValue("B1", "SKU")
+           ->setCellValue("C1", "Article")
+           ->setCellValue("D1", "Categorie")
+           ->setCellValue("E1", "Sous-categorie")
+           ->setCellValue("F1", "Description")
+           ->setCellValue("G1", "Taille ( inch )")
+           ->setCellValue("H1", "Taille ( cm )")
+           ->setCellValue("I1", "Couleur")
+           ->setCellValue("J1", "Composition")
+           ->setCellValue("K1", "Forme")
+           ->setCellValue("L1", "Poids")
+           ->setCellValue("M1", "# Fournisseur")
+           ->setCellValue("N1", "# Emballage")
+           ->setCellValue("O1", "Prix unitaire")
+           ->setCellValue("P1", "Prix grossiste")
+           ->setCellValue("Q1", "Prix MP")
+           ->setCellValue("R1", "Prix internet")
+           ->setCellValue("S1", "Collection");
 
-        $rowCount = 1; 
-        $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount,'Firstname');
-        $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowCount,'Lastname');
-        $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowCount,'Branch');
-        $objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowCount,'Gender');
-        $objPHPExcel->getActiveSheet()->SetCellValue('E'.$rowCount,'Mobileno');
-        $objPHPExcel->getActiveSheet()->SetCellValue('F'.$rowCount,'Email');
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('A')->setWidth(20);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('B')->setWidth(20);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('C')->setWidth(30);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('D')->setWidth(20);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('E')->setWidth(20);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('F')->setWidth(40);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('G')->setWidth(20);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('H')->setWidth(20);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('I')->setWidth(20);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('J')->setWidth(20);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('K')->setWidth(20);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('L')->setWidth(20);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('M')->setWidth(20);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('N')->setWidth(20);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('O')->setWidth(20);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('P')->setWidth(20);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('Q')->setWidth(20);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('R')->setWidth(20);
+        $phpExcelObject->setActiveSheetIndex(0)->getColumnDimension('S')->setWidth(20);
 
-        while($row = mysql_fetch_array($result)){ 
-            $rowCount++;
-            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount, $row['0']);
-            $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowCount, $row['1']);
-            $objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowCount, $row['2']);
-            $objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowCount, $row['3']);
-            $objPHPExcel->getActiveSheet()->SetCellValue('E'.$rowCount, $row['4']);
-            $objPHPExcel->getActiveSheet()->SetCellValue('F'.$rowCount, $row['5']);
-        } 
+        $row = 2;
+        $cats = array();
+        $provs = array();
+        $packs = array();
+        foreach($products as $product) {
+            $phpExcelObject->setActiveSheetIndex(0)
+               ->setCellValue('A'.$row, $product->getCodeBar())
+               ->setCellValue('B'.$row, $product->getSku())
+               ->setCellValue('C'.$row, $product->getName());
+               foreach ($product->getCategories() as $cat) { 
+                   $cats[]= $cat->getName();
+                   $phpExcelObject->setActiveSheetIndex(0)
+                   ->setCellValue('D'.$row, $cats[0]);
+                   if(!empty($cats[1])){
+                        $phpExcelObject->setActiveSheetIndex(0)
+                       ->setCellValue('E'.$row, $cats[1]);
+                   }else{
+                       $phpExcelObject->setActiveSheetIndex(0)
+                       ->setCellValue('E'.$row, "");
+                   }
+               }
+               $phpExcelObject->setActiveSheetIndex(0)
+               ->setCellValue('F'.$row, $product->getDescription())
+               ->setCellValue('G'.$row, $product->getSizeInch())
+               ->setCellValue('H'.$row, $product->getSizeCm())
+               ->setCellValue('I'.$row, $product->getColor())
+               ->setCellValue('J'.$row, $product->getComposition())
+               ->setCellValue('K'.$row, $product->getForm())
+               ->setCellValue('L'.$row, $product->getWeight());
+               foreach ($product->getProviders() as $prov) {
+                    $provs[]= $prov->getName();
+                    $phpExcelObject->setActiveSheetIndex(0)
+                    ->setCellValue('M'.$row, $provs[0]);
+                }
+                foreach ($product->getPackages() as $pack) {
+                    $packs[]= $pack->getName();
+                    $phpExcelObject->setActiveSheetIndex(0)
+                    ->setCellValue('N'.$row, $packs[0]);
+                }
+                $phpExcelObject->setActiveSheetIndex(0)
+               ->setCellValue('O'.$row, $product->getUnitPrice())
+               ->setCellValue('P'.$row, $product->getWholesalePrice())
+               ->setCellValue('Q'.$row, $product->getSpecialPrice())
+               ->setCellValue('R'.$row, $product->getInternetPrice())
+               ->setCellValue('S'.$row, $product->getCollection());
+               $row ++;
+                unset($cats);
+                $cats = array();
 
-        $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel); 
-        $objWriter->save('some_excel_file.xlsx'); 
+        }
+        $phpExcelObject->getActiveSheet()->setTitle('Simple');
+        // Set active sheet index to the first sheet, so Excel opens this as the first sheet
+        $phpExcelObject->setActiveSheetIndex(0);
+
+        // create the writer
+        $writer = $this->get('phpexcel')->createWriter($phpExcelObject, 'Excel5');
+        // create the response
+        $response = $this->get('phpexcel')->createStreamedResponse($writer);
+        // adding headers
+        $dispositionHeader = $response->headers->makeDisposition(
+            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+            'base-des-articles-mp.xls'
+        );
+        $response->headers->set('Content-Type', 'text/vnd.ms-excel; charset=utf-8');
+        $response->headers->set('Pragma', 'public');
+        $response->headers->set('Cache-Control', 'maxage=1');
+        $response->headers->set('Content-Disposition', $dispositionHeader);
+
+        return $response;  
     }
+
+
 
 }
