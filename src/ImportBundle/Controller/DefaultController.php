@@ -94,7 +94,10 @@ class DefaultController extends Controller
                 
                 foreach($data as $row) {  
                     $product = new Product();  
-
+                    $product_check = $em->getRepository('ProductBundle:Product')
+                       ->findOneByCodeBar($row[0]);
+                  if($product_check == null){
+                      
                     $product->setCodeBar($row[0]);
                     $product->setName($row[1]);
                     $product->setDescription($row[4]);
@@ -158,8 +161,8 @@ class DefaultController extends Controller
                     $em->persist($product);
                     $i++;
                     //var_dump($category) ;die();
-         
-                $em->flush();
+                  }
+                  $em->flush();
                 } //end foreach 
 
             }
