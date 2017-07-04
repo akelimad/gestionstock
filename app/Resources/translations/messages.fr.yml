@@ -1,6 +1,6 @@
 home.welcome_text: Bienvenue à l’espace d’administration et de gestion des produits Moroccan prestige !
 home.icon.product_search: Rechercher un produit
-home.icon.product_new: Ajouter un produit
+home.icon.product_new: Ajouter un produit 
 home.icon.user_list: Gestion des utilisateurs
 
 home.sidebar.product: Produits
@@ -94,6 +94,7 @@ provider.label.activity: Activité
 provider.label.address: Activité
 provider.label.tel: Tél
 provider.label.email: E-mail
+provider.label.rank: Rang
 provider.action.add.title: Ajouter un  forrnisseur
 provider.action.edit.title: Modifier le fournisseur
 provider.qualification.title: Qualification fournisseur
@@ -138,3 +139,8 @@ provider.add.flush.success: Le forrnisseur a été enregistré avec succés.
 provider.edit.flush.success: Le forrnisseur a été modifié avec succés.
 
 user.edit.flush.success: Le compte d'utilisateur a été modifié avec succés.
+
+import.h4.label: Importer des données depuis fichier csv
+import.btn.label: Importer des produit
+export.h4.label: Exporter les produits sous format excel
+export.btn.label: Exporter des produit

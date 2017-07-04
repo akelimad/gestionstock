@@ -1,15 +1,15 @@
-home.welcome_text: 'Welcome to the Moroccan prestige management and administration space!'
+home.welcome_text: 'Welcome to the Moroccan Prestige’s management and administration space!'
 home.icon.product_search: Search for a product
-home.icon.product_new: Add new
-home.icon.user_list: Users management
+home.icon.product_new: Add a new product
+home.icon.user_list: Manage Users
 
 home.sidebar.product: Products
-home.sidebar.product.submenu.product_list: 'Products list'
-home.sidebar.product.submenu.product_trashed: 'Trashed products'
+home.sidebar.product.submenu.product_list: 'Products’ list'
+home.sidebar.product.submenu.product_trashed: 'Deleted products'
 home.sidebar.product.submenu.product_add: New
 home.sidebar.category: Categories
-home.sidebar.category.submenu.categoy_list: 'Categories list'
-home.sidebar.category.submenu.sub_categoy_list: 'Sub categories list'
+home.sidebar.category.submenu.categoy_list: 'Categories’ list'
+home.sidebar.category.submenu.sub_categoy_list: 'Sub categories’ list'
 home.sidebar.packages: Packages
 home.sidebar.providers: Providers
 home.sidebar.user: Users
@@ -29,14 +29,14 @@ label.status: Status
 product.title: Products
 product.breadcrumb.products: Products
 product.index.title: Products list
-product.desactivated.title: The list of disabled products
+product.desactivated.title: Disabled products’ list
 product.show.pencil.hover: Edit
 product.index.filter_by_cat: Choose a category
 product.index.filter_by_sub_cat: Choose a sub category
 product.index.filter_by_prov: Choose a provider
 product.label.id: Product ID
 product.label.name: Article
-product.label.photo: Photo
+product.label.photo: Picture
 product.label.category: Category
 product.label.sub_category: Sub category
 product.label.description: Description
@@ -64,9 +64,9 @@ product.status.inactive: Inactive
 category.title: Categories
 s_category.title: Sub category
 category.breadcrumb.categories: Categories
-category.index.title: Categories list
+category.index.title: Categories’ list
 s_category.breadcrumb.s_categories: Sub categories
-s_category.index.title: Sub categories list
+s_category.index.title: Sub categories’ list
 category.label.name: Name
 category.label.parent: Parent category
 category.action.add.title: Add category
@@ -74,25 +74,26 @@ category.action.edit.title: Edit category
 
 package.page.title: packages
 package.breadcrumb.packages: Packages
-package.index.title: Packages list
+package.index.title: Packages’ list
 package.label.name: Name
 package.label.size: Size
 package.label.cbm: CBM
-package.label.marineCost: Marine cost
-package.label.airCost: Air cost
+package.label.marineCost: Sea Fright
+package.label.airCost: Air Fright
 package.action.add.title: Add package
 package.action.edit.title: Edit package
 
 provider.page.title: Providers
 provider.breadcrumb.providers: Providers
-provider.index.title: Providers list
+provider.index.title: Providers’ list
 provider.label.name: Name
 provider.label.lastName: Last name
 provider.label.society: Society
 provider.label.activity: Activity
 provider.label.address: Address
-provider.label.tel: Tel
+provider.label.tel: Phone
 provider.label.email: E-mail
+provider.label.rank: Rank
 provider.action.add.title: Add provider
 provider.action.edit.title: Edit provider
 provider.qualification.title: Provider qualification
@@ -104,7 +105,7 @@ provider.qualification.relationShip: Relaionship
 
 user.page.title: users
 user.breadcrumb.users: Users
-user.index.title: Users list
+user.index.title: Users’ list
 user.label.login: Login
 user.label.nom: Name
 user.label.email: E-mail address
@@ -137,3 +138,8 @@ provider.add.flush.success: The provider was successfully registered.
 provider.edit.flush.success: The provider was successfully modified.
 
 user.edit.flush.success: The user account has been modified successfully.
+
+import.h4.label: Import data from a CSV file
+import.btn.label: Import data
+export.h4.label: Export products in Excel format
+export.btn.label: Export data
