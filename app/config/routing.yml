@@ -2,11 +2,6 @@ product_color:
     resource: "@ProductBundle/Controller/ColorController.php"
     type:     annotation
 
-import:
-    resource: "@ImportBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
 
 product_image_product:
     resource: "@ProductBundle/Controller/ImageProductController.php"
@@ -59,6 +54,10 @@ user:
     type:     annotation
     prefix:   /{_locale}/
 
+import:
+    resource: "@ImportBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}/
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

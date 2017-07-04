@@ -21,7 +21,7 @@
                                         </a>
                                     </h4> 
                                     
-                                    <p>{{'product.label.id'|trans}} : {{product.codeBar}} </p>
+                                    <p>{{'product.label.id'|trans}} : {{product.codeBar}} <span class="sku">{% if product.sku is not empty %} SKU : {{product.sku}} {% else %} {% endif %}</span></p>
                                 </div>
                             </div>
                         </div>
