@@ -315,14 +315,17 @@ class ProductController extends Controller
 
 
         }
-            
+		$prd = null;
+        if($prod_cat && $prod_cat[0]){
+			$prd = $prod_cat[0];
+		} 
     
 
         return $this->render('product/edit.html.twig', array(
             'product' => $product,
             'categories' => $categories,
             //'s_categories' => $categories,
-            'cat_selected' => $prod_cat[0],
+            'cat_selected' => $prd,
             'sub_cat_selected' => $sub_cat_selected ,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
