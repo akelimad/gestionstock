@@ -315,10 +315,10 @@ class ProductController extends Controller
 
 
         }
-		$prd = null;
-        if($prod_cat && $prod_cat[0]){
-			$prd = $prod_cat[0];
-		} 
+    		$prd = null;
+            if($prod_cat && $prod_cat[0]){
+    			$prd = $prod_cat[0];
+    		} 
     
 
         return $this->render('product/edit.html.twig', array(
