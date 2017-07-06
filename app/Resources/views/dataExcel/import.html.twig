@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="content">
                         
-                        <h4 class="title">Importer des données depuis fichier csv</h4>
+                        <h4 class="title">{{'import.h4.label'|trans}}</h4>
                         <div class="toolbar">
                             <form action="{{path('product_import')}}" method="post" enctype="multipart/form-data">
                                 <div class="row">
@@ -17,7 +17,7 @@
                                         {{form_widget(form.fileExcel, {'attr': {'accept': '.csv'}}) }}
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="submit" value="importer" class="btn btn-sm btn-info">
+                                        <input type="submit" value="{{'import.btn.label'|trans}}" class="btn btn-sm btn-info">
                                     </div>
                                 </div>
                             </form>
@@ -25,10 +25,10 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h4 class="title">Exporter les produits sous format excel</h4>
+                                    <h4 class="title">{{'export.h4.label'|trans}}</h4>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="{{path('product_export')}}" class="btn btn-sm btn-info">Export Data</a>
+                                    <a href="{{path('product_export')}}" class="btn btn-sm btn-info">{{'export.btn.label'|trans}}</a>
                                 </div>
                             </div>
                         </div>
