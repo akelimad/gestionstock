@@ -30,7 +30,7 @@ class ProductType extends AbstractType
         ->add('sku')
         ->add('sizeInch', null, array('label' => 'product.label.sizeInch'))
         ->add('sizeCm', null, array('label' => 'product.label.sizeCm'))
-        ->add('color', null,'label' => 'product.label.color'))
+        ->add('color', null,array('label' => 'product.label.color'))
         ->add('composition', null, array('label' => 'product.label.composition'))
         ->add('form', null, array('label' => 'product.label.form'))
         ->add('weight', null, array('label' => 'product.label.weight'))
