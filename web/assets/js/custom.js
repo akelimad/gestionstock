@@ -693,4 +693,10 @@ $(document).ready(function() {
         $(this).addClass("checked");
     });
 
+    $('input[type=file]').change(function(e){
+        $("span#fileName").html($('input[type=file]')[0].files[0].name);
+    });
+
+
+
 });

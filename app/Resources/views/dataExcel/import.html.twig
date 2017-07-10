@@ -14,6 +14,8 @@
                             <form action="{{path('product_import')}}" method="post" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-6">
+                                        <label for="form_fileExcel"><span class="btn btn-primary">{{'import.input.label'|trans}}</span></label>
+                                        <span class="fileName" id="fileName">{{'import.fileChoosen.label'|trans}}</span>
                                         {{form_widget(form.fileExcel, {'attr': {'accept': '.csv'}}) }}
                                     </div>
                                     <div class="col-md-6">

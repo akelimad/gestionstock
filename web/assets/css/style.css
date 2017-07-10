@@ -472,3 +472,11 @@ select.price{
 span.sku{
 	margin-left: 88px;
 }
+#form_fileExcel{
+	display: none;
+}
+.fileName{
+    font-size: 16px;
+    color: #333131;
+    padding-left: 10px;
+}

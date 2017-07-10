@@ -143,3 +143,5 @@ import.h4.label: Import data from a CSV file
 import.btn.label: Import data
 export.h4.label: Export products in Excel format
 export.btn.label: Export data
+import.input.label: Select file
+import.fileChoosen.label: No file choosen
