@@ -34,6 +34,7 @@ product.show.pencil.hover: Edit
 product.index.filter_by_cat: Choose a category
 product.index.filter_by_sub_cat: Choose a sub category
 product.index.filter_by_prov: Choose a provider
+product.index.resetsearch: Reset search
 product.label.id: Product ID
 product.label.name: Article
 product.label.photo: Picture

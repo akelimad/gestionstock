@@ -34,6 +34,7 @@ product.show.pencil.hover: Editer
 product.index.filter_by_cat: Choissez une catégorie
 product.index.filter_by_sub_cat: Choissez une sous catégorie
 product.index.filter_by_prov: Choissez un Fournisseur
+product.index.resetsearch: rénitialiser
 product.label.id: ID produit
 product.label.name: Article
 product.label.photo: Photo
