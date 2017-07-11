@@ -609,12 +609,12 @@ $(document).ready(function() {
     });
 
     //slide toggle div that show field to show table product
-    $(".entete").click(function () {
-        var contenu = $(this).next();
+    $("#filerIcon").click(function () {
+        var contenu = $(".fieldtoshow");
         //Ouvre le contenu s'il est masqué, sinon le masque avec un effet de glissement
         contenu.slideToggle(500, function () {
             //On change le texte de l'entête suivant si le contenu est affiché ou non
-            $(".entete span").html(function () {
+            $("#filerIcon").html(function () {
                 return contenu.is(':visible') ? '<i class="fa fa-eye-slash fa-2x"></i>' : '<i class="fa fa-filter fa-2x"></i>';
             });
             return false;
@@ -697,6 +697,9 @@ $(document).ready(function() {
         $("span#fileName").html($('input[type=file]')[0].files[0].name);
     });
 
+    $("span#reset-search").click(function(){
+        location.reload();
+    });
 
 
 });
