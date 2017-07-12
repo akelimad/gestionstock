@@ -287,7 +287,7 @@ class DefaultController extends Controller
                 $cats = array();
 
         }
-        $phpExcelObject->getActiveSheet()->setTitle('Simple');
+        $phpExcelObject->getActiveSheet()->setTitle('Produits');
         // Set active sheet index to the first sheet, so Excel opens this as the first sheet
         $phpExcelObject->setActiveSheetIndex(0);
 

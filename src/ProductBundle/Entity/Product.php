@@ -150,7 +150,7 @@ class Product
 
     /**
      * Many prod can have Many cat.
-     * @ORM\ManyToMany(targetEntity="CategoryBundle\Entity\Category", inversedBy="Product", cascade={"remove"})
+     * @ORM\ManyToMany(targetEntity="CategoryBundle\Entity\Category", inversedBy="Product")
      * @ORM\JoinTable(name="category_product")
      */
     private $categories;
