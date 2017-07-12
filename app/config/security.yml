@@ -18,18 +18,18 @@ security:
             pattern: ^/
             form_login:
                 provider: fos_userbundle
-                login_path: /fr/login
-                check_path:   /fr/login_check
-                failure_path: /fr/login
+                login_path: fos_user_security_login
+                check_path:   fos_user_security_check
+                failure_path: fos_user_security_login
                 default_target_path: /fr
                 always_use_default_target_path: true
             logout:          
-                path:           /fr/logout
-                target:         /fr/login
+                path:           fos_user_security_logout
+                target:         fos_user_security_login
             anonymous:          true
 
     access_control:
-        - { path: ^/fr/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(en|fr)/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, roles: ROLE_ADMIN }
         - { path: ^/register, roles: ROLE_ADMIN }
         - { path: ^/, roles: ROLE_USER }
