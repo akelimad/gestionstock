@@ -112,6 +112,16 @@ class Category
     }
 
     /**
+     * @ORM\PreRemove()
+     */
+    public function haveProducts() {
+        if ($this->product->count()> 0 ) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Get id
      *
      * @return int

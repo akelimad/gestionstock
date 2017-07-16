@@ -72,6 +72,7 @@ category.label.name: Nom
 category.label.parent: Catégorie parente
 category.action.add.title: Ajouter une catégorie
 category.action.edit.title: Modifier la catégorie
+category.delete.danger: Cette categorie ne peut pas etre supprimée parce qu'elle contient encore des produits !
 
 package.page.title: Emballages
 package.breadcrumb.packages: Emballages
@@ -92,7 +93,7 @@ provider.label.lastName: Prénom
 provider.label.lastName: Prénom
 provider.label.society: Société
 provider.label.activity: Activité
-provider.label.address: Activité
+provider.label.address: Adresse
 provider.label.tel: Tél
 provider.label.email: E-mail
 provider.label.rank: Rang
@@ -120,6 +121,7 @@ user.action.edit.title: Modifier le compte utilisateur
 change_password.page.title: Changement de mot de passe
 change_password.title: Modifier votre mot de passe !
 success.title: 'Succés !'
+danger.title: 'Erreur !'
 change_password.flush.success: 'Votre mot de passe a été rénitialisé avec succés.'
 
 product.add.flush.success: 'Le produit a été enregistré avec succés.'

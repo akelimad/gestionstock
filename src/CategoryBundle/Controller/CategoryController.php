@@ -266,8 +266,20 @@ class CategoryController extends Controller
 
         // if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($category);
-            $em->flush();
+            if($category->haveProducts() == false){
+                $em->remove($category);
+                $em->flush();
+            }else{
+                throw $this->createNotFoundException('This category cant be deleted becouse it contains products');
+                // $this->get('session')->getFlashBag()->add(
+                //     'deleteCategory',
+                //     array(
+                //         'alert' => 'danger',
+                //         'title' => 'danger.title',
+                //         'message' => 'category.delete.danger',
+                //     )
+                // );
+            }
         // }
         // $category->setDeletedAt(new \DateTime());
         // $this->getDoctrine()->getManager()->flush();

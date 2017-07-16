@@ -141,7 +141,7 @@ class Provider
      * Many cat have Many prod.
      * @ORM\ManyToMany(targetEntity="ProductBundle\Entity\Product", mappedBy="providers")
      */
-    private $product;
+    private $product; 
 
     public function __construct() {
         $this->Product = new \Doctrine\Common\Collections\ArrayCollection();

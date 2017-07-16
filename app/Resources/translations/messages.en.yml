@@ -72,6 +72,7 @@ category.label.name: Name
 category.label.parent: Parent category
 category.action.add.title: Add category
 category.action.edit.title: Edit category
+category.delete.danger: This category cant be deleted becouse it contains products !
 
 package.page.title: packages
 package.breadcrumb.packages: Packages
@@ -120,6 +121,7 @@ change_password.page.title: Change password
 change_password.title: Change your password !
 
 success.title: 'Success !'
+danger.title: 'Error !'
 change_password.flush.success: 'Your password has been reset successfully.'
 
 product.add.flush.success: 'The product has been added successfully.'

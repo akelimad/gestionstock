@@ -157,14 +157,16 @@ class Product
 
     /**
      * Many prod can have Many pack.
-     * @ORM\ManyToMany(targetEntity="PackageBundle\Entity\Package", inversedBy="Product")
+     * @ORM\ManyToMany(targetEntity="PackageBundle\Entity\Package",
+        inversedBy="Product", cascade={"persist"})
      * @ORM\JoinTable(name="package_product")
      */
     private $packages;
 
     /**
      * Many prod can have Many pack.
-     * @ORM\ManyToMany(targetEntity="ProviderBundle\Entity\Provider", inversedBy="Product", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="ProviderBundle\Entity\Provider", inversedBy="Product",
+        cascade={"persist"})
      * @ORM\JoinTable(name="provider_product")
      */
     private $providers;
